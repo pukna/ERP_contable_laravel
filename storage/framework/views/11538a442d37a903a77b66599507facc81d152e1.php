@@ -60,4 +60,4 @@
         </div>
     </body>
 </html>
-<?php /**PATH C:\Users\Mario Montero\Documents\Prograba erp\erp_pos\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/minimal.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\vendor\laravel\framework\src\Illuminate\Foundation\Exceptions/views/minimal.blade.php ENDPATH**/ ?>

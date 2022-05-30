@@ -10,21 +10,31 @@
     <meta name="robots" content="all,follow">
     <link rel="manifest" href="<?php echo e(url('manifest.json')); ?>">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css">
+
+<!--      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
+<!--      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css>">-->
+<!--      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta3/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">-->
+    <link rel="stylesheet" href="<?php echo asset('https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css') ?>" type="text/css">
+<!--    <link type="text/css" rel="stylesheet" href="{{ asset('public/vendor/bootstrap/css/bootstrap.min.css') }}">-->
     <link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap-datepicker.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap-select.min.css') ?>" type="text/css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="<?php echo asset('public/vendor/font-awesome/css/font-awesome.min.css') ?>" type="text/css">
+<!--    <link rel="stylesheet" href="--><?php //echo asset('public/vendor/font-awesome/css/font-awesome.min.css') ?><!--" type="text/css">-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Google fonts - Roboto -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <!-- jQuery Circle-->
-    <link rel="stylesheet" href="<?php echo asset('public/css/grasp_mobile_progress_circle-1.0.0.min.css') ?>" type="text/css">
+<!--    <link rel="stylesheet" href="--><?php //echo asset('public/css/grasp_mobile_progress_circle-1.0.0.min.css') ?><!--" type="text/css">-->
+      <link href="/public/css/progress-circle/demo/styles/grasp_mobile_progress_circle-1.0.0.css" rel="stylesheet" type="text/css">
     <!-- Custom Scrollbar-->
-    <link rel="stylesheet" href="<?php echo asset('public/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') ?>" type="text/css">
+<!--    <link rel="stylesheet" href="--><?php //echo asset('public/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') ?><!--" type="text/css">-->
+      <link href="/public/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="<?php echo asset('public/css/style.default.css') ?>" id="theme-stylesheet" type="text/css">
+<!--    <link rel="stylesheet" href="--><?php //echo asset('public/css/style.default.css') ?><!--" id="theme-stylesheet" type="text/css">-->
+      <link href="/public/css/style.default.css" rel="stylesheet" type="text/css">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="<?php echo asset('public/css/custom-'.$general_setting->theme) ?>" type="text/css">
+<!--    <link rel="stylesheet" href="--><?php //echo asset('public/css/custom-'.$general_setting->theme) ?><!--" type="text/css">-->
+      <link href="/public/css/custom-default.css" rel="stylesheet" type="text/css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -32,16 +42,14 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
 
-    <script type="text/javascript" src="<?php echo asset('public/vendor/jquery/jquery.min.js') ?>"></script>
+<script type="text/javascript" src="<?php echo asset('public/vendor/jquery/jquery.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo asset('public/vendor/jquery/jquery-ui.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo asset('public/vendor/jquery/bootstrap-datepicker.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/popper.js/umd/popper.min.js') ?>">
-</script>
+<script type="text/javascript" src="<?php echo asset('public/vendor/popper.js/umd/popper.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap/js/bootstrap-select.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo asset('public/js/grasp_mobile_progress_circle-1.0.0.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/jquery.cookie/jquery.cookie.js') ?>">
-</script>
+<script type="text/javascript" src="<?php echo asset('public/vendor/jquery.cookie/jquery.cookie.js') ?>"></script>
 <script type="text/javascript" src="<?php echo asset('public/vendor/chart.js/Chart.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo asset('public/vendor/jquery-validation/jquery.validate.min.js') ?>"></script>
 <script type="text/javascript" src="<?php echo asset('public/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')?>"></script>
@@ -53,22 +61,22 @@
       <div class="container">
         <div class="form-outer text-center d-flex align-items-center">
           <div class="form-inner">
-            <div class="logo"><span>ERP VENTAS</span></div>
+            <div class="logo"><img src="public/images/login/LogoTactotal.jpg"><span>LOGIN</span></div>
             <?php if(session()->has('delete_message')): ?>
-            <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('delete_message')); ?></div> 
+            <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('delete_message')); ?></div>
             <?php endif; ?>
             <form method="POST" action="<?php echo e(route('login')); ?>" id="login-form">
               <?php echo csrf_field(); ?>
               <div class="form-group-material">
                 <input id="login-username" type="text" name="name" required class="input-material" value="">
-                <label for="login-username" class="label-material"><?php echo e(trans('file.UserName')); ?></label>
+                <label for="login-username" class="label-material"><?php echo e(trans('file.Email')); ?></label>
                 <?php if($errors->has('name')): ?>
                     <p>
                         <strong><?php echo e($errors->first('name')); ?></strong>
                     </p>
                 <?php endif; ?>
               </div>
-              
+
               <div class="form-group-material">
                 <input id="login-password" type="password" name="password" required class="input-material" value="">
                 <label for="login-password" class="label-material"><?php echo e(trans('file.Password')); ?></label>
@@ -84,11 +92,11 @@
             <!-- <button type="submit" class="btn btn-success admin-btn">LogIn as Admin</button>
             <button type="submit" class="btn btn-info staff-btn">LogIn as Staff</button>
             <br><br> -->
-            <a href="<?php echo e(route('password.request')); ?>" class="forgot-pass"><?php echo e(trans('file.Forgot Password?')); ?></a>
-            <p><?php echo e(trans('file.Do not have an account?')); ?></p><a href="<?php echo e(url('register')); ?>" class="signup"><?php echo e(trans('file.Register')); ?></a>
+            <a href="<?php echo e(route('password.request')); ?>" class="forgot-pass"><?php echo e(trans('¿Olvido su Contraseña?')); ?></a>
+            <p><?php echo e(trans('¿No tiene cuenta?')); ?></p><a href="<?php echo e(url('register')); ?>" class="signup"><?php echo e(trans('Registrar')); ?></a>
           </div>
           <div class="copyrights text-center">
-            <p><?php echo e(trans('file.Developed By')); ?> <span class="external"><?php echo e($general_setting->developed_by); ?></span></p>
+            <p><?php echo e(trans('Desarollado por')); ?> <span class="external"><?php echo e($general_setting->developed_by); ?></span></p>
           </div>
         </div>
       </div>
@@ -142,4 +150,4 @@
             $(this).siblings('.label-material').removeClass('active');
         }
     });
-</script><?php /**PATH C:\Users\Mario Montero\Documents\Prograba erp\erp_pos\resources\views/auth/login.blade.php ENDPATH**/ ?>
+</script><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/auth/login.blade.php ENDPATH**/ ?>

@@ -500,4 +500,4 @@
 <?php $__env->stopSection(); ?>
 
 
-<?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\Documents\Prograba erp\erp_pos\resources\views/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/index.blade.php ENDPATH**/ ?>
