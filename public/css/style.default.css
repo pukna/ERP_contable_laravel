@@ -1347,7 +1347,7 @@ button {
 .register-page .form-inner {
     border-radius: 5px;
     padding: 40px 30px;
-    background: #fff;
+    background:white;
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     width: 100%;
@@ -1483,8 +1483,8 @@ STYLE SWITCHER FOR DEMO
     color: #495057;
 }
 
-/* ========================================= 
-   THEMING OF BOOTSTRAP COMPONENTS           
+/* =========================================
+   THEMING OF BOOTSTRAP COMPONENTS
    ========================================= */
 /*
  * 1. NAVBAR
@@ -1888,7 +1888,7 @@ STYLE SWITCHER FOR DEMO
 .btn-default {
     color: color-yiq(#ced4da);
     background-color: #ced4da;
-    border-color: #7c5cc4;
+    border-color: Blue;
 }
 
 .btn-default:hover {
@@ -2188,7 +2188,7 @@ STYLE SWITCHER FOR DEMO
 }
 
 /*
- * 3. TYPE  
+ * 3. TYPE
  */
 body {
     font-family: "Nunito", sans-serif;

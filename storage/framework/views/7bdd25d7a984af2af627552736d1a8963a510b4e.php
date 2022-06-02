@@ -3,97 +3,91 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image/png" href="<?php echo e(url('public/logo', $general_setting->site_logo)); ?>" />
-    <title>ERP TECTOTAL</title>
+    <link rel="icon" type="image/png" href="<?php echo asset('images/login/LogoTactotal.png') ?>" />
+    <title>SISTEMA TECTOTAL</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <link rel="manifest" href="<?php echo e(url('manifest.json')); ?>">
-    <!-- Bootstrap CSS-->
-<!--      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
-<!--      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap-toggle.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
-<!--      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
-<!--      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/jquery.timepicker.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
-<!--      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/awesome-bootstrap-checkbox.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
-<!--      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap-select.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
+      <base href="/">
+<!--    <link rel="manifest" href="--><?php //echo e(url('manifest.json')); ?><!--">-->
+      <!-- Bootstrap CSS-->
+      <link rel="stylesheet" href="<?php echo asset('vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css">
+      <link rel="stylesheet" href="<?php echo asset('vendor/bootstrap-toggle/css/bootstrap-toggle.min.css') ?>" type="text/css">
+      <link rel="stylesheet" href="<?php echo asset('vendor/bootstrap/css/bootstrap-datepicker.min.css') ?>" type="text/css">
+      <link rel="stylesheet" href="<?php echo asset('vendor/jquery-timepicker/jquery.timepicker.min.css') ?>" type="text/css">
+      <link rel="stylesheet" href="<?php echo asset('vendor/bootstrap/css/awesome-bootstrap-checkbox.css') ?>" type="text/css">
+      <link rel="stylesheet" href="<?php echo asset('vendor/bootstrap/css/bootstrap-select.min.css') ?>" type="text/css">
 
 
-<!--      <link rel="stylesheet" href="--><?php //echo asset('public/vendor/bootstrap/css/bootstrap.min.css') ?><!--" type="text/css">-->
-<!--    <link rel="stylesheet" href="--><?php //echo asset('public/vendor/bootstrap-toggle/css/bootstrap-toggle.min.css') ?><!--" type="text/css">-->
-<!--    <link rel="stylesheet" href="--><?php //echo asset('public/vendor/bootstrap/css/bootstrap-datepicker.min.css') ?><!--" type="text/css">-->
-<!--    <link rel="stylesheet" href="--><?php //echo asset('public/vendor/jquery-timepicker/jquery.timepicker.min.css') ?><!--" type="text/css">-->
-<!--    <link rel="stylesheet" href="--><?php //echo asset('public/vendor/bootstrap/css/awesome-bootstrap-checkbox.css') ?><!--" type="text/css">-->
-<!--    <link rel="stylesheet" href="--><?php //echo asset('public/vendor/bootstrap/css/bootstrap-select.min.css') ?><!--" type="text/css">-->
-    <!-- Font Awesome CSS-->
+      <!-- Font Awesome CSS-->
+      <link rel="stylesheet" href="<?php echo asset('vendor/font-awesome/css/font-awesome.min.css') ?>" type="text/css">
+      <!-- Drip icon font-->
+      <link rel="stylesheet" href="<?php echo asset('vendor/dripicons/webfont.css') ?>" type="text/css">
+      <!-- Google fonts - Roboto -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,700">
+      <!-- jQuery Circle-->
+      <link rel="stylesheet" href="<?php echo asset('css/grasp_mobile_progress_circle-1.0.0.min.css') ?>" type="text/css">
+      <!-- Custom Scrollbar-->
+      <link rel="stylesheet" href="<?php echo asset('vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') ?>" type="text/css">
+      <!-- virtual keybord stylesheet-->
+      <link rel="stylesheet" href="<?php echo asset('vendor/keyboard/css/keyboard.css') ?>" type="text/css">
+      <!-- date range stylesheet-->
+      <link rel="stylesheet" href="<?php echo asset('vendor/daterange/css/daterangepicker.min.css') ?>" type="text/css">
+      <!-- table sorter stylesheet-->
+      <link rel="stylesheet" type="text/css" href="<?php echo asset('vendor/datatable/dataTables.bootstrap4.min.css') ?>">
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
+      <link rel="stylesheet" href="<?php echo asset('css/style.default.css') ?>" id="theme-stylesheet" type="text/css">
+      <link rel="stylesheet" href="<?php echo asset('css/dropzone.css') ?>">
+      <link rel="stylesheet" href="<?php echo asset('css/style.css') ?>">
+      <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
-    <link rel="stylesheet" href="<?php echo asset('public/vendor/font-awesome/css/font-awesome.min.css') ?>" type="text/css">
-    <!-- Drip icon font-->
-    <link rel="stylesheet" href="<?php echo asset('public/vendor/dripicons/webfont.css') ?>" type="text/css">
-    <!-- Google fonts - Roboto -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,500,700">
-    <!-- jQuery Circle-->
-    <link rel="stylesheet" href="<?php echo asset('public/css/grasp_mobile_progress_circle-1.0.0.min.css') ?>" type="text/css">
-    <!-- Custom Scrollbar-->
-    <link rel="stylesheet" href="<?php echo asset('public/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') ?>" type="text/css">
-    <!-- virtual keybord stylesheet-->
-    <link rel="stylesheet" href="<?php echo asset('public/vendor/keyboard/css/keyboard.css') ?>" type="text/css">
-    <!-- date range stylesheet-->
-    <link rel="stylesheet" href="<?php echo asset('public/vendor/daterange/css/daterangepicker.min.css') ?>" type="text/css">
-    <!-- table sorter stylesheet-->
-    <link rel="stylesheet" type="text/css" href="<?php echo asset('public/vendor/datatable/dataTables.bootstrap4.min.css') ?>">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo asset('public/css/style.default.css') ?>" id="theme-stylesheet" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('public/css/dropzone.css') ?>">
-    <link rel="stylesheet" href="<?php echo asset('public/css/style.css') ?>">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery/jquery.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery/jquery-ui.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery/bootstrap-datepicker.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery/jquery.timepicker.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/popper.js/umd/popper.min.js') ?>">
+      </script>
+      <script type="text/javascript" src="<?php echo asset('vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/bootstrap-toggle/js/bootstrap-toggle.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/bootstrap/js/bootstrap-select.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/keyboard/js/jquery.keyboard.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/keyboard/js/jquery.keyboard.extension-autocomplete.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('js/grasp_mobile_progress_circle-1.0.0.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery.cookie/jquery.cookie.js') ?>">
+      </script>
+      <script type="text/javascript" src="<?php echo asset('vendor/chart.js/Chart.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery-validation/jquery.validate.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')?>"></script>
+      <script type="text/javascript" src="<?php echo asset('js/charts-custom.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('js/front.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/daterange/js/moment.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/daterange/js/knockout-3.4.2.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/daterange/js/daterangepicker.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/tinymce/js/tinymce/tinymce.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('js/dropzone.js') ?>"></script>
 
-    <script type="text/javascript" src="<?php echo asset('public/vendor/jquery/jquery.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/jquery/jquery-ui.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/jquery/bootstrap-datepicker.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/jquery/jquery.timepicker.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/popper.js/umd/popper.min.js') ?>">
-    </script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap-toggle/js/bootstrap-toggle.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap/js/bootstrap-select.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/keyboard/js/jquery.keyboard.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/keyboard/js/jquery.keyboard.extension-autocomplete.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/js/grasp_mobile_progress_circle-1.0.0.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/jquery.cookie/jquery.cookie.js') ?>">
-    </script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/chart.js/Chart.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/jquery-validation/jquery.validate.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/js/charts-custom.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/js/front.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/daterange/js/moment.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/daterange/js/knockout-3.4.2.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/daterange/js/daterangepicker.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/tinymce/js/tinymce/tinymce.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/js/dropzone.js') ?>"></script>
+      <!-- table sorter js-->
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/pdfmake.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/vfs_fonts.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/jquery.dataTables.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/dataTables.bootstrap4.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/dataTables.buttons.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/buttons.bootstrap4.min.js') ?>">"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/buttons.colVis.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/buttons.html5.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/buttons.print.min.js') ?>"></script>
 
-    <!-- table sorter js-->
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/pdfmake.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/vfs_fonts.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/jquery.dataTables.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/dataTables.bootstrap4.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/dataTables.buttons.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/buttons.bootstrap4.min.js') ?>">"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/buttons.colVis.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/buttons.html5.min.js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/buttons.print.min.js') ?>"></script>
-
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/sum().js') ?>"></script>
-    <script type="text/javascript" src="<?php echo asset('public/vendor/datatable/dataTables.checkboxes.min.js') ?>"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
-    <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="<?php echo asset('public/css/custom-'.$general_setting->theme) ?>" type="text/css" id="custom-style">
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/sum().js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/datatable/dataTables.checkboxes.min.js') ?>"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+      <!-- Custom stylesheet - for your changes-->
+      <link rel="stylesheet" href="<?php echo asset('css/custom-'.$general_setting->theme) ?>" type="text/css" id="custom-style">
   </head>
 
   <body onload="myFunction()">
@@ -876,7 +870,7 @@
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <a id="toggle-btn" href="#" class="menu-btn"><i class="fa fa-bars"> </i></a>
-              <span class="brand-big"><?php if($general_setting->site_logo): ?><img src="<?php echo e(url('public/logo', $general_setting->site_logo)); ?>" width="50">&nbsp;&nbsp;<?php endif; ?><a href="<?php echo e(url('/')); ?>"><h1 class="d-inline"><?php echo e($general_setting->site_title); ?></h1></a></span>
+              <span class="brand-big"><?php if($general_setting->site_logo): ?><img src="<?php echo e(url('logo', $general_setting->site_logo)); ?>" width="50">&nbsp;&nbsp;<?php endif; ?><a href="<?php echo e(url('/')); ?>"><h1 class="d-inline"><?php echo e($general_setting->site_title); ?></h1></a></span>
 
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <?php
@@ -1009,48 +1003,48 @@
     <div class="page">
 
       <!-- notification modal -->
-      <div id="notification-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-        <div role="document" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Send Notification')); ?></h5>
-                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-                </div>
-                <div class="modal-body">
-                  <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
-                    <?php echo Form::open(['route' => 'notifications.store', 'method' => 'post']); ?>
+<!--      <div id="notification-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">-->
+<!--        <div role="document" class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 id="exampleModalLabel" class="modal-title">--><?php //echo e(trans('file.Send Notification')); ?><!--</h5>-->
+<!--                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                  <p class="italic"><small>--><?php //echo e(trans('file.The field labels marked with * are required input fields')); ?><!--.</small></p>-->
+<!--                    --><?php //echo Form::open(['route' => 'notifications.store', 'method' => 'post']); ?>
+<!---->
+<!--                      <div class="row">-->
+<!--                          --><?php
+//                              $lims_user_list = DB::table('users')->where([
+//                                ['is_active', true],
+//                                ['id', '!=', \Auth::user()->id]
+//                              ])->get();
+//                          ?>
+<!--                          <div class="col-md-6 form-group">-->
+<!--                              <label>--><?php //echo e(trans('file.User')); ?><!-- *</label>-->
+<!--                              <select name="user_id" class="selectpicker form-control" required data-live-search="true" data-live-search-style="begins" title="Select user...">-->
+<!--                                  --><?php //$__currentLoopData = $lims_user_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<!--                                  <option value="--><?php //echo e($user->id); ?><!--">--><?php //echo e($user->name . ' (' . $user->email. ')'); ?><!--</option>-->
+<!--                                  --><?php //endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<!--                              </select>-->
+<!--                          </div>-->
+<!--                          <div class="col-md-12 form-group">-->
+<!--                              <label>--><?php //echo e(trans('file.Message')); ?><!-- *</label>-->
+<!--                              <textarea rows="5" name="message" class="form-control" required></textarea>-->
+<!--                          </div>-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                          <button type="submit" class="btn btn-primary">--><?php //echo e(trans('file.submit')); ?><!--</button>-->
+<!--                      </div>-->
+<!--                    --><?php //echo e(Form::close()); ?>
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-                      <div class="row">
-                          <?php
-                              $lims_user_list = DB::table('users')->where([
-                                ['is_active', true],
-                                ['id', '!=', \Auth::user()->id]
-                              ])->get();
-                          ?>
-                          <div class="col-md-6 form-group">
-                              <label><?php echo e(trans('file.User')); ?> *</label>
-                              <select name="user_id" class="selectpicker form-control" required data-live-search="true" data-live-search-style="begins" title="Select user...">
-                                  <?php $__currentLoopData = $lims_user_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                  <option value="<?php echo e($user->id); ?>"><?php echo e($user->name . ' (' . $user->email. ')'); ?></option>
-                                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                              </select>
-                          </div>
-                          <div class="col-md-12 form-group">
-                              <label><?php echo e(trans('file.Message')); ?> *</label>
-                              <textarea rows="5" name="message" class="form-control" required></textarea>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <button type="submit" class="btn btn-primary"><?php echo e(trans('file.submit')); ?></button>
-                      </div>
-                    <?php echo e(Form::close()); ?>
-
-                </div>
-            </div>
-        </div>
-      </div>
-
-      <!-- expense modal -->
+      <!-- expense modal BLOQUEOS PARCIALES -->
       <div id="expense-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
         <div role="document" class="modal-dialog">
             <div class="modal-content">
@@ -1123,238 +1117,238 @@
       </div>
 
       <!-- account modal -->
-      <div id="account-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-        <div role="document" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Add Account')); ?></h5>
-                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-                </div>
-                <div class="modal-body">
-                  <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
-                    <?php echo Form::open(['route' => 'accounts.store', 'method' => 'post']); ?>
-
-                      <div class="form-group">
-                          <label><?php echo e(trans('file.Account No')); ?> *</label>
-                          <input type="text" name="account_no" required class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label><?php echo e(trans('file.name')); ?> *</label>
-                          <input type="text" name="name" required class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label><?php echo e(trans('file.Initial Balance')); ?></label>
-                          <input type="number" name="initial_balance" step="any" class="form-control">
-                      </div>
-                      <div class="form-group">
-                          <label><?php echo e(trans('file.Note')); ?></label>
-                          <textarea name="note" rows="3" class="form-control"></textarea>
-                      </div>
-                      <div class="form-group">
-                          <button type="submit" class="btn btn-primary"><?php echo e(trans('file.submit')); ?></button>
-                      </div>
-                    <?php echo e(Form::close()); ?>
-
-                </div>
-            </div>
-        </div>
-      </div>
+<!--      <div id="account-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">-->
+<!--        <div role="document" class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 id="exampleModalLabel" class="modal-title">--><?php //echo e(trans('file.Add Account')); ?><!--</h5>-->
+<!--                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                  <p class="italic"><small>--><?php //echo e(trans('file.The field labels marked with * are required input fields')); ?><!--.</small></p>-->
+<!--                    --><?php //echo Form::open(['route' => 'accounts.store', 'method' => 'post']); ?>
+<!---->
+<!--                      <div class="form-group">-->
+<!--                          <label>--><?php //echo e(trans('file.Account No')); ?><!-- *</label>-->
+<!--                          <input type="text" name="account_no" required class="form-control">-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                          <label>--><?php //echo e(trans('file.name')); ?><!-- *</label>-->
+<!--                          <input type="text" name="name" required class="form-control">-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                          <label>--><?php //echo e(trans('file.Initial Balance')); ?><!--</label>-->
+<!--                          <input type="number" name="initial_balance" step="any" class="form-control">-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                          <label>--><?php //echo e(trans('file.Note')); ?><!--</label>-->
+<!--                          <textarea name="note" rows="3" class="form-control"></textarea>-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                          <button type="submit" class="btn btn-primary">--><?php //echo e(trans('file.submit')); ?><!--</button>-->
+<!--                      </div>-->
+<!--                    --><?php //echo e(Form::close()); ?>
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <!-- account statement modal -->
-      <div id="account-statement-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-        <div role="document" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Account Statement')); ?></h5>
-                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-                </div>
-                <div class="modal-body">
-                  <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
-                    <?php echo Form::open(['route' => 'accounts.statement', 'method' => 'post']); ?>
-
-                      <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label> <?php echo e(trans('file.Account')); ?></label>
-                            <select class="form-control selectpicker" name="account_id">
-                            <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </select>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label> <?php echo e(trans('file.Type')); ?></label>
-                            <select class="form-control selectpicker" name="type">
-                                <option value="0"><?php echo e(trans('file.All')); ?></option>
-                                <option value="1"><?php echo e(trans('file.Debit')); ?></option>
-                                <option value="2"><?php echo e(trans('file.Credit')); ?></option>
-                            </select>
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <label><?php echo e(trans('file.Choose Your Date')); ?></label>
-                            <div class="input-group">
-                                <input type="text" class="daterangepicker-field form-control" required />
-                                <input type="hidden" name="start_date" />
-                                <input type="hidden" name="end_date" />
-                            </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                          <button type="submit" class="btn btn-primary"><?php echo e(trans('file.submit')); ?></button>
-                      </div>
-                    <?php echo e(Form::close()); ?>
-
-                </div>
-            </div>
-        </div>
-      </div>
+<!--      <div id="account-statement-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">-->
+<!--        <div role="document" class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 id="exampleModalLabel" class="modal-title">--><?php //echo e(trans('file.Account Statement')); ?><!--</h5>-->
+<!--                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                  <p class="italic"><small>--><?php //echo e(trans('file.The field labels marked with * are required input fields')); ?><!--.</small></p>-->
+<!--                    --><?php //echo Form::open(['route' => 'accounts.statement', 'method' => 'post']); ?>
+<!---->
+<!--                      <div class="row">-->
+<!--                        <div class="col-md-6 form-group">-->
+<!--                            <label> --><?php //echo e(trans('file.Account')); ?><!--</label>-->
+<!--                            <select class="form-control selectpicker" name="account_id">-->
+<!--                            --><?php //$__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<!--                                <option value="--><?php //echo e($account->id); ?><!--">--><?php //echo e($account->name); ?><!-- [--><?php //echo e($account->account_no); ?><!--]</option>-->
+<!--                            --><?php //endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-6 form-group">-->
+<!--                            <label> --><?php //echo e(trans('file.Type')); ?><!--</label>-->
+<!--                            <select class="form-control selectpicker" name="type">-->
+<!--                                <option value="0">--><?php //echo e(trans('file.All')); ?><!--</option>-->
+<!--                                <option value="1">--><?php //echo e(trans('file.Debit')); ?><!--</option>-->
+<!--                                <option value="2">--><?php //echo e(trans('file.Credit')); ?><!--</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-12 form-group">-->
+<!--                            <label>--><?php //echo e(trans('file.Choose Your Date')); ?><!--</label>-->
+<!--                            <div class="input-group">-->
+<!--                                <input type="text" class="daterangepicker-field form-control" required />-->
+<!--                                <input type="hidden" name="start_date" />-->
+<!--                                <input type="hidden" name="end_date" />-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      <div class="form-group">-->
+<!--                          <button type="submit" class="btn btn-primary">--><?php //echo e(trans('file.submit')); ?><!--</button>-->
+<!--                      </div>-->
+<!--                    --><?php //echo e(Form::close()); ?>
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <!-- warehouse modal -->
-      <div id="warehouse-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-        <div role="document" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Warehouse Report')); ?></h5>
-                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-                </div>
-                <div class="modal-body">
-                  <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
-                    <?php echo Form::open(['route' => 'report.warehouse', 'method' => 'post']); ?>
-
-                    <?php
-                      $lims_warehouse_list = DB::table('warehouses')->where('is_active', true)->get();
-                    ?>
-                      <div class="form-group">
-                          <label><?php echo e(trans('file.Warehouse')); ?> *</label>
-                          <select name="warehouse_id" class="selectpicker form-control" required data-live-search="true" id="warehouse-id" data-live-search-style="begins" title="Select warehouse...">
-                              <?php $__currentLoopData = $lims_warehouse_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                              <option value="<?php echo e($warehouse->id); ?>"><?php echo e($warehouse->name); ?></option>
-                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          </select>
-                      </div>
-
-                      <input type="hidden" name="start_date" value="1988-04-18" />
-                      <input type="hidden" name="end_date" value="<?php echo e(date('Y-m-d')); ?>" />
-
-                      <div class="form-group">
-                          <button type="submit" class="btn btn-primary"><?php echo e(trans('file.submit')); ?></button>
-                      </div>
-                    <?php echo e(Form::close()); ?>
-
-                </div>
-            </div>
-        </div>
-      </div>
+<!--      <div id="warehouse-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">-->
+<!--        <div role="document" class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 id="exampleModalLabel" class="modal-title">--><?php //echo e(trans('file.Warehouse Report')); ?><!--</h5>-->
+<!--                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                  <p class="italic"><small>--><?php //echo e(trans('file.The field labels marked with * are required input fields')); ?><!--.</small></p>-->
+<!--                    --><?php //echo Form::open(['route' => 'report.warehouse', 'method' => 'post']); ?>
+<!---->
+<!--                    --><?php
+//                      $lims_warehouse_list = DB::table('warehouses')->where('is_active', true)->get();
+//                    ?>
+<!--                      <div class="form-group">-->
+<!--                          <label>--><?php //echo e(trans('file.Warehouse')); ?><!-- *</label>-->
+<!--                          <select name="warehouse_id" class="selectpicker form-control" required data-live-search="true" id="warehouse-id" data-live-search-style="begins" title="Select warehouse...">-->
+<!--                              --><?php //$__currentLoopData = $lims_warehouse_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<!--                              <option value="--><?php //echo e($warehouse->id); ?><!--">--><?php //echo e($warehouse->name); ?><!--</option>-->
+<!--                              --><?php //endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<!--                          </select>-->
+<!--                      </div>-->
+<!---->
+<!--                      <input type="hidden" name="start_date" value="1988-04-18" />-->
+<!--                      <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+<!---->
+<!--                      <div class="form-group">-->
+<!--                          <button type="submit" class="btn btn-primary">--><?php //echo e(trans('file.submit')); ?><!--</button>-->
+<!--                      </div>-->
+<!--                    --><?php //echo e(Form::close()); ?>
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <!-- user modal -->
-      <div id="user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-        <div role="document" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.User Report')); ?></h5>
-                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-                </div>
-                <div class="modal-body">
-                  <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
-                    <?php echo Form::open(['route' => 'report.user', 'method' => 'post']); ?>
-
-                    <?php
-                      $lims_user_list = DB::table('users')->where('is_active', true)->get();
-                    ?>
-                      <div class="form-group">
-                          <label><?php echo e(trans('file.User')); ?> *</label>
-                          <select name="user_id" class="selectpicker form-control" required data-live-search="true" id="user-id" data-live-search-style="begins" title="Select user...">
-                              <?php $__currentLoopData = $lims_user_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                              <option value="<?php echo e($user->id); ?>"><?php echo e($user->name . ' (' . $user->phone. ')'); ?></option>
-                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          </select>
-                      </div>
-
-                      <input type="hidden" name="start_date" value="1988-04-18" />
-                      <input type="hidden" name="end_date" value="<?php echo e(date('Y-m-d')); ?>" />
-
-                      <div class="form-group">
-                          <button type="submit" class="btn btn-primary"><?php echo e(trans('file.submit')); ?></button>
-                      </div>
-                    <?php echo e(Form::close()); ?>
-
-                </div>
-            </div>
-        </div>
-      </div>
+<!--      <div id="user-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">-->
+<!--        <div role="document" class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 id="exampleModalLabel" class="modal-title">--><?php //echo e(trans('file.User Report')); ?><!--</h5>-->
+<!--                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                  <p class="italic"><small>--><?php //echo e(trans('file.The field labels marked with * are required input fields')); ?><!--.</small></p>-->
+<!--                    --><?php //echo Form::open(['route' => 'report.user', 'method' => 'post']); ?>
+<!---->
+<!--                    --><?php
+//                      $lims_user_list = DB::table('users')->where('is_active', true)->get();
+//                    ?>
+<!--                      <div class="form-group">-->
+<!--                          <label>--><?php //echo e(trans('file.User')); ?><!-- *</label>-->
+<!--                          <select name="user_id" class="selectpicker form-control" required data-live-search="true" id="user-id" data-live-search-style="begins" title="Select user...">-->
+<!--                              --><?php //$__currentLoopData = $lims_user_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<!--                              <option value="--><?php //echo e($user->id); ?><!--">--><?php //echo e($user->name . ' (' . $user->phone. ')'); ?><!--</option>-->
+<!--                              --><?php //endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<!--                          </select>-->
+<!--                      </div>-->
+<!---->
+<!--                      <input type="hidden" name="start_date" value="1988-04-18" />-->
+<!--                      <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+<!---->
+<!--                      <div class="form-group">-->
+<!--                          <button type="submit" class="btn btn-primary">--><?php //echo e(trans('file.submit')); ?><!--</button>-->
+<!--                      </div>-->
+<!--                    --><?php //echo e(Form::close()); ?>
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <!-- customer modal -->
-      <div id="customer-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-        <div role="document" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Customer Report')); ?></h5>
-                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-                </div>
-                <div class="modal-body">
-                  <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
-                    <?php echo Form::open(['route' => 'report.customer', 'method' => 'post']); ?>
-
-                    <?php
-                      $lims_customer_list = DB::table('customers')->where('is_active', true)->get();
-                    ?>
-                      <div class="form-group">
-                          <label><?php echo e(trans('file.customer')); ?> *</label>
-                          <select name="customer_id" class="selectpicker form-control" required data-live-search="true" id="customer-id" data-live-search-style="begins" title="Select customer...">
-                              <?php $__currentLoopData = $lims_customer_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $customer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                              <option value="<?php echo e($customer->id); ?>"><?php echo e($customer->name . ' (' . $customer->phone_number. ')'); ?></option>
-                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          </select>
-                      </div>
-
-                      <input type="hidden" name="start_date" value="1988-04-18" />
-                      <input type="hidden" name="end_date" value="<?php echo e(date('Y-m-d')); ?>" />
-
-                      <div class="form-group">
-                          <button type="submit" class="btn btn-primary"><?php echo e(trans('file.submit')); ?></button>
-                      </div>
-                    <?php echo e(Form::close()); ?>
-
-                </div>
-            </div>
-        </div>
-      </div>
+<!--      <div id="customer-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">-->
+<!--        <div role="document" class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 id="exampleModalLabel" class="modal-title">--><?php //echo e(trans('file.Customer Report')); ?><!--</h5>-->
+<!--                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                  <p class="italic"><small>--><?php //echo e(trans('file.The field labels marked with * are required input fields')); ?><!--.</small></p>-->
+<!--                    --><?php //echo Form::open(['route' => 'report.customer', 'method' => 'post']); ?>
+<!---->
+<!--                    --><?php
+//                      $lims_customer_list = DB::table('customers')->where('is_active', true)->get();
+//                    ?>
+<!--                      <div class="form-group">-->
+<!--                          <label>--><?php //echo e(trans('file.customer')); ?><!-- *</label>-->
+<!--                          <select name="customer_id" class="selectpicker form-control" required data-live-search="true" id="customer-id" data-live-search-style="begins" title="Select customer...">-->
+<!--                              --><?php //$__currentLoopData = $lims_customer_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $customer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<!--                              <option value="--><?php //echo e($customer->id); ?><!--">--><?php //echo e($customer->name . ' (' . $customer->phone_number. ')'); ?><!--</option>-->
+<!--                              --><?php //endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<!--                          </select>-->
+<!--                      </div>-->
+<!---->
+<!--                      <input type="hidden" name="start_date" value="1988-04-18" />-->
+<!--                      <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+<!---->
+<!--                      <div class="form-group">-->
+<!--                          <button type="submit" class="btn btn-primary">--><?php //echo e(trans('file.submit')); ?><!--</button>-->
+<!--                      </div>-->
+<!--                    --><?php //echo e(Form::close()); ?>
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <!-- supplier modal -->
-      <div id="supplier-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-        <div role="document" class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Supplier Report')); ?></h5>
-                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-                </div>
-                <div class="modal-body">
-                  <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
-                    <?php echo Form::open(['route' => 'report.supplier', 'method' => 'post']); ?>
-
-                    <?php
-                      $lims_supplier_list = DB::table('suppliers')->where('is_active', true)->get();
-                    ?>
-                      <div class="form-group">
-                          <label><?php echo e(trans('file.Supplier')); ?> *</label>
-                          <select name="supplier_id" class="selectpicker form-control" required data-live-search="true" id="supplier-id" data-live-search-style="begins" title="Select Supplier...">
-                              <?php $__currentLoopData = $lims_supplier_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $supplier): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                              <option value="<?php echo e($supplier->id); ?>"><?php echo e($supplier->name . ' (' . $supplier->phone_number. ')'); ?></option>
-                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          </select>
-                      </div>
-
-                      <input type="hidden" name="start_date" value="1988-04-18" />
-                      <input type="hidden" name="end_date" value="<?php echo e(date('Y-m-d')); ?>" />
-
-                      <div class="form-group">
-                          <button type="submit" class="btn btn-primary"><?php echo e(trans('file.submit')); ?></button>
-                      </div>
-                    <?php echo e(Form::close()); ?>
-
-                </div>
-            </div>
-        </div>
-      </div>
+<!--      <div id="supplier-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">-->
+<!--        <div role="document" class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--                <div class="modal-header">-->
+<!--                    <h5 id="exampleModalLabel" class="modal-title">--><?php //echo e(trans('file.Supplier Report')); ?><!--</h5>-->
+<!--                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>-->
+<!--                </div>-->
+<!--                <div class="modal-body">-->
+<!--                  <p class="italic"><small>--><?php //echo e(trans('file.The field labels marked with * are required input fields')); ?><!--.</small></p>-->
+<!--                    --><?php //echo Form::open(['route' => 'report.supplier', 'method' => 'post']); ?>
+<!---->
+<!--                    --><?php
+//                      $lims_supplier_list = DB::table('suppliers')->where('is_active', true)->get();
+//                    ?>
+<!--                      <div class="form-group">-->
+<!--                          <label>--><?php //echo e(trans('file.Supplier')); ?><!-- *</label>-->
+<!--                          <select name="supplier_id" class="selectpicker form-control" required data-live-search="true" id="supplier-id" data-live-search-style="begins" title="Select Supplier...">-->
+<!--                              --><?php //$__currentLoopData = $lims_supplier_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $supplier): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<!--                              <option value="--><?php //echo e($supplier->id); ?><!--">--><?php //echo e($supplier->name . ' (' . $supplier->phone_number. ')'); ?><!--</option>-->
+<!--                              --><?php //endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<!--                          </select>-->
+<!--                      </div>-->
+<!---->
+<!--                      <input type="hidden" name="start_date" value="1988-04-18" />-->
+<!--                      <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+<!---->
+<!--                      <div class="form-group">-->
+<!--                          <button type="submit" class="btn btn-primary">--><?php //echo e(trans('file.submit')); ?><!--</button>-->
+<!--                      </div>-->
+<!--                    --><?php //echo e(Form::close()); ?>
+<!---->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <div style="display:none" id="content" class="animate-bottom">
           <?php echo $__env->yieldContent('content'); ?>
@@ -1364,7 +1358,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-12">
-              <p>&copy; <?php echo e($general_setting->site_title); ?> | <?php echo e(trans('file.Developed')); ?> <?php echo e(trans('file.By')); ?> <span class="external"><?php echo e($general_setting->developed_by); ?></span></p>
+              <p>&copy; <?php echo e($general_setting->site_title); ?> | <?php echo e(trans('Desarrollado ')); ?> <?php echo e(trans('por')); ?> <span class="external"><?php echo e($general_setting->developed_by); ?></span></p>
             </div>
           </div>
         </div>

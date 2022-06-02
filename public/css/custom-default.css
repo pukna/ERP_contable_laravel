@@ -85,7 +85,7 @@ input.form-control-custom:checked+label::before {
 
 .login-page .logo span,
 .register-page .logo span {
-    color: #7c5cc4;
+    color: blue;
 }
 
 .login-page a.forgot-pass,
@@ -313,12 +313,12 @@ a {
 }
 
 @-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
+  from { bottom:-100px; opacity:0 }
   to { bottom:0px; opacity:1 }
 }
 
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
+@keyframes animatebottom {
+  from{ bottom:-100px; opacity:0 }
   to{ bottom:0; opacity:1 }
 }
 
@@ -421,7 +421,7 @@ a:focus,button:focus,.btn:focus {
 }
 
 .dashboard-counts {
-	padding: 10px 0; 
+	padding: 10px 0;
 }
 
 .filter-toggle {
@@ -432,7 +432,7 @@ a:focus,button:focus,.btn:focus {
 
 .filter-toggle .date-btn {
 	padding: 0.3rem 0.75rem;
-	border-radius: 15px; 
+	border-radius: 15px;
 }
 
 .filter-toggle .date-btn.active {
@@ -696,7 +696,7 @@ nav.navbar .nav-item li.notifications a i{
 	float: left;
 	vertical-align: middle;
 	width: 30%;
-} 
+}
 
 .dt-buttons {
 	display: inline-block;
@@ -1154,5 +1154,8 @@ table.dataTable tbody td.dt-checkboxes-cell {
 .table-container {
 	height: 75vh;
 	overflow-y: auto;
+}
+.btn-primary{
+    background-color: blue;
 }
 
