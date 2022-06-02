@@ -53,12 +53,12 @@
       <div class="container">
         <div class="form-outer text-center d-flex align-items-center">
           <div class="form-inner">
-            <div class="logo"><spanS>ERP VENTAS</span></div>
+            <div class="logo"><spanS>Tectotal</span></div>
             <form method="POST" action="<?php echo e(route('register')); ?>">
                 <?php echo csrf_field(); ?>
               <div class="form-group-material">
                 <input id="register-username" type="text" name="name" required class="input-material">
-                <label for="register-username" class="label-material"><?php echo e(trans('file.UserName')); ?> *</label>
+                <label for="register-username" class="label-material"><?php echo e(trans('file.Correo')); ?> *</label>
                 <?php if($errors->has('name')): ?>
                     <p>
                         <strong><?php echo e($errors->first('name')); ?></strong>
@@ -67,7 +67,7 @@
               </div>
               <div class="form-group-material">
                 <input id="register-email" type="email" name="email" required class="input-material">
-                <label for="register-email" class="label-material"><?php echo e(trans('file.Email')); ?> *</label>
+                <label for="register-email" class="label-material"><?php echo e(trans('file.Confirmar Email')); ?> *</label>
                 <?php if($errors->has('email')): ?>
                     <p>
                         <strong><?php echo e($errors->first('email')); ?></strong>
@@ -76,11 +76,11 @@
               </div>
               <div class="form-group-material">
                 <input id="register-phone" type="text" name="phone" required class="input-material">
-                <label for="register-phone" class="label-material"><?php echo e(trans('file.Phone Number')); ?> *</label>
+                <label for="register-phone" class="label-material"><?php echo e(trans('file.Numero de telefono')); ?> *</label>
               </div>
               <div class="form-group-material">
                 <input id="register-company" type="text" name="company_name" class="input-material">
-                <label for="register-company" class="label-material"><?php echo e(trans('file.Company Name')); ?></label>
+                <label for="register-company" class="label-material"><?php echo e(trans('file.Cargo')); ?></label>
               </div>
               <div class="form-group-material">
                 <select name="role_id" required class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Role...">
@@ -114,7 +114,7 @@
               </div>
               <div class="form-group-material">
                 <input id="password-confirm" type="password" name="password_confirmation" required class="input-material">
-                <label for="password-confirm" class="label-material"><?php echo e(trans('file.Confirm Password')); ?> *</label>
+                <label for="password-confirm" class="label-material"><?php echo e(trans('file.Repita Password')); ?> *</label>
               </div>
               <input id="register" type="submit" value="Register" class="btn btn-primary">
             </form><p><?php echo e(trans('file.Already have an account')); ?>? </p><a href="<?php echo e(url('login')); ?>" class="signup"><?php echo e(trans('file.LogIn')); ?></a>

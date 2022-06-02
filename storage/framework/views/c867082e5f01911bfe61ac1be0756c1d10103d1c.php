@@ -4,64 +4,58 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><?php echo e($general_setting->site_title); ?></title>
+      <link rel="icon" type="image/png" href="<?php echo asset('images/login/LogoTactotal.png') ?>" />
+      <title>SISTEMA TECTOTAL</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
-    <link rel="manifest" href="<?php echo e(url('manifest.json')); ?>">
-    <!-- Bootstrap CSS-->
+<!--    <link rel="manifest" href="--><?php //echo asset('../manisfest.json') ?><!--">-->
+      <!-- Bootstrap CSS-->
+      <link rel="stylesheet" href="<?php echo asset('vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css">
+      <link rel="stylesheet" href="<?php echo asset('vendor/bootstrap/css/bootstrap-datepicker.min.css') ?>" type="text/css">
+      <link rel="stylesheet" href="<?php echo asset('vendor/bootstrap/css/bootstrap-select.min.css') ?>" type="text/css">
+      <!-- Font Awesome CSS-->
+      <link rel="stylesheet" href="<?php echo asset('vendor/font-awesome/css/font-awesome.min.css') ?>" type="text/css">
+      <!-- Fontastic Custom icon font-->
+<!--      <link rel="stylesheet" href="--><?php //echo asset('css/fontastic.css') ?><!--" type="text/css">-->
+      <!-- Google fonts - Roboto -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+      <!-- jQuery Circle-->
+      <link rel="stylesheet" href="<?php echo asset('css/grasp_mobile_progress_circle-1.0.0.min.css') ?>" type="text/css">
+      <!-- Custom Scrollbar-->
+      <link rel="stylesheet" href="<?php echo asset('vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') ?>" type="text/css">
+      <!-- theme stylesheet-->
+      <link rel="stylesheet" href="<?php echo asset('css/style.default.css') ?>" id="theme-stylesheet" type="text/css">
+      <!-- Custom stylesheet - for your changes-->
+      <link rel="stylesheet" href="<?php echo asset('css/custom-'.$general_setting->theme) ?>" type="text/css">
+      <!-- Favicon-->
+<!--      <link rel="shortcut icon" href="img/favicon.ico">-->
+      <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 
-<!--      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">-->
-<!--      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css>">-->
-<!--      <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta3/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">-->
-    <link rel="stylesheet" href="<?php echo asset('https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css') ?>" type="text/css">
-<!--    <link type="text/css" rel="stylesheet" href="{{ asset('public/vendor/bootstrap/css/bootstrap.min.css') }}">-->
-    <link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap-datepicker.min.css') ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap-select.min.css') ?>" type="text/css">
-    <!-- Font Awesome CSS-->
-<!--    <link rel="stylesheet" href="--><?php //echo asset('public/vendor/font-awesome/css/font-awesome.min.css') ?><!--" type="text/css">-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- Google fonts - Roboto -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <!-- jQuery Circle-->
-<!--    <link rel="stylesheet" href="--><?php //echo asset('public/css/grasp_mobile_progress_circle-1.0.0.min.css') ?><!--" type="text/css">-->
-      <link href="/public/css/progress-circle/demo/styles/grasp_mobile_progress_circle-1.0.0.css" rel="stylesheet" type="text/css">
-    <!-- Custom Scrollbar-->
-<!--    <link rel="stylesheet" href="--><?php //echo asset('public/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') ?><!--" type="text/css">-->
-      <link href="/public/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
-    <!-- theme stylesheet-->
-<!--    <link rel="stylesheet" href="--><?php //echo asset('public/css/style.default.css') ?><!--" id="theme-stylesheet" type="text/css">-->
-      <link href="/public/css/style.default.css" rel="stylesheet" type="text/css">
-    <!-- Custom stylesheet - for your changes-->
-<!--    <link rel="stylesheet" href="--><?php //echo asset('public/css/custom-'.$general_setting->theme) ?><!--" type="text/css">-->
-      <link href="/public/css/custom-default.css" rel="stylesheet" type="text/css">
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-
-
-<script type="text/javascript" src="<?php echo asset('public/vendor/jquery/jquery.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/jquery/jquery-ui.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/jquery/bootstrap-datepicker.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/popper.js/umd/popper.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/bootstrap/js/bootstrap-select.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/js/grasp_mobile_progress_circle-1.0.0.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/jquery.cookie/jquery.cookie.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/chart.js/Chart.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/jquery-validation/jquery.validate.min.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/js/charts-home.js') ?>"></script>
-<script type="text/javascript" src="<?php echo asset('public/js/front.js') ?>"></script>
-  </head>
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery/jquery.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery/jquery-ui.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery/bootstrap-datepicker.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/popper.js/umd/popper.min.js') ?>">
+      </script>
+      <script type="text/javascript" src="<?php echo asset('vendor/bootstrap/js/bootstrap.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/bootstrap/js/bootstrap-select.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('js/grasp_mobile_progress_circle-1.0.0.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery.cookie/jquery.cookie.js') ?>">
+      </script>
+<!--      <script type="text/javascript" src="--><?php //echo asset('vendor/chart.js/Chart.min.js') ?><!--"></script>-->
+      <script type="text/javascript" src="<?php echo asset('vendor/jquery-validation/jquery.validate.min.js') ?>"></script>
+      <script type="text/javascript" src="<?php echo asset('vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')?>"></script>
+<!--      <script type="text/javascript" src="--><?php //echo asset('js/charts-home.js') ?><!--"></script>-->
+<!--      <script type="text/javascript" src="--><?php //echo asset('js/front.js') ?><!--"></script> </head>-->
   <body>
+
     <div class="page login-page">
-      <div class="container">
+      <div class="container-fluid">
         <div class="form-outer text-center d-flex align-items-center">
-          <div class="form-inner">
-            <div class="logo"><img src="public/images/login/LogoTactotal.jpg"><span>LOGIN</span></div>
+          <div class="form-inner ">
+            <div class="logo "><span>LOGIN</span></div>
             <?php if(session()->has('delete_message')): ?>
             <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('delete_message')); ?></div>
             <?php endif; ?>
