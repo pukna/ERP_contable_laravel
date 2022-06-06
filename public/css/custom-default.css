@@ -69,14 +69,14 @@ nav.navbar a.menu-btn:hover {
 }
 
 input.input-material:focus {
-    border-color: #7c5cc4;
+    border-color: blue;
     outline: none;
 }
 
 input.input-material~label.active {
     font-size: 0.8em;
     top: -10px;
-    color: #7c5cc4;
+    color: blue;
 }
 
 input.form-control-custom:checked+label::before {
@@ -93,7 +93,7 @@ input.form-control-custom:checked+label::before {
 .register-page a.forgot-pass,
 .register-page a.signup {
     font-size: 0.8em;
-    color: #7c5cc4;
+    color: Blue;
 }
 
 .btn-primary {
@@ -536,8 +536,8 @@ th span.number-in-words{
 }
 
 .btn-primary:hover {
-    background-color: #6244a6;
-    border-color: #6244a6;
+    background-color: darkblue;
+    border-color: darkblue;
 }
 
 a:hover {
