@@ -1,3 +1,4 @@
+<!--Register-->
 <?php $general_setting = DB::table('general_settings')->find(1); ?>
 <!DOCTYPE html>
 <html>
