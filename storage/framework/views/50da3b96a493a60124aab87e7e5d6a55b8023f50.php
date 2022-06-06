@@ -1,4 +1,6 @@
- <?php $__env->startSection('content'); ?>
+
+<!--categorias-->
+<?php $__env->startSection('content'); ?>
 
 <?php if($errors->has('name')): ?>
 <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e($errors->first('name')); ?></div>
@@ -17,7 +19,7 @@
     <div class="container-fluid">
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#createModal"><i class="dripicons-plus"></i> <?php echo e(trans("Add Categoria")); ?></button>&nbsp;
-        <button class="btn btn-primary" data-toggle="modal" data-target="#importCategory"><i class="dripicons-copy"></i> <?php echo e(trans('Importar Categoria')); ?></button>
+<!--        <button class="btn btn-primary" data-toggle="modal" data-target="#importCategory"><i class="dripicons-copy"></i> --><?php //echo e(trans('Importar Categoria')); ?><!--</button>-->
     </div>
     <div class="table-responsive">
         <table id="category-table" class="table" style="width: 100%">
@@ -44,30 +46,30 @@
         <?php echo Form::open(['route' => 'category.store', 'method' => 'post', 'files' => true]); ?>
 
         <div class="modal-header">
-          <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Add Category')); ?></h5>
+          <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Add Categoria')); ?></h5>
           <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
         </div>
         <div class="modal-body">
-          <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
+          <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
             <div class="row">
                 <div class="col-md-6 form-group">
-                    <label><?php echo e(trans('file.name')); ?> *</label>
-                    <?php echo e(Form::text('name',null,array('required' => 'required', 'class' => 'form-control', 'placeholder' => 'Type category name...'))); ?>
+                    <label><?php echo e(trans('nombre')); ?> *</label>
+                    <?php echo e(Form::text('name',null,array('required' => 'required', 'class' => 'form-control', 'placeholder' => 'Escriba nombre de categoria'))); ?>
 
                 </div>
                 <div class="col-md-6 form-group">
-                    <label><?php echo e(trans('file.Image')); ?></label>
+                    <label><?php echo e(trans('Imagen')); ?></label>
                     <input type="file" name="image" class="form-control">
                 </div>
                 <div class="col-md-6 form-group">
-                    <label><?php echo e(trans('file.Parent Category')); ?></label>
-                    <?php echo e(Form::select('parent_id', $lims_categories, null, ['class' => 'form-control','placeholder' => 'No Parent Category'])); ?>
+                    <label><?php echo e(trans('Categoria Padre')); ?></label>
+                    <?php echo e(Form::select('parent_id', $lims_categories, null, ['class' => 'form-control','placeholder' => 'No Categoria Padre'])); ?>
 
                 </div>
             </div>
 
             <div class="form-group">
-              <input type="submit" value="<?php echo e(trans('file.submit')); ?>" class="btn btn-primary">
+              <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
             </div>
         </div>
         <?php echo e(Form::close()); ?>
@@ -82,26 +84,26 @@
         <?php echo e(Form::open(['route' => ['category.update', 1], 'method' => 'PUT', 'files' => true] )); ?>
 
       <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Update Category')); ?></h5>
+        <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Actualizar Categoria')); ?></h5>
         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
       </div>
       <div class="modal-body">
-        <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
+        <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
         <div class="row">
             <div class="col-md-6 form-group">
-                <label><?php echo e(trans('file.name')); ?> *</label>
+                <label><?php echo e(trans('nombre')); ?> *</label>
                 <?php echo e(Form::text('name',null, array('required' => 'required', 'class' => 'form-control'))); ?>
 
             </div>
             <input type="hidden" name="category_id">
             <div class="col-md-6 form-group">
-                <label><?php echo e(trans('file.Image')); ?></label>
+                <label><?php echo e(trans('Imagen')); ?></label>
                 <input type="file" name="image" class="form-control">
             </div>
             <div class="col-md-6 form-group">
-                <label><?php echo e(trans('file.Parent Category')); ?></label>
+                <label><?php echo e(trans('Categoria Padre')); ?></label>
                 <select name="parent_id" class="form-control selectpicker" id="parent">
-                    <option value="">No <?php echo e(trans('file.parent')); ?></option>
+                    <option value="">No <?php echo e(trans('Padre')); ?></option>
                     <?php $__currentLoopData = $lims_category_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <option value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -110,7 +112,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" value="<?php echo e(trans('file.submit')); ?>" class="btn btn-primary">
+            <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
           </div>
         </div>
       <?php echo e(Form::close()); ?>
@@ -210,7 +212,7 @@
         ],
         'language': {
             'lengthMenu': '_MENU_ <?php echo e(trans("Numero de filas")); ?>',
-             "info":      '<small><?php echo e(trans("file.Showing")); ?> _START_ - _END_ (_TOTAL_)</small>',
+             "info":      '<small><?php echo e(trans("Ver")); ?> _START_ - _END_ (_TOTAL_)</small>',
             "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
                     'previous': '<i class="dripicons-chevron-left"></i>',
@@ -263,7 +265,7 @@
             },
             {
                 extend: 'print',
-                text: '<?php echo e(trans("file.Print")); ?>',
+                text: '<?php echo e(trans("Imprimir")); ?>',
                 exportOptions: {
                     columns: ':visible:Not(.not-exported)',
                     rows: ':visible'
@@ -271,7 +273,7 @@
                 footer:true
             },
             {
-                text: '<?php echo e(trans("file.delete")); ?>',
+                text: '<?php echo e(trans("Eliminar")); ?>',
                 className: 'buttons-delete',
                 action: function ( e, dt, node, config ) {
                     if(user_verified == '1') {
@@ -303,7 +305,7 @@
             },
             {
                 extend: 'colvis',
-                text: '<?php echo e(trans("file.Column visibility")); ?>',
+                text: '<?php echo e(trans("Visualizar")); ?>',
                 columns: ':gt(0)'
             },
         ],
