@@ -258,7 +258,7 @@
                   <?php if($sale_index_permission_active): ?>
                   <li id="sale-list-menu"><a href="<?php echo e(route('sales.index')); ?>"><?php echo e(trans('Ventas')); ?></a></li>
                     <?php if($sale_add_permission_active): ?>
-                    <li><a href="<?php echo e(route('sale.pos')); ?>">POS</a></li>
+<!--                    <li><a href="--><?php //echo e(route('sale.pos')); ?><!--">POS</a></li>-->
                     <li id="sale-create-menu"><a href="<?php echo e(route('sales.create')); ?>"><?php echo e(trans('Agregar Venta')); ?></a></li>
 <!--                    <li id="sale-import-menu"><a href="--><?php //echo e(url('sales/sale_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Sale By CSV')); ?><!--</a></li>-->
                     <?php endif; ?>
