@@ -410,7 +410,7 @@
                 <ul id="account" class="collapse list-unstyled ">
                   <?php if($index_permission_active): ?>
                   <li id="account-list-menu"><a href="<?php echo e(route('accounts.index')); ?>"><?php echo e(trans('Lista de cuentas')); ?></a></li>
-                  <li><a id="add-account" href=""><?php echo e(trans('file.Add Account')); ?></a></li>
+                  <li><a id="add-account" href=""><?php echo e(trans('Agregar cuenta')); ?></a></li>
                   <?php endif; ?>
                   <?php if($money_transfer_permission_active): ?>
                   <li id="money-transfer-menu"><a href="<?php echo e(route('money-transfers.index')); ?>"><?php echo e(trans('Tranferencias')); ?></a></li>
@@ -1150,42 +1150,42 @@
       </div>
 
       <!-- account modal -->
-<!--      <div id="account-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">-->
-<!--        <div role="document" class="modal-dialog">-->
-<!--            <div class="modal-content">-->
-<!--                <div class="modal-header">-->
-<!--                    <h5 id="exampleModalLabel" class="modal-title">--><?php //echo e(trans('file.Add Account')); ?><!--</h5>-->
-<!--                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>-->
-<!--                </div>-->
-<!--                <div class="modal-body">-->
-<!--                  <p class="italic"><small>--><?php //echo e(trans('file.The field labels marked with * are required input fields')); ?><!--.</small></p>-->
-<!--                    --><?php //echo Form::open(['route' => 'accounts.store', 'method' => 'post']); ?>
-<!---->
-<!--                      <div class="form-group">-->
-<!--                          <label>--><?php //echo e(trans('file.Account No')); ?><!-- *</label>-->
-<!--                          <input type="text" name="account_no" required class="form-control">-->
-<!--                      </div>-->
-<!--                      <div class="form-group">-->
-<!--                          <label>--><?php //echo e(trans('file.name')); ?><!-- *</label>-->
-<!--                          <input type="text" name="name" required class="form-control">-->
-<!--                      </div>-->
-<!--                      <div class="form-group">-->
-<!--                          <label>--><?php //echo e(trans('file.Initial Balance')); ?><!--</label>-->
-<!--                          <input type="number" name="initial_balance" step="any" class="form-control">-->
-<!--                      </div>-->
-<!--                      <div class="form-group">-->
-<!--                          <label>--><?php //echo e(trans('file.Note')); ?><!--</label>-->
-<!--                          <textarea name="note" rows="3" class="form-control"></textarea>-->
-<!--                      </div>-->
-<!--                      <div class="form-group">-->
-<!--                          <button type="submit" class="btn btn-primary">--><?php //echo e(trans('file.submit')); ?><!--</button>-->
-<!--                      </div>-->
-<!--                    --><?php //echo e(Form::close()); ?>
-<!---->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--      </div>-->
+      <div id="account-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+        <div role="document" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Agregar Cuenta')); ?></h5>
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+                </div>
+                <div class="modal-body">
+                  <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                    <?php echo Form::open(['route' => 'accounts.store', 'method' => 'post']); ?>
+
+                      <div class="form-group">
+                          <label><?php echo e(trans('Cuenta No')); ?> *</label>
+                          <input type="text" name="account_no" required class="form-control">
+                      </div>
+                      <div class="form-group">
+                          <label><?php echo e(trans('Nombre')); ?> *</label>
+                          <input type="text" name="name" required class="form-control">
+                      </div>
+                      <div class="form-group">
+                          <label><?php echo e(trans('Balance inicial')); ?></label>
+                          <input type="number" name="initial_balance" step="any" class="form-control">
+                      </div>
+                      <div class="form-group">
+                          <label><?php echo e(trans('Nota')); ?></label>
+                          <textarea name="note" rows="3" class="form-control"></textarea>
+                      </div>
+                      <div class="form-group">
+                          <button type="submit" class="btn btn-primary"><?php echo e(trans('Enviar')); ?></button>
+                      </div>
+                    <?php echo e(Form::close()); ?>
+
+                </div>
+            </div>
+        </div>
+      </div>
 
       <!-- account statement modal -->
 <!--      <div id="account-statement-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">-->
