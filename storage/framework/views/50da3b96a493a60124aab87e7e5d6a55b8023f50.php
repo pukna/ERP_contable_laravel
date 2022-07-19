@@ -1,4 +1,3 @@
-
 <!--categorias-->
 <?php $__env->startSection('content'); ?>
 
@@ -18,7 +17,7 @@
 <section>
     <div class="container-fluid">
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#createModal"><i class="dripicons-plus"></i> <?php echo e(trans("Add Categoria")); ?></button>&nbsp;
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#createModal"><i class="dripicons-plus"></i> <?php echo e(trans("Add Categoría")); ?></button>&nbsp;
 <!--        <button class="btn btn-primary" data-toggle="modal" data-target="#importCategory"><i class="dripicons-copy"></i> --><?php //echo e(trans('Importar Categoria')); ?><!--</button>-->
     </div>
     <div class="table-responsive">
@@ -27,12 +26,12 @@
                 <tr>
                     <th class="not-exported"></th>
                     <th><?php echo e(trans('Imagen')); ?></th>
-                    <th><?php echo e(trans('Categoria')); ?></th>
-                    <th><?php echo e(trans('Categoria Principal')); ?></th>
+                    <th><?php echo e(trans('Categoría')); ?></th>
+                    <th><?php echo e(trans('Categoría Principal')); ?></th>
                     <th><?php echo e(trans('Numero de Producto')); ?></th>
                     <th><?php echo e(trans('Cantidad de Stock')); ?></th>
-                    <th><?php echo e(trans('Codigo')); ?></th>
-                    <th class="not-exported"><?php echo e(trans('Accion')); ?></th>
+                    <th><?php echo e(trans('Código')); ?></th>
+                    <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
                 </tr>
             </thead>
         </table>
@@ -101,7 +100,7 @@
                 <input type="file" name="image" class="form-control">
             </div>
             <div class="col-md-6 form-group">
-                <label><?php echo e(trans('Categoria Padre')); ?></label>
+                <label><?php echo e(trans('Categoría Padre')); ?></label>
                 <select name="parent_id" class="form-control selectpicker" id="parent">
                     <option value="">No <?php echo e(trans('Padre')); ?></option>
                     <?php $__currentLoopData = $lims_category_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -211,8 +210,8 @@
             {"data": "options"},
         ],
         'language': {
-            'lengthMenu': '_MENU_ <?php echo e(trans("Numero de filas")); ?>',
-             "info":      '<small><?php echo e(trans("Ver")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
+             "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
             "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
                     'previous': '<i class="dripicons-chevron-left"></i>',

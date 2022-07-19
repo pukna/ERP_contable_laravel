@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--lista de productos -->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('create_message')): ?>
     <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('create_message')); ?></div>
 <?php endif; ?>
@@ -31,7 +32,7 @@
                     <th><?php echo e(trans('Nombre')); ?></th>
                     <th><?php echo e(trans('Código')); ?></th>
                     <th><?php echo e(trans('Marca')); ?></th>
-                    <th><?php echo e(trans('Categoria')); ?></th>
+                    <th><?php echo e(trans('Categoría')); ?></th>
                     <th><?php echo e(trans('Cantidad')); ?></th>
                     <th><?php echo e(trans('Unidad')); ?></th>
                     <th><?php echo e(trans('Precio')); ?></th>
@@ -333,7 +334,7 @@
             'language': {
                 /*'searchPlaceholder': "<?php echo e(trans('file.Type Product Name or Code...')); ?>",*/
                 'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
-                 "info":      '<small><?php echo e(trans("Articulos")); ?> _START_ - _END_ (_TOTAL_)</small>',
+                 "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
                 "search":  '<?php echo e(trans("Buscar")); ?>',
                 'paginate': {
                         'previous': '<i class="dripicons-chevron-left"></i>',
