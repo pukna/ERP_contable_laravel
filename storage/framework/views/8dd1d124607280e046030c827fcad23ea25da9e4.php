@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--Lista de compas -->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('message')): ?>
   <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div>
 <?php endif; ?>
@@ -25,7 +26,7 @@
                     <th><?php echo e(trans('Total')); ?></th>
                     <th><?php echo e(trans('Pagado')); ?></th>
                     <th><?php echo e(trans('Deuda')); ?></th>
-                    <th><?php echo e(trans('Estadi de pago')); ?></th>
+                    <th><?php echo e(trans('Estado de pago')); ?></th>
                     <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
                 </tr>
             </thead>
