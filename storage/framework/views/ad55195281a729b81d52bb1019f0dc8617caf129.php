@@ -98,7 +98,7 @@
         <div class="container-fluid">
           <div class="col-md-12">
             <div class="brand-text float-left mt-4">
-                <h3><?php echo e(trans('Bienmvenido')); ?> <span><?php echo e(Auth::user()->name); ?></span> </h3>
+                <h3><?php echo e(trans('Bienvenido')); ?> <span><?php echo e(Auth::user()->name); ?></span> </h3>
             </div>
 <!--            <div class="filter-toggle btn-group">-->
 <!--              <button class="btn btn-secondary date-btn" data-start_date="--><?php //echo e(date('Y-m-d')); ?><!--" data-end_date="--><?php //echo e(date('Y-m-d')); ?><!--">--><?php //echo e(trans('file.Today')); ?><!--</button>-->
