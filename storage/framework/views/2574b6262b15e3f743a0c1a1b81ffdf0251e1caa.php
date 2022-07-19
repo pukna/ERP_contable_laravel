@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--Stock -->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('message')): ?>
   <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div>
 <?php endif; ?>
@@ -18,7 +19,7 @@
                     <th><?php echo e(trans('Fecha')); ?></th>
                     <th><?php echo e(trans('Referencia')); ?></th>
                     <th><?php echo e(trans('Bodega')); ?></th>
-                    <th><?php echo e(trans('Categoria')); ?></th>
+                    <th><?php echo e(trans('Categoría')); ?></th>
                     <th><?php echo e(trans('Marca')); ?></th>
                     <th><?php echo e(trans('Tipo')); ?></th>
                     <th class="not-exported"><?php echo e(trans('Archivo Inicial')); ?></th>
@@ -75,27 +76,27 @@
                         <?php endif; ?>
                     </td>
                     <?php if($stock_count->type == 'full'): ?>
-                        <?php $type = trans('file.Full') ?>
-                        <td><div class="badge badge-primary"><?php echo e(trans('file.Full')); ?></div></td>
+                        <?php $type = trans('Completo') ?>
+                        <td><div class="badge badge-primary"><?php echo e(trans('Completo')); ?></div></td>
                     <?php else: ?>
-                        <?php $type = trans('file.Partial') ?>
-                        <td><div class="badge badge-info"><?php echo e(trans('file.Partial')); ?></div></td>
+                        <?php $type = trans('Parcial') ?>
+                        <td><div class="badge badge-info"><?php echo e(trans('Parcial')); ?></div></td>
                     <?php endif; ?>
                     <td class="text-center">
-                        <a download href="<?php echo e('public/stock_count/'.$stock_count->initial_file); ?>" title="<?php echo e(trans('file.Download')); ?>"><i class="dripicons-copy"></i></a>
+                        <a download href="<?php echo e('public/stock_count/'.$stock_count->initial_file); ?>" title="<?php echo e(trans('Descargar')); ?>"><i class="dripicons-copy"></i></a>
                     </td>
                     <td class="text-center">
                         <?php if($stock_count->final_file): ?>
-                        <a download href="<?php echo e('public/stock_count/'.$stock_count->final_file); ?>" title="<?php echo e(trans('file.Download')); ?>"><i class="dripicons-copy"></i></a>
+                        <a download href="<?php echo e('public/stock_count/'.$stock_count->final_file); ?>" title="<?php echo e(trans('Descargar')); ?>"><i class="dripicons-copy"></i></a>
                         <?php endif; ?>
                     </td>
                     <td>
                         <?php if($stock_count->final_file): ?>
-                            <div class="badge badge-success final-report" data-stock_count='["<?php echo e(date($general_setting->date_format, strtotime($stock_count->created_at->toDateString()))); ?>", "<?php echo e($stock_count->reference_no); ?>", "<?php echo e($warehouse->name); ?>", "<?php echo e($type); ?>", "<?php echo e(implode(", ", $category_name)); ?>", "<?php echo e(implode(", ", $brand_name)); ?>", "<?php echo e($initial_file); ?>", "<?php echo e($final_file); ?>", "<?php echo e($stock_count->id); ?>"]'><?php echo e(trans('file.Final Report')); ?>
+                            <div class="badge badge-success final-report" data-stock_count='["<?php echo e(date($general_setting->date_format, strtotime($stock_count->created_at->toDateString()))); ?>", "<?php echo e($stock_count->reference_no); ?>", "<?php echo e($warehouse->name); ?>", "<?php echo e($type); ?>", "<?php echo e(implode(", ", $category_name)); ?>", "<?php echo e(implode(", ", $brand_name)); ?>", "<?php echo e($initial_file); ?>", "<?php echo e($final_file); ?>", "<?php echo e($stock_count->id); ?>"]'><?php echo e(trans('Reporte Final')); ?>
 
                             </div>
                         <?php else: ?>
-                            <div class="badge badge-primary finalize" data-id="<?php echo e($stock_count->id); ?>"><?php echo e(trans('file.Finalize')); ?>
+                            <div class="badge badge-primary finalize" data-id="<?php echo e($stock_count->id); ?>"><?php echo e(trans('Finalizar')); ?>
 
                             </div>
                         <?php endif; ?>
@@ -179,22 +180,22 @@
         <?php echo e(Form::open(['route' => 'stock-count.finalize', 'method' => 'POST', 'files' => true] )); ?>
 
       <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('file.Finalize Stock Count')); ?></h5>
+        <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('Finalizar recuento de existencias')); ?></h5>
         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
       </div>
         <div class="modal-body">
-            <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.<strong><?php echo e(trans('file.You just need to update the Counted column in the initial file')); ?></strong> </small></p>
+            <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.<strong><?php echo e(trans('Solo necesita actualizar la columna Contada en el archivo inicial')); ?></strong> </small></p>
             <div class="form-group">
-                <label><?php echo e(trans('file.Upload File')); ?> *</label>
+                <label><?php echo e(trans('Subir archivo')); ?> *</label>
                 <input required type="file" name="final_file" class="form-control" />
             </div>
             <input type="hidden" name="stock_count_id">
             <div class="form-group">
-                <label><?php echo e(trans('file.Note')); ?></label>
+                <label><?php echo e(trans('Nota')); ?></label>
                 <textarea rows="3" name="note" class="form-control"></textarea>
             </div>
             <div class="form-group">
-                <input type="submit" value="<?php echo e(trans('file.submit')); ?>" class="btn btn-primary">
+                <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
               </div>
         </div>
       <?php echo e(Form::close()); ?>
@@ -209,7 +210,7 @@
             <div class="container mt-3 pb-3">
                 <div class="row border-bottom pb-2">
                     <div class="col-md-3">
-                        <button id="print-btn" type="button" class="btn btn-default btn-sm d-print-none"><i class="dripicons-print"></i> <?php echo e(trans('file.Print')); ?></button>
+                        <button id="print-btn" type="button" class="btn btn-default btn-sm d-print-none"><i class="dripicons-print"></i> <?php echo e(trans('Imprimir')); ?></button>
                     </div>
                     <div class="col-md-6">
                         <h3 id="exampleModalLabel" class="modal-title text-center container-fluid"><?php echo e($general_setting->site_title); ?></h3>
@@ -218,7 +219,7 @@
                         <button type="button" id="close-btn" data-dismiss="modal" aria-label="Close" class="close d-print-none"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
                     </div>
                     <div class="col-md-12 text-center">
-                        <i style="font-size: 15px;"><?php echo e(trans('file.Stock Count')); ?></i>
+                        <i style="font-size: 15px;"><?php echo e(trans('Recuento de stock')); ?></i>
                     </div>
                 </div>
                 <br>
@@ -228,11 +229,11 @@
                 <table class="table table-bordered stockdif-list">
                     <thead>
                         <th>#</th>
-                        <th><?php echo e(trans('file.product')); ?></th>
-                        <th><?php echo e(trans('file.Expected')); ?></th>
-                        <th><?php echo e(trans('file.Counted')); ?></th>
-                        <th><?php echo e(trans('file.Difference')); ?></th>
-                        <th><?php echo e(trans('file.Cost')); ?></th>
+                        <th><?php echo e(trans('Producto')); ?></th>
+                        <th><?php echo e(trans('Esperado')); ?></th>
+                        <th><?php echo e(trans('Contado')); ?></th>
+                        <th><?php echo e(trans('Diferencia')); ?></th>
+                        <th><?php echo e(trans('Costo')); ?></th>
                     </thead>
                     <tbody>
                     </tbody>
@@ -266,12 +267,12 @@
 
     $('.final-report').on('click', function(){
         var stock_count = $(this).data('stock_count');
-        var htmltext = '<strong><?php echo e(trans("file.Date")); ?>: </strong>'+stock_count[0]+'<br><strong><?php echo e(trans("file.reference")); ?>: </strong>'+stock_count[1]+'<br><strong><?php echo e(trans("file.Warehouse")); ?>: </strong>'+stock_count[2]+'<br><strong><?php echo e(trans("file.Type")); ?>: </strong>'+stock_count[3];
+        var htmltext = '<strong><?php echo e(trans("Fecha")); ?>: </strong>'+stock_count[0]+'<br><strong><?php echo e(trans("Referencia")); ?>: </strong>'+stock_count[1]+'<br><strong><?php echo e(trans("Bodega")); ?>: </strong>'+stock_count[2]+'<br><strong><?php echo e(trans("Tipo")); ?>: </strong>'+stock_count[3];
         if(stock_count[4])
-            htmltext += '<br><strong><?php echo e(trans("file.category")); ?>: </strong>'+stock_count[4];
+            htmltext += '<br><strong><?php echo e(trans("Categoría")); ?>: </strong>'+stock_count[4];
         if(stock_count[5])
-            htmltext += '<br><strong><?php echo e(trans("file.Brand")); ?>: </strong>'+stock_count[5];
-        htmltext += '<br><span class="d-print-none mt-1"><strong><?php echo e(trans("file.Files")); ?>: </strong>&nbsp;&nbsp;<a href="'+stock_count[6]+'" class="btn btn-sm btn-primary"><i class="dripicons-download"></i> <?php echo e(trans("file.Initial File")); ?></a>&nbsp;&nbsp;<a href="'+stock_count[7]+'" class="btn btn-sm btn-info"><i class="dripicons-download"></i> <?php echo e(trans("file.Final File")); ?></a></span>';
+            htmltext += '<br><strong><?php echo e(trans("Marca")); ?>: </strong>'+stock_count[5];
+        htmltext += '<br><span class="d-print-none mt-1"><strong><?php echo e(trans("Archivos")); ?>: </strong>&nbsp;&nbsp;<a href="'+stock_count[6]+'" class="btn btn-sm btn-primary"><i class="dripicons-download"></i> <?php echo e(trans("Archivo Inicial")); ?></a>&nbsp;&nbsp;<a href="'+stock_count[7]+'" class="btn btn-sm btn-info"><i class="dripicons-download"></i> <?php echo e(trans("Archivo Final")); ?></a></span>';
         $.get('stock-count/stockdif/' + stock_count[8], function(data){
             $(".stockdif-list tbody").remove();
             var name_code = data[0];
@@ -296,7 +297,7 @@
                 });
 
                 if( !parseInt(data[5]) ) {
-                    htmlFooter = '<a class="btn btn-primary d-print-none" href="stock-count/'+stock_count[8]+'/qty_adjustment"><i class="dripicons-plus"></i> <?php echo e(trans("file.Add Adjustment")); ?></a>';
+                    htmlFooter = '<a class="btn btn-primary d-print-none" href="stock-count/'+stock_count[8]+'/qty_adjustment"><i class="dripicons-plus"></i> <?php echo e(trans("Añadir ajuste")); ?></a>';
                     $('#stock-count-footer').html(htmlFooter);
                 }
             }
@@ -385,7 +386,7 @@
             },
             {
                 extend: 'print',
-                text: '<?php echo e(trans("Impresión")); ?>',
+                text: '<?php echo e(trans("Imprimir")); ?>',
                 exportOptions: {
                     columns: ':visible:Not(.not-exported)',
                     rows: ':visible',
@@ -393,7 +394,7 @@
             },
             {
                 extend: 'colvis',
-                text: '<?php echo e(trans("Visibilidad de columna")); ?>',
+                text: '<?php echo e(trans("Visualizar")); ?>',
                 columns: ':gt(0)'
             },
         ],
