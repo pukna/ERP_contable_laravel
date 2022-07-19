@@ -1,3 +1,4 @@
+<!--agregar producto-->
 <?php $__env->startSection('content'); ?>
 <section class="forms">
     <div class="container-fluid">
@@ -5,20 +6,20 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex align-items-center">
-                        <h4><?php echo e(trans('Add Producto')); ?></h4>
+                        <h4><?php echo e(trans('Agregar Producto')); ?></h4>
                     </div>
                     <div class="card-body">
                         <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
                         <form id="product-form">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="form-group">
+                                        <div class="form-group">
                                         <label><?php echo e(trans('Tipo de Progucto')); ?> *</strong> </label>
                                         <div class="input-group">
                                             <select name="type" required class="form-control selectpicker" id="type">
                                                 <option value="standard">Standard</option>
                                                 <option value="combo">Combo</option>
-                                                <option value="digital">Digital</option>
+                                                <option value="digital">Servicio</option>
                                             </select>
                                         </div>
                                     </div>
@@ -92,7 +93,7 @@
                                     <div class="form-group">
                                         <label><?php echo e(trans('Marca')); ?></strong> </label>
                                         <div class="input-group">
-                                          <select name="brand_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Brand...">
+                                          <select name="brand_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccionar marca...">
                                             <?php $__currentLoopData = $lims_brand_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <option value="<?php echo e($brand->id); ?>"><?php echo e($brand->title); ?></option>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -104,7 +105,7 @@
                                     <div class="form-group">
                                         <label><?php echo e(trans('Categoria')); ?> *</strong> </label>
                                         <div class="input-group">
-                                          <select name="category_id" required class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Category...">
+                                          <select name="category_id" required class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccionar Categoría">
                                             <?php $__currentLoopData = $lims_category_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <option value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?></option>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -119,7 +120,7 @@
                                                 <label><?php echo e(trans('Unidad')); ?> *</strong> </label>
                                                 <div class="input-group">
                                                   <select required class="form-control selectpicker" name="unit_id">
-                                                    <option value="" disabled selected>Select Product Unit...</option>
+                                                    <option value="" disabled selected>Seleccionar unidad de producto...</option>
                                                     <?php $__currentLoopData = $lims_unit_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                         <?php if($unit->base_unit==null): ?>
                                                             <option value="<?php echo e($unit->id); ?>"><?php echo e($unit->unit_name); ?></option>
@@ -174,7 +175,7 @@
                                     <div class="form-group">
                                         <label><?php echo e(trans('Impuesto')); ?></strong> </label>
                                         <select name="tax_id" class="form-control selectpicker">
-                                            <option value="">No Tax</option>
+                                            <option value="">No Aplica</option>
                                             <?php $__currentLoopData = $lims_tax_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tax): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <option value="<?php echo e($tax->id); ?>"><?php echo e($tax->name); ?></option>
                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -185,8 +186,8 @@
                                     <div class="form-group">
                                         <label><?php echo e(trans('Contivuyente especia')); ?></strong> </label> <i class="dripicons-question" data-toggle="tooltip" title="<?php echo e(trans('file.Exclusive: Poduct price = Actual product price + Tax. Inclusive: Actual product price = Product price - Tax')); ?>"></i>
                                         <select name="tax_method" class="form-control selectpicker">
-                                            <option value="1"><?php echo e(trans('si')); ?></option>
-                                            <option value="2"><?php echo e(trans('no')); ?></option>
+                                            <option value="1"><?php echo e(trans('Excluyente')); ?></option>
+                                            <option value="2"><?php echo e(trans('Incluyebte')); ?></option>
                                         </select>
                                     </div>
                                 </div>
@@ -233,10 +234,10 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
-                                    <input name="promotion" type="checkbox" id="promotion" value="1">&nbsp;
-                                    <label><h5> <?php echo e(trans('Agregar precio promocional')); ?></h5></label>
-                                </div>
+<!--                                <div class="col-md-4 mt-3">-->
+<!--                                    <input name="promotion" type="checkbox" id="promotion" value="1">&nbsp;-->
+<!--                                    <label><h5> --><?php //echo e(trans('Agregar precio promocional')); ?><!--</h5></label>-->
+<!--                                </div>-->
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-4" id="promotion_price">

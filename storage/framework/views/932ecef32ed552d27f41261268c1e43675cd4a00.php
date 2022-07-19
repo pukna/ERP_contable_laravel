@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--Ventas-->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('message')): ?>
   <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo session()->get('message'); ?></div>
 <?php endif; ?>
