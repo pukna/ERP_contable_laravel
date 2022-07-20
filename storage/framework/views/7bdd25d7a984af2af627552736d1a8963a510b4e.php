@@ -858,7 +858,7 @@
 <!--                  </li>-->
                   <?php endif; ?>
                   <?php if($warehouse_permission_active): ?>
-<!--                  <li id="warehouse-menu"><a href="--><?php //echo e(route('warehouse.index')); ?><!--">--><?php //echo e(trans('file.Warehouse')); ?><!--</a></li>-->
+                  <li id="warehouse-menu"><a href="<?php echo e(route('warehouse.index')); ?>"><?php echo e(trans('Bodega')); ?></a></li>
                   <?php endif; ?>
                   <?php if($customer_group_permission_active): ?>
                   <li id="customer-group-menu"><a href="<?php echo e(route('customer_group.index')); ?>"><?php echo e(trans('Grupo de clientes')); ?></a></li>
