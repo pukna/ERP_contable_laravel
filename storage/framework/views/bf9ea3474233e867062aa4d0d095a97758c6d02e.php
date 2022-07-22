@@ -54,7 +54,7 @@
                                 <?php echo e(Form::open(['route' => ['brand.destroy', $brand->id], 'method' => 'DELETE'] )); ?>
 
                                 <li>
-                                    <button type="submit" class="btn btn-link" onclick="return confirm('Are you sure want to delete?')"><i class="dripicons-trash"></i> <?php echo e(trans('file.delete')); ?></button>
+                                    <button type="submit" class="btn btn-link" onclick="return confirm('Are you sure want to delete?')"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
                                 </li>
                                 <?php echo e(Form::close()); ?>
 
@@ -141,24 +141,24 @@
         <?php echo e(Form::open(['route' => ['brand.update', 1], 'method' => 'PUT', 'files' => true] )); ?>
 
       <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('file.Update Brand')); ?></h5>
+        <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('Actualizar marca')); ?></h5>
         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
       </div>
       <div class="modal-body">
-        <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
+        <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
           <div class="form-group">
-            <label><?php echo e(trans('file.Title')); ?> *</label>
+            <label><?php echo e(trans('Titulo')); ?> *</label>
             <?php echo e(Form::text('title',null, array('required' => 'required', 'class' => 'form-control'))); ?>
 
         </div>
         <input type="hidden" name="brand_id">
         <div class="form-group">
-            <label><?php echo e(trans('file.Image')); ?></label>
+            <label><?php echo e(trans('Imagen')); ?></label>
             <?php echo e(Form::file('image', array('class' => 'form-control'))); ?>
 
         </div>
         <div class="form-group">
-            <input type="submit" value="<?php echo e(trans('file.submit')); ?>" class="btn btn-primary">
+            <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
           </div>
         </div>
       <?php echo e(Form::close()); ?>
