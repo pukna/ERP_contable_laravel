@@ -864,13 +864,13 @@
                   <li id="customer-group-menu"><a href="<?php echo e(route('customer_group.index')); ?>"><?php echo e(trans('Grupo de clientes')); ?></a></li>
                   <?php endif; ?>
                   <?php if($brand_permission_active): ?>
-<!--                  <li id="brand-menu"><a href="--><?php //echo e(route('brand.index')); ?><!--">--><?php //echo e(trans('file.Brand')); ?><!--</a></li>-->
+                  <li id="brand-menu"><a href="<?php echo e(route('brand.index')); ?>"><?php echo e(trans('Marca')); ?></a></li>
                   <?php endif; ?>
                   <?php if($unit_permission_active): ?>
-<!--                  <li id="unit-menu"><a href="--><?php //echo e(route('unit.index')); ?><!--">--><?php //echo e(trans('file.Unit')); ?><!--</a></li>-->
+                  <li id="unit-menu"><a href="<?php echo e(route('unit.index')); ?>"><?php echo e(trans('Unidades')); ?></a></li>
                   <?php endif; ?>
                   <?php if($tax_permission_active): ?>
-<!--                  <li id="tax-menu"><a href="--><?php //echo e(route('tax.index')); ?><!--">--><?php //echo e(trans('file.Tax')); ?><!--</a></li>-->
+                  <li id="tax-menu"><a href="<?php echo e(route('tax.index')); ?>"><?php echo e(trans('Impuestos')); ?></a></li>
                   <?php endif; ?>
                   <li id="user-menu"><a href="<?php echo e(route('user.profile', ['id' => Auth::id()])); ?>"><?php echo e(trans('Perfil de usuario')); ?></a></li>
                   <?php if($create_sms_permission_active): ?>
