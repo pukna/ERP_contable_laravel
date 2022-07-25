@@ -990,29 +990,29 @@
 <!--                      </ul>-->
 <!--                </li>-->
                 <li class="nav-item">
-                    <a class="dropdown-item" href="https://ventas.programacionparacompartir.com/" target="_blank"><i class="dripicons-information"></i> <?php echo e(trans('file.Help')); ?></a>
+<!--                    <a class="dropdown-item" href="http://www.tectotal.com.ec/" target="_blank"><i class="dripicons-information"></i> --><?php //echo e(trans('file.Help')); ?><!--</a>-->
                 </li>
                 <li class="nav-item">
                   <a rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-item"><i class="dripicons-user"></i> <span><?php echo e(ucfirst(Auth::user()->name)); ?></span> <i class="fa fa-angle-down"></i>
                   </a>
                   <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
                       <li>
-                        <a href="<?php echo e(route('user.profile', ['id' => Auth::id()])); ?>"><i class="dripicons-user"></i> <?php echo e(trans('file.profile')); ?></a>
+                        <a href="<?php echo e(route('user.profile', ['id' => Auth::id()])); ?>"><i class="dripicons-user"></i> <?php echo e(trans('Perfil')); ?></a>
                       </li>
                       <?php if($general_setting_permission_active): ?>
                       <li>
-                        <a href="<?php echo e(route('setting.general')); ?>"><i class="dripicons-gear"></i> <?php echo e(trans('file.settings')); ?></a>
+<!--                        <a href="--><?php //echo e(route('setting.general')); ?><!--"><i class="dripicons-gear"></i> --><?php //echo e(trans('file.settings')); ?><!--</a>-->
                       </li>
                       <?php endif; ?>
                       <li>
-                        <a href="<?php echo e(url('my-transactions/'.date('Y').'/'.date('m'))); ?>"><i class="dripicons-swap"></i> <?php echo e(trans('file.My Transaction')); ?></a>
+<!--                        <a href="--><?php //echo e(url('my-transactions/'.date('Y').'/'.date('m'))); ?><!--"><i class="dripicons-swap"></i> --><?php //echo e(trans('file.My Transaction')); ?><!--</a>-->
                       </li>
                       <li>
-                        <a href="<?php echo e(url('holidays/my-holiday/'.date('Y').'/'.date('m'))); ?>"><i class="dripicons-vibrate"></i> <?php echo e(trans('file.My Holiday')); ?></a>
+<!--                        <a href="--><?php //echo e(url('holidays/my-holiday/'.date('Y').'/'.date('m'))); ?><!--"><i class="dripicons-vibrate"></i> --><?php //echo e(trans('file.My Holiday')); ?><!--</a>-->
                       </li>
                       <?php if($empty_database_permission_active): ?>
                       <li>
-                        <a onclick="return confirm('Are you sure want to delete? If you do this all of your data will be lost.')" href="<?php echo e(route('setting.emptyDatabase')); ?>"><i class="dripicons-stack"></i> <?php echo e(trans('file.Empty Database')); ?></a>
+                        <a onclick="return confirm('Are you sure want to delete? If you do this all of your data will be lost.')" href="<?php echo e(route('setting.emptyDatabase')); ?>"><i class="dripicons-stack"></i> <?php echo e(trans('Vaciar base de datos')); ?></a>
                       </li>
                       <?php endif; ?>
                       <li>
