@@ -877,7 +877,7 @@
 <!--                  <li id="create-sms-menu"><a href="--><?php //echo e(route('setting.createSms')); ?><!--">--><?php //echo e(trans('file.Create SMS')); ?><!--</a></li>-->
                   <?php endif; ?>
                   <?php if($general_setting_permission_active): ?>
-                  <li id="general-setting-menu"><a href="<?php echo e(route('setting.general')); ?>"><?php echo e(trans('Configuracion General')); ?></a></li>
+<!--                  <li id="general-setting-menu"><a href="--><?php //echo e(route('setting.general')); ?><!--">--><?php //echo e(trans('Configuracion General')); ?><!--</a></li>-->
                   <?php endif; ?>
                   <?php if($mail_setting_permission_active): ?>
 <!--                  <li id="mail-setting-menu"><a href="--><?php //echo e(route('setting.mail')); ?><!--">--><?php //echo e(trans('file.Mail Setting')); ?><!--</a></li>-->

@@ -1,13 +1,13 @@
-<!--Impuesto-->
- <?php $__env->startSection('content'); ?>
+<!--unidades -->
+<?php $__env->startSection('content'); ?>
 
-<?php if($errors->has('name')): ?>
+<?php if($errors->has('unit_code')): ?>
 <div class="alert alert-danger alert-dismissible text-center">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e($errors->first('name')); ?></div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e($errors->first('unit_code')); ?></div>
 <?php endif; ?>
-<?php if($errors->has('rate')): ?>
+<?php if($errors->has('unit_name')): ?>
 <div class="alert alert-danger alert-dismissible text-center">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e($errors->first('rate')); ?></div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e($errors->first('unit_name')); ?></div>
 <?php endif; ?>
 <?php if(session()->has('message')): ?>
   <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div>
@@ -18,25 +18,44 @@
 
 <section>
     <div class="container-fluid">
-        <a href="#" data-toggle="modal" data-target="#createModal" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Agregar Impuesto')); ?></a>
-<!--        <a href="#" data-toggle="modal" data-target="#importTax" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.Import Tax')); ?><!--</a>-->
+        <a href="#" data-toggle="modal" data-target="#createModal" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Agregar Unidad')); ?></a>&nbsp;
+<!--        <a href="#" data-toggle="modal" data-target="#importUnit" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.Import Unit')); ?><!--</a>-->
     </div>
     <div class="table-responsive">
-        <table id="tax-table" class="table">
+        <table id="unit-table" class="table">
             <thead>
                 <tr>
                     <th class="not-exported"></th>
-                    <th><?php echo e(trans('Nombre')); ?></th>
-                    <th><?php echo e(trans('Tarifa')); ?>(%)</th>
+                    <th><?php echo e(trans('Codigo')); ?></th>
+                    <th><?php echo e(trans('nombre')); ?></th>
+                    <th><?php echo e(trans('Unidad base')); ?></th>
+                    <th><?php echo e(trans('Operador')); ?></th>
+                    <th><?php echo e(trans('Valor de la operación')); ?></th>
                     <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $lims_tax_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$tax): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <tr data-id="<?php echo e($tax->id); ?>">
+                <?php $__currentLoopData = $lims_unit_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr data-id="<?php echo e($unit->id); ?>">
                     <td><?php echo e($key); ?></td>
-                    <td><?php echo e($tax->name); ?></td>
-                    <td><?php echo e($tax->rate); ?></td>
+                    <td><?php echo e($unit->unit_code); ?></td>
+                    <td><?php echo e($unit->unit_name); ?></td>
+                    <?php if($unit->base_unit): ?>
+                        <?php $base_unit = DB::table('units')->where('id', $unit->base_unit)->first(); ?>
+                        <td><?php echo e($base_unit->unit_name); ?></td>
+                    <?php else: ?>
+                        <td>N/A</td>
+                    <?php endif; ?>
+                    <?php if($unit->operator): ?>
+                        <td><?php echo e($unit->operator); ?></td>
+                    <?php else: ?>
+                        <td>N/A</td>
+                    <?php endif; ?>
+                    <?php if($unit->operation_value): ?>
+                        <td><?php echo e($unit->operation_value); ?></td>
+                    <?php else: ?>
+                        <td>N/A</td>
+                    <?php endif; ?>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
@@ -46,12 +65,12 @@
                             </button>
                             <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
                                 <li>
-                                    <button type="button" data-id="<?php echo e($tax->id); ?>" class="open-EdittaxDialog btn btn-link" data-toggle="modal" data-target="#editModal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?>
+                                    <button type="button" data-id="<?php echo e($unit->id); ?>" class="open-EditUnitDialog btn btn-link" data-toggle="modal" data-target="#editModal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?>
 
                                 </button>
                                 </li>
                                 <li class="divider"></li>
-                                <?php echo e(Form::open(['route' => ['tax.destroy', $tax->id], 'method' => 'DELETE'] )); ?>
+                                <?php echo e(Form::open(['route' => ['unit.destroy', $unit->id], 'method' => 'DELETE'] )); ?>
 
                                 <li>
                                     <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
@@ -67,83 +86,117 @@
         </table>
     </div>
 </section>
+<!-- Modal -->
 
 <div id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
     <div role="document" class="modal-dialog">
         <div class="modal-content">
-            <?php echo Form::open(['route' => 'tax.store', 'method' => 'post']); ?>
+            <?php echo Form::open(['route' => 'unit.store', 'method' => 'post']); ?>
 
             <div class="modal-header">
-                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Agregar Impuesto')); ?></h5>
+                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Agregar unidad')); ?></h5>
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
             </div>
             <div class="modal-body">
                 <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
                 <form>
                     <div class="form-group">
-                    <label><?php echo e(trans('Nombre impuesto')); ?> *</label>
-                    <?php echo e(Form::text('name',null,array('required' => 'required', 'class' => 'form-control'))); ?>
+                    <label><?php echo e(trans('Código')); ?> *</label>
+                    <?php echo e(Form::text('unit_code',null,array('required' => 'required', 'class' => 'form-control'))); ?>
 
                     </div>
                     <div class="form-group">
-                        <label><?php echo e(trans('Tarifa')); ?>(%) *</label>
-                        <?php echo e(Form::number('rate',null,array('required' => 'required', 'class' => 'form-control', 'step' => 'any'))); ?>
+                        <label><?php echo e(trans('Nombre')); ?> *</label>
+                        <?php echo e(Form::text('unit_name',null,array('required' => 'required', 'class' => 'form-control'))); ?>
 
                     </div>
+                    <div class="form-group">
+                        <label><?php echo e(trans('Unidad base')); ?></label>
+                        <select class="form-control selectpicker" id="base_unit_create" name="base_unit">
+                            <option value="">No Base Unit</option>
+                            <?php $__currentLoopData = $lims_unit_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php if($unit->base_unit==null): ?>
+                                <option value="<?php echo e($unit->id); ?>"><?php echo e($unit->unit_name); ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
+                    <div class="form-group operator">
+                        <label><?php echo e(trans('Operador')); ?></label> <input type="text" name="operator" placeholder="Enter your Name" class="form-control" />
+                    </div>
+                    <div class="form-group operation_value">
+                        <label><?php echo e(trans('Valor de la operación')); ?></label><input type="number" name="operation_value" placeholder="Enter operation value" class="form-control" step="any"/>
+                    </div>
                     <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
-            	</form>
-        	</div>
+            </form>
+        </div>
         <?php echo e(Form::close()); ?>
 
-    	</div>
-	</div>
+    </div>
+</div>
 </div>
 
 <div id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-	<div role="document" class="modal-dialog">
-		  <div class="modal-content">
-		    <?php echo Form::open(['route' => ['tax.update',1], 'method' => 'put']); ?>
-
-		    <div class="modal-header">
-		      <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('Actualizar Impuesto')); ?></h5>
-		      <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-		    </div>
-		    <div class="modal-body">
-		      <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
-		        <form>
-		            <input type="hidden" name="tax_id">
-		            <div class="form-group">
-		                <label><?php echo e(trans('nombre de impuesto')); ?> *</label>
-		                <?php echo e(Form::text('name',null,array('required' => 'required', 'class' => 'form-control'))); ?>
-
-		            </div>
-		            <div class="form-group">
-		                <label><?php echo e(trans('Tarifa')); ?>(%) *</label>
-		                <?php echo e(Form::number('rate',null,array('required' => 'required', 'class' => 'form-control', 'step' => 'any'))); ?>
-
-		            </div>
-		            <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
-		        </form>
-		    </div>
-		    <?php echo e(Form::close()); ?>
-
-		  </div>
-	</div>
-</div>
-
-<div id="importTax" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
     <div role="document" class="modal-dialog">
       <div class="modal-content">
-        <?php echo Form::open(['route' => 'tax.import', 'method' => 'post', 'files' => true]); ?>
+        <?php echo Form::open(['route' => ['unit.update',1], 'method' => 'put']); ?>
 
         <div class="modal-header">
-          <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Import Tax')); ?></h5>
+          <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('Actualizar unidad')); ?></h5>
+          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+        </div>
+        <div class="modal-body">
+          <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+            <form>
+                <input type="hidden" name="unit_id">
+                <div class="form-group">
+                <label><?php echo e(trans('Codigo')); ?> *</label>
+                <?php echo e(Form::text('unit_code',null,array('required' => 'required', 'class' => 'form-control'))); ?>
+
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Nombre')); ?> *</label>
+                    <?php echo e(Form::text('unit_name',null,array('required' => 'required', 'class' => 'form-control'))); ?>
+
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Unidad base')); ?></label>
+                    <select class="form-control selectpicker" id="base_unit_edit" name="base_unit">
+                        <option value="">No Base Unit</option>
+                        <?php $__currentLoopData = $lims_unit_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $unit): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if($unit->base_unit==null): ?>
+                            <option value="<?php echo e($unit->id); ?>"><?php echo e($unit->unit_name); ?></option>
+                            <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                </div>
+                <div class="form-group operator">
+                    <label><?php echo e(trans('Operador')); ?></label> <input type="text" name="operator" placeholder="Enter your Name" class="form-control" />
+                </div>
+                <div class="form-group operation_value">
+                    <label><?php echo e(trans('Valor de la operación')); ?></label><input type="number" name="operation_value" placeholder="Enter operation value" class="form-control" step="any"/>
+                </div>
+                <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
+            </form>
+        </div>
+        <?php echo e(Form::close()); ?>
+
+      </div>
+    </div>
+</div>
+
+<div id="importUnit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div role="document" class="modal-dialog">
+      <div class="modal-content">
+        <?php echo Form::open(['route' => 'unit.import', 'method' => 'post', 'files' => true]); ?>
+
+        <div class="modal-header">
+          <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('file.Import Unit')); ?></h5>
           <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
         </div>
         <div class="modal-body">
             <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
-           <p><?php echo e(trans('file.The correct column order is')); ?> (name*, rate*) <?php echo e(trans('file.and you must follow this')); ?>.</p>
-
+            <p><?php echo e(trans('file.The correct column order is')); ?> (unit_code*, unit_name*, base_unit [unit code], operator, operation_value) <?php echo e(trans('file.and you must follow this')); ?>.</p>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -155,7 +208,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label> <?php echo e(trans('file.Sample File')); ?></label>
-                        <a href="public/sample_file/sample_tax.csv" class="btn btn-info btn-block btn-md"><i class="dripicons-download"></i>  <?php echo e(trans('file.Download')); ?></a>
+                        <a href="public/sample_file/sample_unit.csv" class="btn btn-info btn-block btn-md"><i class="dripicons-download"></i>  <?php echo e(trans('file.Download')); ?></a>
                     </div>
                 </div>
             </div>
@@ -170,9 +223,9 @@
 <script type="text/javascript">
     $("ul#setting").siblings('a').attr('aria-expanded','true');
     $("ul#setting").addClass("show");
-    $("ul#setting #tax-menu").addClass("active");
+    $("ul#setting #unit-menu").addClass("active");
 
-    var tax_id = [];
+    var unit_id = [];
     var user_verified = <?php echo json_encode(env('USER_VERIFIED')) ?>;
 
     $.ajaxSetup({
@@ -181,23 +234,39 @@
         }
     });
 
-	 function confirmDelete() {
+    $(".operator").hide();
+    $(".operation_value").hide();
+     function confirmDelete() {
         if (confirm("Are you sure want to delete?")) {
             return true;
         }
         return false;
     }
-
-    $(document).ready(function() {
-    $('.open-EdittaxDialog').on('click', function() {
-        var url = "tax/"
+$(document).ready(function() {
+    $('.open-EditUnitDialog').on('click', function() {
+        var url = "unit/"
         var id = $(this).data('id').toString();
         url = url.concat(id).concat("/edit");
 
         $.get(url, function(data) {
-            $("#editModal input[name='name']").val(data['name']);
-            $("#editModal input[name='rate']").val(data['rate']);
-            $("#editModal input[name='tax_id']").val(data['id']);
+            $("input[name='unit_code']").val(data['unit_code']);
+            $("input[name='unit_name']").val(data['unit_name']);
+            $("input[name='operator']").val(data['operator']);
+            $("input[name='operation_value']").val(data['operation_value']);
+            $("input[name='unit_id']").val(data['id']);
+            $("#base_unit_edit").val(data['base_unit']);
+            if(data['base_unit']!=null)
+            {
+                $(".operator").show();
+                $(".operation_value").show();
+            }
+            else
+            {
+                $(".operator").hide();
+                $(".operation_value").hide();
+            }
+            $('.selectpicker').selectpicker('refresh');
+
         });
     });
 
@@ -207,12 +276,70 @@
         }
     });
 
-    $('#tax-table').DataTable( {
+    $( "#select_all" ).on( "change", function() {
+        if ($(this).is(':checked')) {
+            $("tbody input[type='checkbox']").prop('checked', true);
+        }
+        else {
+            $("tbody input[type='checkbox']").prop('checked', false);
+        }
+    });
+
+    $("#export").on("click", function(e){
+        e.preventDefault();
+        var unit = [];
+        $(':checkbox:checked').each(function(i){
+          unit[i] = $(this).val();
+        });
+        $.ajax({
+           type:'POST',
+           url:'/exportunit',
+           data:{
+
+                unitArray: unit
+            },
+           success:function(data){
+            alert('Exported to CSV file successfully! Click Ok to download file');
+            window.location.href = data;
+           }
+        });
+    });
+
+    $('.open-CreateUnitDialog').on('click', function() {
+        $(".operator").hide();
+        $(".operation_value").hide();
+
+    });
+
+    $('#base_unit_create').on('change', function() {
+        if($(this).val()){
+            $("#createModal .operator").show();
+            $("#createModal .operation_value").show();
+        }
+        else{
+            $("#createModal .operator").hide();
+            $("#createModal .operation_value").hide();
+        }
+    });
+
+    $('#base_unit_edit').on('change', function() {
+        if($(this).val()){
+            $("#editModal .operator").show();
+            $("#editModal .operation_value").show();
+        }
+        else{
+            $("#editModal .operator").hide();
+            $("#editModal .operation_value").hide();
+        }
+    });
+});
+
+    $('#unit-table').DataTable( {
         "order": [],
         'language': {
-            'lengthMenu': '_MENU_ <?php echo e(trans("file.records per page")); ?>',
-             "info":      '<small><?php echo e(trans("file.Showing")); ?> _START_ - _END_ (_TOTAL_)</small>',
-            "search":  '<?php echo e(trans("file.Search")); ?>',
+            'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
+             "info":      '<small><?php echo e(trans("Pagina")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
                     'previous': '<i class="dripicons-chevron-left"></i>',
                     'next': '<i class="dripicons-chevron-right"></i>'
@@ -221,7 +348,7 @@
         'columnDefs': [
             {
                 "orderable": false,
-                'targets': [0, 3]
+                'targets': [0, 6]
             },
             {
                 'render': function(data, type, row, meta){
@@ -238,10 +365,8 @@
                 'targets': [0]
             }
         ],
-        'select': {
-            'style': 'multi'
-        },
         'select': { style: 'multi',  selector: 'td:first-child'},
+        'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, "All"]],
         dom: '<"row"lfB>rtip',
         buttons: [
             {
@@ -273,18 +398,18 @@
                 className: 'buttons-delete',
                 action: function ( e, dt, node, config ) {
                     if(user_verified == '1') {
-                        tax_id.length = 0;
+                        unit_id.length = 0;
                         $(':checkbox:checked').each(function(i){
                             if(i){
-                                tax_id[i-1] = $(this).closest('tr').data('id');
+                                unit_id[i-1] = $(this).closest('tr').data('id');
                             }
                         });
-                        if(tax_id.length && confirm("Are you sure want to delete?")) {
+                        if(unit_id.length && confirm("Are you sure want to delete?")) {
                             $.ajax({
                                 type:'POST',
-                                url:'tax/deletebyselection',
+                                url:'unit/deletebyselection',
                                 data:{
-                                    taxIdArray: tax_id
+                                    unitIdArray: unit_id
                                 },
                                 success:function(data){
                                     alert(data);
@@ -292,8 +417,8 @@
                             });
                             dt.rows({ page: 'current', selected: true }).remove().draw(false);
                         }
-                        else if(!tax_id.length)
-                            alert('No tax is selected!');
+                        else if(!unit_id.length)
+                            alert('No unit is selected!');
                     }
                     else
                         alert('This feature is disable for demo!');
@@ -306,9 +431,6 @@
             },
         ],
     } );
-
-});
 </script>
-
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/tax/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/unit/create.blade.php ENDPATH**/ ?>
