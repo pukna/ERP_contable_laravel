@@ -75,7 +75,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group" id="biller-id">
-                                        <label><strong><?php echo e(trans('file.Biller')); ?> *</strong></label>
+                                        <label><strong><?php echo e(trans('Area')); ?> *</strong></label>
                                         <input type="hidden" name="biller_id_hidden" value="<?php echo e($lims_user_data->biller_id); ?>">
                                         <select name="biller_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Biller...">
                                           <?php $__currentLoopData = $lims_biller_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $biller): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -84,7 +84,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group" id="warehouseId">
-                                        <label><strong><?php echo e(trans('file.Warehouse')); ?> *</strong></label>
+                                        <label><strong><?php echo e(trans('Bodega')); ?> *</strong></label>
                                         <input type="hidden" name="warehouse_id_hidden" value="<?php echo e($lims_user_data->warehouse_id); ?>">
                                         <select name="warehouse_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Warehouse...">
                                           <?php $__currentLoopData = $lims_warehouse_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>

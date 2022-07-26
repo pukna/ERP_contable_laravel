@@ -9,7 +9,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex align-items-center">
-                        <h4><?php echo e(trans('Add Usuario')); ?></h4>
+                        <h4><?php echo e(trans('Agregar Usuario')); ?></h4>
                     </div>
                     <div class="card-body">
                         <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
@@ -75,7 +75,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group" id="biller-id">
-                                        <label><strong><?php echo e(trans('file.Biller')); ?> *</strong></label>
+                                        <label><strong><?php echo e(trans('Area')); ?> *</strong></label>
                                         <select name="biller_id" required class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Biller...">
                                           <?php $__currentLoopData = $lims_biller_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $biller): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                               <option value="<?php echo e($biller->id); ?>"><?php echo e($biller->name); ?></option>
