@@ -50,7 +50,7 @@
                                             <select name="barcode_symbology" required class="form-control selectpicker">
                                                 <option value="C128">MEC</option>
                                                 <option value="C39">ADM</option>
-                                                <option value="UPCA">UPC-A</option>
+                                                <option value="UPCA">TI</option>
                                                 <option value="UPCE">UPC-E</option>
                                                 <option value="EAN8">EAN-8</option>
                                                 <option value="EAN13">EAN-13</option>
@@ -184,7 +184,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label><?php echo e(trans('Contivuyente especia')); ?></strong> </label> <i class="dripicons-question" data-toggle="tooltip" title="<?php echo e(trans('file.Exclusive: Poduct price = Actual product price + Tax. Inclusive: Actual product price = Product price - Tax')); ?>"></i>
+                                        <label><?php echo e(trans('Metodo de Impuesto')); ?></strong> </label> <i class="dripicons-question" data-toggle="tooltip" title="<?php echo e(trans('Exclusivo: Precio del producto = Precio real del producto + Impuestos. Incluido: Precio real del producto = Precio del producto - Impuestos')); ?>"></i>
                                         <select name="tax_method" class="form-control selectpicker">
                                             <option value="1"><?php echo e(trans('Excluyente')); ?></option>
                                             <option value="2"><?php echo e(trans('Incluyebte')); ?></option>
