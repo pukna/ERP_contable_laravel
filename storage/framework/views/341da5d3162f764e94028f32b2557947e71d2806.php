@@ -393,37 +393,37 @@ $(document).ready(function() {
                     rows: ':visible'
                 },
             },
-            {
-                text: '<?php echo e(trans("Eliminar")); ?>',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        unit_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                unit_id[i-1] = $(this).closest('tr').data('id');
-                            }
-                        });
-                        if(unit_id.length && confirm("Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'unit/deletebyselection',
-                                data:{
-                                    unitIdArray: unit_id
-                                },
-                                success:function(data){
-                                    alert(data);
-                                }
-                            });
-                            dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                        }
-                        else if(!unit_id.length)
-                            alert('No unit is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            unit_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    unit_id[i-1] = $(this).closest('tr').data('id');
+            //                }
+            //            });
+            //            if(unit_id.length && confirm("Are you sure want to delete?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'unit/deletebyselection',
+            //                    data:{
+            //                        unitIdArray: unit_id
+            //                    },
+            //                    success:function(data){
+            //                        alert(data);
+            //                    }
+            //                });
+            //                dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //            }
+            //            else if(!unit_id.length)
+            //                alert('No unit is selected!');
+            //        }
+            //        else
+            //            alert('This feature is disable for demo!');
+            //    }
+            //},
             {
                 extend: 'colvis',
                 text: '<?php echo e(trans("Visualizar")); ?>',

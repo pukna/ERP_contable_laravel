@@ -270,37 +270,37 @@ function confirmDelete() {
                 },
                 footer:true
             },
-            {
-                text: '<?php echo e(trans("Eliminar")); ?>',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        money_transfer_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                money_transfer_id[i-1] = $(this).closest('tr').data('id');
-                            }
-                        });
-                        if(money_transfer_id.length && confirm("Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'money_transfers/deletebyselection',
-                                data:{
-                                    money_transferIdArray: money_transfer_id
-                                },
-                                success:function(data){
-                                    alert(data);
-                                }
-                            });
-                            dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                        }
-                        else if(!money_transfer_id.length)
-                            alert('No money_transfer is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            money_transfer_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    money_transfer_id[i-1] = $(this).closest('tr').data('id');
+            //                }
+            //            });
+            //            if(money_transfer_id.length && confirm("Are you sure want to delete?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'money_transfers/deletebyselection',
+            //                    data:{
+            //                        money_transferIdArray: money_transfer_id
+            //                    },
+            //                    success:function(data){
+            //                        alert(data);
+            //                    }
+            //                });
+            //                dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //            }
+            //            else if(!money_transfer_id.length)
+            //                alert('No money_transfer is selected!');
+            //        }
+            //        else
+            //            alert('This feature is disable for demo!');
+            //    }
+            //},
             {
                 extend: 'colvis',
                 text: '<?php echo e(trans("Visibilidad de columna")); ?>',

@@ -291,37 +291,37 @@
                     rows: ':visible'
                 },
             },
-            {
-                text: '<?php echo e(trans("Eliminar")); ?>',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        warehouse_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                warehouse_id[i-1] = $(this).closest('tr').data('id');
-                            }
-                        });
-                        if(warehouse_id.length && confirm("Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'warehouse/deletebyselection',
-                                data:{
-                                    warehouseIdArray: warehouse_id
-                                },
-                                success:function(data){
-                                    alert(data);
-                                }
-                            });
-                            dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                        }
-                        else if(!warehouse_id.length)
-                            alert('No warehouse is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            warehouse_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    warehouse_id[i-1] = $(this).closest('tr').data('id');
+            //                }
+            //            });
+            //            if(warehouse_id.length && confirm("Are you sure want to delete?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'warehouse/deletebyselection',
+            //                    data:{
+            //                        warehouseIdArray: warehouse_id
+            //                    },
+            //                    success:function(data){
+            //                        alert(data);
+            //                    }
+            //                });
+            //                dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //            }
+            //            else if(!warehouse_id.length)
+            //                alert('No warehouse is selected!');
+            //        }
+            //        else
+            //            alert('This feature is disable for demo!');
+            //    }
+            //},
             {
                 text: '<?php echo e(trans("Visualizar")); ?>',
                 extend: 'colvis',

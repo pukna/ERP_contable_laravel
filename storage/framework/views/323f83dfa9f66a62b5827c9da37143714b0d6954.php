@@ -191,13 +191,13 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group mt-3">
-                                        <input type="checkbox" name="featured" value="1">&nbsp;
-                                        <label><?php echo e(trans('Destacado')); ?></label>
-                                        <p class="italic"><?php echo e(trans('El producto destacado se mostrará en POS')); ?></p>
-                                    </div>
-                                </div>
+<!--                                <div class="col-md-4">-->
+<!--                                    <div class="form-group mt-3">-->
+<!--                                        <input type="checkbox" name="featured" value="1">&nbsp;-->
+<!--                                        <label>--><?php //echo e(trans('Destacado')); ?><!--</label>-->
+<!--                                        <p class="italic">--><?php //echo e(trans('El producto destacado se mostrará en POS')); ?><!--</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label><?php echo e(trans('Imagen del Producto')); ?></strong> </label> <i class="dripicons-question" data-toggle="tooltip" title="<?php echo e(trans('Puede cargar varias imágenes. Solo se pueden cargar archivos .jpeg, .jpg, .png y .gif. La primera imagen será la imagen base.')); ?>"></i>

@@ -139,7 +139,7 @@ class AccountsController extends Controller
         $payroll_list = [];
         $recieved_money_transfer_list = [];
         $sent_money_transfer_list = [];
-        
+
         if($data['type'] == '0' || $data['type'] == '2') {
             $credit_list = Payment::whereNotNull('sale_id')->where('account_id', $data['account_id'])->whereDate('created_at', '>=' , $data['start_date'])->whereDate('created_at', '<=' , $data['end_date'])->get();
 
@@ -165,7 +165,7 @@ class AccountsController extends Controller
     public function destroy($id)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'This feature is disable for demo!');
+            return redirect()->back()->with('not_permitted', 'You do not have enough permissions!');
         $lims_account_data = Account::find($id);
         if(!$lims_account_data->is_default){
             $lims_account_data->is_active = false;

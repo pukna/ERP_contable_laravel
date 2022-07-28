@@ -770,38 +770,38 @@
                 },
                 footer:true
             },
-            {
-                text: '<?php echo e(trans("Eliminar")); ?>',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        sale_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                var sale = $(this).closest('tr').data('sale');
-                                sale_id[i-1] = sale[13];
-                            }
-                        });
-                        if(sale_id.length && confirm("Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'sales/deletebyselection',
-                                data:{
-                                    saleIdArray: sale_id
-                                },
-                                success:function(data){
-                                    //dt.rows({ page: 'current', selected: true }).deselect();
-                                    dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                                }
-                            });
-                        }
-                        else if(!sale_id.length)
-                            alert('Nothing is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            sale_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    var sale = $(this).closest('tr').data('sale');
+            //                    sale_id[i-1] = sale[13];
+            //                }
+            //            });
+            //            if(sale_id.length && confirm("Are you sure want to delete?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'sales/deletebyselection',
+            //                    data:{
+            //                        saleIdArray: sale_id
+            //                    },
+            //                    success:function(data){
+            //                        //dt.rows({ page: 'current', selected: true }).deselect();
+            //                        dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //                    }
+            //                });
+            //            }
+            //            else if(!sale_id.length)
+            //                alert('Nothing is selected!');
+            //        }
+            //        else
+            //            alert('This feature is disable for demo!');
+            //    }
+            //},
             {
                 extend: 'colvis',
                 text: '<?php echo e(trans("Visibilidad de columna")); ?>',
