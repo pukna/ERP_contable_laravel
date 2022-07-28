@@ -644,134 +644,135 @@
                         ['role_id', $role->id] ])->first();
               ?>
               <?php if($profit_loss_active || $best_seller_active || $warehouse_report_active || $warehouse_stock_report_active || $product_report_active || $daily_sale_active || $monthly_sale_active || $daily_purchase_active || $monthly_purchase_active || $purchase_report_active || $sale_report_active || $payment_report_active || $product_qty_alert_active || $user_report_active || $customer_report_active || $supplier_report_active || $due_report_active): ?>
-              <li><a href="#report" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document-remove"></i><span><?php echo e(trans('Reportes')); ?></span></a>
-                <ul id="report" class="collapse list-unstyled ">
-                  <?php if($profit_loss_active): ?>
-                  <li id="profit-loss-report-menu">
-                    <?php echo Form::open(['route' => 'report.profitLoss', 'method' => 'post', 'id' => 'profitLoss-report-form']); ?>
-
-                    <input type="hidden" name="start_date" value="<?php echo e(date('Y-m').'-'.'01'); ?>" />
-                    <input type="hidden" name="end_date" value="<?php echo e(date('Y-m-d')); ?>" />
-                    <a id="profitLoss-link" href=""><?php echo e(trans('Resumen')); ?></a>
-                    <?php echo Form::close(); ?>
-
-                  </li>
-                  <?php endif; ?>
-                  <?php if($best_seller_active): ?>
+<!--              <li>-->
+<!--                  <a href="#report" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document-remove"></i><span>--><?php //echo e(trans('Reportes')); ?><!--</span></a>-->
+<!--                <ul id="report" class="collapse list-unstyled ">-->
+<!--                  --><?php //if($profit_loss_active): ?>
+<!--                  <li id="profit-loss-report-menu">-->
+<!--                    --><?php //echo Form::open(['route' => 'report.profitLoss', 'method' => 'post', 'id' => 'profitLoss-report-form']); ?>
+<!---->
+<!--                    <input type="hidden" name="start_date" value="--><?php //echo e(date('Y-m').'-'.'01'); ?><!--" />-->
+<!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+<!--                    <a id="profitLoss-link" href="">--><?php //echo e(trans('Resumen')); ?><!--</a>-->
+<!--                    --><?php //echo Form::close(); ?>
+<!---->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($best_seller_active): ?>
 <!--                  <li id="best-seller-report-menu">-->
 <!--                    <a href="--><?php //echo e(url('report/best_seller')); ?><!--">--><?php //echo e(trans('file.Best Seller')); ?><!--</a>-->
 <!--                  </li>-->
-                  <?php endif; ?>
-                  <?php if($product_report_active): ?>
-                  <li id="product-report-menu">
-                    <?php echo Form::open(['route' => 'report.product', 'method' => 'post', 'id' => 'product-report-form']); ?>
-
-                    <input type="hidden" name="start_date" value="1988-04-18" />
-                    <input type="hidden" name="end_date" value="<?php echo e(date('Y-m-d')); ?>" />
-                    <input type="hidden" name="warehouse_id" value="0" />
-                    <a id="report-link" href=""><?php echo e(trans('Informe de Productos')); ?></a>
-                    <?php echo Form::close(); ?>
-
-                  </li>
-                  <?php endif; ?>
-                  <?php if($daily_sale_active): ?>
-                  <li id="daily-sale-report-menu">
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($product_report_active): ?>
+<!--                  <li id="product-report-menu">-->
+<!--                    --><?php //echo Form::open(['route' => 'report.product', 'method' => 'post', 'id' => 'product-report-form']); ?>
+<!---->
+<!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
+<!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+<!--                    <input type="hidden" name="warehouse_id" value="0" />-->
+<!--                    <a id="report-link" href="">--><?php //echo e(trans('Informe de Productos')); ?><!--</a>-->
+<!--                    --><?php //echo Form::close(); ?>
+<!---->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($daily_sale_active): ?>
+<!--                  <li id="daily-sale-report-menu">-->
 <!--                    <a href="--><?php //echo e(url('report/daily_sale/'.date('Y').'/'.date('m'))); ?><!--">--><?php //echo e(trans('file.Daily Sale')); ?><!--</a>-->
-                  </li>
-                  <?php endif; ?>
-                  <?php if($monthly_sale_active): ?>
-                  <li id="monthly-sale-report-menu">
-                    <a href="<?php echo e(url('report/monthly_sale/'.date('Y'))); ?>"><?php echo e(trans('Venta Mensual')); ?></a>
-                  </li>
-                  <?php endif; ?>
-                  <?php if($daily_purchase_active): ?>
-                  <li id="daily-purchase-report-menu">
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($monthly_sale_active): ?>
+<!--                  <li id="monthly-sale-report-menu">-->
+<!--                    <a href="--><?php //echo e(url('report/monthly_sale/'.date('Y'))); ?><!--">--><?php //echo e(trans('Venta Mensual')); ?><!--</a>-->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($daily_purchase_active): ?>
+<!--                  <li id="daily-purchase-report-menu">-->
 <!--                    <a href="--><?php //echo e(url('report/daily_purchase/'.date('Y').'/'.date('m'))); ?><!--">--><?php //echo e(trans('file.Daily Purchase')); ?><!--</a>-->
-                  </li>
-                  <?php endif; ?>
-                  <?php if($monthly_purchase_active): ?>
-                  <li id="monthly-purchase-report-menu">
-                    <a href="<?php echo e(url('report/monthly_purchase/'.date('Y'))); ?>"><?php echo e(trans('Compra Mensual')); ?></a>
-                  </li>
-                  <?php endif; ?>
-                  <?php if($sale_report_active): ?>
-                  <li id="sale-report-menu">
-                    <?php echo Form::open(['route' => 'report.sale', 'method' => 'post', 'id' => 'sale-report-form']); ?>
-
-                    <input type="hidden" name="start_date" value="1988-04-18" />
-                    <input type="hidden" name="end_date" value="<?php echo e(date('Y-m-d')); ?>" />
-                    <input type="hidden" name="warehouse_id" value="0" />
-                    <a id="sale-report-link" href=""><?php echo e(trans('Informe de venta')); ?></a>
-                    <?php echo Form::close(); ?>
-
-                  </li>
-                  <?php endif; ?>
-                  <?php if($payment_report_active): ?>
-                  <li id="payment-report-menu">
-                    <?php echo Form::open(['route' => 'report.paymentByDate', 'method' => 'post', 'id' => 'payment-report-form']); ?>
-
-                    <input type="hidden" name="start_date" value="1988-04-18" />
-                    <input type="hidden" name="end_date" value="<?php echo e(date('Y-m-d')); ?>" />
-                    <a id="payment-report-link" href=""><?php echo e(trans('Informe de pago')); ?></a>
-                    <?php echo Form::close(); ?>
-
-                  </li>
-                  <?php endif; ?>
-                  <?php if($purchase_report_active): ?>
-                  <li id="purchase-report-menu">
-                    <?php echo Form::open(['route' => 'report.purchase', 'method' => 'post', 'id' => 'purchase-report-form']); ?>
-
-                    <input type="hidden" name="start_date" value="1988-04-18" />
-                    <input type="hidden" name="end_date" value="<?php echo e(date('Y-m-d')); ?>" />
-                    <input type="hidden" name="warehouse_id" value="0" />
-                    <a id="purchase-report-link" href=""><?php echo e(trans('Informe de compra')); ?></a>
-                    <?php echo Form::close(); ?>
-
-                  </li>
-                  <?php endif; ?>
-                  <?php if($warehouse_report_active): ?>
-                  <li id="warehouse-report-menu">
-                    <a id="warehouse-report-link" href=""><?php echo e(trans('Informe de bodega')); ?></a>
-                  </li>
-                  <?php endif; ?>
-                  <?php if($warehouse_stock_report_active): ?>
-                  <li id="warehouse-stock-report-menu">
-                    <a href="<?php echo e(route('report.warehouseStock')); ?>"><?php echo e(trans('Existencia en almacen')); ?></a>
-                  </li>
-                  <?php endif; ?>
-                  <?php if($product_qty_alert_active): ?>
-                  <li id="qtyAlert-report-menu">
-                    <a href="<?php echo e(route('report.qtyAlert')); ?>"><?php echo e(trans('Alerta de productos')); ?></a>
-                  </li>
-                  <?php endif; ?>
-                  <?php if($user_report_active): ?>
-                  <li id="user-report-menu">
-                    <a id="user-report-link" href=""><?php echo e(trans('Informe de usuario')); ?></a>
-                  </li>
-                  <?php endif; ?>
-                  <?php if($customer_report_active): ?>
-                  <li id="customer-report-menu">
-                    <a id="customer-report-link" href=""><?php echo e(trans('Informe de cliente')); ?></a>
-                  </li>
-                  <?php endif; ?>
-                  <?php if($supplier_report_active): ?>
-                  <li id="supplier-report-menu">
-                    <a id="supplier-report-link" href=""><?php echo e(trans('Informe de proveedores')); ?></a>
-                  </li>
-                  <?php endif; ?>
-                  <?php if($due_report_active): ?>
-                  <li id="due-report-menu">
-                    <?php echo Form::open(['route' => 'report.dueByDate', 'method' => 'post', 'id' => 'due-report-form']); ?>
-
-                    <input type="hidden" name="start_date" value="1988-04-18" />
-                    <input type="hidden" name="end_date" value="<?php echo e(date('Y-m-d')); ?>" />
-                    <a id="due-report-link" href=""><?php echo e(trans('Informe vencidos')); ?></a>
-                    <?php echo Form::close(); ?>
-
-                  </li>
-                  <?php endif; ?>
-                </ul>
-              </li>
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($monthly_purchase_active): ?>
+<!--                  <li id="monthly-purchase-report-menu">-->
+<!--                    <a href="--><?php //echo e(url('report/monthly_purchase/'.date('Y'))); ?><!--">--><?php //echo e(trans('Compra Mensual')); ?><!--</a>-->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($sale_report_active): ?>
+<!--                  <li id="sale-report-menu">-->
+<!--                    --><?php //echo Form::open(['route' => 'report.sale', 'method' => 'post', 'id' => 'sale-report-form']); ?>
+<!---->
+<!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
+<!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+<!--                    <input type="hidden" name="warehouse_id" value="0" />-->
+<!--                    <a id="sale-report-link" href="">--><?php //echo e(trans('Informe de venta')); ?><!--</a>-->
+<!--                    --><?php //echo Form::close(); ?>
+<!---->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($payment_report_active): ?>
+<!--                  <li id="payment-report-menu">-->
+<!--                    --><?php //echo Form::open(['route' => 'report.paymentByDate', 'method' => 'post', 'id' => 'payment-report-form']); ?>
+<!---->
+<!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
+<!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+<!--                    <a id="payment-report-link" href="">--><?php //echo e(trans('Informe de pago')); ?><!--</a>-->
+<!--                    --><?php //echo Form::close(); ?>
+<!---->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($purchase_report_active): ?>
+<!--                  <li id="purchase-report-menu">-->
+<!--                    --><?php //echo Form::open(['route' => 'report.purchase', 'method' => 'post', 'id' => 'purchase-report-form']); ?>
+<!---->
+<!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
+<!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+<!--                    <input type="hidden" name="warehouse_id" value="0" />-->
+<!--                    <a id="purchase-report-link" href="">--><?php //echo e(trans('Informe de compra')); ?><!--</a>-->
+<!--                    --><?php //echo Form::close(); ?>
+<!---->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($warehouse_report_active): ?>
+<!--                  <li id="warehouse-report-menu">-->
+<!--                    <a id="warehouse-report-link" href="">--><?php //echo e(trans('Informe de bodega')); ?><!--</a>-->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($warehouse_stock_report_active): ?>
+<!--                  <li id="warehouse-stock-report-menu">-->
+<!--                    <a href="--><?php //echo e(route('report.warehouseStock')); ?><!--">--><?php //echo e(trans('Existencia en almacen')); ?><!--</a>-->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($product_qty_alert_active): ?>
+<!--                  <li id="qtyAlert-report-menu">-->
+<!--                    <a href="--><?php //echo e(route('report.qtyAlert')); ?><!--">--><?php //echo e(trans('Alerta de productos')); ?><!--</a>-->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($user_report_active): ?>
+<!--                  <li id="user-report-menu">-->
+<!--                    <a id="user-report-link" href="">--><?php //echo e(trans('Informe de usuario')); ?><!--</a>-->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($customer_report_active): ?>
+<!--                  <li id="customer-report-menu">-->
+<!--                    <a id="customer-report-link" href="">--><?php //echo e(trans('Informe de cliente')); ?><!--</a>-->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($supplier_report_active): ?>
+<!--                  <li id="supplier-report-menu">-->
+<!--                    <a id="supplier-report-link" href="">--><?php //echo e(trans('Informe de proveedores')); ?><!--</a>-->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                  --><?php //if($due_report_active): ?>
+<!--                  <li id="due-report-menu">-->
+<!--                    --><?php //echo Form::open(['route' => 'report.dueByDate', 'method' => 'post', 'id' => 'due-report-form']); ?>
+<!---->
+<!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
+<!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+<!--                    <a id="due-report-link" href="">--><?php //echo e(trans('Informe vencidos')); ?><!--</a>-->
+<!--                    --><?php //echo Form::close(); ?>
+<!---->
+<!--                  </li>-->
+<!--                  --><?php //endif; ?>
+<!--                </ul>-->
+<!--              </li>-->
               <?php endif; ?>
 
               <li><a href="#setting" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-gear"></i><span><?php echo e(trans('Configuracion')); ?></span></a>
@@ -1011,9 +1012,9 @@
 <!--                        <a href="--><?php //echo e(url('holidays/my-holiday/'.date('Y').'/'.date('m'))); ?><!--"><i class="dripicons-vibrate"></i> --><?php //echo e(trans('file.My Holiday')); ?><!--</a>-->
                       </li>
                       <?php if($empty_database_permission_active): ?>
-                      <li>
-                        <a onclick="return confirm('Are you sure want to delete? If you do this all of your data will be lost.')" href="<?php echo e(route('setting.emptyDatabase')); ?>"><i class="dripicons-stack"></i> <?php echo e(trans('Vaciar base de datos')); ?></a>
-                      </li>
+<!--                      <li>-->
+<!--                        <a onclick="return confirm('Are you sure want to delete? If you do this all of your data will be lost.')" href="--><?php //echo e(route('setting.emptyDatabase')); ?><!--"><i class="dripicons-stack"></i> --><?php //echo e(trans('Vaciar base de datos')); ?><!--</a>-->
+<!--                      </li>-->
                       <?php endif; ?>
                       <li>
                         <a href="<?php echo e(route('logout')); ?>"

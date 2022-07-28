@@ -559,38 +559,38 @@
                 },
                 footer:true
             },
-            {
-                text: '<?php echo e(trans("Eliminar")); ?>',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        purchase_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                var purchase = $(this).closest('tr').data('purchase');
-                                purchase_id[i-1] = purchase[3];
-                            }
-                        });
-                        if(purchase_id.length && confirm("Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'purchases/deletebyselection',
-                                data:{
-                                    purchaseIdArray: purchase_id
-                                },
-                                success:function(data) {
-                                    dt.rows({ page: 'current', selected: true }).deselect();
-                                    dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                                }
-                            });
-                        }
-                        else if(!purchase_id.length)
-                            alert('Nothing is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            purchase_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    var purchase = $(this).closest('tr').data('purchase');
+            //                    purchase_id[i-1] = purchase[3];
+            //                }
+            //            });
+            //            if(purchase_id.length && confirm("Are you sure want to delete?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'purchases/deletebyselection',
+            //                    data:{
+            //                        purchaseIdArray: purchase_id
+            //                    },
+            //                    success:function(data) {
+            //                        dt.rows({ page: 'current', selected: true }).deselect();
+            //                        dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //                    }
+            //                });
+            //            }
+            //            else if(!purchase_id.length)
+            //                alert('Nothing is selected!');
+            //        }
+            //        else
+            //            alert('This feature is disable for demo!');
+            //    }
+            //},
             {
                 extend: 'colvis',
                 text: '<?php echo e(trans("Columnas Visibles")); ?>',

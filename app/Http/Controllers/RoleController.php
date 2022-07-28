@@ -22,10 +22,10 @@ class RoleController extends Controller
             return redirect()->back()->with('not_permitted', 'Sorry! You are not allowed to access this module');
     }
 
-    
+
     public function create()
     {
-        
+
     }
 
     public function store(Request $request)
@@ -89,7 +89,7 @@ class RoleController extends Controller
     public function setPermission(Request $request)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'This feature is disable for demo!');
+            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
 
         $role = Role::firstOrCreate(['id' => $request['role_id']]);
 

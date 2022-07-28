@@ -271,37 +271,37 @@
                 },
                 footer:true
             },
-            {
-                text: '<?php echo e(trans("Eliminar")); ?>',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        category_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                category_id[i-1] = $(this).closest('tr').data('id');
-                            }
-                        });
-                        if(category_id.length && confirm("If you delete category all products under this category will also be deleted. Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'category/deletebyselection',
-                                data:{
-                                    categoryIdArray: category_id
-                                },
-                                success:function(data){
-                                    dt.rows({ page: 'current', selected: true }).deselect();
-                                    dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                                }
-                            });
-                        }
-                        else if(!category_id.length)
-                            alert('No category is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            category_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    category_id[i-1] = $(this).closest('tr').data('id');
+            //                }
+            //            });
+            //            if(category_id.length && confirm("Si elimina la categoría, también se eliminarán todos los productos de esta categoría. ¿Seguro que quieres eliminar?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'category/deletebyselection',
+            //                    data:{
+            //                        categoryIdArray: category_id
+            //                    },
+            //                    success:function(data){
+            //                        dt.rows({ page: 'current', selected: true }).deselect();
+            //                        dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //                    }
+            //                });
+            //            }
+            //            else if(!category_id.length)
+            //                alert('¡No se ha seleccionado ninguna categoría!');
+            //        }
+            //        else
+            //            alert('Solo Puede borrar una categoria');
+            //    }
+            //},
             {
                 extend: 'colvis',
                 text: '<?php echo e(trans("Visualizar")); ?>',

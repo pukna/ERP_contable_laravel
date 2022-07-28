@@ -21,12 +21,12 @@ class SettingController extends Controller
     public function emptyDatabase()
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'This feature is disable for demo!');
+            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
         $tables = DB::select('SHOW TABLES');
         $str = 'Tables_in_' . env('DB_DATABASE');
         foreach ($tables as $table) {
             if($table->$str != 'accounts' && $table->$str != 'general_settings' && $table->$str != 'hrm_settings' && $table->$str != 'languages' && $table->$str != 'migrations' && $table->$str != 'password_resets' && $table->$str != 'permissions' && $table->$str != 'pos_setting' && $table->$str != 'roles' && $table->$str != 'role_has_permissions' && $table->$str != 'users') {
-                DB::table($table->$str)->truncate();    
+                DB::table($table->$str)->truncate();
             }
         }
         return redirect()->back()->with('message', 'Database cleared successfully');
@@ -48,7 +48,7 @@ class SettingController extends Controller
     public function generalSettingStore(Request $request)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'This feature is disable for demo!');
+            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
 
         $this->validate($request, [
             'site_logo' => 'image|mimes:jpg,jpeg,png,gif|max:100000',
@@ -88,14 +88,14 @@ class SettingController extends Controller
     }
 
     public function mailSetting()
-    {  
+    {
         return view('setting.mail_setting');
     }
 
     public function mailSettingStore(Request $request)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'This feature is disable for demo!');
+            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
 
         $data = $request->all();
         //writting mail info in .env file
@@ -104,7 +104,7 @@ class SettingController extends Controller
         //return $searchArray;
 
         $replaceArray = array('MAIL_HOST="'.$data['mail_host'].'"', 'MAIL_PORT='.$data['port'], 'MAIL_FROM_ADDRESS="'.$data['mail_address'].'"', 'MAIL_FROM_NAME="'.$data['mail_name'].'"', 'MAIL_USERNAME="'.$data['mail_address'].'"', 'MAIL_PASSWORD="'.$data['password'].'"', 'MAIL_ENCRYPTION="'.$data['encryption'].'"');
-        
+
         file_put_contents($path, str_replace($searchArray, $replaceArray, file_get_contents($path)));
 
         return redirect()->back()->with('message', 'Data updated successfully');
@@ -118,8 +118,8 @@ class SettingController extends Controller
     public function smsSettingStore(Request $request)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'This feature is disable for demo!');
-        
+            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
+
         $data = $request->all();
         //writting bulksms info in .env file
         $path = '.env';
@@ -175,17 +175,17 @@ class SettingController extends Controller
                 foreach ($numbers as $number) {
                     $result = $clickatell->sendMessage(['to' => [$number], 'content' => $data['message']]);
                 }
-            } 
+            }
             catch (ClickatellException $e) {
                 return redirect()->back()->with('not_permitted', 'Please setup your <a href="sms_setting">SMS Setting</a> to send SMS.');
             }
             $message = "SMS sent successfully";
         }
         else
-            return redirect()->back()->with('not_permitted', 'Please setup your <a href="sms_setting">SMS Setting</a> to send SMS.');    
+            return redirect()->back()->with('not_permitted', 'Please setup your <a href="sms_setting">SMS Setting</a> to send SMS.');
         return redirect()->back()->with('message', $message);
     }
-    
+
     public function hrmSetting()
     {
         $lims_hrm_setting_data = HrmSetting::latest()->first();
@@ -208,14 +208,14 @@ class SettingController extends Controller
         $lims_warehouse_list = Warehouse::where('is_active', true)->get();
         $lims_biller_list = Biller::where('is_active', true)->get();
         $lims_pos_setting_data = PosSetting::latest()->first();
-        
+
     	return view('setting.pos_setting', compact('lims_customer_list', 'lims_warehouse_list', 'lims_biller_list', 'lims_pos_setting_data'));
     }
 
     public function posSettingStore(Request $request)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'This feature is disable for demo!');
+            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
 
     	$data = $request->all();
         //writting paypal info in .env file

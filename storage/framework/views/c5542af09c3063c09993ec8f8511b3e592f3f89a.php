@@ -25,7 +25,7 @@
                     <th class="not-exported"></th>
                     <th><?php echo e(trans('Nombre de usuario')); ?></th>
                     <th><?php echo e(trans('file.Email')); ?></th>
-                    <th><?php echo e(trans('Area')); ?></th>
+                    <th><?php echo e(trans('Cargo')); ?></th>
                     <th><?php echo e(trans('Numero de telefono')); ?></th>
                     <th><?php echo e(trans('file.Role')); ?></th>
                     <th><?php echo e(trans('Estado')); ?></th>
@@ -162,37 +162,37 @@
                     rows: ':visible'
                 },
             },
-            {
-                text: '<?php echo e(trans("Eliminar")); ?>',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        user_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                user_id[i-1] = $(this).closest('tr').data('id');
-                            }
-                        });
-                        if(user_id.length && confirm("Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'user/deletebyselection',
-                                data:{
-                                    userIdArray: user_id
-                                },
-                                success:function(data){
-                                    alert(data);
-                                }
-                            });
-                            dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                        }
-                        else if(!user_id.length)
-                            alert('No user is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            user_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    user_id[i-1] = $(this).closest('tr').data('id');
+            //                }
+            //            });
+            //            if(user_id.length && confirm("Are you sure want to delete?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'user/deletebyselection',
+            //                    data:{
+            //                        userIdArray: user_id
+            //                    },
+            //                    success:function(data){
+            //                        alert(data);
+            //                    }
+            //                });
+            //                dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //            }
+            //            else if(!user_id.length)
+            //                alert('No user is selected!');
+            //        }
+            //        else
+            //            alert('This feature is disable for demo!');
+            //    }
+            //},
             {
                 extend: 'colvis',
                 text: '<?php echo e(trans("Visibilidad de columna")); ?>',

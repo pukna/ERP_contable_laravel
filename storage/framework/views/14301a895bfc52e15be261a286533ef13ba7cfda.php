@@ -15,7 +15,7 @@
 <section>
     <div class="container-fluid">
         <?php if(in_array("customers-add", $all_permission)): ?>
-            <a href="<?php echo e(route('customer.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('file.Add Cliente')); ?></a>&nbsp;
+            <a href="<?php echo e(route('customer.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Add Cliente')); ?></a>&nbsp;
 <!--            <a href="#" data-toggle="modal" data-target="#importCustomer" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.Import Customer')); ?><!--</a>-->
         <?php endif; ?>
     </div>
@@ -331,37 +331,37 @@
                     rows: ':visible'
                 },
             },
-            {
-                text: '<?php echo e(trans("Eliminar")); ?>',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        customer_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                customer_id[i-1] = $(this).closest('tr').data('id');
-                            }
-                        });
-                        if(customer_id.length && confirm("Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'customer/deletebyselection',
-                                data:{
-                                    customerIdArray: customer_id
-                                },
-                                success:function(data){
-                                    alert(data);
-                                }
-                            });
-                            dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                        }
-                        else if(!customer_id.length)
-                            alert('No customer is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            customer_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    customer_id[i-1] = $(this).closest('tr').data('id');
+            //                }
+            //            });
+            //            if(customer_id.length && confirm("Are you sure want to delete?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'customer/deletebyselection',
+            //                    data:{
+            //                        customerIdArray: customer_id
+            //                    },
+            //                    success:function(data){
+            //                        alert(data);
+            //                    }
+            //                });
+            //                dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //            }
+            //            else if(!customer_id.length)
+            //                alert('No customer is selected!');
+            //        }
+            //        else
+            //            alert('This feature is disable for demo!');
+            //    }
+            //},
             {
                 extend: 'colvis',
                 text: '<?php echo e(trans("Visibilidad de Colomna")); ?>',

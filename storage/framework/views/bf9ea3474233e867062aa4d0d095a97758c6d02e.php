@@ -316,37 +316,37 @@
                     stripHtml: false
                 },
             },
-            {
-                text: '<?php echo e(trans("Eliminar")); ?>',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        brand_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                brand_id[i-1] = $(this).closest('tr').data('id');
-                            }
-                        });
-                        if(brand_id.length && confirm("Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'brand/deletebyselection',
-                                data:{
-                                    brandIdArray: brand_id
-                                },
-                                success:function(data){
-                                    alert(data);
-                                }
-                            });
-                            dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                        }
-                        else if(!brand_id.length)
-                            alert('No brand is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            brand_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    brand_id[i-1] = $(this).closest('tr').data('id');
+            //                }
+            //            });
+            //            if(brand_id.length && confirm("Are you sure want to delete?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'brand/deletebyselection',
+            //                    data:{
+            //                        brandIdArray: brand_id
+            //                    },
+            //                    success:function(data){
+            //                        alert(data);
+            //                    }
+            //                });
+            //                dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //            }
+            //            else if(!brand_id.length)
+            //                alert('No brand is selected!');
+            //        }
+            //        else
+            //            alert('This feature is disable for demo!');
+            //    }
+            //},
             {
                 extend: 'colvis',
                 text: '<?php echo e(trans("Visualizar")); ?>',

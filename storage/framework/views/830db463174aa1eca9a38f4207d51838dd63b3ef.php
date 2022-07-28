@@ -20,7 +20,7 @@
                     <th><?php echo e(trans('Imagen')); ?></th>
                     <th><?php echo e(trans('Nombre')); ?></th>
                     <th><?php echo e(trans('Nombre de Empresa')); ?></th>
-                    <th><?php echo e(trans('iva')); ?></th>
+                    <th><?php echo e(trans('RUC')); ?></th>
                     <th><?php echo e(trans('file.Email')); ?></th>
                     <th><?php echo e(trans('Numero de telefono')); ?></th>
                     <th><?php echo e(trans('Dirección')); ?></th>
@@ -222,37 +222,37 @@
                     stripHtml: false
                 },
             },
-            {
-                text: '<?php echo e(trans("Eliminar")); ?>',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        supplier_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                supplier_id[i-1] = $(this).closest('tr').data('id');
-                            }
-                        });
-                        if(supplier_id.length && confirm("Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'supplier/deletebyselection',
-                                data:{
-                                    supplierIdArray: supplier_id
-                                },
-                                success:function(data){
-                                    alert(data);
-                                }
-                            });
-                            dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                        }
-                        else if(!supplier_id.length)
-                            alert('No supplier is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            supplier_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    supplier_id[i-1] = $(this).closest('tr').data('id');
+            //                }
+            //            });
+            //            if(supplier_id.length && confirm("Are you sure want to delete?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'supplier/deletebyselection',
+            //                    data:{
+            //                        supplierIdArray: supplier_id
+            //                    },
+            //                    success:function(data){
+            //                        alert(data);
+            //                    }
+            //                });
+            //                dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //            }
+            //            else if(!supplier_id.length)
+            //                alert('No supplier is selected!');
+            //        }
+            //        else
+            //            alert('This feature is disable for demo!');
+            //    }
+            //},
             {
                 extend: 'colvis',
                 text: '<?php echo e(trans("Visibilidad de columna")); ?>',

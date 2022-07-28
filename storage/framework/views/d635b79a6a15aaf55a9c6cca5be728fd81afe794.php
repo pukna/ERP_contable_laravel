@@ -196,7 +196,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <input type="hidden" name="tax" value="<?php echo e($lims_product_data->tax_id); ?>">
-                                        <label><?php echo e(trans('Producto')); ?> <?php echo e(trans('iva')); ?></strong> </label>
+                                        <label><?php echo e(trans('impuesto')); ?> <?php echo e(trans('')); ?></strong> </label>
                                         <select name="tax_id" class="form-control selectpicker">
                                             <option value="">No Aplica</option>
                                             <?php $__currentLoopData = $lims_tax_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tax): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -208,23 +208,23 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <input type="hidden" name="tax_method_id" value="<?php echo e($lims_product_data->tax_method); ?>">
-                                        <label><?php echo e(trans('Metodo Fiscal')); ?></strong> </label>
+                                        <label><?php echo e(trans('Metodo de Impuesto')); ?></strong> </label>
                                         <select name="tax_method" class="form-control selectpicker">
                                             <option value="1"><?php echo e(trans('Exclusivo')); ?></option>
                                             <option value="2"><?php echo e(trans('Inclusivo')); ?></option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group mt-3">
-                                        <?php if($lims_product_data->featured): ?>
-                                            <input type="checkbox" name="featured" value="1" checked>
-                                        <?php else: ?>
-                                            <input type="checkbox" name="featured" value="1">
-                                        <?php endif; ?>
-                                        <label><?php echo e(trans('Destacado')); ?></label>
-                                    </div>
-                                </div>
+<!--                                <div class="col-md-4">-->
+<!--                                    <div class="form-group mt-3">-->
+<!--                                        --><?php //if($lims_product_data->featured): ?>
+<!--                                            <input type="checkbox" name="featured" value="1" checked>-->
+<!--                                        --><?php //else: ?>
+<!--                                            <input type="checkbox" name="featured" value="1">-->
+<!--                                        --><?php //endif; ?>
+<!--                                        <label>--><?php //echo e(trans('Destacado')); ?><!--</label>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label><?php echo e(trans('Imagen del Producto')); ?></strong> </label> <i class="dripicons-question" data-toggle="tooltip" title="<?php echo e(trans('Puede cargar varias imágenes. Solo se pueden cargar archivos .jpeg, .jpg, .png y .gif. La primera imagen será la imagen base.')); ?>"></i>
