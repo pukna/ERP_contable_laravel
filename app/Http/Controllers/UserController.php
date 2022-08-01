@@ -106,7 +106,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
+//            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
 
         $this->validate($request, [
             'name' => [
@@ -143,7 +143,7 @@ class UserController extends Controller
     public function profileUpdate(Request $request, $id)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
+//            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
 
         $input = $request->all();
         $lims_user_data = User::find($id);
@@ -154,7 +154,7 @@ class UserController extends Controller
     public function changePassword(Request $request, $id)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
+//            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
 
         $input = $request->all();
         $lims_user_data = User::find($id);
@@ -187,7 +187,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
+//            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
 
         $lims_user_data = User::find($id);
         $lims_user_data->is_deleted = true;

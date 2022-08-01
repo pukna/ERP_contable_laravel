@@ -319,7 +319,7 @@ class PurchaseController extends Controller
         $data = $request->except('document');
         //return dd($data);
         $data['user_id'] = Auth::id();
-        $data['reference_no'] = 'pr-' . date("Ymd") . '-'. date("his");
+        $data['reference_no'] = 'pr-' . date("ym") . '-'. date("d".random_bytes(3));
         $document = $request->document;
         if ($document) {
             $v = Validator::make(
@@ -487,7 +487,7 @@ class PurchaseController extends Controller
         }
 
         $data = $request->except('file');
-        $data['reference_no'] = 'pr-' . date("Ymd") . '-'. date("his");
+        $data['reference_no'] = 'pr-' . date("ym") . '-'. date("d".random_bytes(3));
         $document = $request->document;
         if ($document) {
             $v = Validator::make(

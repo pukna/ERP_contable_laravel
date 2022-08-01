@@ -5417,3 +5417,12 @@ Did you mean one of these?
 #55 C:\\Users\\Mario Montero\\ERP_contable_laravel\\server.php(21): require_once('C:\\\\Users\\\\Mario ...')
 #56 {main}
 "} 
+[2022-08-01 13:58:24] local.ERROR: Command "sever" is not defined. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"sever\" is not defined. at C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\symfony\\console\\Application.php:676)
+[stacktrace]
+#0 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\symfony\\console\\Application.php(237): Symfony\\Component\\Console\\Application->find('sever')
+#1 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\symfony\\console\\Application.php(149): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Application.php(93): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(131): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\Mario Montero\\ERP_contable_laravel\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
