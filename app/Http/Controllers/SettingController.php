@@ -21,7 +21,7 @@ class SettingController extends Controller
     public function emptyDatabase()
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
+//            return redirect()->back()->with('not_permitted', 'You do not have sufficient permissions!');
         $tables = DB::select('SHOW TABLES');
         $str = 'Tables_in_' . env('DB_DATABASE');
         foreach ($tables as $table) {
@@ -95,7 +95,7 @@ class SettingController extends Controller
     public function mailSettingStore(Request $request)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
+//            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
 
         $data = $request->all();
         //writting mail info in .env file
@@ -118,7 +118,7 @@ class SettingController extends Controller
     public function smsSettingStore(Request $request)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
+//            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
 
         $data = $request->all();
         //writting bulksms info in .env file
@@ -215,7 +215,7 @@ class SettingController extends Controller
     public function posSettingStore(Request $request)
     {
         if(!env('USER_VERIFIED'))
-            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
+//            return redirect()->back()->with('not_permitted', 'You do not have enough permissions');
 
     	$data = $request->all();
         //writting paypal info in .env file
