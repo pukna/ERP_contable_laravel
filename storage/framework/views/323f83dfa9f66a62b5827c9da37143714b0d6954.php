@@ -60,7 +60,7 @@
                                 </div>
                                 <div id="digital" class="col-md-4">
                                     <div class="form-group">
-                                        <label><?php echo e(trans('Adjuntar Archivo')); ?> *</strong> </label>
+                                        <label><?php echo e(trans('Adjuntar Archivos')); ?> *</strong> </label>
                                         <div class="input-group">
                                             <input type="file" name="file" class="form-control">
                                         </div>
