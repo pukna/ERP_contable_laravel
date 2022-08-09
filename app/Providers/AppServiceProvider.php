@@ -37,11 +37,11 @@ class AppServiceProvider extends ServiceProvider
         } else {
             \App::setLocale('en');
         }
-        //get general setting value        
+        //get general setting value
         $general_setting = DB::table('general_settings')->latest()->first();
         View::share('general_setting', $general_setting);
         config(['staff_access' => $general_setting->staff_access, 'date_format' => $general_setting->date_format, 'currency' => $general_setting->currency, 'currency_position' => $general_setting->currency_position]);
-        
+
         $alert_product = DB::table('products')->where('is_active', true)->whereColumn('alert_quantity', '>', 'qty')->count();
         View::share('alert_product', $alert_product);
         Schema::defaultStringLength(191);

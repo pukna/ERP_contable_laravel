@@ -43,21 +43,21 @@
                                         <span class="validation-msg" id="code-error"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label><?php echo e(trans('Precodigo')); ?> *</strong> </label>
-                                        <div class="input-group">
-                                            <select name="barcode_symbology" required class="form-control selectpicker">
-                                                <option value="C128">MEC</option>
-                                                <option value="C39">ADM</option>
-                                                <option value="UPCA">TI</option>
-                                                <option value="UPCE">UPC-E</option>
-                                                <option value="EAN8">EAN-8</option>
-                                                <option value="EAN13">EAN-13</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+<!--                                <div class="col-md-4">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label>--><?php //echo e(trans('Precodigo')); ?><!-- *</strong> </label>-->
+<!--                                        <div class="input-group">-->
+<!--                                            <select name="barcode_symbology" required class="form-control selectpicker">-->
+<!--                                                <option value="C128">MEC</option>-->
+<!--                                                <option value="C39">ADM</option>-->
+<!--                                                <option value="UPCA">TI</option>-->
+<!--                                                <option value="UPCE">UPC-E</option>-->
+<!--                                                <option value="EAN8">EAN-8</option>-->
+<!--                                                <option value="EAN13">EAN-13</option>-->
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
                                 <div id="digital" class="col-md-4">
                                     <div class="form-group">
                                         <label><?php echo e(trans('Adjuntar Archivos')); ?> *</strong> </label>
@@ -66,7 +66,7 @@
                                         </div>
                                         <span class="validation-msg"></span>
                                     </div>
-                                </div>
+                                  </div>
                                 <div id="combo" class="col-md-9 mb-1">
                                     <label><?php echo e(trans('Agregar Producto')); ?></label>
                                     <div class="search-box input-group mb-3">
