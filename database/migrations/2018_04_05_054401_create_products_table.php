@@ -13,7 +13,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('code');
             $table->string('type');
-            $table->string('barcode_symbology');
+            $table->string('barcode_symbology')->nullable();
             $table->integer('brand_id')->nullable();
             $table->integer('category_id');
             $table->integer('unit_id');
