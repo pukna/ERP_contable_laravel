@@ -39,16 +39,16 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label><?php echo e(trans('Vendedor')); ?> *</label>
-                                            <select required name="biller_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccione Facturador...">
-                                                <?php $__currentLoopData = $lims_biller_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $biller): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <option value="<?php echo e($biller->id); ?>"><?php echo e($biller->name . ' (' . $biller->company_name . ')'); ?></option>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            </select>
-                                        </div>
-                                    </div>
+<!--                                    <div class="col-md-4">-->
+<!--                                        <div class="form-group">-->
+<!--                                            <label>--><?php //echo e(trans('Vendedor')); ?><!-- *</label>-->
+<!--                                            <select required name="biller_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccione Facturador...">-->
+<!--                                                --><?php //$__currentLoopData = $lims_biller_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $biller): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+<!--                                                <option value="--><?php //echo e($biller->id); ?><!--">--><?php //echo e($biller->name . ' (' . $biller->company_name . ')'); ?><!--</option>-->
+<!--                                                --><?php //endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+<!--                                            </select>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-12">
