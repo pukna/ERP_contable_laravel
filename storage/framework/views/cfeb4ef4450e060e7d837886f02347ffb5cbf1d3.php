@@ -113,9 +113,9 @@
 </section>
 
 <script type="text/javascript">
-    $("ul#people").siblings('a').attr('aria-expanded','true');
-    $("ul#people").addClass("show");
-    $("ul#people #supplier-create-menu").addClass("active");
+    $("ul#purchase").siblings('a').attr('aria-expanded','true');
+    $("ul#purchase").addClass("show");
+    $("ul#purchase #supplier-create-menu").addClass("active");
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/supplier/create.blade.php ENDPATH**/ ?>

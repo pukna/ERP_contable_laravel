@@ -112,8 +112,8 @@
 </section>
 
 <script type="text/javascript">
-    $("ul#people").siblings('a').attr('aria-expanded','true');
-    $("ul#people").addClass("show");
+    $("ul#purchase").siblings('a').attr('aria-expanded','true');
+    $("ul#purchase").addClass("show");
 </script>
 <?php $__env->stopSection(); ?>
 
