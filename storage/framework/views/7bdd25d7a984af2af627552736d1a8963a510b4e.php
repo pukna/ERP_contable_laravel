@@ -675,6 +675,79 @@
                 <li><a href="#setting" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-gear"></i><span><?php echo e(trans('Configuracion')); ?></span></a>
                     <ul id="setting" class="collapse list-unstyled ">
                         <?php
+                        $send_notification_permission = DB::table('permissions')->where('name', 'send_notification')->first();
+                        $send_notification_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $send_notification_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $warehouse_permission = DB::table('permissions')->where('name', 'warehouse')->first();
+                        $warehouse_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $warehouse_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $customer_group_permission = DB::table('permissions')->where('name', 'customer_group')->first();
+                        $customer_group_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $customer_group_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $brand_permission = DB::table('permissions')->where('name', 'brand')->first();
+                        $brand_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $brand_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $unit_permission = DB::table('permissions')->where('name', 'unit')->first();
+                        $unit_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $unit_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $tax_permission = DB::table('permissions')->where('name', 'tax')->first();
+                        $tax_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $tax_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $general_setting_permission = DB::table('permissions')->where('name', 'general_setting')->first();
+                        $general_setting_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $general_setting_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $mail_setting_permission = DB::table('permissions')->where('name', 'mail_setting')->first();
+                        $mail_setting_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $mail_setting_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $sms_setting_permission = DB::table('permissions')->where('name', 'sms_setting')->first();
+                        $sms_setting_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $sms_setting_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $create_sms_permission = DB::table('permissions')->where('name', 'create_sms')->first();
+                        $create_sms_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $create_sms_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $pos_setting_permission = DB::table('permissions')->where('name', 'pos_setting')->first();
+                        $pos_setting_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $pos_setting_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+
+                        $hrm_setting_permission = DB::table('permissions')->where('name', 'hrm_setting')->first();
+                        $hrm_setting_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $hrm_setting_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+                        ?>
+                        <?php
                         $user_index_permission_active = DB::table('permissions')
                             ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
                             ->where([
@@ -763,79 +836,6 @@
                                 </ul>
                             </li>
                         <?php endif; ?>
-                        <?php
-                        $send_notification_permission = DB::table('permissions')->where('name', 'send_notification')->first();
-                        $send_notification_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $send_notification_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $warehouse_permission = DB::table('permissions')->where('name', 'warehouse')->first();
-                        $warehouse_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $warehouse_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $customer_group_permission = DB::table('permissions')->where('name', 'customer_group')->first();
-                        $customer_group_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $customer_group_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $brand_permission = DB::table('permissions')->where('name', 'brand')->first();
-                        $brand_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $brand_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $unit_permission = DB::table('permissions')->where('name', 'unit')->first();
-                        $unit_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $unit_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $tax_permission = DB::table('permissions')->where('name', 'tax')->first();
-                        $tax_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $tax_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $general_setting_permission = DB::table('permissions')->where('name', 'general_setting')->first();
-                        $general_setting_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $general_setting_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $mail_setting_permission = DB::table('permissions')->where('name', 'mail_setting')->first();
-                        $mail_setting_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $mail_setting_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $sms_setting_permission = DB::table('permissions')->where('name', 'sms_setting')->first();
-                        $sms_setting_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $sms_setting_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $create_sms_permission = DB::table('permissions')->where('name', 'create_sms')->first();
-                        $create_sms_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $create_sms_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $pos_setting_permission = DB::table('permissions')->where('name', 'pos_setting')->first();
-                        $pos_setting_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $pos_setting_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-
-                        $hrm_setting_permission = DB::table('permissions')->where('name', 'hrm_setting')->first();
-                        $hrm_setting_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $hrm_setting_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
-                        ?>
                         <?php if($role->id <= 2): ?>
                             <li id="role-menu"><a href="<?php echo e(route('role.index')); ?>"><?php echo e(trans('Roles y permisos')); ?></a></li>
                         <?php endif; ?>
