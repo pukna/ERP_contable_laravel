@@ -119,10 +119,30 @@
                     ['permission_id', $index_permission->id],
                     ['role_id', $role->id]
                 ])->first();
+
+                $supplier_index_permission = DB::table('permissions')->where('name', 'suppliers-index')->first();
+
+                $supplier_index_permission_active = DB::table('role_has_permissions')->where([
+                    ['permission_id', $supplier_index_permission->id],
+                    ['role_id', $role->id]
+                ])->first();
                 ?>
                 <?php if($index_permission_active): ?>
                     <li><a href="#purchase" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-card"></i><span><?php echo e(trans('Compra')); ?></span></a>
                         <ul id="purchase" class="collapse list-unstyled ">
+                            <?php if($supplier_index_permission_active): ?>
+                                <li id="supplier-list-menu"><a href="<?php echo e(route('supplier.index')); ?>"><?php echo e(trans('Lista de proveedores')); ?></a></li>
+                                <?php
+                                $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
+                                $supplier_add_permission_active = DB::table('role_has_permissions')->where([
+                                    ['permission_id', $supplier_add_permission->id],
+                                    ['role_id', $role->id]
+                                ])->first();
+                                ?>
+                                <?php if($supplier_add_permission_active): ?>
+                                    <li id="supplier-create-menu"><a href="<?php echo e(route('supplier.create')); ?>"><?php echo e(trans('Agregar Proveedores')); ?></a></li>
+                                <?php endif; ?>
+                            <?php endif; ?>
                             <li id="purchase-list-menu"><a href="<?php echo e(route('purchases.index')); ?>"><?php echo e(trans('Compras')); ?></a></li>
                             <?php
                             $add_permission = DB::table('permissions')->where('name', 'purchases-add')->first();
@@ -133,8 +153,9 @@
                             ?>
                             <?php if($add_permission_active): ?>
                                 <li id="purchase-create-menu"><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Agregar compra')); ?></a></li>
-                                <!--                  <li id="purchase-import-menu"><a href="--><?php //echo e(url('purchases/purchase_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Purchase By CSV')); ?><!--</a></li>-->
+                                <li id="purchase-import-menu"><a><?php echo e(trans('Registro factura')); ?></a></li>
                             <?php endif; ?>
+
                         </ul>
                     </li>
                 <?php endif; ?>
@@ -768,12 +789,12 @@
                             ['role_id', $role->id]
                         ])->first();
 
-                        $supplier_index_permission = DB::table('permissions')->where('name', 'suppliers-index')->first();
-
-                        $supplier_index_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $supplier_index_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
+//                        $supplier_index_permission = DB::table('permissions')->where('name', 'suppliers-index')->first();
+//
+//                        $supplier_index_permission_active = DB::table('role_has_permissions')->where([
+//                            ['permission_id', $supplier_index_permission->id],
+//                            ['role_id', $role->id]
+//                        ])->first();
                         ?>
                         <?php if($user_index_permission_active || $customer_index_permission_active || $biller_index_permission_active || $supplier_index_permission_active): ?>
                             <li><a href="#people" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user"></i><span><?php echo e(trans('Personas')); ?></span></a>
@@ -820,19 +841,19 @@
                                         <?php endif; ?>
                                     <?php endif; ?>
 
-                                    <?php if($supplier_index_permission_active): ?>
-                                        <li id="supplier-list-menu"><a href="<?php echo e(route('supplier.index')); ?>"><?php echo e(trans('Lista de proveedores')); ?></a></li>
-                                        <?php
-                                        $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
-                                        $supplier_add_permission_active = DB::table('role_has_permissions')->where([
-                                            ['permission_id', $supplier_add_permission->id],
-                                            ['role_id', $role->id]
-                                        ])->first();
-                                        ?>
-                                        <?php if($supplier_add_permission_active): ?>
-                                            <li id="supplier-create-menu"><a href="<?php echo e(route('supplier.create')); ?>"><?php echo e(trans('Agregar Proveedores')); ?></a></li>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
+<!--                                    --><?php //if($supplier_index_permission_active): ?>
+<!--                                        <li id="supplier-list-menu"><a href="--><?php //echo e(route('supplier.index')); ?><!--">--><?php //echo e(trans('Lista de proveedores')); ?><!--</a></li>-->
+<!--                                        --><?php
+//                                        $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
+//                                        $supplier_add_permission_active = DB::table('role_has_permissions')->where([
+//                                            ['permission_id', $supplier_add_permission->id],
+//                                            ['role_id', $role->id]
+//                                        ])->first();
+//                                        ?>
+<!--                                        --><?php //if($supplier_add_permission_active): ?>
+<!--                                            <li id="supplier-create-menu"><a href="--><?php //echo e(route('supplier.create')); ?><!--">--><?php //echo e(trans('Agregar Proveedores')); ?><!--</a></li>-->
+<!--                                        --><?php //endif; ?>
+<!--                                    --><?php //endif; ?>
                                 </ul>
                             </li>
                         <?php endif; ?>
