@@ -196,9 +196,9 @@
 
 <script type="text/javascript">
 
-    $("ul#setting").siblings('a').attr('aria-expanded','true');
-    $("ul#setting").addClass("show");
-    $("ul#setting #warehouse-menu").addClass("active");
+    $("ul#inventory").siblings('a').attr('aria-expanded','true');
+    $("ul#inventory").addClass("show");
+    $("ul#inventory #warehouse-menu").addClass("active");
 
     var warehouse_id = [];
     var user_verified = <?php echo json_encode(env('USER_VERIFIED')) ?>;

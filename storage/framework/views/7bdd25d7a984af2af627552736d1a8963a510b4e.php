@@ -252,37 +252,66 @@
                     ['permission_id', $adjustment->id],
                     ['role_id', $role->id]
                 ])->first();
+
+                $warehouse_permission = DB::table('permissions')->where('name', 'warehouse')->first();
+                $warehouse_permission_active = DB::table('role_has_permissions')->where([
+                    ['permission_id', $warehouse_permission->id],
+                    ['role_id', $role->id]
+                ])->first();
                 ?>
                 <?php if($category_permission_active || $index_permission_active || $print_barcode_active || $stock_count_active || $adjustment_active): ?>
-                    <li><a href="#product" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-list"></i><span><?php echo e(__('Inventario')); ?></span><span></a>
-                        <ul id="product" class="collapse list-unstyled ">
-                            <?php if($category_permission_active): ?>
-                                <li id="category-menu"><a href="<?php echo e(route('category.index')); ?>"><?php echo e(__('Categoria')); ?></a></li>
-                            <?php endif; ?>
-                            <?php if($index_permission_active): ?>
-                                <li id="product-list-menu"><a href="<?php echo e(route('products.index')); ?>"><?php echo e(__('Lista de productos')); ?></a></li>
-                                <?php
-                                $add_permission = DB::table('permissions')->where('name', 'products-add')->first();
-                                $add_permission_active = DB::table('role_has_permissions')->where([
-                                    ['permission_id', $add_permission->id],
-                                    ['role_id', $role->id]
-                                ])->first();
-                                ?>
-                                <?php if($add_permission_active): ?>
-                                    <li id="product-create-menu"><a href="<?php echo e(route('products.create')); ?>"><?php echo e(__('Agregar producto')); ?></a></li>
-                                <?php endif; ?>
-                            <?php endif; ?>
-                            <?php if($print_barcode_active): ?>
-                                <!--                  <li id="printBarcode-menu"><a href="--><?php //echo e(route('product.printBarcode')); ?><!--">--><?php //echo e(__('file.print_barcode')); ?><!--</a></li>-->
-                            <?php endif; ?>
-                            <?php if($adjustment_active): ?>
-                                <!--                    <li id="adjustment-list-menu"><a href="--><?php //echo e(route('qty_adjustment.index')); ?><!--">--><?php //echo e(trans('file.Adjustment List')); ?><!--</a></li>-->
-                                <!--                    <li id="adjustment-create-menu"><a href="--><?php //echo e(route('qty_adjustment.create')); ?><!--">--><?php //echo e(trans('file.Add Adjustment')); ?><!--</a></li>-->
-                            <?php endif; ?>
-                            <?php if($stock_count_active): ?>
-                                <li id="stock-count-menu"><a href="<?php echo e(route('stock-count.index')); ?>"><?php echo e(trans('Stock')); ?></a></li>
+                    <li><a href="#inventory" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-list"></i><span><?php echo e(__('Inventario')); ?></span><span></a>
+                        <ul id="inventory" class="collapse list-unstyled ">
+                            <li><a href="#product" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('Producto')); ?></span><span></a>
+                                <ul id="product" class="collapse list-unstyled ">
+                                    <?php if($category_permission_active): ?>
+                                        <li id="category-menu"><a href="<?php echo e(route('category.index')); ?>"><?php echo e(__('Categoria')); ?></a></li>
+                                    <?php endif; ?>
+                                    <?php if($index_permission_active): ?>
+                                        <li id="product-list-menu"><a href="<?php echo e(route('products.index')); ?>"><?php echo e(__('Lista de productos')); ?></a></li>
+                                        <?php
+                                        $add_permission = DB::table('permissions')->where('name', 'products-add')->first();
+                                        $add_permission_active = DB::table('role_has_permissions')->where([
+                                            ['permission_id', $add_permission->id],
+                                            ['role_id', $role->id]
+                                        ])->first();
+                                        ?>
+                                        <?php if($add_permission_active): ?>
+                                            <li id="product-create-menu"><a href="<?php echo e(route('products.create')); ?>"><?php echo e(__('Agregar producto')); ?></a></li>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+
+                                    <?php if($print_barcode_active): ?>
+                                        <!--                  <li id="printBarcode-menu"><a href="--><?php //echo e(route('product.printBarcode')); ?><!--">--><?php //echo e(__('file.print_barcode')); ?><!--</a></li>-->
+                                    <?php endif; ?>
+                                </ul>
+                            </li>
+                            <li><a href="#movements" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('movimientos')); ?></span><span></a>
+                                <ul id="movements" class="collapse list-unstyled ">
+                                    <?php if($adjustment_active): ?>
+                                                            <li id="adjustment-list-menu"><a href="<?php echo e(route('qty_adjustment.index')); ?>"><?php echo e(trans('Ajustes')); ?></a></li>
+                                                            <li id="adjustment-create-menu"><a href="<?php echo e(route('qty_adjustment.create')); ?>"><?php echo e(trans('Agregar ajustes')); ?></a></li>
+                                    <?php endif; ?>
+                                </ul>
+                            </li>
+                            <li><a href="#stock" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('Existencias')); ?></span><span></a>
+                                <ul id="stock" class="collapse list-unstyled ">
+
+                                    <?php if($index_permission_active): ?>
+                                        <li id="product-list-menu"><a href="<?php echo e(route('products.index')); ?>"><?php echo e(__('Lista de productos')); ?></a></li>
+                                        <li id="product-create-menu"><a href=""><?php echo e(__('Kardex')); ?></a></li>
+                                        <li id="product-create-menu"><a href=""><?php echo e(__('Calculos de costos')); ?></a></li>
+                                    <?php endif; ?>
+                                    <?php if($stock_count_active): ?>
+                                        <li id="stock-count-menu"><a href="<?php echo e(route('stock-count.index')); ?>"><?php echo e(trans('Stock')); ?></a></li>
+                                    <?php endif; ?>
+                                </ul>
+                            </li>
+                            <?php if($warehouse_permission_active): ?>
+                                <li id="warehouse-menu"><a href="<?php echo e(route('warehouse.index')); ?>"><?php echo e(trans('Bodega')); ?></a></li>
                             <?php endif; ?>
                         </ul>
+
                     </li>
                 <?php endif; ?>
 
@@ -722,11 +751,11 @@
                             ['role_id', $role->id]
                         ])->first();
 
-                        $warehouse_permission = DB::table('permissions')->where('name', 'warehouse')->first();
-                        $warehouse_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $warehouse_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
+//                        $warehouse_permission = DB::table('permissions')->where('name', 'warehouse')->first();
+//                        $warehouse_permission_active = DB::table('role_has_permissions')->where([
+//                            ['permission_id', $warehouse_permission->id],
+//                            ['role_id', $role->id]
+//                        ])->first();
 
                         $customer_group_permission = DB::table('permissions')->where('name', 'customer_group')->first();
                         $customer_group_permission_active = DB::table('role_has_permissions')->where([
@@ -885,9 +914,9 @@
                             <!--                    <a href="" id="send-notification">--><?php //echo e(trans('file.Send Notification')); ?><!--</a>-->
                             <!--                  </li>-->
                         <?php endif; ?>
-                        <?php if($warehouse_permission_active): ?>
-                            <li id="warehouse-menu"><a href="<?php echo e(route('warehouse.index')); ?>"><?php echo e(trans('Bodega')); ?></a></li>
-                        <?php endif; ?>
+<!--                        --><?php //if($warehouse_permission_active): ?>
+<!--                            <li id="warehouse-menu"><a href="--><?php //echo e(route('warehouse.index')); ?><!--">--><?php //echo e(trans('Bodega')); ?><!--</a></li>-->
+<!--                        --><?php //endif; ?>
                         <?php if($customer_group_permission_active): ?>
                             <li id="customer-group-menu"><a href="<?php echo e(route('customer_group.index')); ?>"><?php echo e(trans('Grupo de clientes')); ?></a></li>
                         <?php endif; ?>
