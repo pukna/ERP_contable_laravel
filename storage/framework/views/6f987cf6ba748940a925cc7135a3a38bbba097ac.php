@@ -105,9 +105,9 @@
 </section>
 
 <script type="text/javascript">
-    $("ul#people").siblings('a').attr('aria-expanded','true');
-    $("ul#people").addClass("show");
-    $("ul#people #customer-create-menu").addClass("active");
+    $("ul#sale").siblings('a').attr('aria-expanded','true');
+    $("ul#sale").addClass("show");
+    $("ul#sale #customer-create-menu").addClass("active");
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/customer/create.blade.php ENDPATH**/ ?>

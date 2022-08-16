@@ -126,6 +126,13 @@
                     ['permission_id', $supplier_index_permission->id],
                     ['role_id', $role->id]
                 ])->first();
+
+                $customer_index_permission = DB::table('permissions')->where('name', 'customers-index')->first();
+
+                $customer_index_permission_active = DB::table('role_has_permissions')->where([
+                    ['permission_id', $customer_index_permission->id],
+                    ['role_id', $role->id]
+                ])->first();
                 ?>
                 <?php if($index_permission_active): ?>
                     <li><a href="#purchase" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-card"></i><span><?php echo e(trans('Compra')); ?></span></a>
@@ -193,6 +200,19 @@
                 <?php if($sale_index_permission_active || $gift_card_permission_active || $coupon_permission_active || $delivery_permission_active): ?>
                     <li><a href="#sale" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-cart"></i><span><?php echo e(trans('Venta')); ?></span></a>
                         <ul id="sale" class="collapse list-unstyled ">
+                            <?php if($customer_index_permission_active): ?>
+                                <li id="customer-list-menu"><a href="<?php echo e(route('customer.index')); ?>"><?php echo e(trans('Lista de clientes')); ?></a></li>
+                                <?php
+                                $customer_add_permission = DB::table('permissions')->where('name', 'customers-add')->first();
+                                $customer_add_permission_active = DB::table('role_has_permissions')->where([
+                                    ['permission_id', $customer_add_permission->id],
+                                    ['role_id', $role->id]
+                                ])->first();
+                                ?>
+                                <?php if($customer_add_permission_active): ?>
+                                    <li id="customer-create-menu"><a href="<?php echo e(route('customer.create')); ?>"><?php echo e(trans('Agegar clientes')); ?></a></li>
+                                <?php endif; ?>
+                            <?php endif; ?>
                             <?php if($sale_index_permission_active): ?>
                                 <li id="sale-list-menu"><a href="<?php echo e(route('sales.index')); ?>"><?php echo e(trans('Ventas')); ?></a></li>
                                 <?php if($sale_add_permission_active): ?>
@@ -775,12 +795,12 @@
                                 ['permissions.name', 'users-index'],
                                 ['role_id', $role->id] ])->first();
 
-                        $customer_index_permission = DB::table('permissions')->where('name', 'customers-index')->first();
-
-                        $customer_index_permission_active = DB::table('role_has_permissions')->where([
-                            ['permission_id', $customer_index_permission->id],
-                            ['role_id', $role->id]
-                        ])->first();
+//                        $customer_index_permission = DB::table('permissions')->where('name', 'customers-index')->first();
+//
+//                        $customer_index_permission_active = DB::table('role_has_permissions')->where([
+//                            ['permission_id', $customer_index_permission->id],
+//                            ['role_id', $role->id]
+//                        ])->first();
 
                         $biller_index_permission = DB::table('permissions')->where('name', 'billers-index')->first();
 
@@ -813,19 +833,19 @@
                                         <?php endif; ?>
                                     <?php endif; ?>
 
-                                    <?php if($customer_index_permission_active): ?>
-                                        <li id="customer-list-menu"><a href="<?php echo e(route('customer.index')); ?>"><?php echo e(trans('Lista de clientes')); ?></a></li>
-                                        <?php
-                                        $customer_add_permission = DB::table('permissions')->where('name', 'customers-add')->first();
-                                        $customer_add_permission_active = DB::table('role_has_permissions')->where([
-                                            ['permission_id', $customer_add_permission->id],
-                                            ['role_id', $role->id]
-                                        ])->first();
-                                        ?>
-                                        <?php if($customer_add_permission_active): ?>
-                                            <li id="customer-create-menu"><a href="<?php echo e(route('customer.create')); ?>"><?php echo e(trans('Agegar clientes')); ?></a></li>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
+<!--                                    --><?php //if($customer_index_permission_active): ?>
+<!--                                        <li id="customer-list-menu"><a href="--><?php //echo e(route('customer.index')); ?><!--">--><?php //echo e(trans('Lista de clientes')); ?><!--</a></li>-->
+<!--                                        --><?php
+//                                        $customer_add_permission = DB::table('permissions')->where('name', 'customers-add')->first();
+//                                        $customer_add_permission_active = DB::table('role_has_permissions')->where([
+//                                            ['permission_id', $customer_add_permission->id],
+//                                            ['role_id', $role->id]
+//                                        ])->first();
+//                                        ?>
+<!--                                        --><?php //if($customer_add_permission_active): ?>
+<!--                                            <li id="customer-create-menu"><a href="--><?php //echo e(route('customer.create')); ?><!--">--><?php //echo e(trans('Agegar clientes')); ?><!--</a></li>-->
+<!--                                        --><?php //endif; ?>
+<!--                                    --><?php //endif; ?>
 
                                     <?php if($biller_index_permission_active): ?>
                                         <!--                  <li id="biller-list-menu"><a href="--><?php //echo e(route('biller.index')); ?><!--">--><?php //echo e(trans('file.Biller List')); ?><!--</a></li>-->
