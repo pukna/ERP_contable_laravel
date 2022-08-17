@@ -289,8 +289,8 @@
                             <li><a href="#movements" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('movimientos')); ?></span><span></a>
                                 <ul id="movements" class="collapse list-unstyled ">
                                     <?php if($adjustment_active): ?>
-                                                            <li id="adjustment-list-menu"><a href="<?php echo e(route('qty_adjustment.index')); ?>"><?php echo e(trans('Ajustes')); ?></a></li>
-                                                            <li id="adjustment-create-menu"><a href="<?php echo e(route('qty_adjustment.create')); ?>"><?php echo e(trans('Agregar ajustes')); ?></a></li>
+                                                            <li id="adjustment-list-menu"><a href="<?php echo e(route('qty_adjustment.index')); ?>"><?php echo e(trans('Trafecencia de bodega')); ?></a></li>
+                                                            <li id="adjustment-create-menu"><a href="<?php echo e(route('qty_adjustment.create')); ?>"><?php echo e(trans('Agregar Tranferencia')); ?></a></li>
                                     <?php endif; ?>
                                 </ul>
                             </li>
