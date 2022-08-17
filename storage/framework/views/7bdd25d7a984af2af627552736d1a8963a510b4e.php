@@ -348,21 +348,21 @@
                 ])->first();
                 ?>
                 <?php if($index_permission_active): ?>
-                    <!--              <li><a href="#quotation" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document"></i><span>--><?php //echo e(trans('file.Quotation')); ?><!--</span><span></a>-->
-                    <!--                <ul id="quotation" class="collapse list-unstyled ">-->
-                    <!--                  <li id="quotation-list-menu"><a href="--><?php //echo e(route('quotations.index')); ?><!--">--><?php //echo e(trans('file.Quotation List')); ?><!--</a></li>-->
-                    <!--                  --><?php
-//                    $add_permission = DB::table('permissions')->where('name', 'quotes-add')->first();
-//                    $add_permission_active = DB::table('role_has_permissions')->where([
-//                        ['permission_id', $add_permission->id],
-//                        ['role_id', $role->id]
-//                    ])->first();
-//                  ?>
-                    <!--                  --><?php //if($add_permission_active): ?>
-                    <!--                  <li id="quotation-create-menu"><a href="--><?php //echo e(route('quotations.create')); ?><!--">--><?php //echo e(trans('file.Add Quotation')); ?><!--</a></li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                </ul>-->
-                    <!--              </li>-->
+                                  <li><a href="#quotation" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document"></i><span><?php echo e(trans('Cotización')); ?></span><span></a>
+                                    <ul id="quotation" class="collapse list-unstyled ">
+                                      <li id="quotation-list-menu"><a href="<?php echo e(route('quotations.index')); ?>"><?php echo e(trans('Lista de cotizaciones')); ?></a></li>
+                                      <?php
+                    $add_permission = DB::table('permissions')->where('name', 'quotes-add')->first();
+                    $add_permission_active = DB::table('role_has_permissions')->where([
+                        ['permission_id', $add_permission->id],
+                        ['role_id', $role->id]
+                    ])->first();
+                  ?>
+                                      <?php if($add_permission_active): ?>
+                                      <li id="quotation-create-menu"><a href="<?php echo e(route('quotations.create')); ?>"><?php echo e(trans('Agregar Presupuesto')); ?></a></li>
+                                      <?php endif; ?>
+                                    </ul>
+                                  </li>
                 <?php endif; ?>
                 <?php
                 $index_permission = DB::table('permissions')->where('name', 'transfers-index')->first();
@@ -372,22 +372,22 @@
                 ])->first();
                 ?>
                 <?php if($index_permission_active): ?>
-                    <!--              <li><a href="#transfer" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-export"></i><span>--><?php //echo e(trans('file.Transfer')); ?><!--</span></a>-->
-                    <!--                <ul id="transfer" class="collapse list-unstyled ">-->
-                    <!--                  <li id="transfer-list-menu"><a href="--><?php //echo e(route('transfers.index')); ?><!--">--><?php //echo e(trans('file.Transfer List')); ?><!--</a></li>-->
-                    <!--                  --><?php
-//                    $add_permission = DB::table('permissions')->where('name', 'transfers-add')->first();
-//                    $add_permission_active = DB::table('role_has_permissions')->where([
-//                        ['permission_id', $add_permission->id],
-//                        ['role_id', $role->id]
-//                    ])->first();
-//                  ?>
-                    <!--                  --><?php //if($add_permission_active): ?>
-                    <!--                  <li id="transfer-create-menu"><a href="--><?php //echo e(route('transfers.create')); ?><!--">--><?php //echo e(trans('file.Add Transfer')); ?><!--</a></li>-->
-                    <!--                  <li id="transfer-import-menu"><a href="--><?php //echo e(url('transfers/transfer_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Transfer By CSV')); ?><!--</a></li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                </ul>-->
-                    <!--              </li>-->
+                                  <li><a href="#transfer" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-export"></i><span><?php echo e(trans('Transferencia')); ?></span></a>
+                                    <ul id="transfer" class="collapse list-unstyled ">
+                                      <li id="transfer-list-menu"><a href="<?php echo e(route('transfers.index')); ?>"><?php echo e(trans('Lista de tranferencia')); ?></a></li>
+                                      <?php
+                    $add_permission = DB::table('permissions')->where('name', 'transfers-add')->first();
+                    $add_permission_active = DB::table('role_has_permissions')->where([
+                        ['permission_id', $add_permission->id],
+                        ['role_id', $role->id]
+                    ])->first();
+                  ?>
+                                      <?php if($add_permission_active): ?>
+                                      <li id="transfer-create-menu"><a href="<?php echo e(route('transfers.create')); ?>"><?php echo e(trans('file.Add Transfer')); ?></a></li>
+                                      <li id="transfer-import-menu"><a href="<?php echo e(url('transfers/transfer_by_csv')); ?>"><?php echo e(trans('file.Import Transfer By CSV')); ?></a></li>
+                                      <?php endif; ?>
+                                    </ul>
+                                  </li>
                 <?php endif; ?>
 
                 <?php

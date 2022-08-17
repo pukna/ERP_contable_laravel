@@ -18,6 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('sale_id');
             $table->string('payment_reference');
             $table->double('amount');
+            $table->double('change')->nullable();
             $table->string('paying_method');
             $table->text('payment_note')->nullable();
             $table->timestamps();
