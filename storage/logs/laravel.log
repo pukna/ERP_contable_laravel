@@ -14644,3 +14644,23 @@ Stack trace:
 #33 C:\\Users\\Mario Montero\\ERP_contable_laravel\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #34 {main}
 "} 
+[2022-08-17 14:44:02] local.ERROR: Trying to get property 'staff_access' of non-object {"exception":"[object] (ErrorException(code: 0): Trying to get property 'staff_access' of non-object at C:\\Users\\Mario Montero\\ERP_contable_laravel\\app\\Providers\\AppServiceProvider.php:43)
+[stacktrace]
+#0 C:\\Users\\Mario Montero\\ERP_contable_laravel\\app\\Providers\\AppServiceProvider.php(43): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'Trying to get p...', 'C:\\\\Users\\\\Mario ...', 43, Array)
+#1 [internal function]: App\\Providers\\AppServiceProvider->boot()
+#2 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(32): call_user_func_array(Array, Array)
+#3 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(37): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#4 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(90): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#5 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(34): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#6 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(590): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#7 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(856): Illuminate\\Container\\Container->call(Array)
+#8 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(839): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\AppServiceProvider))
+#9 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\AppServiceProvider), 24)
+#10 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(840): array_walk(Array, Object(Closure))
+#11 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#12 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(219): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#13 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(320): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#14 C:\\Users\\Mario Montero\\ERP_contable_laravel\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#15 C:\\Users\\Mario Montero\\ERP_contable_laravel\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 {main}
+"} 
