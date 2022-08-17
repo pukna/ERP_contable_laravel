@@ -383,8 +383,8 @@
                     ])->first();
                   ?>
                                       <?php if($add_permission_active): ?>
-                                      <li id="transfer-create-menu"><a href="<?php echo e(route('transfers.create')); ?>"><?php echo e(trans('file.Add Transfer')); ?></a></li>
-                                      <li id="transfer-import-menu"><a href="<?php echo e(url('transfers/transfer_by_csv')); ?>"><?php echo e(trans('file.Import Transfer By CSV')); ?></a></li>
+                                      <li id="transfer-create-menu"><a href="<?php echo e(route('transfers.create')); ?>"><?php echo e(trans('Agregar transferencia')); ?></a></li>
+<!--                                      <li id="transfer-import-menu"><a href="--><?php //echo e(url('transfers/transfer_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Transfer By CSV')); ?><!--</a></li>-->
                                       <?php endif; ?>
                                     </ul>
                                   </li>
