@@ -291,7 +291,7 @@
             //},
             {
                 extend: 'colvis',
-                text: '<?php echo e(trans("file.Column visibility")); ?>',
+                text: '<?php echo e(trans("Visibilidad de columna")); ?>',
                 columns: ':gt(0)'
             },
         ],
