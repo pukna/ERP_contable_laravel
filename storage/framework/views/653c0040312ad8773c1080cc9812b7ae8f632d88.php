@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--traferencia entre bodega -->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('message')): ?>
   <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div>
 <?php endif; ?>
@@ -140,9 +141,9 @@
 </div>
 
 <script type="text/javascript">
-    $("ul#transfer").siblings('a').attr('aria-expanded','true');
-    $("ul#transfer").addClass("show");
-    $("ul#transfer #transfer-list-menu").addClass("active");
+    $("ul#inventory#movements").siblings('a').attr('aria-expanded','true');
+    $("ul#inventory#movements").addClass("show");
+    $("ul#inventory#movements#transfer-list-menu").addClass("active");
 
     var all_permission = <?php echo json_encode($all_permission) ?>;
     var transfer_id = [];

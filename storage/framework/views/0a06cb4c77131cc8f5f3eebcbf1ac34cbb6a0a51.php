@@ -1,4 +1,4 @@
-<!--Agragar trandefencia de bodega-->
+<!--Agragar Ajuste de bodega-->
 <?php $__env->startSection('content'); ?>
 <section class="forms">
     <div class="container-fluid">

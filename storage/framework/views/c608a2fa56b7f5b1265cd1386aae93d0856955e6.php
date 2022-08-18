@@ -1,4 +1,4 @@
-<!--Tranferencia de bodega-->
+<!--Ajuste de bodega-->
 <?php $__env->startSection('content'); ?>
 <?php if(session()->has('message')): ?>
   <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div>
