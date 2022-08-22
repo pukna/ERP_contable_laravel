@@ -1,4 +1,4 @@
-<!--traferencia entre bodega -->
+<!--transferencia entre bodega -->
 <?php $__env->startSection('content'); ?>
 <?php if(session()->has('message')): ?>
   <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div>
@@ -10,7 +10,7 @@
 <section>
     <div class="container-fluid">
         <?php if(in_array("transfers-add", $all_permission)): ?>
-            <a href="<?php echo e(route('transfers.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Agregar')); ?> <?php echo e(trans('Trenferencia')); ?></a>
+            <a href="<?php echo e(route('transfers.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Agregar')); ?> <?php echo e(trans('Transferencia')); ?></a>
 <!--            <a href="--><?php //echo e(url('transfers/transfer_by_csv')); ?><!--" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.import')); ?><!-- --><?php //echo e(trans('file.Transfer')); ?><!--</a>-->
         <?php endif; ?>
     </div>
@@ -21,11 +21,11 @@
                     <th class="not-exported"></th>
                     <th><?php echo e(trans('Fecha')); ?></th>
                     <th><?php echo e(trans('Referencia')); ?> No</th>
-                    <th><?php echo e(trans('De')); ?>(<?php echo e(trans('Almaccen')); ?>)</th>
-                    <th><?php echo e(trans('A')); ?>(<?php echo e(trans('Almacen')); ?>)</th>
+                    <th><?php echo e(trans('De')); ?>(<?php echo e(trans('Almacén')); ?>)</th>
+                    <th><?php echo e(trans('Al')); ?>(<?php echo e(trans('Almacén')); ?>)</th>
                     <th><?php echo e(trans('Costo')); ?> <?php echo e(trans('Producto')); ?></th>
                     <th><?php echo e(trans('Impuesto')); ?> <?php echo e(trans('Producto')); ?></th>
-                    <th><?php echo e(trans('file.grand total')); ?></th>
+                    <th><?php echo e(trans('Gran total')); ?></th>
                     <th><?php echo e(trans("Estado")); ?></th>
                     <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
                 </tr>
@@ -141,9 +141,11 @@
 </div>
 
 <script type="text/javascript">
-    $("ul#inventory#movements").siblings('a').attr('aria-expanded','true');
-    $("ul#inventory#movements").addClass("show");
-    $("ul#inventory#movements#transfer-list-menu").addClass("active");
+    $("ul#inventory").siblings('a').attr('aria-expanded','true');
+    $("ul#inventory").addClass("show");
+    $("ul#movements").siblings('a').attr('aria-expanded','true');
+    $("ul#movements").addClass("show");
+    $("ul#movements #transfer-list-menu").addClass("active");
 
     var all_permission = <?php echo json_encode($all_permission) ?>;
     var transfer_id = [];
@@ -318,7 +320,7 @@
     }
 
     function transferDetails(transfer) {
-        var htmltext = '<strong><?php echo e(trans("file.Date")); ?>: </strong>'+transfer[0]+'<br><strong><?php echo e(trans("file.reference")); ?>: </strong>'+transfer[1]+'<br><strong> <?php echo e(trans("file.Transfer")); ?> <?php echo e(trans("file.Status")); ?>: </strong>'+transfer[2]+'<br><br><div class="row"><div class="col-md-6"><strong><?php echo e(trans("file.From")); ?>:</strong><br>'+transfer[4]+'<br>'+transfer[5]+'<br>'+transfer[6]+'</div><div class="col-md-6"><div class="float-right"><strong><?php echo e(trans("file.To")); ?>:</strong><br>'+transfer[7]+'<br>'+transfer[8]+'<br>'+transfer[9]+'</div></div></div>';
+        var htmltext = '<strong><?php echo e(trans("Fecha")); ?>: </strong>'+transfer[0]+'<br><strong><?php echo e(trans("Referencia")); ?>: </strong>'+transfer[1]+'<br><strong> <?php echo e(trans("Tranferencia")); ?> <?php echo e(trans("Estado")); ?>: </strong>'+transfer[2]+'<br><br><div class="row"><div class="col-md-6"><strong><?php echo e(trans("De")); ?>:</strong><br>'+transfer[4]+'<br>'+transfer[5]+'<br>'+transfer[6]+'</div><div class="col-md-6"><div class="float-right"><strong><?php echo e(trans("Al")); ?>:</strong><br>'+transfer[7]+'<br>'+transfer[8]+'<br>'+transfer[9]+'</div></div></div>';
 
         $.get('transfers/product_transfer/' + transfer[3], function(data) {
             $(".product-transfer-list tbody").remove();
@@ -352,14 +354,14 @@
 
             var newRow = $("<tr>");
             cols = '';
-            cols += '<td colspan=5><strong><?php echo e(trans("file.Shipping Cost")); ?>:</strong></td>';
+            cols += '<td colspan=5><strong><?php echo e(trans("Costo de envio")); ?>:</strong></td>';
             cols += '<td>' + transfer[12] + '</td>';
             newRow.append(cols);
             newBody.append(newRow);
 
             var newRow = $("<tr>");
             cols = '';
-            cols += '<td colspan=5><strong><?php echo e(trans("file.grand total")); ?>:</strong></td>';
+            cols += '<td colspan=5><strong><?php echo e(trans("Gran total")); ?>:</strong></td>';
             cols += '<td>' + transfer[13] + '</td>';
             newRow.append(cols);
             newBody.append(newRow);
@@ -367,7 +369,7 @@
              $("table.product-transfer-list").append(newBody);
         });
 
-        var htmlfooter = '<p><strong><?php echo e(trans("file.Note")); ?>:</strong> '+transfer[14]+'</p><strong><?php echo e(trans("file.Created By")); ?>:</strong><br>'+transfer[15]+'<br>'+transfer[16];
+        var htmlfooter = '<p><strong><?php echo e(trans("Nota")); ?>:</strong> '+transfer[14]+'</p><strong><?php echo e(trans("Creado por")); ?>:</strong><br>'+transfer[15]+'<br>'+transfer[16];
 
         $('#transfer-content').html(htmltext);
         $('#transfer-footer').html(htmlfooter);

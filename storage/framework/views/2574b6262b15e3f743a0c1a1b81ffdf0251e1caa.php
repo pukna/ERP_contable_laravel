@@ -247,9 +247,11 @@
 
 <script type="text/javascript">
 
-    $("ul#product").siblings('a').attr('aria-expanded','true');
-    $("ul#product").addClass("show");
-    $("ul#product #stock-count-menu").addClass("active");
+    $("ul#inventory").siblings('a').attr('aria-expanded','true');
+    $("ul#inventory").addClass("show");
+    $("ul#stock").siblings('a').attr('aria-expanded','true');
+    $("ul#stock").addClass("show");
+    $("ul#stock #stock-count-menu").addClass("active");
 
     $("#category, #brand").hide();
 

@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--Actualizar transferencia almacén -->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('not_permitted')): ?>
   <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
 <?php endif; ?>
@@ -296,8 +297,10 @@
 
 </section>
 <script type="text/javascript">
-    $("ul#transfer").siblings('a').attr('aria-expanded','true');
-    $("ul#transfer").addClass("show");
+    $("ul#inventory").siblings('a').attr('aria-expanded','true');
+    $("ul#inventory").addClass("show");
+    $("ul#movements").siblings('a').attr('aria-expanded','true');
+    $("ul#movements").addClass("show");
 // array data depend on warehouse
 var lims_product_array = [];
 var product_code = [];

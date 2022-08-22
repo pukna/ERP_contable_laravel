@@ -282,6 +282,8 @@
 
 <script type="text/javascript">
 
+    $("ul#inventory").siblings('a').attr('aria-expanded','true');
+    $("ul#inventory").addClass("show");
     $("ul#product").siblings('a').attr('aria-expanded','true');
     $("ul#product").addClass("show");
     $("ul#product #product-create-menu").addClass("active");

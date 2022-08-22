@@ -318,7 +318,7 @@
                                 <ul id="stock" class="collapse list-unstyled ">
 
                                     <?php if($index_permission_active): ?>
-                                        <li id="product-list-menu"><a href="<?php echo e(route('products.index')); ?>"><?php echo e(__('Lista de productos')); ?></a></li>
+                                        <li id="product-list-menu1"><a href="<?php echo e(route('products.index')); ?>"><?php echo e(__('Lista de productos')); ?></a></li>
                                         <li id="product-create-menu"><a href=""><?php echo e(__('Kardex')); ?></a></li>
                                         <li id="product-create-menu"><a href=""><?php echo e(__('Calculos de costos')); ?></a></li>
                                     <?php endif; ?>
