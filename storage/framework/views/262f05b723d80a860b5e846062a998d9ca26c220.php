@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label><?php echo e(trans('A Almacén')); ?> *</label>
+                                            <label><?php echo e(trans('Al Almacén')); ?> *</label>
                                             <select required name="to_warehouse_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccione Almacén...">
                                                 <?php $__currentLoopData = $lims_warehouse_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                 <option value="<?php echo e($warehouse->id); ?>"><?php echo e($warehouse->name); ?></option>
@@ -211,6 +211,8 @@
 
 </section>
 <script type="text/javascript">
+    $("ul#inventory").siblings('a').attr('aria-expanded','true');
+    $("ul#inventory").addClass("show");
     $("ul#inventory #movements").siblings('a').attr('aria-expanded','true');
     $("ul#inventory #movements").addClass("show");
     $("ul#inventory #transfer-create-menu").addClass("active");
