@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--Agregar Compra-->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('not_permitted')): ?>
   <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
 <?php endif; ?>
@@ -8,7 +9,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex align-items-center">
-                        <h4><?php echo e(trans('Add Compra')); ?></h4>
+                        <h4><?php echo e(trans('Agregar Compra')); ?></h4>
                     </div>
                     <div class="card-body">
                         <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
@@ -64,7 +65,7 @@
                                     <div class="col-md-12 mt-3">
                                         <label><?php echo e(trans('Seleccionar producto')); ?></label>
                                         <div class="search-box input-group">
-                                            <button class="btn btn-secondary"><i class="fa fa-barcode"></i></button>
+<!--                                            <button class="btn btn-secondary"><i class="fa fa-barcode"></i></button>-->
                                             <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Escriba el código del producto y seleccione..." class="form-control" />
                                         </div>
                                     </div>

@@ -22,17 +22,17 @@
                                     <input type="text" name="name" required class="form-control">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><?php echo e(trans('Imagen')); ?></label>
-                                    <input type="file" name="image" class="form-control">
-                                    <?php if($errors->has('image')): ?>
-                                   <span>
-                                       <strong><?php echo e($errors->first('image')); ?></strong>
-                                    </span>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
+<!--                            <div class="col-md-6">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label>--><?php //echo e(trans('Imagen')); ?><!--</label>-->
+<!--                                    <input type="file" name="image" class="form-control">-->
+<!--                                    --><?php //if($errors->has('image')): ?>
+<!--                                   <span>-->
+<!--                                       <strong>--><?php //echo e($errors->first('image')); ?><!--</strong>-->
+<!--                                    </span>-->
+<!--                                    --><?php //endif; ?>
+<!--                                </div>-->
+<!--                            </div>-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label><?php echo e(trans('Nombre de Empresa')); ?> *</label>
