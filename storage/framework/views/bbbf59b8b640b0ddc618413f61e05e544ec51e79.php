@@ -1,3 +1,4 @@
+<!--Actualizar compra-->
  <?php $__env->startSection('content'); ?>
 <?php if(session()->has('not_permitted')): ?>
   <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
@@ -71,10 +72,10 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12 mt-3">
-                                        <label><?php echo e(trans('file.Select Product')); ?></label>
+                                        <label><?php echo e(trans('Seleccione Producto')); ?></label>
                                         <div class="search-box input-group">
-                                            <button type="button" class="btn btn-secondary"><i class="fa fa-barcode"></i></button>
-                                            <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Please type product code and select..." class="form-control" />
+<!--                                            <button type="button" class="btn btn-secondary"><i class="fa fa-barcode"></i></button>-->
+                                            <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Escriba el código del producto y seleccione..." class="form-control" />
                                         </div>
                                     </div>
                                 </div>

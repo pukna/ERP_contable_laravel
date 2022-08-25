@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--Lista de Proveedores-->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('not_permitted')): ?>
   <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
 <?php endif; ?>
@@ -17,8 +18,9 @@
             <thead>
                 <tr>
                     <th class="not-exported"></th>
-                    <th><?php echo e(trans('Imagen')); ?></th>
+
                     <th><?php echo e(trans('Nombre')); ?></th>
+<!--                    <th>--><?php //echo e(trans('Imagen')); ?><!--</th>-->
                     <th><?php echo e(trans('Nombre de Empresa')); ?></th>
                     <th><?php echo e(trans('RUC')); ?></th>
                     <th><?php echo e(trans('file.Email')); ?></th>
@@ -31,13 +33,14 @@
                 <?php $__currentLoopData = $lims_supplier_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$supplier): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr data-id="<?php echo e($supplier->id); ?>">
                     <td><?php echo e($key); ?></td>
-                    <?php if($supplier->image): ?>
-                    <td> <img src="<?php echo e(url('public/images/supplier',$supplier->image)); ?>" height="80" width="80">
-                    </td>
-                    <?php else: ?>
-                    <td>No Image</td>
-                    <?php endif; ?>
+
                     <td><?php echo e($supplier->name); ?></td>
+<!--                    --><?php //if($supplier->image): ?>
+<!--                        <td> <img src="--><?php //echo e(url('public/images/supplier',$supplier->image)); ?><!--" height="80" width="80">-->
+<!--                        </td>-->
+<!--                    --><?php //else: ?>
+<!--                        <td>No Image</td>-->
+<!--                    --><?php //endif; ?>
                     <td><?php echo e($supplier->company_name); ?></td>
                     <td><?php echo e($supplier->vat_number); ?></td>
                     <td><?php echo e($supplier->email); ?></td>
@@ -154,7 +157,7 @@
         'columnDefs': [
             {
                 "orderable": false,
-                'targets': [0, 1, 8]
+                'targets': [0, 7]
             },
             {
                 'checkboxes': {
