@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--agregar venta-->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('not_permitted')): ?>
   <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
 <?php endif; ?>
@@ -54,8 +55,8 @@
                                     <div class="col-md-12">
                                         <label><?php echo e(trans('Seleccionar producto')); ?></label>
                                         <div class="search-box input-group">
-                                            <button type="button" class="btn btn-secondary btn-lg"><i class="fa fa-barcode"></i></button>
-                                            <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Please type product code and select..." class="form-control" />
+<!--                                            <button type="button" class="btn btn-secondary btn-lg"><i class="fa fa-barcode"></i></button>-->
+                                            <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Escriba el código del producto y seleccione..." class="form-control" />
                                         </div>
                                     </div>
                                 </div>
@@ -149,7 +150,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>
-                                                <strong><?php echo e(trans('Shipping Cost')); ?></strong>
+                                                <strong><?php echo e(trans('Costo de envío')); ?></strong>
                                             </label>
                                             <input type="number" name="shipping_cost" class="form-control" step="any"/>
                                         </div>
@@ -366,7 +367,7 @@
                 <div class="row">
                   <div class="col-md-6 form-group warehouse-section">
                       <label><?php echo e(trans('Bodega')); ?> *</strong> </label>
-                      <select required name="warehouse_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select warehouse...">
+                      <select required name="warehouse_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccionar almacén...">
                           <?php $__currentLoopData = $lims_warehouse_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                           <option value="<?php echo e($warehouse->id); ?>"><?php echo e($warehouse->name); ?></option>
                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

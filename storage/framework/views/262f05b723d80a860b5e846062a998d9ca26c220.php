@@ -53,7 +53,7 @@
                                     <div class="col-md-12">
                                         <label><?php echo e(trans('Seleccione Producto')); ?></label>
                                         <div class="search-box input-group">
-                                            <button type="button" class="btn btn-secondary btn-lg"><i class="fa fa-barcode"></i></button>
+<!--                                            <button type="button" class="btn btn-secondary btn-lg"><i class="fa fa-barcode"></i></button>-->
                                             <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Escriba el código del producto y seleccione..." class="form-control" />
                                         </div>
                                     </div>
