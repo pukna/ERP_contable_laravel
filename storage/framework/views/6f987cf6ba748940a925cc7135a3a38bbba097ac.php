@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--Agregar cliente-->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('not_permitted')): ?>
   <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
 <?php endif; ?>
@@ -8,7 +9,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex align-items-center">
-                        <h4><?php echo e(trans('Add Clienter')); ?></h4>
+                        <h4><?php echo e(trans('Agregar Cliente')); ?></h4>
                     </div>
                     <div class="card-body">
                         <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
@@ -33,13 +34,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label><?php echo e(trans('nombre de Empresa')); ?></label>
+                                    <label><?php echo e(trans('Nombre de Empresa')); ?>*</strong></label>
                                     <input type="text" name="company_name" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label><?php echo e(trans('file.Email')); ?></label>
+                                    <label><?php echo e(trans('file.Email')); ?>*</strong>  </label>
                                     <input type="email" name="email" placeholder="example@example.com" class="form-control">
                                 </div>
                             </div>
@@ -56,7 +57,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label><?php echo e(trans('Ruc')); ?></label>
+                                    <label><?php echo e(trans('Ruc')); ?>*</strong></label>
                                     <input type="text" name="tax_no" class="form-control">
                                 </div>
                             </div>
@@ -68,7 +69,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label><?php echo e(trans('Ciodad')); ?> *</label>
+                                    <label><?php echo e(trans('Ciudad')); ?> *</label>
                                     <input type="text" name="city" required class="form-control">
                                 </div>
                             </div>
@@ -86,7 +87,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label><?php echo e(trans('Pais')); ?></label>
+                                    <label><?php echo e(trans('País')); ?></label>
                                     <input type="text" name="country" class="form-control">
                                 </div>
                             </div>
