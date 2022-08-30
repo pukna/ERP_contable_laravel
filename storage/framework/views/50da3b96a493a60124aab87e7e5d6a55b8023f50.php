@@ -52,7 +52,7 @@
           <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
             <div class="row">
                 <div class="col-md-6 form-group">
-                    <label><?php echo e(trans('nombre')); ?> *</label>
+                    <label><?php echo e(trans('Nombre')); ?> *</label>
                     <?php echo e(Form::text('name',null,array('required' => 'required', 'class' => 'form-control', 'placeholder' => 'Escriba nombre de categoria'))); ?>
 
                 </div>
@@ -83,7 +83,7 @@
         <?php echo e(Form::open(['route' => ['category.update', 1], 'method' => 'PUT', 'files' => true] )); ?>
 
       <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Actualizar Categoria')); ?></h5>
+        <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Actualizar Categoría')); ?></h5>
         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
       </div>
       <div class="modal-body">
