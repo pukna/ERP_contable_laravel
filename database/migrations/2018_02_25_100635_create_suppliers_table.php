@@ -15,7 +15,7 @@ class CreateSuppliersTable extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('image')->nullable();
             $table->string('company_name');
             $table->string('vat_number')->nullable();
@@ -26,6 +26,11 @@ class CreateSuppliersTable extends Migration
             $table->string('state')->nullable();
             $table->string('postal_code')->nullable();
             $table->string('country')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('bank_type')->nullable();
+            $table->string('account_number')->nullable();
+            $table->string('name_owner')->nullable();
+            $table->string('ruc_ced')->nullable();
             $table->boolean('is_active')->nullable();
             $table->timestamps();
         });
