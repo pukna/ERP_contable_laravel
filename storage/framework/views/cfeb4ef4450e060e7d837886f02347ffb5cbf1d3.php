@@ -64,19 +64,19 @@
                             <div id="ruc" class="col-md-6">
                                 <div class="form-group">
                                     <label><?php echo e(trans('RUC')); ?>*</strong></label>
-                                    <input type="text" name="vat_number" placeholder="1111111111001" required class="form-control">
+                                    <input type="text" name="vat_number" placeholder="1111111111001"  class="form-control">
                                 </div>
                             </div>
                             <div id="identity_card" class="col-md-6">
                                 <div class="form-group">
                                     <label><?php echo e(trans('Cedula')); ?>*</strong></label>
-                                    <input type="text" name="vat_number" placeholder="1111111111" required class="form-control">
+                                    <input type="text" name="vat_number" placeholder="1111111111"  class="form-control">
                                 </div>
                             </div>
                             <div id="passport" class="col-md-6">
                                 <div class="form-group">
                                     <label><?php echo e(trans('Pasaporte')); ?>*</strong></label>
-                                    <input type="text" name="vat_number" placeholder="A1111111111A" required class="form-control">
+                                    <input type="text" name="vat_number" placeholder="A1111111111A"  class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3">
@@ -103,7 +103,7 @@
                             <div class="col-md-12 mt-3">
                                 <label><h5> <?php echo e(trans('Datos de Ubicación')); ?></h5></label>
                                 <hr/>
-                            </div>
+                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label><?php echo e(trans('Dirección')); ?> *</label>
@@ -142,23 +142,32 @@
                                     <div class="row">
                                         <div class="col-md-4" id="">
                                             <label><?php echo e(trans('Banco')); ?>*</strong></label>
-                                            <input type="text" name="" required class="form-control" />
+                                            <div class="input-group">
+                                                <select name="bank" required class="form-control selectpicker" id="type">
+                                                    <option value="Banco Pichincha">Banco Pichincha</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="col-md-4" id="">
                                             <label><?php echo e(trans('Tipo de Cuenta')); ?>*</strong></label>
-                                            <input type="text" name="" class="form-control" />
+                                            <div class="input-group">
+                                                <select name="bank_type" required class="form-control selectpicker" id="bank">
+                                                    <option value="current">Corriente</option>
+                                                    <option value="savings">Ahorros</option>
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="col-md-4" id="">
                                             <label><?php echo e(trans('Numero de cuenta')); ?>*</strong></label>
-                                            <input type="text" name="" class="form-control" />
+                                            <input type="text" name="account_number" class="form-control" />
                                         </div>
                                         <div class="col-md-4" id="">
                                             <label><?php echo e(trans(' Nombre Titular')); ?>*</strong></label>
-                                            <input type="text" name="" class="form-control" />
+                                            <input type="text" name="name_owner" class="form-control" />
                                         </div>
                                         <div class="col-md-4" id="">
                                             <label><?php echo e(trans('RUC/Ced')); ?>*</strong></label>
-                                            <input type="text" name="" class="form-control" />
+                                            <input type="text" name="ruc_ced" class="form-control" />
                                         </div>
                                     </div>
                                 </div>
