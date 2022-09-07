@@ -61,24 +61,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="ruc" class="col-md-6">
+                            <div id="ruc1" class="col-md-6">
                                 <div class="form-group">
-                                    <label><?php echo e(trans('RUC')); ?>*</strong></label>
-                                    <input type="text" name="vat_number" placeholder="1111111111001"  class="form-control">
                                 </div>
                             </div>
-                            <div id="identity_card" class="col-md-6">
+                            <div id="ruc1" class="col-md-6">
                                 <div class="form-group">
-                                    <label><?php echo e(trans('Cedula')); ?>*</strong></label>
-                                    <input type="text" name="vat_number" placeholder="1111111111"  class="form-control">
+                                    <input type="text" name="type_ruc"   class="form-control ">
                                 </div>
                             </div>
-                            <div id="passport" class="col-md-6">
-                                <div class="form-group">
-                                    <label><?php echo e(trans('Pasaporte')); ?>*</strong></label>
-                                    <input type="text" name="vat_number" placeholder="A1111111111A"  class="form-control">
-                                </div>
-                            </div>
+<!--                            <div id="identity_card" class="col-md-6">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label>--><?php //echo e(trans('Cedula')); ?><!--*</strong></label>-->
+<!--                                    <input type="text" name="type_ced" placeholder="1111111111"  class="form-control">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div id="passport" class="col-md-6">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label>--><?php //echo e(trans('Pasaporte')); ?><!--*</strong></label>-->
+<!--                                    <input type="text" name="" placeholder="A1111111111A"  class="form-control">-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <div class="col-md-12 mt-3">
                                 <label><h5> <?php echo e(trans('Datos de Contacto')); ?></h5></label>
                                 <hr/>
@@ -194,33 +197,37 @@
 
     $("#identity_card").hide();
     $("#passport").hide();
+    var id_card = 0;
+
+    $('input[name="price"]').val(price);
+
 
     // supplier type selection
 
-    $('select[name="type"]').on('change', function() {
-        if($(this).val() == 'identity_card'){
-            hide();
-            $("#identity_card").show(300);
-            $("#passport").hide(300);
-            $("input[name='vat_number']").prop('required',true);
-        }
-        else if($(this).val() == 'passport'){
-            hide();
-            $("#passport").show(300);
-            $("#identity_card").hide(300);
-            $("input[name='vat_number']").prop('required',true);
-
-        }
-        else if($(this).val() == 'ruc'){
-            hide();
-            $("#ruc").show(300);
-            $("#identity_card").hide(300);
-            $("#passport").hide(300);
-            $("input[name='vat_number']").prop('required',true);
-
-
-        }
-    });
+    // $('select[name="type"]').on('change', function() {
+    //     if($(this).val() == 'identity_card'){
+    //         hide();
+    //         $("#identity_card").show(300);
+    //         $("#passport").hide(300);
+    //         $("input[name='vat_number']").prop('required',false);
+    //     }
+    //     else if($(this).val() == 'passport'){
+    //         hide();
+    //         $("#passport").show(300);
+    //         $("#identity_card").hide(300);
+    //         $("input[name='']").prop('required',true);
+    //
+    //     }
+    //     else if($(this).val() == 'ruc'){
+    //         hide();
+    //         $("#ruc").show(300);
+    //         $("#identity_card").hide(300);
+    //         $("#passport").hide(300);
+    //         $("input[name='vat_number']").prop('required',true);
+    //
+    //
+    //     }
+    // });
     function hide() {
         $("#ruc").hide(300);
         $("#pasaport").hide(300);
