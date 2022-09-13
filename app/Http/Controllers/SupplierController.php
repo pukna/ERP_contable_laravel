@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Bank;
+use App\Tax;
 use Illuminate\Http\Request;
 use App\Supplier;
 use Illuminate\Validation\Rule;
@@ -23,7 +25,8 @@ class SupplierController extends Controller
             if(empty($all_permission))
                 $all_permission[] = 'dummy text';
             $lims_supplier_all = Supplier::where('is_active', true)->get();
-            return view('supplier.index',compact('lims_supplier_all', 'all_permission'));
+            $lims_tax_list = Tax::where('is_active', true)->get();
+            return view('supplier.index',compact('lims_supplier_all','lims_tax_list', 'all_permission'));
         }
         else
             return redirect()->back()->with('not_permitted', 'Sorry! You are not allowed to access this module');
@@ -33,7 +36,8 @@ class SupplierController extends Controller
     {
         $role = Role::find(Auth::user()->role_id);
         if($role->hasPermissionTo('suppliers-add')){
-            return view('supplier.create');
+            $lims_bank_list = Bank::where('is_active', true)->get();
+            return view('supplier.create',compact('lims_bank_list'));
         }
         else
             return redirect()->back()->with('not_permitted', 'Sorry! You are not allowed to access this module');
@@ -56,7 +60,7 @@ class SupplierController extends Controller
             ],
             'image' => 'image|mimes:jpg,jpeg,png,gif|max:100000',
         ]);
-        
+
         $lims_supplier_data = $request->except('image');
         $lims_supplier_data['is_active'] = true;
         $image = $request->image;
@@ -196,9 +200,9 @@ class SupplierController extends Controller
                 }
                 catch(\Excetion $e){
                     $message = 'Supplier imported successfully. Please setup your <a href="setting/mail_setting">mail setting</a> to send mail.';
-                }   
+                }
             }
         }
-        return redirect('supplier')->with('message', $message); 
+        return redirect('supplier')->with('message', $message);
     }
 }
