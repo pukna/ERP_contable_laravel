@@ -43,6 +43,11 @@ Route::group(['middleware' => ['auth', 'active']], function() {
 	Route::get('brand/lims_brand_search', 'BrandController@limsBrandSearch')->name('brand.search');
 	Route::resource('brand', 'BrandController');
 
+    Route::post('importbank', 'BankController@importBanknd')->name('bank.import');
+    Route::post('bank/deletebyselection', 'BankController@deleteBySelection');
+    Route::get('bank/lims_bank_search', 'BankdController@limsBankdSearch')->name('bank.search');
+    Route::resource('bank', 'BandController');
+
 	Route::post('importsupplier', 'SupplierController@importSupplier')->name('supplier.import');
 	Route::post('supplier/deletebyselection', 'SupplierController@deleteBySelection');
 	Route::get('supplier/lims_supplier_search', 'SupplierController@limsSupplierSearch')->name('supplier.search');
@@ -68,7 +73,7 @@ Route::group(['middleware' => ['auth', 'active']], function() {
 	Route::post('importproduct', 'ProductController@importProduct')->name('product.import');
 	Route::post('exportproduct', 'ProductController@exportProduct')->name('product.export');
 	Route::get('products/print_barcode','ProductController@printBarcode')->name('product.printBarcode');
-	
+
 	Route::get('products/lims_product_search', 'ProductController@limsProductSearch')->name('product.search');
 	Route::post('products/deletebyselection', 'ProductController@deleteBySelection');
 	Route::post('products/update', 'ProductController@updateProduct');

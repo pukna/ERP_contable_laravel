@@ -20,4 +20,9 @@ class Supplier extends Model
     	return $this->hasMany('App/Product');
 
     }
+    public function bank()
+    {
+        return $this->belongsTo('App/bank');
+
+    }
 }

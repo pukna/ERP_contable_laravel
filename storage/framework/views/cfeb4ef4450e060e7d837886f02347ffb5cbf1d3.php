@@ -20,7 +20,6 @@
                                 <label><h5> <?php echo e(trans('Datos Empresa')); ?></h5></label>
                                 <hr/>
                             </div>
-
 <!--                            <div class="col-md-6">-->
 <!--                                <div class="form-group">-->
 <!--                                    <label>--><?php //echo e(trans('Imagen')); ?><!--</label>-->
@@ -61,15 +60,33 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="ruc1" class="col-md-6">
+                            <div id="ruc" class="col-md-6">
                                 <div class="form-group">
+                                    <label><?php echo e(trans('Ruc')); ?></label>
+                                    <input type="text" name="type_ruc"  placeholder="1111111111001" class="form-control ">
                                 </div>
                             </div>
-                            <div id="ruc1" class="col-md-6">
+                            <div id="identity_card" class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="type_ruc"   class="form-control ">
+                                    <label><?php echo e(trans('Cedula')); ?></label>
+                                    <input type="text" name="type_id"  placeholder="1111111111" class="form-control ">
                                 </div>
                             </div>
+                            <div id="passport" class="col-md-6">
+                                <div class="form-group">
+                                    <label><?php echo e(trans('Pasaporte')); ?></label>
+                                    <input type="text" name="type_passport"  placeholder="A1111111111001A" class="form-control ">
+                                </div>
+                            </div>
+<!--                            <div id="ruc1" class="col-md-6">-->
+<!--                                <div class="form-group">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div id="ruc1" class="col-md-6">-->
+<!--                                <div class="form-group">-->
+<!--                                    <input type="text" name="type_ruc"  placeholder="1111111111001" class="form-control ">-->
+<!--                                </div>-->
+<!--                            </div>-->
 <!--                            <div id="identity_card" class="col-md-6">-->
 <!--                                <div class="form-group">-->
 <!--                                    <label>--><?php //echo e(trans('Cedula')); ?><!--*</strong></label>-->
@@ -131,24 +148,36 @@
                                     <input type="text" name="postal_code" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label><?php echo e(trans('Pais')); ?></label>
-                                    <input type="text" name="country" class="form-control">
-                                </div>
-                            </div>
+<!--                            <div class="col-md-6">-->
+<!--                                <div class="form-group">-->
+<!--                                    <label>--><?php //echo e(trans('Pais')); ?><!--</label>-->
+<!--                                    <input type="text" name="country" class="form-control">-->
+<!--                                </div>-->
+<!--                            </div>-->
                             <div class="col-md-12 mt-3">
                                 <label><h5> <?php echo e(trans('Datos Bancarios')); ?></h5></label>
                                 <hr/>
                             </div>
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-4" id="">
-                                            <label><?php echo e(trans('Banco')); ?>*</strong></label>
-                                            <div class="input-group">
-                                                <select name="bank" required class="form-control selectpicker" id="type">
-                                                    <option value="Banco Pichincha">Banco Pichincha</option>
-                                                </select>
+<!--                                        <div class="col-md-4" id="">-->
+<!--                                            <label>--><?php //echo e(trans('Banco')); ?><!--*</strong></label>-->
+<!--                                            <div class="input-group">-->
+<!--                                                <select name="bank" required class="form-control selectpicker" id="type">-->
+<!--                                                    <option value="Banco Pichincha">Banco Pichincha</option>-->
+<!--                                                </select>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label><?php echo e(trans('Banco')); ?></strong> </label>
+                                                <div class="input-group">
+                                                    <select name="bank" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccionar banco...">
+                                                        <?php $__currentLoopData = $lims_bank_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bank): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                            <option value="<?php echo e($bank->id); ?>"><?php echo e($bank->name_bank); ?></option>
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4" id="">
@@ -197,37 +226,35 @@
 
     $("#identity_card").hide();
     $("#passport").hide();
-    var id_card = 0;
-
-    $('input[name="price"]').val(price);
-
+    var ruc = $('input[name="type_ruc"]').val();
+    var id = $('input[name="type_id"]').val();
 
     // supplier type selection
 
-    // $('select[name="type"]').on('change', function() {
-    //     if($(this).val() == 'identity_card'){
-    //         hide();
-    //         $("#identity_card").show(300);
-    //         $("#passport").hide(300);
-    //         $("input[name='vat_number']").prop('required',false);
-    //     }
-    //     else if($(this).val() == 'passport'){
-    //         hide();
-    //         $("#passport").show(300);
-    //         $("#identity_card").hide(300);
-    //         $("input[name='']").prop('required',true);
-    //
-    //     }
-    //     else if($(this).val() == 'ruc'){
-    //         hide();
-    //         $("#ruc").show(300);
-    //         $("#identity_card").hide(300);
-    //         $("#passport").hide(300);
-    //         $("input[name='vat_number']").prop('required',true);
-    //
-    //
-    //     }
-    // });
+    $('select[name="type"]').on('change', function() {
+        if($(this).val() == 'identity_card'){
+            hide();
+            $("#identity_card").show(300);
+            $("#passport").hide(300);
+            $("input[name='vat_number']").val(id).prop('required',false);
+        }
+        else if($(this).val() == 'passport'){
+            hide();
+            $("#passport").show(300);
+            $("#identity_card").hide(300);
+            $("input[name='']").prop('required',true);
+
+        }
+        else if($(this).val() == 'ruc'){
+            hide();
+            $("#ruc").show(300);
+            $("#identity_card").hide(300);
+            $("#passport").hide(300);
+            $("input[name='vat_number']").val(ruc).prop('required',true);
+
+
+        }
+    });
     function hide() {
         $("#ruc").hide(300);
         $("#pasaport").hide(300);
