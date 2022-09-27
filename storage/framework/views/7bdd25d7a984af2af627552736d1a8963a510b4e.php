@@ -493,8 +493,6 @@
                     <ul id="asset" class="collapse list-unstyled ">
                         <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Activo')); ?></a></li>
                         <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Depreciasión')); ?></a></li>
-
-
                     </ul>
                 </li>
 
