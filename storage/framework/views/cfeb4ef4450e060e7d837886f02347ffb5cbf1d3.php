@@ -172,7 +172,7 @@
                                             <div class="form-group">
                                                 <label><?php echo e(trans('Banco')); ?></strong> </label>
                                                 <div class="input-group">
-                                                    <select name="bank" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccionar banco...">
+                                                    <select name="bank_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccionar banco...">
                                                         <?php $__currentLoopData = $lims_bank_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bank): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                                             <option value="<?php echo e($bank->id); ?>"><?php echo e($bank->name_bank); ?></option>
                                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

@@ -27,7 +27,7 @@ class CreateSuppliersTable extends Migration
             $table->string('state')->nullable();
             $table->string('postal_code')->nullable();
             $table->string('country')->nullable();
-            $table->string('bank')->nullable();
+            $table->string('bank_id')->nullable();
             $table->string('bank_type')->nullable();
             $table->string('account_number')->nullable();
             $table->string('name_owner')->nullable();

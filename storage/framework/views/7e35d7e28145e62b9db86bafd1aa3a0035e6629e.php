@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label><strong><?php echo e(trans('Cargo')); ?></strong></label>
+                                        <label><strong><?php echo e(trans('Nombre de empresa')); ?></strong></label>
                                         <input type="text" name="company_name" class="form-control">
                                     </div>
                                     <div class="form-group">
@@ -75,7 +75,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group" id="biller-id">
-                                        <label><strong><?php echo e(trans('Area')); ?> *</strong></label>
+                                        <label><strong><?php echo e(trans('Cargo')); ?> *</strong></label>
                                         <select name="biller_id" required class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Biller...">
                                           <?php $__currentLoopData = $lims_biller_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $biller): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                               <option value="<?php echo e($biller->id); ?>"><?php echo e($biller->name); ?></option>
