@@ -1,4 +1,5 @@
- <?php $__env->startSection('content'); ?>
+<!--usuarios-->
+<?php $__env->startSection('content'); ?>
 <?php if(session()->has('message1')): ?>
         <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo session()->get('message1'); ?></div>
 <?php endif; ?>
@@ -26,8 +27,9 @@
                     <th><?php echo e(trans('Nombre de usuario')); ?></th>
                     <th><?php echo e(trans('file.Email')); ?></th>
                     <th><?php echo e(trans('Cargo')); ?></th>
-                    <th><?php echo e(trans('Numero de telefono')); ?></th>
+                    <th><?php echo e(trans('Nombre funcionario')); ?></th>
                     <th><?php echo e(trans('file.Role')); ?></th>
+                    <th><?php echo e(trans('Empresa')); ?></th>
                     <th><?php echo e(trans('Estado')); ?></th>
                     <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
                 </tr>
@@ -38,10 +40,12 @@
                     <td><?php echo e($key); ?></td>
                     <td><?php echo e($user->name); ?></td>
                     <td><?php echo e($user->email); ?></td>
-                    <td><?php echo e($user->company_name); ?></td>
-                    <td><?php echo e($user->phone); ?></td>
+                    <td><?php echo e($user->position); ?></td>
+                    <td><?php echo e($user->full_name); ?></td>
                     <?php $role = DB::table('roles')->find($user->role_id);?>
                     <td><?php echo e($role->name); ?></td>
+                    <?php $company = DB::table('companies')->find($user->company_name_id);?>
+                    <td><?php echo e($company->name); ?></td>
                     <?php if($user->is_active): ?>
                     <td><div class="badge badge-success">Active</div></td>
                     <?php else: ?>
@@ -117,7 +121,7 @@
         'columnDefs': [
             {
                 "orderable": false,
-                'targets': [0, 7]
+                'targets': [0, 8]
             },
             {
                 'render': function(data, type, row, meta){

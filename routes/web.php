@@ -43,10 +43,15 @@ Route::group(['middleware' => ['auth', 'active']], function() {
 	Route::get('brand/lims_brand_search', 'BrandController@limsBrandSearch')->name('brand.search');
 	Route::resource('brand', 'BrandController');
 
-    Route::post('importbank', 'BankController@importBanknd')->name('bank.import');
+    Route::post('importbank', 'BankController@importBank')->name('bank.import');
     Route::post('bank/deletebyselection', 'BankController@deleteBySelection');
-    Route::get('bank/lims_bank_search', 'BankdController@limsBankdSearch')->name('bank.search');
-    Route::resource('bank', 'BandController');
+    Route::get('bank/lims_bank_search', 'BankController@limsBankSearch')->name('bank.search');
+    Route::resource('bank', 'CompanyController');
+
+    Route::post('importcompany', 'CompanyController@importCompany')->name('company.import');
+    Route::post('company/deletebyselection', 'CompanyController@deleteBySelection');
+    Route::get('company/lims_company_search', 'CompanyController@limsCompanySearch')->name('company.search');
+    Route::resource('company', 'CompanyController');
 
 	Route::post('importsupplier', 'SupplierController@importSupplier')->name('supplier.import');
 	Route::post('supplier/deletebyselection', 'SupplierController@deleteBySelection');

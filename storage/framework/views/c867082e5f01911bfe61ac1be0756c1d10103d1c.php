@@ -88,7 +88,7 @@
                 <button type="submit" class="btn btn-info staff-btn">LogIn as Staff</button>
                 <br><br> -->
                 <a href="<?php echo e(route('password.request')); ?>" class="forgot-pass"><?php echo e(trans('¿Olvido su Contraseña?')); ?></a>
-                <p><?php echo e(trans('¿No tiene cuenta?')); ?></p><a href="<?php echo e(url('register')); ?>" class="signup"><?php echo e(trans('Registrar')); ?></a>
+                <p><?php echo e(trans('¿No tiene cuenta?')); ?></p><a href="<?php echo e(url('register')); ?>" class="signup"><?php echo e(trans('Registrar 1')); ?></a>
             </div>
             <div class="copyrights text-center">
                 <p><?php echo e(trans('Desarollado por')); ?> <span class="external"><?php echo e($general_setting->developed_by); ?></span></p>

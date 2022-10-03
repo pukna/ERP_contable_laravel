@@ -14,8 +14,8 @@ class AddColumnsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('phone');
-            $table->string('company_name')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('company_name_id')->nullable();
             $table->integer('role_id');
             $table->boolean('is_active');
         });
