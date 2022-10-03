@@ -22,7 +22,7 @@ class Supplier extends Model
     }
     public function bank()
     {
-        return $this->belongsTo('App/bank');
+        return $this->belongsTo('App/Bank');
 
     }
 }
