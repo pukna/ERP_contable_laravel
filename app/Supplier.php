@@ -10,7 +10,8 @@ class Supplier extends Model
 
         "name", "image", "company_name","type", "vat_number",
         "email", "phone_number", "address", "city",
-        "state", "postal_code", "country", "bank",
+        "special_taxpayer", "contact_name", "contact_email", "way_payment",
+        "payment_deadline","state", "postal_code", "country", "bank_id",
         "bank_type", "account_number", "name_owner", "ruc_ced", "is_active"
 
     ];
