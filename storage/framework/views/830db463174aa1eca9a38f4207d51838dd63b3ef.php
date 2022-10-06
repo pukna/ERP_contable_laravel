@@ -22,9 +22,17 @@
                     <th><?php echo e(trans('Nombre')); ?></th>
 <!--                    <th>--><?php //echo e(trans('Imagen')); ?><!--</th>-->
                     <th><?php echo e(trans('Nombre de Empresa')); ?></th>
-                    <th><?php echo e(trans('RUC')); ?></th>
+                    <th><?php echo e(trans('Identificacion')); ?></th>
                     <th><?php echo e(trans('file.Email')); ?></th>
                     <th><?php echo e(trans('Numero de telefono')); ?></th>
+                    <th><?php echo e(trans('Nombre contacto')); ?></th>
+                    <th><?php echo e(trans('Email contacto')); ?></th>
+                    <th><?php echo e(trans('Credito')); ?></th>
+                    <th><?php echo e(trans('Datos Bancarios')); ?></th>
+                    <th><?php echo e(trans('Tipo de cuenta')); ?></th>
+                    <th><?php echo e(trans('Cedula')); ?></th>
+                    <th><?php echo e(trans('Beneficiario')); ?></th>
+                    <th><?php echo e(trans('Identificación')); ?></th>
                     <th><?php echo e(trans('Dirección')); ?></th>
                     <th class="not-exported"><?php echo e(trans('Accíon')); ?></th>
                 </tr>
@@ -45,13 +53,26 @@
                     <td><?php echo e($supplier->vat_number); ?></td>
                     <td><?php echo e($supplier->email); ?></td>
                     <td><?php echo e($supplier->phone_number); ?></td>
-                    <td><?php echo e($supplier->address); ?>
+                    <td><?php echo e($supplier->contact_name); ?></td>
+                    <td><?php echo e($supplier->contact_email); ?></td>
+                    <?php if($supplier->way_payment=='credit'): ?>
+                        <td> <?php echo e($supplier->payment_deadline); ?> Dias
+                        </td>
+                    <?php else: ?>
+                        <td>Contado</td>
+                    <?php endif; ?>
+                    <td><?php $bank = DB::table('banks')->find($supplier->bank_id);?><?php echo e($bank->name_bank); ?></td>
+                    <td><?php echo e($supplier->bank_type); ?></td>
+                    <td><?php echo e($supplier->account_number); ?></td>
+                    <td><?php echo e($supplier->name_owner); ?></td>
+                    <td><?php echo e($supplier->ruc_ced); ?></td>
 
-                            <?php if($supplier->city): ?><?php echo e(', '.$supplier->city); ?><?php endif; ?>
-                            <?php if($supplier->state): ?><?php echo e(', '.$supplier->state); ?><?php endif; ?>
-                            <?php if($supplier->postal_code): ?><?php echo e(', '.$supplier->postal_code); ?><?php endif; ?>
-                            <?php if($supplier->country): ?><?php echo e(', '.$supplier->country); ?><?php endif; ?></td>
+
+                    <td><?php echo e($supplier->address); ?>
+                        <?php if($supplier->city): ?><?php echo e(', '.$supplier->city); ?><?php endif; ?>
+                        <?php if($supplier->state): ?><?php echo e(', '.$supplier->state); ?><?php endif; ?>
                     <td>
+
                         <div class="btn-group">
                             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
 
@@ -157,7 +178,7 @@
         'columnDefs': [
             {
                 "orderable": false,
-                'targets': [0, 7]
+                'targets': [0, 11]
             },
             {
                 'checkboxes': {
