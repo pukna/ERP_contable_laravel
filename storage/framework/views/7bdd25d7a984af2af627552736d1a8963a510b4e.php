@@ -486,7 +486,17 @@
                 <?php endif; ?>
                 <?php if($index_permission_active || $balance_sheet_permission_active || $account_statement_permission_active): ?>
                     <li class=""><a href="#imports" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-graph-line"></i><span><?php echo e(trans('Importaciones')); ?></span></a>
-
+                        <ul id="imports" class="collapse list-unstyled ">
+                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Facturas')); ?></a></li>
+                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Pedidos')); ?></a></li>
+                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Proforma')); ?></a></li>
+                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Ingresos')); ?></a></li>
+                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Liquidación')); ?></a></li>
+                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Proveedores')); ?></a></li>
+                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Articulos')); ?></a></li>
+                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Devolición')); ?></a></li>
+                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Actualización')); ?></a></li>
+                        </ul>
                     </li>
                 <?php endif; ?>
                 <li><a href="#asset" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-store"></i><span><?php echo e(trans('Activos Fijos')); ?></span></a>
