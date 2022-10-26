@@ -20,6 +20,7 @@ class CreateSuppliersTable extends Migration
             $table->string('company_name');
             $table->string('type');
             $table->string('vat_number');
+            $table->string('locate')->nullable();
             $table->string('email');
             $table->string('phone_number');
             $table->string('address');
