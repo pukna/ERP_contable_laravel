@@ -63,6 +63,7 @@ class SupplierController extends Controller
 
         $lims_supplier_data = $request->except('image');
         $lims_supplier_data['is_active'] = true;
+//        $lims_supplier_data['locate'] = 'Local';
         $image = $request->image;
         if ($image) {
             $ext = pathinfo($image->getClientOriginalName(), PATHINFO_EXTENSION);

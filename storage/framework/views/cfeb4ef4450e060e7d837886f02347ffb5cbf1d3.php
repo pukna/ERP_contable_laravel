@@ -131,6 +131,7 @@
                                 <div class="form-group">
                                     <label><?php echo e(trans('Provincia')); ?></label>
                                     <input type="text" name="state" class="form-control">
+                                    <input type="hidden" name="locate" value="Local" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
