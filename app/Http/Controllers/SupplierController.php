@@ -37,7 +37,7 @@ class SupplierController extends Controller
         $role = Role::find(Auth::user()->role_id);
         if($role->hasPermissionTo('suppliers-add')){
             $lims_bank_list = Bank::where('is_active', true)->get();
-            return view('supplier.create',compact('lims_bank_list'));
+            return view('supplier.create',compact('lims_bank_list'),'supplier.create');
         }
         else
             return redirect()->back()->with('not_permitted', 'Sorry! You are not allowed to access this module');

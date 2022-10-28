@@ -2,9 +2,9 @@
 @if($errors->has('phone_number'))
 <div class="alert alert-danger alert-dismissible text-center">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $errors->first('phone_number') }}</div>
-@endif 
+@endif
 @if(session()->has('not_permitted'))
-  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div> 
+  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div>
 @endif
 <!-- Side Navbar -->
 <nav class="side-navbar shrink">
@@ -12,7 +12,7 @@
       <!-- Sidebar Header    -->
       <!-- Sidebar Navigation Menus-->
       <div class="main-menu">
-        <ul id="side-main-menu" class="side-menu list-unstyled">                  
+        <ul id="side-main-menu" class="side-menu list-unstyled">
           <li><a href="{{url('/')}}"> <i class="dripicons-meter"></i><span>{{ __('file.dashboard') }}</span></a></li>
           <?php
             $role = DB::table('roles')->find(Auth::user()->role_id);
@@ -40,13 +40,13 @@
                     ['role_id', $role->id]
                 ])->first();
           ?>
-          
+
           <li><a href="#product" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-list"></i><span>{{__('file.product')}}</span><span></a>
             <ul id="product" class="collapse list-unstyled ">
               <li id="category-menu"><a href="{{route('category.index')}}">{{__('file.category')}}</a></li>
               @if($index_permission_active)
               <li id="product-list-menu"><a href="{{route('products.index')}}">{{__('file.product_list')}}</a></li>
-              <?php 
+              <?php
                 $add_permission = DB::table('permissions')->where('name', 'products-add')->first();
                 $add_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $add_permission->id],
@@ -69,7 +69,7 @@
               @endif
             </ul>
           </li>
-          <?php 
+          <?php
             $index_permission = DB::table('permissions')->where('name', 'purchases-index')->first();
               $index_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $index_permission->id],
@@ -80,7 +80,7 @@
           <li><a href="#purchase" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-card"></i><span>{{trans('file.Purchase')}}</span></a>
             <ul id="purchase" class="collapse list-unstyled ">
               <li id="purchase-list-menu"><a href="{{route('purchases.index')}}">{{trans('file.Purchase List')}}</a></li>
-              <?php 
+              <?php
                 $add_permission = DB::table('permissions')->where('name', 'purchases-add')->first();
                 $add_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $add_permission->id],
@@ -94,7 +94,7 @@
             </ul>
           </li>
           @endif
-          <?php 
+          <?php
             $index_permission = DB::table('permissions')->where('name', 'sales-index')->first();
             $index_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $index_permission->id],
@@ -113,12 +113,12 @@
                     ['role_id', $role->id]
                 ])->first();
           ?>
-          
+
           <li><a href="#sale" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-cart"></i><span>{{trans('file.Sale')}}</span></a>
             <ul id="sale" class="collapse list-unstyled ">
               @if($index_permission_active)
               <li id="sale-list-menu"><a href="{{route('sales.index')}}">{{trans('file.Sale List')}}</a></li>
-              <?php 
+              <?php
                 $add_permission = DB::table('permissions')->where('name', 'sales-add')->first();
                 $add_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $add_permission->id],
@@ -140,7 +140,7 @@
               <li id="delivery-menu"><a href="{{route('delivery.index')}}">{{trans('file.Delivery List')}}</a></li>
             </ul>
           </li>
-          <?php 
+          <?php
             $index_permission = DB::table('permissions')->where('name', 'expenses-index')->first();
             $index_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $index_permission->id],
@@ -152,7 +152,7 @@
             <ul id="expense" class="collapse list-unstyled ">
               <li id="exp-cat-menu"><a href="{{route('expense_categories.index')}}">{{trans('file.Expense Category')}}</a></li>
               <li id="exp-list-menu"><a href="{{route('expenses.index')}}">{{trans('file.Expense List')}}</a></li>
-              <?php 
+              <?php
                 $add_permission = DB::table('permissions')->where('name', 'expenses-add')->first();
                 $add_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $add_permission->id],
@@ -165,7 +165,7 @@
             </ul>
           </li>
           @endif
-          <?php 
+          <?php
             $index_permission = DB::table('permissions')->where('name', 'quotes-index')->first();
             $index_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $index_permission->id],
@@ -176,7 +176,7 @@
           <li><a href="#quotation" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document"></i><span>{{trans('file.Quotation')}}</span><span></a>
             <ul id="quotation" class="collapse list-unstyled ">
               <li id="quotation-list-menu"><a href="{{route('quotations.index')}}">{{trans('file.Quotation List')}}</a></li>
-              <?php 
+              <?php
                 $add_permission = DB::table('permissions')->where('name', 'quotes-add')->first();
                 $add_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $add_permission->id],
@@ -189,7 +189,7 @@
             </ul>
           </li>
           @endif
-          <?php 
+          <?php
             $index_permission = DB::table('permissions')->where('name', 'transfers-index')->first();
             $index_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $index_permission->id],
@@ -200,7 +200,7 @@
           <li><a href="#transfer" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-export"></i><span>{{trans('file.Transfer')}}</span></a>
             <ul id="transfer" class="collapse list-unstyled ">
               <li id="transfer-list-menu"><a href="{{route('transfers.index')}}">{{trans('file.Transfer List')}}</a></li>
-              <?php 
+              <?php
                 $add_permission = DB::table('permissions')->where('name', 'transfers-add')->first();
                 $add_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $add_permission->id],
@@ -214,10 +214,10 @@
             </ul>
           </li>
           @endif
-          
+
           <li><a href="#return" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-archive"></i><span>{{trans('file.return')}}</span></a>
             <ul id="return" class="collapse list-unstyled ">
-              <?php 
+              <?php
                 $index_permission = DB::table('permissions')->where('name', 'returns-index')->first();
                 $index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $index_permission->id],
@@ -227,7 +227,7 @@
               @if($index_permission_active)
               <li id="sale-return-menu"><a href="{{route('return-sale.index')}}">{{trans('file.Sale')}}</a></li>
               @endif
-              <?php 
+              <?php
                 $index_permission = DB::table('permissions')->where('name', 'purchase-return-index')->first();
                 $index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $index_permission->id],
@@ -239,7 +239,7 @@
               @endif
             </ul>
           </li>
-          <?php 
+          <?php
             $index_permission = DB::table('permissions')->where('name', 'account-index')->first();
             $index_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $index_permission->id],
@@ -284,7 +284,7 @@
             </ul>
           </li>
           @endif
-          <?php 
+          <?php
             $department = DB::table('permissions')->where('name', 'department')->first();
             $department_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $department->id],
@@ -306,7 +306,7 @@
                     ['role_id', $role->id]
                 ])->first();
           ?>
-          
+
           <li class=""><a href="#hrm" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user-group"></i><span>HRM</span></a>
             <ul id="hrm" class="collapse list-unstyled ">
               @if($department_active)
@@ -324,7 +324,7 @@
               <li id="holiday-menu"><a href="{{route('holidays.index')}}">{{trans('file.Holiday')}}</a></li>
             </ul>
           </li>
-          
+
           <li><a href="#people" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user"></i><span>{{trans('file.People')}}</span></a>
             <ul id="people" class="collapse list-unstyled ">
               <?php $index_permission_active = DB::table('permissions')
@@ -345,7 +345,7 @@
               <li id="user-create-menu"><a href="{{route('user.create')}}">{{trans('file.Add User')}}</a></li>
               @endif
               @endif
-              <?php 
+              <?php
                 $index_permission = DB::table('permissions')->where('name', 'customers-index')->first();
                 $index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $index_permission->id],
@@ -354,7 +354,7 @@
               ?>
               @if($index_permission_active)
               <li id="customer-list-menu"><a href="{{route('customer.index')}}">{{trans('file.Customer List')}}</a></li>
-              <?php 
+              <?php
                 $add_permission = DB::table('permissions')->where('name', 'customers-add')->first();
                 $add_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $add_permission->id],
@@ -365,7 +365,7 @@
               <li id="customer-create-menu"><a href="{{route('customer.create')}}">{{trans('file.Add Customer')}}</a></li>
               @endif
               @endif
-              <?php 
+              <?php
                 $index_permission = DB::table('permissions')->where('name', 'billers-index')->first();
                 $index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $index_permission->id],
@@ -374,7 +374,7 @@
               ?>
               @if($index_permission_active)
               <li id="biller-list-menu"><a href="{{route('biller.index')}}">{{trans('file.Biller List')}}</a></li>
-              <?php 
+              <?php
                 $add_permission = DB::table('permissions')->where('name', 'billers-add')->first();
                 $add_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $add_permission->id],
@@ -385,7 +385,7 @@
               <li id="biller-create-menu"><a href="{{route('biller.create')}}">{{trans('file.Add Biller')}}</a></li>
               @endif
               @endif
-              <?php 
+              <?php
                 $index_permission = DB::table('permissions')->where('name', 'suppliers-index')->first();
                 $index_permission_active = DB::table('role_has_permissions')->where([
                         ['permission_id', $index_permission->id],
@@ -394,7 +394,7 @@
               ?>
               @if($index_permission_active)
               <li id="supplier-list-menu"><a href="{{route('supplier.index')}}">{{trans('file.Supplier List')}}</a></li>
-              <?php 
+              <?php
                 $add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
                 $add_permission_active = DB::table('role_has_permissions')->where([
                     ['permission_id', $add_permission->id],
@@ -488,7 +488,7 @@
               $supplier_report_active = DB::table('permissions')
                     ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
                     ->where([
-                      ['permissions.name', 'supplier-report'], 
+                      ['permissions.name', 'supplier-report'],
                       ['role_id', $role->id] ])->first();
               $due_report_active = DB::table('permissions')
                     ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
@@ -816,20 +816,20 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                            <?php 
+                                            <?php
                                                 $temp_unit_name = [];
                                                 $temp_unit_operator = [];
                                                 $temp_unit_operation_value = [];
                                             ?>
                                                 @foreach($lims_product_sale_data as $product_sale)
                                                 <tr>
-                                                <?php 
+                                                <?php
                                                     $product_data = DB::table('products')->find($product_sale->product_id);
                                                     if($product_sale->variant_id) {
                                                         $product_variant_data = \App\ProductVariant::select('id', 'item_code')->FindExactProduct($product_data->id, $product_sale->variant_id)->first();
                                                         $product_data->code = $product_variant_data->item_code;
                                                     }
-                                                    
+
                                                     if($product_data->tax_method == 1){
                                                         $product_price = $product_sale->net_unit_price + ($product_sale->discount / $product_sale->qty);
                                                     }
@@ -843,7 +843,7 @@
                                                     $unit_operation_value = array();
                                                     if($product_data->type == 'standard'){
                                                         $units = DB::table('units')->where('base_unit', $product_data->unit_id)->orWhere('id', $product_data->unit_id)->get();
-                            
+
                                                         foreach($units as $unit) {
                                                             if($product_sale->sale_unit_id == $unit->id) {
                                                                 array_unshift($unit_name, $unit->unit_name);
@@ -938,7 +938,7 @@
                                             <input type="hidden" name="grand_total" value="{{$lims_sale_data->grand_total}}" />
                                             <input type="hidden" name="sale_status" value="1" />
                                             @if($lims_sale_data->coupon_id)
-                                                @php  
+                                                @php
                                                     $coupon = \App\Coupon::find($lims_sale_data->coupon_id)
                                                 @endphp
                                                 <input type="hidden" name="coupon_active" value="1">
@@ -1031,7 +1031,7 @@
                                     </table>
                                 </div>
                                 <div class="column-5">
-                                    <button style="background: #0066cc" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="credit-card-btn"><i class="fa fa-credit-card"></i> Card</button>   
+                                    <button style="background: #0066cc" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="credit-card-btn"><i class="fa fa-credit-card"></i> Card</button>
                                 </div>
                                 <div class="column-5">
                                     <button style="background: #47d147" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="cash-btn"><i class="fa fa-money"></i> Cash</button>
@@ -1055,14 +1055,14 @@
                                     <button style="background-color: #cc0000;" type="button" class="btn btn-custom payment-btn" id="cancel-btn" onclick="return confirmCancel()"><i class="ion-android-cancel"></i> Cancel</button>
                                 </div> -->
                             </div>
-                        </div>                        
+                        </div>
                     </div>
                     <div class="payment-amount">
                         <h2>{{trans('file.grand total')}} <span id="grand-total">{{number_format((float)$lims_sale_data->grand_total, 2, '.', '')}}</span></h2>
                     </div>
                     <div class="payment-options">
                         <div class="column-5">
-                            <button style="background: #0984e3" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="credit-card-btn"><i class="fa fa-credit-card"></i> Card</button>   
+                            <button style="background: #0984e3" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="credit-card-btn"><i class="fa fa-credit-card"></i> Card</button>
                         </div>
                         <div class="column-5">
                             <button style="background: #00cec9" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="cash-btn"><i class="fa fa-money"></i> Cash</button>
@@ -1085,7 +1085,7 @@
                         <div class="column-5">
                             <button style="background-color: #d63031;" type="button" class="btn btn-custom" id="cancel-btn" onclick="return confirmCancel()"><i class="fa fa-close"></i> Cancel</button>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -1263,10 +1263,10 @@
                         <div class="navbar-holder d-flex align-items-center justify-content-between">
                           <a id="toggle-btn" href="#" class="menu-btn"><i class="fa fa-bars"> </i></a>
                           <div class="navbar-header">
-                          
+
                           <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                            <li class="nav-item"><a id="btnFullscreen" title="Full Screen"><i class="dripicons-expand"></i></a></li> 
-                            <?php 
+                            <li class="nav-item"><a id="btnFullscreen" title="Full Screen"><i class="dripicons-expand"></i></a></li>
+                            <?php
                                 $general_setting_permission = DB::table('permissions')->where('name', 'general_setting')->first();
                                 $general_setting_permission_active = DB::table('role_has_permissions')->where([
                                             ['permission_id', $general_setting_permission->id],
@@ -1296,25 +1296,25 @@
                                   </ul>
                             </li>
                             @endif
-                            <li class="nav-item"> 
+                            <li class="nav-item">
                                 <a class="dropdown-item" href="{{ url('read_me') }}" target="_blank"><i class="dripicons-information"></i> {{trans('file.Help')}}</a>
                             </li>&nbsp;
                             <li class="nav-item">
                                   <a rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-item"><i class="dripicons-user"></i> <span>{{ucfirst(Auth::user()->name)}}</span> <i class="fa fa-angle-down"></i>
                                   </a>
                                   <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                                      <li> 
+                                      <li>
                                         <a href="{{route('user.profile', ['id' => Auth::id()])}}"><i class="dripicons-user"></i> {{trans('file.profile')}}</a>
                                       </li>
                                       @if($general_setting_permission_active)
-                                      <li> 
+                                      <li>
                                         <a href="{{route('setting.general')}}"><i class="dripicons-gear"></i> {{trans('file.settings')}}</a>
                                       </li>
                                       @endif
-                                      <li> 
+                                      <li>
                                         <a href="{{url('my-transactions/'.date('Y').'/'.date('m'))}}"><i class="dripicons-swap"></i> {{trans('file.My Transaction')}}</a>
                                       </li>
-                                      <li> 
+                                      <li>
                                         <a href="{{url('holidays/my-holiday/'.date('Y').'/'.date('m'))}}"><i class="dripicons-vibrate"></i> {{trans('file.My Holiday')}}</a>
                                       </li>
                                       <li>
@@ -1328,7 +1328,7 @@
                                         </form>
                                       </li>
                                   </ul>
-                            </li> 
+                            </li>
                           </ul>
                         </div>
                       </div>
@@ -1534,7 +1534,7 @@
                             <input type="text" name="city" required class="form-control">
                         </div>
                         <div class="form-group">
-                        <input type="hidden" name="pos" value="1">      
+                        <input type="hidden" name="pos" value="1">
                           <input type="submit" value="{{trans('file.submit')}}" class="btn btn-primary">
                         </div>
                     </div>
@@ -1668,7 +1668,7 @@ if(keyboard_active==1){
         },
         change: function(e, keyboard) {
                 keyboard.$el.val(keyboard.$preview.val())
-                keyboard.$el.trigger('propertychange')        
+                keyboard.$el.trigger('propertychange')
               }
     });
 
@@ -1693,7 +1693,7 @@ if(keyboard_active==1){
         },
         change: function(e, keyboard) {
                 keyboard.$el.val(keyboard.$preview.val())
-                keyboard.$el.trigger('propertychange')        
+                keyboard.$el.trigger('propertychange')
               }
     });
 
@@ -2177,7 +2177,7 @@ $("#deposit-btn").on("click",function(){
     deposits();
 });
 
-$('.payment-option').on("change", function() {       
+$('.payment-option').on("change", function() {
     var id = $(this).val();
     $('input[name="paid_by_id"]').val(id);
     $(".payment-form").off("submit");
