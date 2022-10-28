@@ -26,6 +26,7 @@ class CreateSuppliersTable extends Migration
             $table->string('country')->nullable();
             $table->string('state')->nullable();
             $table->string('city');
+            $table->string('locate')->nullable();
             $table->boolean('special_taxpayer')->nullable();
             $table->string('contact_name')->nullable();
             $table->string('contact_email')->nullable();
