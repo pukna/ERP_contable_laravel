@@ -296,10 +296,10 @@
                             <li><a href="#movements" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('movimientos')); ?></span><span></a>
                                 <ul id="movements" class="collapse list-unstyled ">
 
-<!--                                    --><?php //if($adjustment_active): ?>
-<!--                                                            <li id="adjustment-list-menu"><a href="--><?php //echo e(route('qty_adjustment.index')); ?><!--">--><?php //echo e(trans('Ajuste de bodega')); ?><!--</a></li>-->
-<!--                                                            <li id="adjustment-create-menu"><a href="--><?php //echo e(route('qty_adjustment.create')); ?><!--">--><?php //echo e(trans('Agregar Ajuste')); ?><!--</a></li>-->
-<!--                                    --><?php //endif; ?>
+                                    <!--                                    --><?php //if($adjustment_active): ?>
+                                    <!--                                                            <li id="adjustment-list-menu"><a href="--><?php //echo e(route('qty_adjustment.index')); ?><!--">--><?php //echo e(trans('Ajuste de bodega')); ?><!--</a></li>-->
+                                    <!--                                                            <li id="adjustment-create-menu"><a href="--><?php //echo e(route('qty_adjustment.create')); ?><!--">--><?php //echo e(trans('Agregar Ajuste')); ?><!--</a></li>-->
+                                    <!--                                    --><?php //endif; ?>
                                     <li id="transfer-list-menu"><a href="<?php echo e(route('transfers.index')); ?>"><?php echo e(trans('Lista de tranferencia al Almacén')); ?></a></li>
                                     <?php
                                     $add_permission = DB::table('permissions')->where('name', 'transfers-add')->first();
@@ -367,48 +367,48 @@
                     ['role_id', $role->id]
                 ])->first();
                 ?>
-<!--                --><?php //if($index_permission_active): ?>
-<!--                                  <li><a href="#quotation" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document"></i><span>--><?php //echo e(trans('Cotización')); ?><!--</span><span></a>-->
-<!--                                    <ul id="quotation" class="collapse list-unstyled ">-->
-<!--                                      <li id="quotation-list-menu"><a href="--><?php //echo e(route('quotations.index')); ?><!--">--><?php //echo e(trans('Lista de cotizaciones')); ?><!--</a></li>-->
-<!--                                      --><?php
-//                    $add_permission = DB::table('permissions')->where('name', 'quotes-add')->first();
-//                    $add_permission_active = DB::table('role_has_permissions')->where([
-//                        ['permission_id', $add_permission->id],
-//                        ['role_id', $role->id]
-//                    ])->first();
-//                  ?>
-<!--                                      --><?php //if($add_permission_active): ?>
-<!--                                      <li id="quotation-create-menu"><a href="--><?php //echo e(route('quotations.create')); ?><!--">--><?php //echo e(trans('Agregar Presupuesto')); ?><!--</a></li>-->
-<!--                                      --><?php //endif; ?>
-<!--                                    </ul>-->
-<!--                                  </li>-->
-<!--                --><?php //endif; ?>
-<!--                --><?php
-//                $index_permission = DB::table('permissions')->where('name', 'transfers-index')->first();
-//                $index_permission_active = DB::table('role_has_permissions')->where([
-//                    ['permission_id', $index_permission->id],
-//                    ['role_id', $role->id]
-//                ])->first();
-//                ?>
-<!--                --><?php //if($index_permission_active): ?>
-<!--                                  <li><a href="#transfer" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-export"></i><span>--><?php //echo e(trans('Transferencia')); ?><!--</span></a>-->
-<!--                                    <ul id="transfer" class="collapse list-unstyled ">-->
-<!--                                      <li id="transfer-list-menu"><a href="--><?php //echo e(route('transfers.index')); ?><!--">--><?php //echo e(trans('Lista de tranferencia')); ?><!--</a></li>-->
-<!--                                      --><?php
-//                    $add_permission = DB::table('permissions')->where('name', 'transfers-add')->first();
-//                    $add_permission_active = DB::table('role_has_permissions')->where([
-//                        ['permission_id', $add_permission->id],
-//                        ['role_id', $role->id]
-//                    ])->first();
-//                  ?>
-<!--                                      --><?php //if($add_permission_active): ?>
-<!--                                      <li id="transfer-create-menu"><a href="--><?php //echo e(route('transfers.create')); ?><!--">--><?php //echo e(trans('Agregar transferencia')); ?><!--</a></li>-->
-<!--                                      <li id="transfer-import-menu"><a href="--><?php //echo e(url('transfers/transfer_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Transfer By CSV')); ?><!--</a></li>-->
-<!--                                      --><?php //endif; ?>
-<!--                                    </ul>-->
-<!--                                  </li>-->
-<!--                --><?php //endif; ?>
+                <!--                --><?php //if($index_permission_active): ?>
+                <!--                                  <li><a href="#quotation" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document"></i><span>--><?php //echo e(trans('Cotización')); ?><!--</span><span></a>-->
+                <!--                                    <ul id="quotation" class="collapse list-unstyled ">-->
+                <!--                                      <li id="quotation-list-menu"><a href="--><?php //echo e(route('quotations.index')); ?><!--">--><?php //echo e(trans('Lista de cotizaciones')); ?><!--</a></li>-->
+                <!--                                      --><?php
+                //                    $add_permission = DB::table('permissions')->where('name', 'quotes-add')->first();
+                //                    $add_permission_active = DB::table('role_has_permissions')->where([
+                //                        ['permission_id', $add_permission->id],
+                //                        ['role_id', $role->id]
+                //                    ])->first();
+                //                  ?>
+                <!--                                      --><?php //if($add_permission_active): ?>
+                <!--                                      <li id="quotation-create-menu"><a href="--><?php //echo e(route('quotations.create')); ?><!--">--><?php //echo e(trans('Agregar Presupuesto')); ?><!--</a></li>-->
+                <!--                                      --><?php //endif; ?>
+                <!--                                    </ul>-->
+                <!--                                  </li>-->
+                <!--                --><?php //endif; ?>
+                <!--                --><?php
+                //                $index_permission = DB::table('permissions')->where('name', 'transfers-index')->first();
+                //                $index_permission_active = DB::table('role_has_permissions')->where([
+                //                    ['permission_id', $index_permission->id],
+                //                    ['role_id', $role->id]
+                //                ])->first();
+                //                ?>
+                <!--                --><?php //if($index_permission_active): ?>
+                <!--                                  <li><a href="#transfer" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-export"></i><span>--><?php //echo e(trans('Transferencia')); ?><!--</span></a>-->
+                <!--                                    <ul id="transfer" class="collapse list-unstyled ">-->
+                <!--                                      <li id="transfer-list-menu"><a href="--><?php //echo e(route('transfers.index')); ?><!--">--><?php //echo e(trans('Lista de tranferencia')); ?><!--</a></li>-->
+                <!--                                      --><?php
+                //                    $add_permission = DB::table('permissions')->where('name', 'transfers-add')->first();
+                //                    $add_permission_active = DB::table('role_has_permissions')->where([
+                //                        ['permission_id', $add_permission->id],
+                //                        ['role_id', $role->id]
+                //                    ])->first();
+                //                  ?>
+                <!--                                      --><?php //if($add_permission_active): ?>
+                <!--                                      <li id="transfer-create-menu"><a href="--><?php //echo e(route('transfers.create')); ?><!--">--><?php //echo e(trans('Agregar transferencia')); ?><!--</a></li>-->
+                <!--                                      <li id="transfer-import-menu"><a href="--><?php //echo e(url('transfers/transfer_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Transfer By CSV')); ?><!--</a></li>-->
+                <!--                                      --><?php //endif; ?>
+                <!--                                    </ul>-->
+                <!--                                  </li>-->
+                <!--                --><?php //endif; ?>
 
                 <?php
                 $sale_return_index_permission = DB::table('permissions')->where('name', 'returns-index')->first();
@@ -492,7 +492,26 @@
                             <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Proforma')); ?></a></li>
                             <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Ingresos')); ?></a></li>
                             <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Liquidación')); ?></a></li>
-                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Proveedores')); ?></a></li>
+                            <?php if($index_permission_active): ?>
+                                <li><a href="#supplierImp" aria-expanded="false" data-toggle="collapse"><span><?php echo e(trans('Proveedor')); ?></span></a>
+                                    <ul id="supplierImp" class="collapse list-unstyled ">
+                                        <?php if($supplier_index_permission_active): ?>
+                                            <li id="supplier-list-menu"><a href="<?php echo e(route('supplierImp.index')); ?>"><?php echo e(trans('Lista de proveedores')); ?></a></li>
+                                            <?php
+                                            $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
+                                            $supplier_add_permission_active = DB::table('role_has_permissions')->where([
+                                                ['permission_id', $supplier_add_permission->id],
+                                                ['role_id', $role->id]
+                                            ])->first();
+                                            ?>
+                                            <?php if($supplier_add_permission_active): ?>
+                                                <li id="supplier-create-menu"><a href="<?php echo e(route('supplierImp.create')); ?>"><?php echo e(trans('Agregar Proveedores')); ?></a></li>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+
+                                    </ul>
+                                </li>
+                            <?php endif; ?>
                             <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Articulos')); ?></a></li>
                             <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Devolición')); ?></a></li>
                             <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Actualización')); ?></a></li>
@@ -779,11 +798,11 @@
                             ['role_id', $role->id]
                         ])->first();
 
-//                        $warehouse_permission = DB::table('permissions')->where('name', 'warehouse')->first();
-//                        $warehouse_permission_active = DB::table('role_has_permissions')->where([
-//                            ['permission_id', $warehouse_permission->id],
-//                            ['role_id', $role->id]
-//                        ])->first();
+                        //                        $warehouse_permission = DB::table('permissions')->where('name', 'warehouse')->first();
+                        //                        $warehouse_permission_active = DB::table('role_has_permissions')->where([
+                        //                            ['permission_id', $warehouse_permission->id],
+                        //                            ['role_id', $role->id]
+                        //                        ])->first();
 
                         $customer_group_permission = DB::table('permissions')->where('name', 'customer_group')->first();
                         $customer_group_permission_active = DB::table('role_has_permissions')->where([
@@ -852,12 +871,12 @@
                                 ['permissions.name', 'users-index'],
                                 ['role_id', $role->id] ])->first();
 
-//                        $customer_index_permission = DB::table('permissions')->where('name', 'customers-index')->first();
-//
-//                        $customer_index_permission_active = DB::table('role_has_permissions')->where([
-//                            ['permission_id', $customer_index_permission->id],
-//                            ['role_id', $role->id]
-//                        ])->first();
+                        //                        $customer_index_permission = DB::table('permissions')->where('name', 'customers-index')->first();
+                        //
+                        //                        $customer_index_permission_active = DB::table('role_has_permissions')->where([
+                        //                            ['permission_id', $customer_index_permission->id],
+                        //                            ['role_id', $role->id]
+                        //                        ])->first();
 
                         $biller_index_permission = DB::table('permissions')->where('name', 'billers-index')->first();
 
@@ -866,12 +885,12 @@
                             ['role_id', $role->id]
                         ])->first();
 
-//                        $supplier_index_permission = DB::table('permissions')->where('name', 'suppliers-index')->first();
-//
-//                        $supplier_index_permission_active = DB::table('role_has_permissions')->where([
-//                            ['permission_id', $supplier_index_permission->id],
-//                            ['role_id', $role->id]
-//                        ])->first();
+                        //                        $supplier_index_permission = DB::table('permissions')->where('name', 'suppliers-index')->first();
+                        //
+                        //                        $supplier_index_permission_active = DB::table('role_has_permissions')->where([
+                        //                            ['permission_id', $supplier_index_permission->id],
+                        //                            ['role_id', $role->id]
+                        //                        ])->first();
                         ?>
                         <?php if($user_index_permission_active): ?>
                             <li id="user-list-menu"><a href="<?php echo e(route('user.index')); ?>"><?php echo e(trans('Lista de usuarios')); ?></a></li>
@@ -885,67 +904,67 @@
                                 <li id="user-create-menu"><a href="<?php echo e(route('user.create')); ?>"><?php echo e(trans('Agregar usuarios')); ?></a></li>
                             <?php endif; ?>
                         <?php endif; ?>
-<!--                        --><?php //if($user_index_permission_active || $customer_index_permission_active || $biller_index_permission_active || $supplier_index_permission_active): ?>
-<!--                            <li><a href="#people" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user"></i><span>--><?php //echo e(trans('Personas')); ?><!--</span></a>-->
-<!--                                <ul id="people" class="collapse list-unstyled ">-->
-<!---->
-<!--                                    --><?php //if($user_index_permission_active): ?>
-<!--                                        <li id="user-list-menu"><a href="--><?php //echo e(route('user.index')); ?><!--">--><?php //echo e(trans('Lista de usuarios')); ?><!--</a></li>-->
-<!--                                        --><?php //$user_add_permission_active = DB::table('permissions')
-//                                            ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
-//                                            ->where([
-//                                                ['permissions.name', 'users-add'],
-//                                                ['role_id', $role->id] ])->first();
-//                                        ?>
-<!--                                        --><?php //if($user_add_permission_active): ?>
-<!--                                            <li id="user-create-menu"><a href="--><?php //echo e(route('user.create')); ?><!--">--><?php //echo e(trans('Agregar usuarios')); ?><!--</a></li>-->
-<!--                                        --><?php //endif; ?>
-<!--                                    --><?php //endif; ?>
+                        <!--                        --><?php //if($user_index_permission_active || $customer_index_permission_active || $biller_index_permission_active || $supplier_index_permission_active): ?>
+                        <!--                            <li><a href="#people" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user"></i><span>--><?php //echo e(trans('Personas')); ?><!--</span></a>-->
+                        <!--                                <ul id="people" class="collapse list-unstyled ">-->
+                        <!---->
+                        <!--                                    --><?php //if($user_index_permission_active): ?>
+                        <!--                                        <li id="user-list-menu"><a href="--><?php //echo e(route('user.index')); ?><!--">--><?php //echo e(trans('Lista de usuarios')); ?><!--</a></li>-->
+                        <!--                                        --><?php //$user_add_permission_active = DB::table('permissions')
+                        //                                            ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                        //                                            ->where([
+                        //                                                ['permissions.name', 'users-add'],
+                        //                                                ['role_id', $role->id] ])->first();
+                        //                                        ?>
+                        <!--                                        --><?php //if($user_add_permission_active): ?>
+                        <!--                                            <li id="user-create-menu"><a href="--><?php //echo e(route('user.create')); ?><!--">--><?php //echo e(trans('Agregar usuarios')); ?><!--</a></li>-->
+                        <!--                                        --><?php //endif; ?>
+                        <!--                                    --><?php //endif; ?>
 
-<!--                                    --><?php //if($customer_index_permission_active): ?>
-<!--                                        <li id="customer-list-menu"><a href="--><?php //echo e(route('customer.index')); ?><!--">--><?php //echo e(trans('Lista de clientes')); ?><!--</a></li>-->
-<!--                                        --><?php
-//                                        $customer_add_permission = DB::table('permissions')->where('name', 'customers-add')->first();
-//                                        $customer_add_permission_active = DB::table('role_has_permissions')->where([
-//                                            ['permission_id', $customer_add_permission->id],
-//                                            ['role_id', $role->id]
-//                                        ])->first();
-//                                        ?>
-<!--                                        --><?php //if($customer_add_permission_active): ?>
-<!--                                            <li id="customer-create-menu"><a href="--><?php //echo e(route('customer.create')); ?><!--">--><?php //echo e(trans('Agegar clientes')); ?><!--</a></li>-->
-<!--                                        --><?php //endif; ?>
-<!--                                    --><?php //endif; ?>
+                        <!--                                    --><?php //if($customer_index_permission_active): ?>
+                        <!--                                        <li id="customer-list-menu"><a href="--><?php //echo e(route('customer.index')); ?><!--">--><?php //echo e(trans('Lista de clientes')); ?><!--</a></li>-->
+                        <!--                                        --><?php
+                        //                                        $customer_add_permission = DB::table('permissions')->where('name', 'customers-add')->first();
+                        //                                        $customer_add_permission_active = DB::table('role_has_permissions')->where([
+                        //                                            ['permission_id', $customer_add_permission->id],
+                        //                                            ['role_id', $role->id]
+                        //                                        ])->first();
+                        //                                        ?>
+                        <!--                                        --><?php //if($customer_add_permission_active): ?>
+                        <!--                                            <li id="customer-create-menu"><a href="--><?php //echo e(route('customer.create')); ?><!--">--><?php //echo e(trans('Agegar clientes')); ?><!--</a></li>-->
+                        <!--                                        --><?php //endif; ?>
+                        <!--                                    --><?php //endif; ?>
 
-<!--                                    --><?php //if($biller_index_permission_active): ?>
-<!--                                                          <li id="biller-list-menu"><a href="--><?php //echo e(route('biller.index')); ?><!--">--><?php //echo e(trans('file.Biller List')); ?><!--</a></li>-->
-<!--                                        --><?php
-//                                        $biller_add_permission = DB::table('permissions')->where('name', 'billers-add')->first();
-//                                        $biller_add_permission_active = DB::table('role_has_permissions')->where([
-//                                            ['permission_id', $biller_add_permission->id],
-//                                            ['role_id', $role->id]
-//                                        ])->first();
-//                                        ?>
-<!--                                        --><?php //if($biller_add_permission_active): ?>
-<!--                                                              <li id="biller-create-menu"><a href="--><?php //echo e(route('biller.create')); ?><!--">--><?php //echo e(trans('file.Add Biller')); ?><!--</a></li>-->
-<!--                                        --><?php //endif; ?>
-<!--                                    --><?php //endif; ?>
+                        <!--                                    --><?php //if($biller_index_permission_active): ?>
+                        <!--                                                          <li id="biller-list-menu"><a href="--><?php //echo e(route('biller.index')); ?><!--">--><?php //echo e(trans('file.Biller List')); ?><!--</a></li>-->
+                        <!--                                        --><?php
+                        //                                        $biller_add_permission = DB::table('permissions')->where('name', 'billers-add')->first();
+                        //                                        $biller_add_permission_active = DB::table('role_has_permissions')->where([
+                        //                                            ['permission_id', $biller_add_permission->id],
+                        //                                            ['role_id', $role->id]
+                        //                                        ])->first();
+                        //                                        ?>
+                        <!--                                        --><?php //if($biller_add_permission_active): ?>
+                        <!--                                                              <li id="biller-create-menu"><a href="--><?php //echo e(route('biller.create')); ?><!--">--><?php //echo e(trans('file.Add Biller')); ?><!--</a></li>-->
+                        <!--                                        --><?php //endif; ?>
+                        <!--                                    --><?php //endif; ?>
 
-<!--                                    --><?php //if($supplier_index_permission_active): ?>
-<!--                                        <li id="supplier-list-menu"><a href="--><?php //echo e(route('supplier.index')); ?><!--">--><?php //echo e(trans('Lista de proveedores')); ?><!--</a></li>-->
-<!--                                        --><?php
-//                                        $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
-//                                        $supplier_add_permission_active = DB::table('role_has_permissions')->where([
-//                                            ['permission_id', $supplier_add_permission->id],
-//                                            ['role_id', $role->id]
-//                                        ])->first();
-//                                        ?>
-<!--                                        --><?php //if($supplier_add_permission_active): ?>
-<!--                                            <li id="supplier-create-menu"><a href="--><?php //echo e(route('supplier.create')); ?><!--">--><?php //echo e(trans('Agregar Proveedores')); ?><!--</a></li>-->
-<!--                                        --><?php //endif; ?>
-<!--                                    --><?php //endif; ?>
-<!--                                </ul>-->
-<!--                            </li>-->
-<!--                        --><?php //endif; ?>
+                        <!--                                    --><?php //if($supplier_index_permission_active): ?>
+                        <!--                                        <li id="supplier-list-menu"><a href="--><?php //echo e(route('supplier.index')); ?><!--">--><?php //echo e(trans('Lista de proveedores')); ?><!--</a></li>-->
+                        <!--                                        --><?php
+                        //                                        $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
+                        //                                        $supplier_add_permission_active = DB::table('role_has_permissions')->where([
+                        //                                            ['permission_id', $supplier_add_permission->id],
+                        //                                            ['role_id', $role->id]
+                        //                                        ])->first();
+                        //                                        ?>
+                        <!--                                        --><?php //if($supplier_add_permission_active): ?>
+                        <!--                                            <li id="supplier-create-menu"><a href="--><?php //echo e(route('supplier.create')); ?><!--">--><?php //echo e(trans('Agregar Proveedores')); ?><!--</a></li>-->
+                        <!--                                        --><?php //endif; ?>
+                        <!--                                    --><?php //endif; ?>
+                        <!--                                </ul>-->
+                        <!--                            </li>-->
+                        <!--                        --><?php //endif; ?>
                         <?php if($role->id <= 2): ?>
                             <li id="role-menu"><a href="<?php echo e(route('role.index')); ?>"><?php echo e(trans('Roles y permisos')); ?></a></li>
                         <?php endif; ?>
@@ -954,9 +973,9 @@
                             <!--                    <a href="" id="send-notification">--><?php //echo e(trans('file.Send Notification')); ?><!--</a>-->
                             <!--                  </li>-->
                         <?php endif; ?>
-<!--                        --><?php //if($warehouse_permission_active): ?>
-<!--                            <li id="warehouse-menu"><a href="--><?php //echo e(route('warehouse.index')); ?><!--">--><?php //echo e(trans('Bodega')); ?><!--</a></li>-->
-<!--                        --><?php //endif; ?>
+                        <!--                        --><?php //if($warehouse_permission_active): ?>
+                        <!--                            <li id="warehouse-menu"><a href="--><?php //echo e(route('warehouse.index')); ?><!--">--><?php //echo e(trans('Bodega')); ?><!--</a></li>-->
+                        <!--                        --><?php //endif; ?>
                         <?php if($customer_group_permission_active): ?>
                             <li id="customer-group-menu"><a href="<?php echo e(route('customer_group.index')); ?>"><?php echo e(trans('Grupo de clientes')); ?></a></li>
                         <?php endif; ?>

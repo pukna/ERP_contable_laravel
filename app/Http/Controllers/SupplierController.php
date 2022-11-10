@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Bank;
 use App\Tax;
 use Illuminate\Http\Request;

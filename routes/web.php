@@ -58,6 +58,11 @@ Route::group(['middleware' => ['auth', 'active']], function() {
 	Route::get('supplier/lims_supplier_search', 'SupplierController@limsSupplierSearch')->name('supplier.search');
 	Route::resource('supplier', 'SupplierController');
 
+    Route::post('importsupplierImp', 'SupplierImpController@importSupplierImp')->name('supplierImp.import');
+    Route::post('supplierImp/deletebyselection', 'SupplierImpController@deleteBySelection');
+    Route::get('supplierImp/lims_supplier_search', 'SupplierImpController@limsSupplierSearch')->name('supplierImp.search');
+    Route::resource('supplierImp', 'SupplierImpController');
+
 	Route::post('importwarehouse', 'WarehouseController@importWarehouse')->name('warehouse.import');
 	Route::post('warehouse/deletebyselection', 'WarehouseController@deleteBySelection');
 	Route::get('warehouse/lims_warehouse_search', 'WarehouseController@limsWarehouseSearch')->name('warehouse.search');
@@ -213,6 +218,7 @@ Route::group(['middleware' => ['auth', 'active']], function() {
 	Route::post('report/user_report', 'ReportController@userReport')->name('report.user');
 	Route::post('report/customer_report', 'ReportController@customerReport')->name('report.customer');
 	Route::post('report/supplier', 'ReportController@supplierReport')->name('report.supplier');
+    Route::post('report/supplierImp', 'ReportController@supplierImpReport')->name('report.supplierImp');
 	Route::post('report/due_report_by_date', 'ReportController@dueReportByDate')->name('report.dueByDate');
 
 	Route::get('user/profile/{id}', 'UserController@profile')->name('user.profile');
