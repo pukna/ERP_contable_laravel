@@ -160,7 +160,7 @@
                             ?>
                             <?php if($add_permission_active): ?>
                                 <li id="purchase-create-menu"><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Agregar compra')); ?></a></li>
-                                <li id="purchase-import-menu"><a href=""><?php echo e(trans('Registro factura')); ?></a></li>
+                                <li id="purchase-invoice-menu"><a href="<?php echo e(route('invoices.index')); ?>"><?php echo e(trans('Registro factura')); ?></a></li>
                             <?php endif; ?>
 
                         </ul>
@@ -505,7 +505,7 @@
                                             ])->first();
                                             ?>
                                             <?php if($supplier_add_permission_active): ?>
-                                                <li id="supplier-create-menu"><a href="<?php echo e(route('supplierImp.create')); ?>"><?php echo e(trans('Agregar Proveedores')); ?></a></li>
+                                                <li id="supplierImp-create-menu"><a href="<?php echo e(route('supplierImp.create')); ?>"><?php echo e(trans('Agregar Proveedores')); ?></a></li>
                                             <?php endif; ?>
                                         <?php endif; ?>
 

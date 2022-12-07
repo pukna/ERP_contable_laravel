@@ -89,6 +89,11 @@ Route::group(['middleware' => ['auth', 'active']], function() {
 	Route::post('products/update', 'ProductController@updateProduct');
 	Route::resource('products', 'ProductController');
 
+    Route::get('products/lims_product_search', 'ProductController@limsProductSearch')->name('product.search');
+    Route::post('products/deletebyselection', 'ProductController@deleteBySelection');
+    Route::post('products/update', 'ProductController@updateProduct');
+    Route::resource('invoices', 'InvoiceController');
+
 	Route::post('importcustomer_group', 'CustomerGroupController@importCustomerGroup')->name('customer_group.import');
 	Route::post('customer_group/deletebyselection', 'CustomerGroupController@deleteBySelection');
 	Route::get('customer_group/lims_customer_group_search', 'CustomerGroupController@limsCustomerGroupSearch')->name('customer_group.search');
