@@ -22,16 +22,6 @@
                                 </div>
                             </div>
 
-
-
-
-
-
-
-
-
-
-
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label><?php echo e(trans('file.Company Name')); ?> *</label>
@@ -112,9 +102,11 @@
 </section>
 
 <script type="text/javascript">
-    $("ul#people").siblings('a').attr('aria-expanded','true');
-    $("ul#people").addClass("show");
-    $("ul#people #supplier-create-menu").addClass("active");
+    $("ul#imports").siblings('a').attr('aria-expanded','true');
+    $("ul#imports ").addClass("show");
+    $("ul#supplierImp").siblings('a').attr('aria-expanded','true');
+    $("ul#supplierImp ").addClass("show");
+    $("ul#imports #supplierImp #supplierImp-create-menu").addClass("active");
 </script>
 <?php $__env->stopSection(); ?>
 
