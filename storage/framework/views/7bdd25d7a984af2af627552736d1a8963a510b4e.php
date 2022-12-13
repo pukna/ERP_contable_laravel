@@ -1,4 +1,4 @@
-<!--Navbar -->
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
 <head>
@@ -135,36 +135,36 @@
                 ])->first();
                 ?>
                 <?php if($index_permission_active): ?>
-                    <li><a href="#purchase" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-card"></i><span><?php echo e(trans('Compra')); ?></span></a>
-                        <ul id="purchase" class="collapse list-unstyled ">
-                            <?php if($supplier_index_permission_active): ?>
-                                <li id="supplier-list-menu"><a href="<?php echo e(route('supplier.index')); ?>"><?php echo e(trans('Lista de proveedores')); ?></a></li>
-                                <?php
-                                $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
-                                $supplier_add_permission_active = DB::table('role_has_permissions')->where([
-                                    ['permission_id', $supplier_add_permission->id],
-                                    ['role_id', $role->id]
-                                ])->first();
-                                ?>
-                                <?php if($supplier_add_permission_active): ?>
-                                    <li id="supplier-create-menu"><a href="<?php echo e(route('supplier.create')); ?>"><?php echo e(trans('Agregar Proveedores')); ?></a></li>
-                                <?php endif; ?>
-                            <?php endif; ?>
-                            <li id="purchase-list-menu"><a href="<?php echo e(route('purchases.index')); ?>"><?php echo e(trans('Compras')); ?></a></li>
-                            <?php
-                            $add_permission = DB::table('permissions')->where('name', 'purchases-add')->first();
-                            $add_permission_active = DB::table('role_has_permissions')->where([
-                                ['permission_id', $add_permission->id],
-                                ['role_id', $role->id]
-                            ])->first();
-                            ?>
-                            <?php if($add_permission_active): ?>
-                                <li id="purchase-create-menu"><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Agregar compra')); ?></a></li>
-                                <li id="purchase-invoice-menu"><a href="<?php echo e(route('invoices.index')); ?>"><?php echo e(trans('Registro factura')); ?></a></li>
-                            <?php endif; ?>
+                <li><a href="#purchase" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-card"></i><span><?php echo e(trans('Compra')); ?></span></a>
+                    <ul id="purchase" class="collapse list-unstyled ">
+                        <?php if($supplier_index_permission_active): ?>
+                        <li id="supplier-list-menu"><a href="<?php echo e(route('supplier.index')); ?>"><?php echo e(trans('Lista de proveedores')); ?></a></li>
+                        <?php
+                        $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
+                        $supplier_add_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $supplier_add_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+                        ?>
+                        <?php if($supplier_add_permission_active): ?>
+                        <li id="supplier-create-menu"><a href="<?php echo e(route('supplier.create')); ?>"><?php echo e(trans('Agregar Proveedores')); ?></a></li>
+                        <?php endif; ?>
+                        <?php endif; ?>
+                        <li id="purchase-list-menu"><a href="<?php echo e(route('purchases.index')); ?>"><?php echo e(trans('Compras')); ?></a></li>
+                        <?php
+                        $add_permission = DB::table('permissions')->where('name', 'purchases-add')->first();
+                        $add_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $add_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+                        ?>
+                        <?php if($add_permission_active): ?>
+                        <li id="purchase-create-menu"><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Agregar compra')); ?></a></li>
+                        <li id="purchase-invoice-menu"><a href="<?php echo e(route('invoices.index')); ?>"><?php echo e(trans('Registro factura')); ?></a></li>
+                        <?php endif; ?>
 
-                        </ul>
-                    </li>
+                    </ul>
+                </li>
                 <?php endif; ?>
                 <?php
                 $sale_index_permission = DB::table('permissions')->where('name', 'sales-index')->first();
@@ -198,41 +198,41 @@
                 ])->first();
                 ?>
                 <?php if($sale_index_permission_active || $gift_card_permission_active || $coupon_permission_active || $delivery_permission_active): ?>
-                    <li><a href="#sale" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-cart"></i><span><?php echo e(trans('Venta')); ?></span></a>
-                        <ul id="sale" class="collapse list-unstyled ">
-                            <?php if($customer_index_permission_active): ?>
-                                <li id="customer-list-menu"><a href="<?php echo e(route('customer.index')); ?>"><?php echo e(trans('Lista de clientes')); ?></a></li>
-                                <?php
-                                $customer_add_permission = DB::table('permissions')->where('name', 'customers-add')->first();
-                                $customer_add_permission_active = DB::table('role_has_permissions')->where([
-                                    ['permission_id', $customer_add_permission->id],
-                                    ['role_id', $role->id]
-                                ])->first();
-                                ?>
-                                <?php if($customer_add_permission_active): ?>
-                                    <li id="customer-create-menu"><a href="<?php echo e(route('customer.create')); ?>"><?php echo e(trans('Agegar clientes')); ?></a></li>
-                                <?php endif; ?>
-                            <?php endif; ?>
-                            <?php if($sale_index_permission_active): ?>
-                                <li id="sale-list-menu"><a href="<?php echo e(route('sales.index')); ?>"><?php echo e(trans('Ventas')); ?></a></li>
-                                <?php if($sale_add_permission_active): ?>
-                                    <!--                    <li><a href="--><?php //echo e(route('sale.pos')); ?><!--">POS</a></li>-->
-                                    <li id="sale-create-menu"><a href="<?php echo e(route('sales.create')); ?>"><?php echo e(trans('Agregar Venta')); ?></a></li>
-                                    <!--                    <li id="sale-import-menu"><a href="--><?php //echo e(url('sales/sale_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Sale By CSV')); ?><!--</a></li>-->
-                                <?php endif; ?>
-                            <?php endif; ?>
+                <li><a href="#sale" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-cart"></i><span><?php echo e(trans('Venta')); ?></span></a>
+                    <ul id="sale" class="collapse list-unstyled ">
+                        <?php if($customer_index_permission_active): ?>
+                        <li id="customer-list-menu"><a href="<?php echo e(route('customer.index')); ?>"><?php echo e(trans('Lista de clientes')); ?></a></li>
+                        <?php
+                        $customer_add_permission = DB::table('permissions')->where('name', 'customers-add')->first();
+                        $customer_add_permission_active = DB::table('role_has_permissions')->where([
+                            ['permission_id', $customer_add_permission->id],
+                            ['role_id', $role->id]
+                        ])->first();
+                        ?>
+                        <?php if($customer_add_permission_active): ?>
+                        <li id="customer-create-menu"><a href="<?php echo e(route('customer.create')); ?>"><?php echo e(trans('Agegar clientes')); ?></a></li>
+                        <?php endif; ?>
+                        <?php endif; ?>
+                        <?php if($sale_index_permission_active): ?>
+                        <li id="sale-list-menu"><a href="<?php echo e(route('sales.index')); ?>"><?php echo e(trans('Ventas')); ?></a></li>
+                        <?php if($sale_add_permission_active): ?>
+                    <!--                    <li><a href="--><?php //echo e(route('sale.pos')); ?><!--">POS</a></li>-->
+                        <li id="sale-create-menu"><a href="<?php echo e(route('sales.create')); ?>"><?php echo e(trans('Agregar Venta')); ?></a></li>
+                        <!--                    <li id="sale-import-menu"><a href="--><?php //echo e(url('sales/sale_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Sale By CSV')); ?><!--</a></li>-->
+                        <?php endif; ?>
+                        <?php endif; ?>
 
-                            <?php if($gift_card_permission_active): ?>
-                                <!--                  <li id="gift-card-menu"><a href="--><?php //echo e(route('gift_cards.index')); ?><!--">--><?php //echo e(trans('file.Gift Card List')); ?><!--</a> </li>-->
-                            <?php endif; ?>
-                            <?php if($coupon_permission_active): ?>
-                                <!--                  <li id="coupon-menu"><a href="--><?php //echo e(route('coupons.index')); ?><!--">--><?php //echo e(trans('file.Coupon List')); ?><!--</a> </li>-->
-                            <?php endif; ?>
-                            <?php if($delivery_permission_active): ?>
-                                <!--                  <li id="delivery-menu"><a href="--><?php //echo e(route('delivery.index')); ?><!--">--><?php //echo e(trans('file.Delivery List')); ?><!--</a></li>-->
-                            <?php endif; ?>
-                        </ul>
-                    </li>
+                        <?php if($gift_card_permission_active): ?>
+                    <!--                  <li id="gift-card-menu"><a href="--><?php //echo e(route('gift_cards.index')); ?><!--">--><?php //echo e(trans('file.Gift Card List')); ?><!--</a> </li>-->
+                        <?php endif; ?>
+                        <?php if($coupon_permission_active): ?>
+                    <!--                  <li id="coupon-menu"><a href="--><?php //echo e(route('coupons.index')); ?><!--">--><?php //echo e(trans('file.Coupon List')); ?><!--</a> </li>-->
+                        <?php endif; ?>
+                        <?php if($delivery_permission_active): ?>
+                    <!--                  <li id="delivery-menu"><a href="--><?php //echo e(route('delivery.index')); ?><!--">--><?php //echo e(trans('file.Delivery List')); ?><!--</a></li>-->
+                        <?php endif; ?>
+                    </ul>
+                </li>
                 <?php endif; ?>
                 <?php
                 $print_barcode = DB::table('permissions')->where('name', 'print_barcode')->first();
@@ -267,72 +267,72 @@
 
                 ?>
                 <?php if($category_permission_active || $index_permission_active || $print_barcode_active || $stock_count_active || $adjustment_active): ?>
-                    <li><a href="#inventory" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-list"></i><span><?php echo e(__('Inventario')); ?></span><span></a>
-                        <ul id="inventory" class="collapse list-unstyled ">
-                            <li><a href="#product" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('Producto')); ?></span><span></a>
-                                <ul id="product" class="collapse list-unstyled ">
-                                    <?php if($category_permission_active): ?>
-                                        <li id="category-menu"><a href="<?php echo e(route('category.index')); ?>"><?php echo e(__('Categoria')); ?></a></li>
-                                    <?php endif; ?>
-                                    <?php if($index_permission_active): ?>
-                                        <li id="product-list-menu"><a href="<?php echo e(route('products.index')); ?>"><?php echo e(__('Lista de productos')); ?></a></li>
-                                        <?php
-                                        $add_permission = DB::table('permissions')->where('name', 'products-add')->first();
-                                        $add_permission_active = DB::table('role_has_permissions')->where([
-                                            ['permission_id', $add_permission->id],
-                                            ['role_id', $role->id]
-                                        ])->first();
-                                        ?>
-                                        <?php if($add_permission_active): ?>
-                                            <li id="product-create-menu"><a href="<?php echo e(route('products.create')); ?>"><?php echo e(__('Agregar producto')); ?></a></li>
-                                        <?php endif; ?>
-                                    <?php endif; ?>
+                <li><a href="#inventory" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-list"></i><span><?php echo e(__('Inventario')); ?></span><span></a>
+                    <ul id="inventory" class="collapse list-unstyled ">
+                        <li><a href="#product" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('Producto')); ?></span><span></a>
+                            <ul id="product" class="collapse list-unstyled ">
+                                <?php if($category_permission_active): ?>
+                                <li id="category-menu"><a href="<?php echo e(route('category.index')); ?>"><?php echo e(__('Categoria')); ?></a></li>
+                                <?php endif; ?>
+                                <?php if($index_permission_active): ?>
+                                <li id="product-list-menu"><a href="<?php echo e(route('products.index')); ?>"><?php echo e(__('Lista de productos')); ?></a></li>
+                                <?php
+                                $add_permission = DB::table('permissions')->where('name', 'products-add')->first();
+                                $add_permission_active = DB::table('role_has_permissions')->where([
+                                    ['permission_id', $add_permission->id],
+                                    ['role_id', $role->id]
+                                ])->first();
+                                ?>
+                                <?php if($add_permission_active): ?>
+                                <li id="product-create-menu"><a href="<?php echo e(route('products.create')); ?>"><?php echo e(__('Agregar producto')); ?></a></li>
+                                <?php endif; ?>
+                                <?php endif; ?>
 
-                                    <?php if($print_barcode_active): ?>
-                                        <!--                  <li id="printBarcode-menu"><a href="--><?php //echo e(route('product.printBarcode')); ?><!--">--><?php //echo e(__('file.print_barcode')); ?><!--</a></li>-->
-                                    <?php endif; ?>
-                                </ul>
-                            </li>
-                            <li><a href="#movements" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('movimientos')); ?></span><span></a>
-                                <ul id="movements" class="collapse list-unstyled ">
+                                <?php if($print_barcode_active): ?>
+                            <!--                  <li id="printBarcode-menu"><a href="--><?php //echo e(route('product.printBarcode')); ?><!--">--><?php //echo e(__('file.print_barcode')); ?><!--</a></li>-->
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+                        <li><a href="#movements" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('movimientos')); ?></span><span></a>
+                            <ul id="movements" class="collapse list-unstyled ">
 
-                                    <!--                                    --><?php //if($adjustment_active): ?>
-                                    <!--                                                            <li id="adjustment-list-menu"><a href="--><?php //echo e(route('qty_adjustment.index')); ?><!--">--><?php //echo e(trans('Ajuste de bodega')); ?><!--</a></li>-->
-                                    <!--                                                            <li id="adjustment-create-menu"><a href="--><?php //echo e(route('qty_adjustment.create')); ?><!--">--><?php //echo e(trans('Agregar Ajuste')); ?><!--</a></li>-->
-                                    <!--                                    --><?php //endif; ?>
-                                    <li id="transfer-list-menu"><a href="<?php echo e(route('transfers.index')); ?>"><?php echo e(trans('Lista de tranferencia al Almacén')); ?></a></li>
-                                    <?php
-                                    $add_permission = DB::table('permissions')->where('name', 'transfers-add')->first();
-                                    $add_permission_active = DB::table('role_has_permissions')->where([
-                                        ['permission_id', $add_permission->id],
-                                        ['role_id', $role->id]
-                                    ])->first();
-                                    ?>
-                                    <?php if($add_permission_active): ?>
-                                        <li id="transfer-create-menu"><a href="<?php echo e(route('transfers.create')); ?>"><?php echo e(trans('Agregar transferencia al Almacén')); ?></a></li>
-                                        <!--                                      <li id="transfer-import-menu"><a href="--><?php //echo e(url('transfers/transfer_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Transfer By CSV')); ?><!--</a></li>-->
-                                    <?php endif; ?>
-                                </ul>
-                            </li>
-                            <li><a href="#stock" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('Existencias')); ?></span><span></a>
-                                <ul id="stock" class="collapse list-unstyled ">
+                                <!--                                    --><?php //if($adjustment_active): ?>
+                            <!--                                                            <li id="adjustment-list-menu"><a href="--><?php //echo e(route('qty_adjustment.index')); ?><!--">--><?php //echo e(trans('Ajuste de bodega')); ?><!--</a></li>-->
+                                <!--                                                            <li id="adjustment-create-menu"><a href="--><?php //echo e(route('qty_adjustment.create')); ?><!--">--><?php //echo e(trans('Agregar Ajuste')); ?><!--</a></li>-->
+                                <!--                                    --><?php //endif; ?>
+                                <li id="transfer-list-menu"><a href="<?php echo e(route('transfers.index')); ?>"><?php echo e(trans('Lista de tranferencia al Almacén')); ?></a></li>
+                                <?php
+                                $add_permission = DB::table('permissions')->where('name', 'transfers-add')->first();
+                                $add_permission_active = DB::table('role_has_permissions')->where([
+                                    ['permission_id', $add_permission->id],
+                                    ['role_id', $role->id]
+                                ])->first();
+                                ?>
+                                <?php if($add_permission_active): ?>
+                                <li id="transfer-create-menu"><a href="<?php echo e(route('transfers.create')); ?>"><?php echo e(trans('Agregar transferencia al Almacén')); ?></a></li>
+                                <!--                                      <li id="transfer-import-menu"><a href="--><?php //echo e(url('transfers/transfer_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Transfer By CSV')); ?><!--</a></li>-->
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+                        <li><a href="#stock" aria-expanded="false" data-toggle="collapse"><span><?php echo e(__('Existencias')); ?></span><span></a>
+                            <ul id="stock" class="collapse list-unstyled ">
 
-                                    <?php if($index_permission_active): ?>
-                                        <li id="product-list-menu1"><a href="<?php echo e(route('products.index')); ?>"><?php echo e(__('Lista de productos')); ?></a></li>
-                                        <li id="product-create-menu"><a href=""><?php echo e(__('Kardex')); ?></a></li>
-                                        <li id="product-create-menu"><a href=""><?php echo e(__('Calculos de costos')); ?></a></li>
-                                    <?php endif; ?>
-                                    <?php if($stock_count_active): ?>
-                                        <li id="stock-count-menu"><a href="<?php echo e(route('stock-count.index')); ?>"><?php echo e(trans('Stock')); ?></a></li>
-                                    <?php endif; ?>
-                                </ul>
-                            </li>
-                            <?php if($warehouse_permission_active): ?>
-                                <li id="warehouse-menu"><a href="<?php echo e(route('warehouse.index')); ?>"><?php echo e(trans('Bodega')); ?></a></li>
-                            <?php endif; ?>
-                        </ul>
+                                <?php if($index_permission_active): ?>
+                                <li id="product-list-menu1"><a href="<?php echo e(route('products.index')); ?>"><?php echo e(__('Lista de productos')); ?></a></li>
+                                <li id="product-create-menu"><a href=""><?php echo e(__('Kardex')); ?></a></li>
+                                <li id="product-create-menu"><a href=""><?php echo e(__('Calculos de costos')); ?></a></li>
+                                <?php endif; ?>
+                                <?php if($stock_count_active): ?>
+                                <li id="stock-count-menu"><a href="<?php echo e(route('stock-count.index')); ?>"><?php echo e(trans('Stock')); ?></a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+                        <?php if($warehouse_permission_active): ?>
+                        <li id="warehouse-menu"><a href="<?php echo e(route('warehouse.index')); ?>"><?php echo e(trans('Bodega')); ?></a></li>
+                        <?php endif; ?>
+                    </ul>
 
-                    </li>
+                </li>
                 <?php endif; ?>
 
                 <?php
@@ -343,22 +343,22 @@
                 ])->first();
                 ?>
                 <?php if($index_permission_active): ?>
-                    <!--              <li><a href="#expense" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-wallet"></i><span>--><?php //echo e(trans('file.Expense')); ?><!--</span></a>-->
-                    <!--                <ul id="expense" class="collapse list-unstyled ">-->
-                    <!--                  <li id="exp-cat-menu"><a href="--><?php //echo e(route('expense_categories.index')); ?><!--">--><?php //echo e(trans('file.Expense Category')); ?><!--</a></li>-->
-                    <!--                  <li id="exp-list-menu"><a href="--><?php //echo e(route('expenses.index')); ?><!--">--><?php //echo e(trans('file.Expense List')); ?><!--</a></li>-->
-                    <!--                  --><?php
-//                    $add_permission = DB::table('permissions')->where('name', 'expenses-add')->first();
-//                    $add_permission_active = DB::table('role_has_permissions')->where([
-//                        ['permission_id', $add_permission->id],
-//                        ['role_id', $role->id]
-//                    ])->first();
-//                  ?>
-                    <!--                  --><?php //if($add_permission_active): ?>
-                    <!--                  <li><a id="add-expense" href=""> --><?php //echo e(trans('file.Add Expense')); ?><!--</a></li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                </ul>-->
-                    <!--              </li>-->
+            <!--              <li><a href="#expense" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-wallet"></i><span>--><?php //echo e(trans('file.Expense')); ?><!--</span></a>-->
+                <!--                <ul id="expense" class="collapse list-unstyled ">-->
+                <!--                  <li id="exp-cat-menu"><a href="--><?php //echo e(route('expense_categories.index')); ?><!--">--><?php //echo e(trans('file.Expense Category')); ?><!--</a></li>-->
+                <!--                  <li id="exp-list-menu"><a href="--><?php //echo e(route('expenses.index')); ?><!--">--><?php //echo e(trans('file.Expense List')); ?><!--</a></li>-->
+                <!--                  --><?php
+                //                    $add_permission = DB::table('permissions')->where('name', 'expenses-add')->first();
+                //                    $add_permission_active = DB::table('role_has_permissions')->where([
+                //                        ['permission_id', $add_permission->id],
+                //                        ['role_id', $role->id]
+                //                    ])->first();
+                //                  ?>
+            <!--                  --><?php //if($add_permission_active): ?>
+            <!--                  <li><a id="add-expense" href=""> --><?php //echo e(trans('file.Add Expense')); ?><!--</a></li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                </ul>-->
+                <!--              </li>-->
                 <?php endif; ?>
                 <?php
                 $index_permission = DB::table('permissions')->where('name', 'quotes-index')->first();
@@ -367,8 +367,8 @@
                     ['role_id', $role->id]
                 ])->first();
                 ?>
-                <!--                --><?php //if($index_permission_active): ?>
-                <!--                                  <li><a href="#quotation" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document"></i><span>--><?php //echo e(trans('Cotización')); ?><!--</span><span></a>-->
+            <!--                --><?php //if($index_permission_active): ?>
+            <!--                                  <li><a href="#quotation" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document"></i><span>--><?php //echo e(trans('Cotización')); ?><!--</span><span></a>-->
                 <!--                                    <ul id="quotation" class="collapse list-unstyled ">-->
                 <!--                                      <li id="quotation-list-menu"><a href="--><?php //echo e(route('quotations.index')); ?><!--">--><?php //echo e(trans('Lista de cotizaciones')); ?><!--</a></li>-->
                 <!--                                      --><?php
@@ -378,21 +378,21 @@
                 //                        ['role_id', $role->id]
                 //                    ])->first();
                 //                  ?>
-                <!--                                      --><?php //if($add_permission_active): ?>
-                <!--                                      <li id="quotation-create-menu"><a href="--><?php //echo e(route('quotations.create')); ?><!--">--><?php //echo e(trans('Agregar Presupuesto')); ?><!--</a></li>-->
+            <!--                                      --><?php //if($add_permission_active): ?>
+            <!--                                      <li id="quotation-create-menu"><a href="--><?php //echo e(route('quotations.create')); ?><!--">--><?php //echo e(trans('Agregar Presupuesto')); ?><!--</a></li>-->
                 <!--                                      --><?php //endif; ?>
-                <!--                                    </ul>-->
+            <!--                                    </ul>-->
                 <!--                                  </li>-->
                 <!--                --><?php //endif; ?>
-                <!--                --><?php
+            <!--                --><?php
                 //                $index_permission = DB::table('permissions')->where('name', 'transfers-index')->first();
                 //                $index_permission_active = DB::table('role_has_permissions')->where([
                 //                    ['permission_id', $index_permission->id],
                 //                    ['role_id', $role->id]
                 //                ])->first();
                 //                ?>
-                <!--                --><?php //if($index_permission_active): ?>
-                <!--                                  <li><a href="#transfer" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-export"></i><span>--><?php //echo e(trans('Transferencia')); ?><!--</span></a>-->
+            <!--                --><?php //if($index_permission_active): ?>
+            <!--                                  <li><a href="#transfer" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-export"></i><span>--><?php //echo e(trans('Transferencia')); ?><!--</span></a>-->
                 <!--                                    <ul id="transfer" class="collapse list-unstyled ">-->
                 <!--                                      <li id="transfer-list-menu"><a href="--><?php //echo e(route('transfers.index')); ?><!--">--><?php //echo e(trans('Lista de tranferencia')); ?><!--</a></li>-->
                 <!--                                      --><?php
@@ -402,11 +402,11 @@
                 //                        ['role_id', $role->id]
                 //                    ])->first();
                 //                  ?>
-                <!--                                      --><?php //if($add_permission_active): ?>
-                <!--                                      <li id="transfer-create-menu"><a href="--><?php //echo e(route('transfers.create')); ?><!--">--><?php //echo e(trans('Agregar transferencia')); ?><!--</a></li>-->
+            <!--                                      --><?php //if($add_permission_active): ?>
+            <!--                                      <li id="transfer-create-menu"><a href="--><?php //echo e(route('transfers.create')); ?><!--">--><?php //echo e(trans('Agregar transferencia')); ?><!--</a></li>-->
                 <!--                                      <li id="transfer-import-menu"><a href="--><?php //echo e(url('transfers/transfer_by_csv')); ?><!--">--><?php //echo e(trans('file.Import Transfer By CSV')); ?><!--</a></li>-->
                 <!--                                      --><?php //endif; ?>
-                <!--                                    </ul>-->
+            <!--                                    </ul>-->
                 <!--                                  </li>-->
                 <!--                --><?php //endif; ?>
 
@@ -426,16 +426,16 @@
                 ])->first();
                 ?>
                 <?php if($sale_return_index_permission_active || $purchase_return_index_permission_active): ?>
-                    <!--              <li><a href="#return" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-return"></i><span>--><?php //echo e(trans('file.return')); ?><!--</span></a>-->
-                    <!--                <ul id="return" class="collapse list-unstyled ">-->
-                    <!--                  --><?php //if($sale_return_index_permission_active): ?>
-                    <!--                  <li id="sale-return-menu"><a href="--><?php //echo e(route('return-sale.index')); ?><!--">--><?php //echo e(trans('file.Sale')); ?><!--</a></li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($purchase_return_index_permission_active): ?>
-                    <!--                  <li id="purchase-return-menu"><a href="--><?php //echo e(route('return-purchase.index')); ?><!--">--><?php //echo e(trans('file.Purchase')); ?><!--</a></li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                </ul>-->
-                    <!--              </li>-->
+            <!--              <li><a href="#return" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-return"></i><span>--><?php //echo e(trans('file.return')); ?><!--</span></a>-->
+                <!--                <ul id="return" class="collapse list-unstyled ">-->
+                <!--                  --><?php //if($sale_return_index_permission_active): ?>
+            <!--                  <li id="sale-return-menu"><a href="--><?php //echo e(route('return-sale.index')); ?><!--">--><?php //echo e(trans('file.Sale')); ?><!--</a></li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($purchase_return_index_permission_active): ?>
+            <!--                  <li id="purchase-return-menu"><a href="--><?php //echo e(route('return-purchase.index')); ?><!--">--><?php //echo e(trans('file.Purchase')); ?><!--</a></li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                </ul>-->
+                <!--              </li>-->
                 <?php endif; ?>
                 <?php
                 $index_permission = DB::table('permissions')->where('name', 'account-index')->first();
@@ -464,59 +464,59 @@
 
                 ?>
                 <?php if($index_permission_active || $balance_sheet_permission_active || $account_statement_permission_active): ?>
-                    <!--              lista-->
-                    <li class=""><a href="#account" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-briefcase"></i><span><?php echo e(trans('Contabilidad')); ?></span></a>
-                        <ul id="account" class="collapse list-unstyled ">
-                            <?php if($index_permission_active): ?>
-                                <li id="account-list-menu"><a href="<?php echo e(route('accounts.index')); ?>"><?php echo e(trans('Lista de cuentas')); ?></a></li>
-                                <li><a id="add-account" href=""><?php echo e(trans('Agregar cuenta')); ?></a></li>
-                                <li><a id="journal" href=""><?php echo e(trans('Libro diario')); ?></a></li>
-                            <?php endif; ?>
-                            <?php if($money_transfer_permission_active): ?>
-                                <li id="money-transfer-menu"><a href="<?php echo e(route('money-transfers.index')); ?>"><?php echo e(trans('Transferencias')); ?></a></li>
-                            <?php endif; ?>
-                            <?php if($balance_sheet_permission_active): ?>
-                                <li id="balance-sheet-menu"><a href="<?php echo e(route('accounts.balancesheet')); ?>"><?php echo e(trans('Balance')); ?></a></li>
-                            <?php endif; ?>
-                            <?php if($account_statement_permission_active): ?>
-                                <li id="account-statement-menu"><a id="account-statement" href=""><?php echo e(trans('Estado de cuentas')); ?></a></li>
-                            <?php endif; ?>
-                        </ul>
-                    </li>
+            <!--              lista-->
+                <li class=""><a href="#account" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-briefcase"></i><span><?php echo e(trans('Contabilidad')); ?></span></a>
+                    <ul id="account" class="collapse list-unstyled ">
+                        <?php if($index_permission_active): ?>
+                        <li id="account-list-menu"><a href="<?php echo e(route('accounts.index')); ?>"><?php echo e(trans('Lista de cuentas')); ?></a></li>
+                        <li><a id="add-account" href=""><?php echo e(trans('Agregar cuenta')); ?></a></li>
+                        <li><a id="journal" href=""><?php echo e(trans('Libro diario')); ?></a></li>
+                        <?php endif; ?>
+                        <?php if($money_transfer_permission_active): ?>
+                        <li id="money-transfer-menu"><a href="<?php echo e(route('money-transfers.index')); ?>"><?php echo e(trans('Transferencias')); ?></a></li>
+                        <?php endif; ?>
+                        <?php if($balance_sheet_permission_active): ?>
+                        <li id="balance-sheet-menu"><a href="<?php echo e(route('accounts.balancesheet')); ?>"><?php echo e(trans('Balance')); ?></a></li>
+                        <?php endif; ?>
+                        <?php if($account_statement_permission_active): ?>
+                        <li id="account-statement-menu"><a id="account-statement" href=""><?php echo e(trans('Estado de cuentas')); ?></a></li>
+                        <?php endif; ?>
+                    </ul>
+                </li>
                 <?php endif; ?>
                 <?php if($index_permission_active || $balance_sheet_permission_active || $account_statement_permission_active): ?>
-                    <li class=""><a href="#imports" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-graph-line"></i><span><?php echo e(trans('Importaciones')); ?></span></a>
-                        <ul id="imports" class="collapse list-unstyled ">
-                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Facturas')); ?></a></li>
-                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Pedidos')); ?></a></li>
-                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Proforma')); ?></a></li>
-                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Ingresos')); ?></a></li>
-                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Liquidación')); ?></a></li>
-                            <?php if($index_permission_active): ?>
-                                <li><a href="#supplierImp" aria-expanded="false" data-toggle="collapse"><span><?php echo e(trans('Proveedor')); ?></span></a>
-                                    <ul id="supplierImp" class="collapse list-unstyled ">
-                                        <?php if($supplier_index_permission_active): ?>
-                                            <li id="supplier-list-menu"><a href="<?php echo e(route('supplierImp.index')); ?>"><?php echo e(trans('Lista de proveedores')); ?></a></li>
-                                            <?php
-                                            $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
-                                            $supplier_add_permission_active = DB::table('role_has_permissions')->where([
-                                                ['permission_id', $supplier_add_permission->id],
-                                                ['role_id', $role->id]
-                                            ])->first();
-                                            ?>
-                                            <?php if($supplier_add_permission_active): ?>
-                                                <li id="supplierImp-create-menu"><a href="<?php echo e(route('supplierImp.create')); ?>"><?php echo e(trans('Agregar Proveedores')); ?></a></li>
-                                            <?php endif; ?>
-                                        <?php endif; ?>
+                <li class=""><a href="#imports" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-graph-line"></i><span><?php echo e(trans('Importaciones')); ?></span></a>
+                    <ul id="imports" class="collapse list-unstyled ">
+                        <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Facturas')); ?></a></li>
+                        <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Pedidos')); ?></a></li>
+                        <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Proforma')); ?></a></li>
+                        <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Ingresos')); ?></a></li>
+                        <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Liquidación')); ?></a></li>
+                        <?php if($index_permission_active): ?>
+                        <li><a href="#supplierImp" aria-expanded="false" data-toggle="collapse"><span><?php echo e(trans('Proveedor')); ?></span></a>
+                            <ul id="supplierImp" class="collapse list-unstyled ">
+                                <?php if($supplier_index_permission_active): ?>
+                                <li id="supplier-list-menu"><a href="<?php echo e(route('supplierImp.index')); ?>"><?php echo e(trans('Lista de proveedores')); ?></a></li>
+                                <?php
+                                $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
+                                $supplier_add_permission_active = DB::table('role_has_permissions')->where([
+                                    ['permission_id', $supplier_add_permission->id],
+                                    ['role_id', $role->id]
+                                ])->first();
+                                ?>
+                                <?php if($supplier_add_permission_active): ?>
+                                <li id="supplierImp-create-menu"><a href="<?php echo e(route('supplierImp.create')); ?>"><?php echo e(trans('Agregar Proveedores')); ?></a></li>
+                                <?php endif; ?>
+                                <?php endif; ?>
 
-                                    </ul>
-                                </li>
-                            <?php endif; ?>
-                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Articulos')); ?></a></li>
-                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Devolición')); ?></a></li>
-                            <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Actualización')); ?></a></li>
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
+                        <?php endif; ?>
+                        <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Articulos')); ?></a></li>
+                        <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Devolición')); ?></a></li>
+                        <li id=""><a href="<?php echo e(route('purchases.create')); ?>"><?php echo e(trans('Actualización')); ?></a></li>
+                    </ul>
+                </li>
                 <?php endif; ?>
                 <li><a href="#asset" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-store"></i><span><?php echo e(trans('Activos Fijos')); ?></span></a>
                     <ul id="asset" class="collapse list-unstyled ">
@@ -549,21 +549,21 @@
                 ])->first();
                 ?>
 
-                <!--              <li class=""><a href="#hrm" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user-group"></i><span>HRM</span></a>-->
+            <!--              <li class=""><a href="#hrm" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user-group"></i><span>HRM</span></a>-->
                 <!--                <ul id="hrm" class="collapse list-unstyled ">-->
                 <!--                  --><?php //if($department_active): ?>
-                <!--                  <li id="dept-menu"><a href="--><?php //echo e(route('departments.index')); ?><!--">--><?php //echo e(trans('file.Department')); ?><!--</a></li>-->
+            <!--                  <li id="dept-menu"><a href="--><?php //echo e(route('departments.index')); ?><!--">--><?php //echo e(trans('file.Department')); ?><!--</a></li>-->
                 <!--                  --><?php //endif; ?>
-                <!--                  --><?php //if($index_employee_active): ?>
-                <!--                  <li id="employee-menu"><a href="--><?php //echo e(route('employees.index')); ?><!--">--><?php //echo e(trans('file.Employee')); ?><!--</a></li>-->
+            <!--                  --><?php //if($index_employee_active): ?>
+            <!--                  <li id="employee-menu"><a href="--><?php //echo e(route('employees.index')); ?><!--">--><?php //echo e(trans('file.Employee')); ?><!--</a></li>-->
                 <!--                  --><?php //endif; ?>
-                <!--                  --><?php //if($attendance_active): ?>
-                <!--                  <li id="attendance-menu"><a href="--><?php //echo e(route('attendance.index')); ?><!--">--><?php //echo e(trans('file.Attendance')); ?><!--</a></li>-->
+            <!--                  --><?php //if($attendance_active): ?>
+            <!--                  <li id="attendance-menu"><a href="--><?php //echo e(route('attendance.index')); ?><!--">--><?php //echo e(trans('file.Attendance')); ?><!--</a></li>-->
                 <!--                  --><?php //endif; ?>
-                <!--                  --><?php //if($payroll_active): ?>
-                <!--                  <li id="payroll-menu"><a href="--><?php //echo e(route('payroll.index')); ?><!--">--><?php //echo e(trans('file.Payroll')); ?><!--</a></li>-->
+            <!--                  --><?php //if($payroll_active): ?>
+            <!--                  <li id="payroll-menu"><a href="--><?php //echo e(route('payroll.index')); ?><!--">--><?php //echo e(trans('file.Payroll')); ?><!--</a></li>-->
                 <!--                  --><?php //endif; ?>
-                <!--                  <li id="holiday-menu"><a href="--><?php //echo e(route('holidays.index')); ?><!--">--><?php //echo e(trans('file.Holiday')); ?><!--</a></li>-->
+            <!--                  <li id="holiday-menu"><a href="--><?php //echo e(route('holidays.index')); ?><!--">--><?php //echo e(trans('file.Holiday')); ?><!--</a></li>-->
                 <!--                </ul>-->
                 <!--              </li>-->
 
@@ -658,135 +658,135 @@
                         ['role_id', $role->id] ])->first();
                 ?>
                 <?php if($profit_loss_active || $best_seller_active || $warehouse_report_active || $warehouse_stock_report_active || $product_report_active || $daily_sale_active || $monthly_sale_active || $daily_purchase_active || $monthly_purchase_active || $purchase_report_active || $sale_report_active || $payment_report_active || $product_qty_alert_active || $user_report_active || $customer_report_active || $supplier_report_active || $due_report_active): ?>
-                    <!--              <li>-->
-                    <!--                  <a href="#report" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document-remove"></i><span>--><?php //echo e(trans('Reportes')); ?><!--</span></a>-->
-                    <!--                <ul id="report" class="collapse list-unstyled ">-->
-                    <!--                  --><?php //if($profit_loss_active): ?>
-                    <!--                  <li id="profit-loss-report-menu">-->
-                    <!--                    --><?php //echo Form::open(['route' => 'report.profitLoss', 'method' => 'post', 'id' => 'profitLoss-report-form']); ?>
-                    <!---->
-                    <!--                    <input type="hidden" name="start_date" value="--><?php //echo e(date('Y-m').'-'.'01'); ?><!--" />-->
-                    <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
-                    <!--                    <a id="profitLoss-link" href="">--><?php //echo e(trans('Resumen')); ?><!--</a>-->
-                    <!--                    --><?php //echo Form::close(); ?>
-                    <!---->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($best_seller_active): ?>
-                    <!--                  <li id="best-seller-report-menu">-->
-                    <!--                    <a href="--><?php //echo e(url('report/best_seller')); ?><!--">--><?php //echo e(trans('file.Best Seller')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($product_report_active): ?>
-                    <!--                  <li id="product-report-menu">-->
-                    <!--                    --><?php //echo Form::open(['route' => 'report.product', 'method' => 'post', 'id' => 'product-report-form']); ?>
-                    <!---->
-                    <!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
-                    <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
-                    <!--                    <input type="hidden" name="warehouse_id" value="0" />-->
-                    <!--                    <a id="report-link" href="">--><?php //echo e(trans('Informe de Productos')); ?><!--</a>-->
-                    <!--                    --><?php //echo Form::close(); ?>
-                    <!---->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($daily_sale_active): ?>
-                    <!--                  <li id="daily-sale-report-menu">-->
-                    <!--                    <a href="--><?php //echo e(url('report/daily_sale/'.date('Y').'/'.date('m'))); ?><!--">--><?php //echo e(trans('file.Daily Sale')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($monthly_sale_active): ?>
-                    <!--                  <li id="monthly-sale-report-menu">-->
-                    <!--                    <a href="--><?php //echo e(url('report/monthly_sale/'.date('Y'))); ?><!--">--><?php //echo e(trans('Venta Mensual')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($daily_purchase_active): ?>
-                    <!--                  <li id="daily-purchase-report-menu">-->
-                    <!--                    <a href="--><?php //echo e(url('report/daily_purchase/'.date('Y').'/'.date('m'))); ?><!--">--><?php //echo e(trans('file.Daily Purchase')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($monthly_purchase_active): ?>
-                    <!--                  <li id="monthly-purchase-report-menu">-->
-                    <!--                    <a href="--><?php //echo e(url('report/monthly_purchase/'.date('Y'))); ?><!--">--><?php //echo e(trans('Compra Mensual')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($sale_report_active): ?>
-                    <!--                  <li id="sale-report-menu">-->
-                    <!--                    --><?php //echo Form::open(['route' => 'report.sale', 'method' => 'post', 'id' => 'sale-report-form']); ?>
-                    <!---->
-                    <!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
-                    <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
-                    <!--                    <input type="hidden" name="warehouse_id" value="0" />-->
-                    <!--                    <a id="sale-report-link" href="">--><?php //echo e(trans('Informe de venta')); ?><!--</a>-->
-                    <!--                    --><?php //echo Form::close(); ?>
-                    <!---->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($payment_report_active): ?>
-                    <!--                  <li id="payment-report-menu">-->
-                    <!--                    --><?php //echo Form::open(['route' => 'report.paymentByDate', 'method' => 'post', 'id' => 'payment-report-form']); ?>
-                    <!---->
-                    <!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
-                    <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
-                    <!--                    <a id="payment-report-link" href="">--><?php //echo e(trans('Informe de pago')); ?><!--</a>-->
-                    <!--                    --><?php //echo Form::close(); ?>
-                    <!---->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($purchase_report_active): ?>
-                    <!--                  <li id="purchase-report-menu">-->
-                    <!--                    --><?php //echo Form::open(['route' => 'report.purchase', 'method' => 'post', 'id' => 'purchase-report-form']); ?>
-                    <!---->
-                    <!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
-                    <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
-                    <!--                    <input type="hidden" name="warehouse_id" value="0" />-->
-                    <!--                    <a id="purchase-report-link" href="">--><?php //echo e(trans('Informe de compra')); ?><!--</a>-->
-                    <!--                    --><?php //echo Form::close(); ?>
-                    <!---->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($warehouse_report_active): ?>
-                    <!--                  <li id="warehouse-report-menu">-->
-                    <!--                    <a id="warehouse-report-link" href="">--><?php //echo e(trans('Informe de bodega')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($warehouse_stock_report_active): ?>
-                    <!--                  <li id="warehouse-stock-report-menu">-->
-                    <!--                    <a href="--><?php //echo e(route('report.warehouseStock')); ?><!--">--><?php //echo e(trans('Existencia en almacen')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($product_qty_alert_active): ?>
-                    <!--                  <li id="qtyAlert-report-menu">-->
-                    <!--                    <a href="--><?php //echo e(route('report.qtyAlert')); ?><!--">--><?php //echo e(trans('Alerta de productos')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($user_report_active): ?>
-                    <!--                  <li id="user-report-menu">-->
-                    <!--                    <a id="user-report-link" href="">--><?php //echo e(trans('Informe de usuario')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($customer_report_active): ?>
-                    <!--                  <li id="customer-report-menu">-->
-                    <!--                    <a id="customer-report-link" href="">--><?php //echo e(trans('Informe de cliente')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($supplier_report_active): ?>
-                    <!--                  <li id="supplier-report-menu">-->
-                    <!--                    <a id="supplier-report-link" href="">--><?php //echo e(trans('Informe de proveedores')); ?><!--</a>-->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                  --><?php //if($due_report_active): ?>
-                    <!--                  <li id="due-report-menu">-->
-                    <!--                    --><?php //echo Form::open(['route' => 'report.dueByDate', 'method' => 'post', 'id' => 'due-report-form']); ?>
-                    <!---->
-                    <!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
-                    <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
-                    <!--                    <a id="due-report-link" href="">--><?php //echo e(trans('Informe vencidos')); ?><!--</a>-->
-                    <!--                    --><?php //echo Form::close(); ?>
-                    <!---->
-                    <!--                  </li>-->
-                    <!--                  --><?php //endif; ?>
-                    <!--                </ul>-->
-                    <!--              </li>-->
+            <!--              <li>-->
+                <!--                  <a href="#report" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document-remove"></i><span>--><?php //echo e(trans('Reportes')); ?><!--</span></a>-->
+                <!--                <ul id="report" class="collapse list-unstyled ">-->
+                <!--                  --><?php //if($profit_loss_active): ?>
+            <!--                  <li id="profit-loss-report-menu">-->
+                <!--                    --><?php //echo Form::open(['route' => 'report.profitLoss', 'method' => 'post', 'id' => 'profitLoss-report-form']); ?>
+            <!---->
+                <!--                    <input type="hidden" name="start_date" value="--><?php //echo e(date('Y-m').'-'.'01'); ?><!--" />-->
+                <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+                <!--                    <a id="profitLoss-link" href="">--><?php //echo e(trans('Resumen')); ?><!--</a>-->
+                <!--                    --><?php //echo Form::close(); ?>
+            <!---->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($best_seller_active): ?>
+            <!--                  <li id="best-seller-report-menu">-->
+                <!--                    <a href="--><?php //echo e(url('report/best_seller')); ?><!--">--><?php //echo e(trans('file.Best Seller')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($product_report_active): ?>
+            <!--                  <li id="product-report-menu">-->
+                <!--                    --><?php //echo Form::open(['route' => 'report.product', 'method' => 'post', 'id' => 'product-report-form']); ?>
+            <!---->
+                <!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
+                <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+                <!--                    <input type="hidden" name="warehouse_id" value="0" />-->
+                <!--                    <a id="report-link" href="">--><?php //echo e(trans('Informe de Productos')); ?><!--</a>-->
+                <!--                    --><?php //echo Form::close(); ?>
+            <!---->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($daily_sale_active): ?>
+            <!--                  <li id="daily-sale-report-menu">-->
+                <!--                    <a href="--><?php //echo e(url('report/daily_sale/'.date('Y').'/'.date('m'))); ?><!--">--><?php //echo e(trans('file.Daily Sale')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($monthly_sale_active): ?>
+            <!--                  <li id="monthly-sale-report-menu">-->
+                <!--                    <a href="--><?php //echo e(url('report/monthly_sale/'.date('Y'))); ?><!--">--><?php //echo e(trans('Venta Mensual')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($daily_purchase_active): ?>
+            <!--                  <li id="daily-purchase-report-menu">-->
+                <!--                    <a href="--><?php //echo e(url('report/daily_purchase/'.date('Y').'/'.date('m'))); ?><!--">--><?php //echo e(trans('file.Daily Purchase')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($monthly_purchase_active): ?>
+            <!--                  <li id="monthly-purchase-report-menu">-->
+                <!--                    <a href="--><?php //echo e(url('report/monthly_purchase/'.date('Y'))); ?><!--">--><?php //echo e(trans('Compra Mensual')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($sale_report_active): ?>
+            <!--                  <li id="sale-report-menu">-->
+                <!--                    --><?php //echo Form::open(['route' => 'report.sale', 'method' => 'post', 'id' => 'sale-report-form']); ?>
+            <!---->
+                <!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
+                <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+                <!--                    <input type="hidden" name="warehouse_id" value="0" />-->
+                <!--                    <a id="sale-report-link" href="">--><?php //echo e(trans('Informe de venta')); ?><!--</a>-->
+                <!--                    --><?php //echo Form::close(); ?>
+            <!---->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($payment_report_active): ?>
+            <!--                  <li id="payment-report-menu">-->
+                <!--                    --><?php //echo Form::open(['route' => 'report.paymentByDate', 'method' => 'post', 'id' => 'payment-report-form']); ?>
+            <!---->
+                <!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
+                <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+                <!--                    <a id="payment-report-link" href="">--><?php //echo e(trans('Informe de pago')); ?><!--</a>-->
+                <!--                    --><?php //echo Form::close(); ?>
+            <!---->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($purchase_report_active): ?>
+            <!--                  <li id="purchase-report-menu">-->
+                <!--                    --><?php //echo Form::open(['route' => 'report.purchase', 'method' => 'post', 'id' => 'purchase-report-form']); ?>
+            <!---->
+                <!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
+                <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+                <!--                    <input type="hidden" name="warehouse_id" value="0" />-->
+                <!--                    <a id="purchase-report-link" href="">--><?php //echo e(trans('Informe de compra')); ?><!--</a>-->
+                <!--                    --><?php //echo Form::close(); ?>
+            <!---->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($warehouse_report_active): ?>
+            <!--                  <li id="warehouse-report-menu">-->
+                <!--                    <a id="warehouse-report-link" href="">--><?php //echo e(trans('Informe de bodega')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($warehouse_stock_report_active): ?>
+            <!--                  <li id="warehouse-stock-report-menu">-->
+                <!--                    <a href="--><?php //echo e(route('report.warehouseStock')); ?><!--">--><?php //echo e(trans('Existencia en almacen')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($product_qty_alert_active): ?>
+            <!--                  <li id="qtyAlert-report-menu">-->
+                <!--                    <a href="--><?php //echo e(route('report.qtyAlert')); ?><!--">--><?php //echo e(trans('Alerta de productos')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($user_report_active): ?>
+            <!--                  <li id="user-report-menu">-->
+                <!--                    <a id="user-report-link" href="">--><?php //echo e(trans('Informe de usuario')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($customer_report_active): ?>
+            <!--                  <li id="customer-report-menu">-->
+                <!--                    <a id="customer-report-link" href="">--><?php //echo e(trans('Informe de cliente')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($supplier_report_active): ?>
+            <!--                  <li id="supplier-report-menu">-->
+                <!--                    <a id="supplier-report-link" href="">--><?php //echo e(trans('Informe de proveedores')); ?><!--</a>-->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                  --><?php //if($due_report_active): ?>
+            <!--                  <li id="due-report-menu">-->
+                <!--                    --><?php //echo Form::open(['route' => 'report.dueByDate', 'method' => 'post', 'id' => 'due-report-form']); ?>
+            <!---->
+                <!--                    <input type="hidden" name="start_date" value="1988-04-18" />-->
+                <!--                    <input type="hidden" name="end_date" value="--><?php //echo e(date('Y-m-d')); ?><!--" />-->
+                <!--                    <a id="due-report-link" href="">--><?php //echo e(trans('Informe vencidos')); ?><!--</a>-->
+                <!--                    --><?php //echo Form::close(); ?>
+            <!---->
+                <!--                  </li>-->
+                <!--                  --><?php //endif; ?>
+            <!--                </ul>-->
+                <!--              </li>-->
                 <?php endif; ?>
 
                 <li><a href="#setting" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-gear"></i><span><?php echo e(trans('Configuracion')); ?></span></a>
@@ -893,36 +893,36 @@
                         //                        ])->first();
                         ?>
                         <?php if($user_index_permission_active): ?>
-                            <li id="user-list-menu"><a href="<?php echo e(route('user.index')); ?>"><?php echo e(trans('Lista de usuarios')); ?></a></li>
-                            <?php $user_add_permission_active = DB::table('permissions')
-                                ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
-                                ->where([
-                                    ['permissions.name', 'users-add'],
-                                    ['role_id', $role->id] ])->first();
-                            ?>
-                            <?php if($user_add_permission_active): ?>
-                                <li id="user-create-menu"><a href="<?php echo e(route('user.create')); ?>"><?php echo e(trans('Agregar usuarios')); ?></a></li>
-                            <?php endif; ?>
+                        <li id="user-list-menu"><a href="<?php echo e(route('user.index')); ?>"><?php echo e(trans('Lista de usuarios')); ?></a></li>
+                        <?php $user_add_permission_active = DB::table('permissions')
+                            ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                            ->where([
+                                ['permissions.name', 'users-add'],
+                                ['role_id', $role->id] ])->first();
+                        ?>
+                        <?php if($user_add_permission_active): ?>
+                        <li id="user-create-menu"><a href="<?php echo e(route('user.create')); ?>"><?php echo e(trans('Agregar usuarios')); ?></a></li>
                         <?php endif; ?>
-                        <!--                        --><?php //if($user_index_permission_active || $customer_index_permission_active || $biller_index_permission_active || $supplier_index_permission_active): ?>
-                        <!--                            <li><a href="#people" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user"></i><span>--><?php //echo e(trans('Personas')); ?><!--</span></a>-->
+                        <?php endif; ?>
+                    <!--                        --><?php //if($user_index_permission_active || $customer_index_permission_active || $biller_index_permission_active || $supplier_index_permission_active): ?>
+                    <!--                            <li><a href="#people" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user"></i><span>--><?php //echo e(trans('Personas')); ?><!--</span></a>-->
                         <!--                                <ul id="people" class="collapse list-unstyled ">-->
                         <!---->
                         <!--                                    --><?php //if($user_index_permission_active): ?>
-                        <!--                                        <li id="user-list-menu"><a href="--><?php //echo e(route('user.index')); ?><!--">--><?php //echo e(trans('Lista de usuarios')); ?><!--</a></li>-->
+                    <!--                                        <li id="user-list-menu"><a href="--><?php //echo e(route('user.index')); ?><!--">--><?php //echo e(trans('Lista de usuarios')); ?><!--</a></li>-->
                         <!--                                        --><?php //$user_add_permission_active = DB::table('permissions')
                         //                                            ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
                         //                                            ->where([
                         //                                                ['permissions.name', 'users-add'],
                         //                                                ['role_id', $role->id] ])->first();
                         //                                        ?>
-                        <!--                                        --><?php //if($user_add_permission_active): ?>
-                        <!--                                            <li id="user-create-menu"><a href="--><?php //echo e(route('user.create')); ?><!--">--><?php //echo e(trans('Agregar usuarios')); ?><!--</a></li>-->
+                    <!--                                        --><?php //if($user_add_permission_active): ?>
+                    <!--                                            <li id="user-create-menu"><a href="--><?php //echo e(route('user.create')); ?><!--">--><?php //echo e(trans('Agregar usuarios')); ?><!--</a></li>-->
                         <!--                                        --><?php //endif; ?>
-                        <!--                                    --><?php //endif; ?>
+                    <!--                                    --><?php //endif; ?>
 
-                        <!--                                    --><?php //if($customer_index_permission_active): ?>
-                        <!--                                        <li id="customer-list-menu"><a href="--><?php //echo e(route('customer.index')); ?><!--">--><?php //echo e(trans('Lista de clientes')); ?><!--</a></li>-->
+                    <!--                                    --><?php //if($customer_index_permission_active): ?>
+                    <!--                                        <li id="customer-list-menu"><a href="--><?php //echo e(route('customer.index')); ?><!--">--><?php //echo e(trans('Lista de clientes')); ?><!--</a></li>-->
                         <!--                                        --><?php
                         //                                        $customer_add_permission = DB::table('permissions')->where('name', 'customers-add')->first();
                         //                                        $customer_add_permission_active = DB::table('role_has_permissions')->where([
@@ -930,13 +930,13 @@
                         //                                            ['role_id', $role->id]
                         //                                        ])->first();
                         //                                        ?>
-                        <!--                                        --><?php //if($customer_add_permission_active): ?>
-                        <!--                                            <li id="customer-create-menu"><a href="--><?php //echo e(route('customer.create')); ?><!--">--><?php //echo e(trans('Agegar clientes')); ?><!--</a></li>-->
+                    <!--                                        --><?php //if($customer_add_permission_active): ?>
+                    <!--                                            <li id="customer-create-menu"><a href="--><?php //echo e(route('customer.create')); ?><!--">--><?php //echo e(trans('Agegar clientes')); ?><!--</a></li>-->
                         <!--                                        --><?php //endif; ?>
-                        <!--                                    --><?php //endif; ?>
+                    <!--                                    --><?php //endif; ?>
 
-                        <!--                                    --><?php //if($biller_index_permission_active): ?>
-                        <!--                                                          <li id="biller-list-menu"><a href="--><?php //echo e(route('biller.index')); ?><!--">--><?php //echo e(trans('file.Biller List')); ?><!--</a></li>-->
+                    <!--                                    --><?php //if($biller_index_permission_active): ?>
+                    <!--                                                          <li id="biller-list-menu"><a href="--><?php //echo e(route('biller.index')); ?><!--">--><?php //echo e(trans('file.Biller List')); ?><!--</a></li>-->
                         <!--                                        --><?php
                         //                                        $biller_add_permission = DB::table('permissions')->where('name', 'billers-add')->first();
                         //                                        $biller_add_permission_active = DB::table('role_has_permissions')->where([
@@ -944,13 +944,13 @@
                         //                                            ['role_id', $role->id]
                         //                                        ])->first();
                         //                                        ?>
-                        <!--                                        --><?php //if($biller_add_permission_active): ?>
-                        <!--                                                              <li id="biller-create-menu"><a href="--><?php //echo e(route('biller.create')); ?><!--">--><?php //echo e(trans('file.Add Biller')); ?><!--</a></li>-->
+                    <!--                                        --><?php //if($biller_add_permission_active): ?>
+                    <!--                                                              <li id="biller-create-menu"><a href="--><?php //echo e(route('biller.create')); ?><!--">--><?php //echo e(trans('file.Add Biller')); ?><!--</a></li>-->
                         <!--                                        --><?php //endif; ?>
-                        <!--                                    --><?php //endif; ?>
+                    <!--                                    --><?php //endif; ?>
 
-                        <!--                                    --><?php //if($supplier_index_permission_active): ?>
-                        <!--                                        <li id="supplier-list-menu"><a href="--><?php //echo e(route('supplier.index')); ?><!--">--><?php //echo e(trans('Lista de proveedores')); ?><!--</a></li>-->
+                    <!--                                    --><?php //if($supplier_index_permission_active): ?>
+                    <!--                                        <li id="supplier-list-menu"><a href="--><?php //echo e(route('supplier.index')); ?><!--">--><?php //echo e(trans('Lista de proveedores')); ?><!--</a></li>-->
                         <!--                                        --><?php
                         //                                        $supplier_add_permission = DB::table('permissions')->where('name', 'suppliers-add')->first();
                         //                                        $supplier_add_permission_active = DB::table('role_has_permissions')->where([
@@ -958,54 +958,54 @@
                         //                                            ['role_id', $role->id]
                         //                                        ])->first();
                         //                                        ?>
-                        <!--                                        --><?php //if($supplier_add_permission_active): ?>
-                        <!--                                            <li id="supplier-create-menu"><a href="--><?php //echo e(route('supplier.create')); ?><!--">--><?php //echo e(trans('Agregar Proveedores')); ?><!--</a></li>-->
+                    <!--                                        --><?php //if($supplier_add_permission_active): ?>
+                    <!--                                            <li id="supplier-create-menu"><a href="--><?php //echo e(route('supplier.create')); ?><!--">--><?php //echo e(trans('Agregar Proveedores')); ?><!--</a></li>-->
                         <!--                                        --><?php //endif; ?>
-                        <!--                                    --><?php //endif; ?>
-                        <!--                                </ul>-->
+                    <!--                                    --><?php //endif; ?>
+                    <!--                                </ul>-->
                         <!--                            </li>-->
                         <!--                        --><?php //endif; ?>
                         <?php if($role->id <= 2): ?>
-                            <li id="role-menu"><a href="<?php echo e(route('role.index')); ?>"><?php echo e(trans('Roles y permisos')); ?></a></li>
+                        <li id="role-menu"><a href="<?php echo e(route('role.index')); ?>"><?php echo e(trans('Roles y permisos')); ?></a></li>
                         <?php endif; ?>
                         <?php if($send_notification_permission_active): ?>
-                            <!--                  <li id="notification-menu">-->
-                            <!--                    <a href="" id="send-notification">--><?php //echo e(trans('file.Send Notification')); ?><!--</a>-->
-                            <!--                  </li>-->
+                    <!--                  <li id="notification-menu">-->
+                        <!--                    <a href="" id="send-notification">--><?php //echo e(trans('file.Send Notification')); ?><!--</a>-->
+                        <!--                  </li>-->
                         <?php endif; ?>
-                        <!--                        --><?php //if($warehouse_permission_active): ?>
-                        <!--                            <li id="warehouse-menu"><a href="--><?php //echo e(route('warehouse.index')); ?><!--">--><?php //echo e(trans('Bodega')); ?><!--</a></li>-->
+                    <!--                        --><?php //if($warehouse_permission_active): ?>
+                    <!--                            <li id="warehouse-menu"><a href="--><?php //echo e(route('warehouse.index')); ?><!--">--><?php //echo e(trans('Bodega')); ?><!--</a></li>-->
                         <!--                        --><?php //endif; ?>
                         <?php if($customer_group_permission_active): ?>
-                            <li id="customer-group-menu"><a href="<?php echo e(route('customer_group.index')); ?>"><?php echo e(trans('Grupo de clientes')); ?></a></li>
+                        <li id="customer-group-menu"><a href="<?php echo e(route('customer_group.index')); ?>"><?php echo e(trans('Grupo de clientes')); ?></a></li>
                         <?php endif; ?>
                         <?php if($brand_permission_active): ?>
-                            <li id="brand-menu"><a href="<?php echo e(route('brand.index')); ?>"><?php echo e(trans('Marca')); ?></a></li>
+                        <li id="brand-menu"><a href="<?php echo e(route('brand.index')); ?>"><?php echo e(trans('Marca')); ?></a></li>
                         <?php endif; ?>
                         <?php if($unit_permission_active): ?>
-                            <li id="unit-menu"><a href="<?php echo e(route('unit.index')); ?>"><?php echo e(trans('Unidades')); ?></a></li>
+                        <li id="unit-menu"><a href="<?php echo e(route('unit.index')); ?>"><?php echo e(trans('Unidades')); ?></a></li>
                         <?php endif; ?>
                         <?php if($tax_permission_active): ?>
-                            <li id="tax-menu"><a href="<?php echo e(route('tax.index')); ?>"><?php echo e(trans('Impuestos')); ?></a></li>
+                        <li id="tax-menu"><a href="<?php echo e(route('tax.index')); ?>"><?php echo e(trans('Impuestos')); ?></a></li>
                         <?php endif; ?>
                         <li id="user-menu"><a href="<?php echo e(route('user.profile', ['id' => Auth::id()])); ?>"><?php echo e(trans('Perfil de usuario')); ?></a></li>
                         <?php if($create_sms_permission_active): ?>
-                            <!--                  <li id="create-sms-menu"><a href="--><?php //echo e(route('setting.createSms')); ?><!--">--><?php //echo e(trans('file.Create SMS')); ?><!--</a></li>-->
+                    <!--                  <li id="create-sms-menu"><a href="--><?php //echo e(route('setting.createSms')); ?><!--">--><?php //echo e(trans('file.Create SMS')); ?><!--</a></li>-->
                         <?php endif; ?>
                         <?php if($general_setting_permission_active): ?>
-                            <!--                  <li id="general-setting-menu"><a href="--><?php //echo e(route('setting.general')); ?><!--">--><?php //echo e(trans('Configuracion General')); ?><!--</a></li>-->
+                    <!--                  <li id="general-setting-menu"><a href="--><?php //echo e(route('setting.general')); ?><!--">--><?php //echo e(trans('Configuracion General')); ?><!--</a></li>-->
                         <?php endif; ?>
                         <?php if($mail_setting_permission_active): ?>
-                            <!--                  <li id="mail-setting-menu"><a href="--><?php //echo e(route('setting.mail')); ?><!--">--><?php //echo e(trans('file.Mail Setting')); ?><!--</a></li>-->
+                    <!--                  <li id="mail-setting-menu"><a href="--><?php //echo e(route('setting.mail')); ?><!--">--><?php //echo e(trans('file.Mail Setting')); ?><!--</a></li>-->
                         <?php endif; ?>
                         <?php if($sms_setting_permission_active): ?>
-                            <!--                  <li id="sms-setting-menu"><a href="--><?php //echo e(route('setting.sms')); ?><!--">--><?php //echo e(trans('file.SMS Setting')); ?><!--</a></li>-->
+                    <!--                  <li id="sms-setting-menu"><a href="--><?php //echo e(route('setting.sms')); ?><!--">--><?php //echo e(trans('file.SMS Setting')); ?><!--</a></li>-->
                         <?php endif; ?>
                         <?php if($pos_setting_permission_active): ?>
-                            <!--                  <li id="pos-setting-menu"><a href="--><?php //echo e(route('setting.pos')); ?><!--">POS --><?php //echo e(trans('file.settings')); ?><!--</a></li>-->
+                    <!--                  <li id="pos-setting-menu"><a href="--><?php //echo e(route('setting.pos')); ?><!--">POS --><?php //echo e(trans('file.settings')); ?><!--</a></li>-->
                         <?php endif; ?>
                         <?php if($hrm_setting_permission_active): ?>
-                            <!--                  <li id="hrm-setting-menu"><a href="--><?php //echo e(route('setting.hrm')); ?><!--"> --><?php //echo e(trans('file.HRM Setting')); ?><!--</a></li>-->
+                    <!--                  <li id="hrm-setting-menu"><a href="--><?php //echo e(route('setting.hrm')); ?><!--"> --><?php //echo e(trans('file.HRM Setting')); ?><!--</a></li>-->
                         <?php endif; ?>
                     </ul>
                 </li>
@@ -1022,43 +1022,43 @@
                 <span class="brand-big"><?php if($general_setting->site_logo): ?><img src="<?php echo e(url('logo', $general_setting->site_logo)); ?>" width="50">&nbsp;&nbsp;<?php endif; ?><a href="<?php echo e(url('/')); ?>"><h1 class="d-inline"><?php echo e($general_setting->site_title); ?></h1></a></span>
 
                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
-                    <?php
-                    $add_permission = DB::table('permissions')->where('name', 'sales-add')->first();
-                    $add_permission_active = DB::table('role_has_permissions')->where([
-                        ['permission_id', $add_permission->id],
-                        ['role_id', $role->id]
-                    ])->first();
+                <?php
+                $add_permission = DB::table('permissions')->where('name', 'sales-add')->first();
+                $add_permission_active = DB::table('role_has_permissions')->where([
+                    ['permission_id', $add_permission->id],
+                    ['role_id', $role->id]
+                ])->first();
 
-                    $empty_database_permission = DB::table('permissions')->where('name', 'empty_database')->first();
-                    $empty_database_permission_active = DB::table('role_has_permissions')->where([
-                        ['permission_id', $empty_database_permission->id],
-                        ['role_id', $role->id]
-                    ])->first();
-                    ?>
-                    <?php if($add_permission_active): ?>
-                        <!--                <li class="nav-item"><a class="dropdown-item btn-pos btn-sm" href="--><?php //echo e(route('sale.pos')); ?><!--"><i class="dripicons-shopping-bag"></i><span> POS</span></a></li>-->
-                    <?php endif; ?>
-                    <!--                <li class="nav-item"><a id="btnFullscreen"><i class="dripicons-expand"></i></a></li>-->
-                    <?php if(\Auth::user()->role_id <= 2): ?>
-                        <!--                  <li class="nav-item"><a href="--><?php //echo e(route('cashRegister.index')); ?><!--" title="--><?php //echo e(trans('file.Cash Register List')); ?><!--"><i class="dripicons-archive"></i></a></li>-->
-                    <?php endif; ?>
-                    <?php if(($alert_product + count(\Auth::user()->unreadNotifications)) > 0): ?>
-                        <!--                <li class="nav-item" id="notification-icon">-->
-                        <!--                      <a rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-item"><i class="dripicons-bell"></i><span class="badge badge-danger notification-number">--><?php //echo e($alert_product + count(\Auth::user()->unreadNotifications)); ?><!--</span>-->
-                        <!--                      </a>-->
-                        <!--                      <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default notifications" user="menu">-->
-                        <!--                          <li class="notifications">-->
-                        <!--                            <a href="--><?php //echo e(route('report.qtyAlert')); ?><!--" class="btn btn-link"> --><?php //echo e($alert_product); ?><!-- product exceeds alert quantity</a>-->
-                        <!--                          </li>-->
-                        <!--                          --><?php //$__currentLoopData = \Auth::user()->unreadNotifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <!--                              <li class="notifications">-->
-                        <!--                                  <a href="#" class="btn btn-link">--><?php //echo e($notification->data['message']); ?><!--</a>-->
-                        <!--                              </li>-->
-                        <!--                          --><?php //endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <!--                      </ul>-->
-                        <!--                </li>-->
-                    <?php endif; ?>
-                    <!--                <li class="nav-item">-->
+                $empty_database_permission = DB::table('permissions')->where('name', 'empty_database')->first();
+                $empty_database_permission_active = DB::table('role_has_permissions')->where([
+                    ['permission_id', $empty_database_permission->id],
+                    ['role_id', $role->id]
+                ])->first();
+                ?>
+                <?php if($add_permission_active): ?>
+                <!--                <li class="nav-item"><a class="dropdown-item btn-pos btn-sm" href="--><?php //echo e(route('sale.pos')); ?><!--"><i class="dripicons-shopping-bag"></i><span> POS</span></a></li>-->
+                <?php endif; ?>
+                <!--                <li class="nav-item"><a id="btnFullscreen"><i class="dripicons-expand"></i></a></li>-->
+                <?php if(\Auth::user()->role_id <= 2): ?>
+                <!--                  <li class="nav-item"><a href="--><?php //echo e(route('cashRegister.index')); ?><!--" title="--><?php //echo e(trans('file.Cash Register List')); ?><!--"><i class="dripicons-archive"></i></a></li>-->
+                <?php endif; ?>
+                <?php if(($alert_product + count(\Auth::user()->unreadNotifications)) > 0): ?>
+                <!--                <li class="nav-item" id="notification-icon">-->
+                    <!--                      <a rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-item"><i class="dripicons-bell"></i><span class="badge badge-danger notification-number">--><?php //echo e($alert_product + count(\Auth::user()->unreadNotifications)); ?><!--</span>-->
+                    <!--                      </a>-->
+                    <!--                      <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default notifications" user="menu">-->
+                    <!--                          <li class="notifications">-->
+                    <!--                            <a href="--><?php //echo e(route('report.qtyAlert')); ?><!--" class="btn btn-link"> --><?php //echo e($alert_product); ?><!-- product exceeds alert quantity</a>-->
+                    <!--                          </li>-->
+                    <!--                          --><?php //$__currentLoopData = \Auth::user()->unreadNotifications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $notification): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <!--                              <li class="notifications">-->
+                    <!--                                  <a href="#" class="btn btn-link">--><?php //echo e($notification->data['message']); ?><!--</a>-->
+                    <!--                              </li>-->
+                    <!--                          --><?php //endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                <!--                      </ul>-->
+                    <!--                </li>-->
+                <?php endif; ?>
+                <!--                <li class="nav-item">-->
                     <!--                      <a rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-item"><i class="dripicons-web"></i> <span>--><?php //echo e(__('file.language')); ?><!--</span> <i class="fa fa-angle-down"></i></a>-->
                     <!--                      <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">-->
                     <!--                          <li>-->
@@ -1116,9 +1116,9 @@
                                 <a href="<?php echo e(route('user.profile', ['id' => Auth::id()])); ?>"><i class="dripicons-user"></i> <?php echo e(trans('Perfil')); ?></a>
                             </li>
                             <?php if($general_setting_permission_active): ?>
-                                <li>
-                                    <!--                        <a href="--><?php //echo e(route('setting.general')); ?><!--"><i class="dripicons-gear"></i> --><?php //echo e(trans('file.settings')); ?><!--</a>-->
-                                </li>
+                            <li>
+                                <!--                        <a href="--><?php //echo e(route('setting.general')); ?><!--"><i class="dripicons-gear"></i> --><?php //echo e(trans('file.settings')); ?><!--</a>-->
+                            </li>
                             <?php endif; ?>
                             <li>
                                 <!--                        <a href="--><?php //echo e(url('my-transactions/'.date('Y').'/'.date('m'))); ?><!--"><i class="dripicons-swap"></i> --><?php //echo e(trans('file.My Transaction')); ?><!--</a>-->
@@ -1127,9 +1127,9 @@
                                 <!--                        <a href="--><?php //echo e(url('holidays/my-holiday/'.date('Y').'/'.date('m'))); ?><!--"><i class="dripicons-vibrate"></i> --><?php //echo e(trans('file.My Holiday')); ?><!--</a>-->
                             </li>
                             <?php if($empty_database_permission_active): ?>
-                                <!--                      <li>-->
-                                <!--                        <a onclick="return confirm('Are you sure want to delete? If you do this all of your data will be lost.')" href="--><?php //echo e(route('setting.emptyDatabase')); ?><!--"><i class="dripicons-stack"></i> --><?php //echo e(trans('Vaciar base de datos')); ?><!--</a>-->
-                                <!--                      </li>-->
+                        <!--                      <li>-->
+                            <!--                        <a onclick="return confirm('Are you sure want to delete? If you do this all of your data will be lost.')" href="--><?php //echo e(route('setting.emptyDatabase')); ?><!--"><i class="dripicons-stack"></i> --><?php //echo e(trans('Vaciar base de datos')); ?><!--</a>-->
+                            <!--                      </li>-->
                             <?php endif; ?>
                             <li>
                                 <a href="<?php echo e(route('logout')); ?>"
@@ -1162,21 +1162,21 @@
     <!--                <div class="modal-body">-->
     <!--                  <p class="italic"><small>--><?php //echo e(trans('file.The field labels marked with * are required input fields')); ?><!--.</small></p>-->
     <!--                    --><?php //echo Form::open(['route' => 'notifications.store', 'method' => 'post']); ?>
-    <!---->
+<!---->
     <!--                      <div class="row">-->
     <!--                          --><?php
-    //                              $lims_user_list = DB::table('users')->where([
-    //                                ['is_active', true],
-    //                                ['id', '!=', \Auth::user()->id]
-    //                              ])->get();
-    //                          ?>
-    <!--                          <div class="col-md-6 form-group">-->
+//                              $lims_user_list = DB::table('users')->where([
+//                                ['is_active', true],
+//                                ['id', '!=', \Auth::user()->id]
+//                              ])->get();
+//                          ?>
+<!--                          <div class="col-md-6 form-group">-->
     <!--                              <label>--><?php //echo e(trans('file.User')); ?><!-- *</label>-->
     <!--                              <select name="user_id" class="selectpicker form-control" required data-live-search="true" data-live-search-style="begins" title="Select user...">-->
     <!--                                  --><?php //$__currentLoopData = $lims_user_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    <!--                                  <option value="--><?php //echo e($user->id); ?><!--">--><?php //echo e($user->name . ' (' . $user->email. ')'); ?><!--</option>-->
+<!--                                  <option value="--><?php //echo e($user->id); ?><!--">--><?php //echo e($user->name . ' (' . $user->email. ')'); ?><!--</option>-->
     <!--                                  --><?php //endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    <!--                              </select>-->
+<!--                              </select>-->
     <!--                          </div>-->
     <!--                          <div class="col-md-12 form-group">-->
     <!--                              <label>--><?php //echo e(trans('file.Message')); ?><!-- *</label>-->
@@ -1187,7 +1187,7 @@
     <!--                          <button type="submit" class="btn btn-primary">--><?php //echo e(trans('file.submit')); ?><!--</button>-->
     <!--                      </div>-->
     <!--                    --><?php //echo e(Form::close()); ?>
-    <!---->
+<!---->
     <!--                </div>-->
     <!--            </div>-->
     <!--        </div>-->
@@ -1222,7 +1222,7 @@
                             <label><?php echo e(trans('file.Expense Category')); ?> *</label>
                             <select name="expense_category_id" class="selectpicker form-control" required data-live-search="true" data-live-search-style="begins" title="Select Expense Category...">
                                 <?php $__currentLoopData = $lims_expense_category_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $expense_category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($expense_category->id); ?>"><?php echo e($expense_category->name . ' (' . $expense_category->code. ')'); ?></option>
+                                <option value="<?php echo e($expense_category->id); ?>"><?php echo e($expense_category->name . ' (' . $expense_category->code. ')'); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
@@ -1230,7 +1230,7 @@
                             <label><?php echo e(trans('file.Warehouse')); ?> *</label>
                             <select name="warehouse_id" class="selectpicker form-control" required data-live-search="true" data-live-search-style="begins" title="Select Warehouse...">
                                 <?php $__currentLoopData = $lims_warehouse_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($warehouse->id); ?>"><?php echo e($warehouse->name); ?></option>
+                                <option value="<?php echo e($warehouse->id); ?>"><?php echo e($warehouse->name); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
@@ -1242,11 +1242,11 @@
                             <label> <?php echo e(trans('file.Account')); ?></label>
                             <select class="form-control selectpicker" name="account_id">
                                 <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <?php if($account->is_default): ?>
-                                        <option selected value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
-                                    <?php else: ?>
-                                        <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
-                                    <?php endif; ?>
+                                <?php if($account->is_default): ?>
+                                <option selected value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                                <?php else: ?>
+                                <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                                <?php endif; ?>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
@@ -1320,7 +1320,7 @@
                             <label> <?php echo e(trans('Cuenta')); ?></label>
                             <select class="form-control selectpicker" name="account_id">
                                 <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                                <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
@@ -1370,7 +1370,7 @@
                         <label><?php echo e(trans('file.Warehouse')); ?> *</label>
                         <select name="warehouse_id" class="selectpicker form-control" required data-live-search="true" id="warehouse-id" data-live-search-style="begins" title="Select warehouse...">
                             <?php $__currentLoopData = $lims_warehouse_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($warehouse->id); ?>"><?php echo e($warehouse->name); ?></option>
+                            <option value="<?php echo e($warehouse->id); ?>"><?php echo e($warehouse->name); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
@@ -1407,7 +1407,7 @@
                         <label><?php echo e(trans('file.User')); ?> *</label>
                         <select name="user_id" class="selectpicker form-control" required data-live-search="true" id="user-id" data-live-search-style="begins" title="Select user...">
                             <?php $__currentLoopData = $lims_user_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($user->id); ?>"><?php echo e($user->name . ' (' . $user->phone. ')'); ?></option>
+                            <option value="<?php echo e($user->id); ?>"><?php echo e($user->name . ' (' . $user->phone. ')'); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
@@ -1444,7 +1444,7 @@
                         <label><?php echo e(trans('file.customer')); ?> *</label>
                         <select name="customer_id" class="selectpicker form-control" required data-live-search="true" id="customer-id" data-live-search-style="begins" title="Select customer...">
                             <?php $__currentLoopData = $lims_customer_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $customer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($customer->id); ?>"><?php echo e($customer->name . ' (' . $customer->phone_number. ')'); ?></option>
+                            <option value="<?php echo e($customer->id); ?>"><?php echo e($customer->name . ' (' . $customer->phone_number. ')'); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
@@ -1481,7 +1481,7 @@
                         <label><?php echo e(trans('file.Supplier')); ?> *</label>
                         <select name="supplier_id" class="selectpicker form-control" required data-live-search="true" id="supplier-id" data-live-search-style="begins" title="Select Supplier...">
                             <?php $__currentLoopData = $lims_supplier_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $supplier): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($supplier->id); ?>"><?php echo e($supplier->name . ' (' . $supplier->phone_number. ')'); ?></option>
+                            <option value="<?php echo e($supplier->id); ?>"><?php echo e($supplier->name . ' (' . $supplier->phone_number. ')'); ?></option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                     </div>
@@ -1648,4 +1648,5 @@
     });
 </script>
 </body>
-</html><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/layout/main.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/layout/main.blade.php ENDPATH**/ ?>
