@@ -1,7 +1,6 @@
-<!--agregar proveedor -->
-<?php $__env->startSection('content'); ?>
+ <?php $__env->startSection('content'); ?>
 <?php if(session()->has('not_permitted')): ?>
-  <div class="alert alert-danger alert-dismissible text-center" xmlns="http://www.w3.org/1999/html"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
+  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
 <?php endif; ?>
 <section class="forms">
     <div class="container-fluid">
@@ -20,23 +19,23 @@
                                 <label><h5> <?php echo e(trans('Información Proveedor - Tributaria')); ?></h5></label>
                                 <hr/>
                             </div>
-<!--                            <div class="col-md-6">-->
-<!--                                <div class="form-group">-->
-<!--                                    <label>--><?php //echo e(trans('Imagen')); ?><!--</label>-->
-<!--                                    <input type="file" name="image" class="form-control">-->
-<!--                                    --><?php //if($errors->has('image')): ?>
-<!--                                   <span>-->
-<!--                                       <strong>--><?php //echo e($errors->first('image')); ?><!--</strong>-->
-<!--                                    </span>-->
-<!--                                    --><?php //endif; ?>
-<!--                                </div>-->
-<!--                            </div>-->
+                            <!--                            <div class="col-md-6">-->
+                            <!--                                <div class="form-group">-->
+                            <!--                                    <label>--><?php //echo e(trans('Imagen')); ?><!--</label>-->
+                            <!--                                    <input type="file" name="image" class="form-control">-->
+                            <!--                                    --><?php //if($errors->has('image')): ?>
+                        <!--                                   <span>-->
+                            <!--                                       <strong>--><?php //echo e($errors->first('image')); ?><!--</strong>-->
+                            <!--                                    </span>-->
+                            <!--                                    --><?php //endif; ?>
+                        <!--                                </div>-->
+                            <!--                            </div>-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label><?php echo e(trans('Nombre de Empresa')); ?> *</label>
                                     <input type="text" name="company_name" required class="form-control">
                                     <?php if($errors->has('company_name')): ?>
-                                   <span>
+                                    <span>
                                        <strong><?php echo e($errors->first('company_name')); ?></strong>
                                     </span>
                                     <?php endif; ?>
@@ -83,7 +82,7 @@
                                     <label><?php echo e(trans('file.Email')); ?> *</label>
                                     <input type="email" name="email" placeholder="example@example.com" required class="form-control">
                                     <?php if($errors->has('email')): ?>
-                                        <span>
+                                    <span>
                                        <strong><?php echo e($errors->first('email')); ?></strong>
                                     </span>
                                     <?php endif; ?>
@@ -114,7 +113,7 @@
                             <div class="col-md-12 mt-3">
                                 <label><h5> <?php echo e(trans('Datos de Ubicación')); ?></h5></label>
                                 <hr/>
-                             </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label><?php echo e(trans('Dirección')); ?> *</label>
@@ -150,7 +149,7 @@
                                 <div class="form-group mt-3">
                                     <input type="checkbox" name="special_taxpayer" value="1">&nbsp;
                                     <label><?php echo e(trans('Contribuyente Especial')); ?></label>
-<!--                                    <p class="italic">--><?php //echo e(trans('El producto destacado se mostrará en POS')); ?><!--</p>-->
+                                    <!--                                    <p class="italic">--><?php //echo e(trans('El producto destacado se mostrará en POS')); ?><!--</p>-->
                                 </div>
                             </div>
                             <div class="col-md-12 mt-3">
@@ -180,51 +179,51 @@
                                 <label><h5> <?php echo e(trans('Datos Bancarios')); ?></h5></label>
                                 <hr/>
                             </div>
-                                <div class="col-md-12">
-                                    <div class="row">
-<!--                                        <div class="col-md-4" id="">-->
-<!--                                            <label>--><?php //echo e(trans('Banco')); ?><!--*</strong></label>-->
-<!--                                            <div class="input-group">-->
-<!--                                                <select name="bank" required class="form-control selectpicker" id="type">-->
-<!--                                                    <option value="Banco Pichincha">Banco Pichincha</option>-->
-<!--                                                </select>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label><?php echo e(trans('Banco')); ?>*</strong> </label>
-                                                <div class="input-group">
-                                                    <select name="bank_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccionar banco...">
-                                                        <?php $__currentLoopData = $lims_bank_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bank): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <option value="<?php echo e($bank->id); ?>"><?php echo e($bank->name_bank); ?></option>
-                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4" id="">
-                                            <label><?php echo e(trans('Tipo de Cuenta')); ?>*</strong></label>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <!--                                        <div class="col-md-4" id="">-->
+                                    <!--                                            <label>--><?php //echo e(trans('Banco')); ?><!--*</strong></label>-->
+                                    <!--                                            <div class="input-group">-->
+                                    <!--                                                <select name="bank" required class="form-control selectpicker" id="type">-->
+                                    <!--                                                    <option value="Banco Pichincha">Banco Pichincha</option>-->
+                                    <!--                                                </select>-->
+                                    <!--                                            </div>-->
+                                    <!--                                        </div>-->
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label><?php echo e(trans('Banco')); ?>*</strong> </label>
                                             <div class="input-group">
-                                                <select name="bank_type" required class="form-control selectpicker" id="bank">
-                                                    <option value="current">Corriente</option>
-                                                    <option value="savings">Ahorros</option>
+                                                <select name="bank_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccionar banco...">
+                                                    <?php $__currentLoopData = $lims_bank_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bank): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($bank->id); ?>"><?php echo e($bank->name_bank); ?></option>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4" id="">
-                                            <label><?php echo e(trans('Numero de cuenta')); ?>*</strong></label>
-                                            <input type="text" name="account_number" class="form-control" />
-                                        </div>
-                                        <div class="col-md-4" id="">
-                                            <label><?php echo e(trans(' Nombre Titular')); ?>*</strong></label>
-                                            <input type="text" name="name_owner" class="form-control" />
-                                        </div>
-                                        <div class="col-md-4" id="">
-                                            <label><?php echo e(trans('RUC/Ced')); ?>*</strong></label>
-                                            <input type="text" name="ruc_ced" class="form-control" />
+                                    </div>
+                                    <div class="col-md-4" id="">
+                                        <label><?php echo e(trans('Tipo de Cuenta')); ?>*</strong></label>
+                                        <div class="input-group">
+                                            <select name="bank_type" required class="form-control selectpicker" id="bank">
+                                                <option value="current">Corriente</option>
+                                                <option value="savings">Ahorros</option>
+                                            </select>
                                         </div>
                                     </div>
+                                    <div class="col-md-4" id="">
+                                        <label><?php echo e(trans('Numero de cuenta')); ?>*</strong></label>
+                                        <input type="text" name="account_number" class="form-control" />
+                                    </div>
+                                    <div class="col-md-4" id="">
+                                        <label><?php echo e(trans(' Nombre Titular')); ?>*</strong></label>
+                                        <input type="text" name="name_owner" class="form-control" />
+                                    </div>
+                                    <div class="col-md-4" id="">
+                                        <label><?php echo e(trans('RUC/Ced')); ?>*</strong></label>
+                                        <input type="text" name="ruc_ced" class="form-control" />
+                                    </div>
                                 </div>
+                            </div>
 
                             <div class="col-md-12">
                                 <div class="form-group mt-4">
@@ -300,4 +299,5 @@
     }
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/supplier/create.blade.php ENDPATH**/ ?>

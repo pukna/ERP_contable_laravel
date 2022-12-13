@@ -1,5 +1,4 @@
-<!--Actualizar proveedor-->
-<?php $__env->startSection('content'); ?>
+ <?php $__env->startSection('content'); ?>
 <?php if(session()->has('not_permitted')): ?>
   <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('not_permitted')); ?></div>
 <?php endif; ?>
@@ -20,23 +19,23 @@
                                 <label><h5> <?php echo e(trans('Datos Empresa')); ?></h5></label>
                                 <hr/>
                             </div>
-<!--                            <div class="col-md-6">-->
-<!--                                <div class="form-group">-->
-<!--                                    <label>--><?php //echo e(trans('Imagen')); ?><!--</label>-->
-<!--                                    <input type="file" name="image" class="form-control">-->
-<!--                                    --><?php //if($errors->has('image')): ?>
-<!--                                   <span>-->
-<!--                                       <strong>--><?php //echo e($errors->first('image')); ?><!--</strong>-->
-<!--                                    </span>-->
-<!--                                    --><?php //endif; ?>
-<!--                                </div>-->
-<!--                            </div>-->
+                            <!--                            <div class="col-md-6">-->
+                            <!--                                <div class="form-group">-->
+                            <!--                                    <label>--><?php //echo e(trans('Imagen')); ?><!--</label>-->
+                            <!--                                    <input type="file" name="image" class="form-control">-->
+                            <!--                                    --><?php //if($errors->has('image')): ?>
+                        <!--                                   <span>-->
+                            <!--                                       <strong>--><?php //echo e($errors->first('image')); ?><!--</strong>-->
+                            <!--                                    </span>-->
+                            <!--                                    --><?php //endif; ?>
+                        <!--                                </div>-->
+                            <!--                            </div>-->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label><?php echo e(trans('Nombre de empresa')); ?> *</label>
                                     <input type="text" name="company_name" value="<?php echo e($lims_supplier_data->company_name); ?>" required class="form-control">
                                     <?php if($errors->has('company_name')): ?>
-                                   <span>
+                                    <span>
                                        <strong><?php echo e($errors->first('company_name')); ?></strong>
                                     </span>
                                     <?php endif; ?>
@@ -61,34 +60,34 @@
                                     </div>
                                 </div>
                             </div>
-<!--                            <div class="col-md-6">-->
-<!--                                <div class="form-group">-->
-<!--                                    <label>--><?php //echo e(trans('RUC')); ?><!--</label>-->
-<!--                                    <input type="text" name="vat_number" value="--><?php //echo e($lims_supplier_data->vat_number); ?><!--" class="form-control">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div id="ruc" class="col-md-6">-->
-<!--                                <div class="form-group">-->
-<!--                                    <label>--><?php //echo e(trans('RUC')); ?><!--*</strong></label>-->
-<!--                                    <input type="text" name="vat_number" placeholder="1111111111001" value="--><?php //echo e($lims_supplier_data->vat_number); ?><!--" class="form-control">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div id="identity_card" class="col-md-6">-->
-<!--                                <div class="form-group">-->
-<!--                                    <label>--><?php //echo e(trans('Cedula')); ?><!--*</strong></label>-->
-<!--                                    <input type="text" name="vat_number" placeholder="1111111111" value="--><?php //echo e($lims_supplier_data->vat_number); ?><!--"  class="form-control">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div id="passport" class="col-md-6">-->
-<!--                                <div class="form-group">-->
-<!--                                    <label>--><?php //echo e(trans('Pasaporte')); ?><!--*</strong></label>-->
-<!--                                    <input type="text" name="vat_number" placeholder="A1111111111A" value="--><?php //echo e($lims_supplier_data->vat_number); ?><!--"  class="form-control">-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div id="ruc1" class="col-md-6">-->
-<!--                                <div class="form-group">-->
-<!--                                </div>-->
-<!--                            </div>-->
+                            <!--                            <div class="col-md-6">-->
+                            <!--                                <div class="form-group">-->
+                            <!--                                    <label>--><?php //echo e(trans('RUC')); ?><!--</label>-->
+                            <!--                                    <input type="text" name="vat_number" value="--><?php //echo e($lims_supplier_data->vat_number); ?><!--" class="form-control">-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <!--                            <div id="ruc" class="col-md-6">-->
+                            <!--                                <div class="form-group">-->
+                            <!--                                    <label>--><?php //echo e(trans('RUC')); ?><!--*</strong></label>-->
+                            <!--                                    <input type="text" name="vat_number" placeholder="1111111111001" value="--><?php //echo e($lims_supplier_data->vat_number); ?><!--" class="form-control">-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <!--                            <div id="identity_card" class="col-md-6">-->
+                            <!--                                <div class="form-group">-->
+                            <!--                                    <label>--><?php //echo e(trans('Cedula')); ?><!--*</strong></label>-->
+                            <!--                                    <input type="text" name="vat_number" placeholder="1111111111" value="--><?php //echo e($lims_supplier_data->vat_number); ?><!--"  class="form-control">-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <!--                            <div id="passport" class="col-md-6">-->
+                            <!--                                <div class="form-group">-->
+                            <!--                                    <label>--><?php //echo e(trans('Pasaporte')); ?><!--*</strong></label>-->
+                            <!--                                    <input type="text" name="vat_number" placeholder="A1111111111A" value="--><?php //echo e($lims_supplier_data->vat_number); ?><!--"  class="form-control">-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <!--                            <div id="ruc1" class="col-md-6">-->
+                            <!--                                <div class="form-group">-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                             <div id="ruc1" class="col-md-6">
                                 <div class="form-group">
                                 </div>
@@ -107,7 +106,7 @@
                                     <label><?php echo e(trans('file.Email')); ?> *</label>
                                     <input type="email" name="email" value="<?php echo e($lims_supplier_data->email); ?>" required class="form-control">
                                     <?php if($errors->has('email')): ?>
-                                   <span>
+                                    <span>
                                        <strong><?php echo e($errors->first('email')); ?></strong>
                                     </span>
                                     <?php endif; ?>
