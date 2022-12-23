@@ -21,7 +21,7 @@
                                     <label><?php echo e(trans('Gropo de Cliente')); ?> *</strong> </label>
                                     <select required class="form-control selectpicker" name="customer_group_id">
                                         <?php $__currentLoopData = $lims_customer_group_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $customer_group): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($customer_group->id); ?>"><?php echo e($customer_group->name); ?></option>
+                                        <option value="<?php echo e($customer_group->id); ?>"><?php echo e($customer_group->name); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
@@ -49,7 +49,7 @@
                                     <label><?php echo e(trans('Numero de telefono')); ?> *</label>
                                     <input type="text" name="phone_number" required value="<?php echo e($lims_customer_data->phone_number); ?>" class="form-control">
                                     <?php if($errors->has('phone_number')): ?>
-                                   <span>
+                                    <span>
                                        <strong><?php echo e($errors->first('phone_number')); ?></strong>
                                     </span>
                                     <?php endif; ?>
@@ -115,4 +115,5 @@
     $('select[name=customer_group_id]').val(customer_group);
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/customer/edit.blade.php ENDPATH**/ ?>

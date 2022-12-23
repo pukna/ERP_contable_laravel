@@ -1,5 +1,4 @@
-<!--Ventas-->
-<?php $__env->startSection('content'); ?>
+ <?php $__env->startSection('content'); ?>
 <?php if(session()->has('message')): ?>
   <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo session()->get('message'); ?></div>
 <?php endif; ?>
@@ -10,40 +9,40 @@
 <section>
     <div class="container-fluid">
         <?php if(in_array("sales-add", $all_permission)): ?>
-            <a href="<?php echo e(route('sales.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Add Venta')); ?></a>&nbsp;
-<!--            <a href="--><?php //echo e(url('sales/sale_by_csv')); ?><!--" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.Import Sale')); ?><!--</a>-->
+        <a href="<?php echo e(route('sales.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Add Venta')); ?></a>&nbsp;
+        <!--            <a href="--><?php //echo e(url('sales/sale_by_csv')); ?><!--" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.Import Sale')); ?><!--</a>-->
         <?php endif; ?>
     </div>
     <div class="table-responsive">
         <table id="sale-table" class="table sale-list" style="width: 100%">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th><?php echo e(trans('Fecha')); ?></th>
-                    <th><?php echo e(trans('Referencia')); ?></th>
-                    <th><?php echo e(trans('Facturado por')); ?></th>
-                    <th><?php echo e(trans('Cliente')); ?></th>
-                    <th><?php echo e(trans('Estado de Venta')); ?></th>
-                    <th><?php echo e(trans('Estado de Pago')); ?></th>
-                    <th><?php echo e(trans('file.total')); ?></th>
-                    <th><?php echo e(trans('Pagado')); ?></th>
-                    <th><?php echo e(trans('Saldo')); ?></th>
-                    <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Fecha')); ?></th>
+                <th><?php echo e(trans('Referencia')); ?></th>
+                <th><?php echo e(trans('Facturado por')); ?></th>
+                <th><?php echo e(trans('Cliente')); ?></th>
+                <th><?php echo e(trans('Estado de Venta')); ?></th>
+                <th><?php echo e(trans('Estado de Pago')); ?></th>
+                <th><?php echo e(trans('file.total')); ?></th>
+                <th><?php echo e(trans('Pagado')); ?></th>
+                <th><?php echo e(trans('Saldo')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
 
             <tfoot class="tfoot active">
-                <th></th>
-                <th><?php echo e(trans('file.Total')); ?></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+            <th></th>
+            <th><?php echo e(trans('file.Total')); ?></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             </tfoot>
         </table>
     </div>
@@ -59,8 +58,8 @@
 
                         <?php echo e(Form::open(['route' => 'sale.sendmail', 'method' => 'post', 'class' => 'sendmail-form'] )); ?>
 
-                            <input type="hidden" name="sale_id">
-                            <button class="btn btn-default btn-sm d-print-none"><i class="dripicons-mail"></i> <?php echo e(trans('file.Email')); ?></button>
+                        <input type="hidden" name="sale_id">
+                        <button class="btn btn-default btn-sm d-print-none"><i class="dripicons-mail"></i> <?php echo e(trans('file.Email')); ?></button>
                         <?php echo e(Form::close()); ?>
 
                     </div>
@@ -80,13 +79,13 @@
             <br>
             <table class="table table-bordered product-sale-list">
                 <thead>
-                    <th>#</th>
-                    <th><?php echo e(trans('Producto')); ?></th>
-                    <th><?php echo e(trans('file.Qty')); ?></th>
-                    <th><?php echo e(trans('Precio Unitario')); ?></th>
-                    <th><?php echo e(trans('iva')); ?></th>
-                    <th><?php echo e(trans('Descuento')); ?></th>
-                    <th><?php echo e(trans('file.Subtotal')); ?></th>
+                <th>#</th>
+                <th><?php echo e(trans('Producto')); ?></th>
+                <th><?php echo e(trans('file.Qty')); ?></th>
+                <th><?php echo e(trans('Precio Unitario')); ?></th>
+                <th><?php echo e(trans('iva')); ?></th>
+                <th><?php echo e(trans('Descuento')); ?></th>
+                <th><?php echo e(trans('file.Subtotal')); ?></th>
                 </thead>
                 <tbody>
                 </tbody>
@@ -106,14 +105,14 @@
             <div class="modal-body">
                 <table class="table table-hover payment-list">
                     <thead>
-                        <tr>
-                            <th><?php echo e(trans('Fecha')); ?></th>
-                            <th><?php echo e(trans('Referncia')); ?></th>
-                            <th><?php echo e(trans('Cuenta')); ?></th>
-                            <th><?php echo e(trans('Monto')); ?></th>
-                            <th><?php echo e(trans('Pagado por')); ?></th>
-                            <th><?php echo e(trans('Acción')); ?></th>
-                        </tr>
+                    <tr>
+                        <th><?php echo e(trans('Fecha')); ?></th>
+                        <th><?php echo e(trans('Referncia')); ?></th>
+                        <th><?php echo e(trans('Cuenta')); ?></th>
+                        <th><?php echo e(trans('Monto')); ?></th>
+                        <th><?php echo e(trans('Pagado por')); ?></th>
+                        <th><?php echo e(trans('Acción')); ?></th>
+                    </tr>
                     </thead>
                     <tbody>
                     </tbody>
@@ -133,79 +132,79 @@
             <div class="modal-body">
                 <?php echo Form::open(['route' => 'sale.add-payment', 'method' => 'post', 'files' => true, 'class' => 'payment-form' ]); ?>
 
-                    <div class="row">
-                        <input type="hidden" name="balance">
-                        <div class="col-md-6">
-                            <label><?php echo e(trans('Monto Recibido')); ?> *</label>
-                            <input type="text" name="paying_amount" class="form-control numkey" step="any" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label><?php echo e(trans('Monto de Pago')); ?> *</label>
-                            <input type="text" id="amount" name="amount" class="form-control"  step="any" required>
-                        </div>
-                        <div class="col-md-6 mt-1">
-                            <label><?php echo e(trans('Cambio')); ?> : </label>
-                            <p class="change ml-2">0.00</p>
-                        </div>
-                        <div class="col-md-6 mt-1">
-                            <label><?php echo e(trans('Pagado por')); ?></label>
-                            <select name="paid_by_id" class="form-control">
-                                <option value="1">Efectivo</option>
-<!--                                <option value="2">Targeta de regalo</option>-->
-                                <option value="3">Tarjeta de credito</option>
-                                <option value="4">Cheque</option>
-<!--                                <option value="5">Paypal</option>-->
-                                <option value="6">Deposito</option>
-                            </select>
-                        </div>
+                <div class="row">
+                    <input type="hidden" name="balance">
+                    <div class="col-md-6">
+                        <label><?php echo e(trans('Monto Recibido')); ?> *</label>
+                        <input type="text" name="paying_amount" class="form-control numkey" step="any" required>
                     </div>
-                    <div class="gift-card form-group">
-                        <label> <?php echo e(trans('file.Gift Card')); ?> *</label>
-                        <select id="gift_card_id" name="gift_card_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Gift Card...">
-                            <?php
-                                $balance = [];
-                                $expired_date = [];
-                            ?>
-                            <?php $__currentLoopData = $lims_gift_card_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gift_card): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php
-                                $balance[$gift_card->id] = $gift_card->amount - $gift_card->expense;
-                                $expired_date[$gift_card->id] = $gift_card->expired_date;
-                            ?>
-                                <option value="<?php echo e($gift_card->id); ?>"><?php echo e($gift_card->card_no); ?></option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-md-6">
+                        <label><?php echo e(trans('Monto de Pago')); ?> *</label>
+                        <input type="text" id="amount" name="amount" class="form-control"  step="any" required>
+                    </div>
+                    <div class="col-md-6 mt-1">
+                        <label><?php echo e(trans('Cambio')); ?> : </label>
+                        <p class="change ml-2">0.00</p>
+                    </div>
+                    <div class="col-md-6 mt-1">
+                        <label><?php echo e(trans('Pagado por')); ?></label>
+                        <select name="paid_by_id" class="form-control">
+                            <option value="1">Efectivo</option>
+                            <!--                                <option value="2">Targeta de regalo</option>-->
+                            <option value="3">Tarjeta de credito</option>
+                            <option value="4">Cheque</option>
+                            <!--                                <option value="5">Paypal</option>-->
+                            <option value="6">Deposito</option>
                         </select>
                     </div>
-                    <div class="form-group mt-2">
-                        <div class="card-element" class="form-control">
-                        </div>
-                        <div class="card-errors" role="alert"></div>
-                    </div>
-                    <div id="cheque">
-                        <div class="form-group">
-                            <label><?php echo e(trans('Numero de Chaque')); ?> *</label>
-                            <input type="text" name="cheque_no" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label> <?php echo e(trans('Cuenta')); ?></label>
-                        <select class="form-control selectpicker" name="account_id">
-                        <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <?php if($account->is_default): ?>
-                            <option selected value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
-                            <?php else: ?>
-                            <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
-                            <?php endif; ?>
+                </div>
+                <div class="gift-card form-group">
+                    <label> <?php echo e(trans('file.Gift Card')); ?> *</label>
+                    <select id="gift_card_id" name="gift_card_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Gift Card...">
+                        <?php
+                        $balance = [];
+                        $expired_date = [];
+                        ?>
+                        <?php $__currentLoopData = $lims_gift_card_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gift_card): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php
+                        $balance[$gift_card->id] = $gift_card->amount - $gift_card->expense;
+                        $expired_date[$gift_card->id] = $gift_card->expired_date;
+                        ?>
+                        <option value="<?php echo e($gift_card->id); ?>"><?php echo e($gift_card->card_no); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
+                    </select>
+                </div>
+                <div class="form-group mt-2">
+                    <div class="card-element" class="form-control">
                     </div>
+                    <div class="card-errors" role="alert"></div>
+                </div>
+                <div id="cheque">
                     <div class="form-group">
-                        <label><?php echo e(trans('Nota de Pago')); ?></label>
-                        <textarea rows="3" class="form-control" name="payment_note"></textarea>
+                        <label><?php echo e(trans('Numero de Chaque')); ?> *</label>
+                        <input type="text" name="cheque_no" class="form-control">
                     </div>
+                </div>
+                <div class="form-group">
+                    <label> <?php echo e(trans('Cuenta')); ?></label>
+                    <select class="form-control selectpicker" name="account_id">
+                        <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($account->is_default): ?>
+                        <option selected value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                        <?php else: ?>
+                        <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                        <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Nota de Pago')); ?></label>
+                    <textarea rows="3" class="form-control" name="payment_note"></textarea>
+                </div>
 
-                    <input type="hidden" name="sale_id">
+                <input type="hidden" name="sale_id">
 
-                    <button type="submit" class="btn btn-primary"><?php echo e(trans('Enviar')); ?></button>
+                <button type="submit" class="btn btn-primary"><?php echo e(trans('Enviar')); ?></button>
                 <?php echo e(Form::close()); ?>
 
             </div>
@@ -223,66 +222,66 @@
             <div class="modal-body">
                 <?php echo Form::open(['route' => 'sale.update-payment', 'method' => 'post', 'class' => 'payment-form' ]); ?>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label><?php echo e(trans('Monto Recibido')); ?> *</label>
-                            <input type="text" name="edit_paying_amount" class="form-control numkey"  step="any" required>
-                        </div>
-                        <div class="col-md-6">
-                            <label><?php echo e(trans('Importe a Pagar')); ?> *</label>
-                            <input type="text" name="edit_amount" class="form-control"  step="any" required>
-                        </div>
-                        <div class="col-md-6 mt-1">
-                            <label><?php echo e(trans('Cambio')); ?> : </label>
-                            <p class="change ml-2">0.00</p>
-                        </div>
-                        <div class="col-md-6 mt-1">
-                            <label><?php echo e(trans('Pagado por')); ?></label>
-                            <select name="edit_paid_by_id" class="form-control selectpicker">
-                                <option value="1">Efectivo</option>
-<!--                                <option value="2">Gift Card</option>-->
-                                <option value="3">Tarjeta de credito</option>
-                                <option value="4">Cheque</option>
-<!--                                <option value="5">Paypal</option>-->
-                                <option value="6">Deposit</option>
-                            </select>
-                        </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label><?php echo e(trans('Monto Recibido')); ?> *</label>
+                        <input type="text" name="edit_paying_amount" class="form-control numkey"  step="any" required>
                     </div>
-                    <div class="gift-card form-group">
-                        <label> <?php echo e(trans('Tarjeta de Regalo')); ?> *</label>
-                        <select id="gift_card_id" name="gift_card_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Gift Card...">
-                            <?php $__currentLoopData = $lims_gift_card_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gift_card): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($gift_card->id); ?>"><?php echo e($gift_card->card_no); ?></option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <div class="col-md-6">
+                        <label><?php echo e(trans('Importe a Pagar')); ?> *</label>
+                        <input type="text" name="edit_amount" class="form-control"  step="any" required>
+                    </div>
+                    <div class="col-md-6 mt-1">
+                        <label><?php echo e(trans('Cambio')); ?> : </label>
+                        <p class="change ml-2">0.00</p>
+                    </div>
+                    <div class="col-md-6 mt-1">
+                        <label><?php echo e(trans('Pagado por')); ?></label>
+                        <select name="edit_paid_by_id" class="form-control selectpicker">
+                            <option value="1">Efectivo</option>
+                            <!--                                <option value="2">Gift Card</option>-->
+                            <option value="3">Tarjeta de credito</option>
+                            <option value="4">Cheque</option>
+                            <!--                                <option value="5">Paypal</option>-->
+                            <option value="6">Deposit</option>
                         </select>
                     </div>
-                    <div class="form-group mt-2">
-                        <div class="card-element" class="form-control">
-                        </div>
-                        <div class="card-errors" role="alert"></div>
-                    </div>
-                    <div id="edit-cheque">
-                        <div class="form-group">
-                            <label><?php echo e(trans('Numero de cheque')); ?> *</label>
-                            <input type="text" name="edit_cheque_no" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label> <?php echo e(trans('Cuenta')); ?></label>
-                        <select class="form-control selectpicker" name="account_id">
-                        <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                </div>
+                <div class="gift-card form-group">
+                    <label> <?php echo e(trans('Tarjeta de Regalo')); ?> *</label>
+                    <select id="gift_card_id" name="gift_card_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Gift Card...">
+                        <?php $__currentLoopData = $lims_gift_card_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gift_card): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($gift_card->id); ?>"><?php echo e($gift_card->card_no); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
+                    </select>
+                </div>
+                <div class="form-group mt-2">
+                    <div class="card-element" class="form-control">
                     </div>
+                    <div class="card-errors" role="alert"></div>
+                </div>
+                <div id="edit-cheque">
                     <div class="form-group">
-                        <label><?php echo e(trans('Nota de pago')); ?></label>
-                        <textarea rows="3" class="form-control" name="edit_payment_note"></textarea>
+                        <label><?php echo e(trans('Numero de cheque')); ?> *</label>
+                        <input type="text" name="edit_cheque_no" class="form-control">
                     </div>
+                </div>
+                <div class="form-group">
+                    <label> <?php echo e(trans('Cuenta')); ?></label>
+                    <select class="form-control selectpicker" name="account_id">
+                        <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Nota de pago')); ?></label>
+                    <textarea rows="3" class="form-control" name="edit_payment_note"></textarea>
+                </div>
 
-                    <input type="hidden" name="payment_id">
+                <input type="hidden" name="payment_id">
 
-                    <button type="submit" class="btn btn-primary"><?php echo e(trans('Actualizar')); ?></button>
+                <button type="submit" class="btn btn-primary"><?php echo e(trans('Actualizar')); ?></button>
                 <?php echo e(Form::close()); ?>
 
             </div>
@@ -396,12 +395,12 @@
     });
 
     $("#print-btn").on("click", function(){
-          var divToPrint=document.getElementById('sale-details');
-          var newWin=window.open('','Print-Window');
-          newWin.document.open();
-          newWin.document.write('<link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css"><style type="text/css">@media  print {.modal-dialog { max-width: 1000px;} }</style><body onload="window.print()">'+divToPrint.innerHTML+'</body>');
-          newWin.document.close();
-          setTimeout(function(){newWin.close();},10);
+        var divToPrint=document.getElementById('sale-details');
+        var newWin=window.open('','Print-Window');
+        newWin.document.open();
+        newWin.document.write('<link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css"><style type="text/css">@media    print {.modal-dialog { max-width: 1000px;} }</style><body onload="window.print()">'+divToPrint.innerHTML+'</body>');
+        newWin.document.close();
+        setTimeout(function(){newWin.close();},10);
     });
 
     $(document).on("click", "table.sale-list tbody .add-payment", function() {
@@ -696,11 +695,11 @@
         'language': {
 
             'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
-             "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
             "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
-                    'previous': '<i class="dripicons-chevron-left"></i>',
-                    'next': '<i class="dripicons-chevron-right"></i>'
+                'previous': '<i class="dripicons-chevron-left"></i>',
+                'next': '<i class="dripicons-chevron-right"></i>'
             }
         },
         order:[['1', 'desc']],
@@ -715,11 +714,11 @@
                         data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                     }
 
-                   return data;
+                    return data;
                 },
                 'checkboxes': {
-                   'selectRow': true,
-                   'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                 },
                 'targets': [0]
             }
@@ -944,12 +943,12 @@
     if(all_permission.indexOf("sales-delete") == -1)
         $('.buttons-delete').addClass('d-none');
 
-        function confirmDelete() {
-            if (confirm("Are you sure want to delete?")) {
-                return true;
-            }
-            return false;
+    function confirmDelete() {
+        if (confirm("Are you sure want to delete?")) {
+            return true;
         }
+        return false;
+    }
 
     function confirmPaymentDelete() {
         if (confirm("Are you sure want to delete? If you delete this money will be refunded.")) {
@@ -965,4 +964,5 @@
 <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
 
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/sale/index.blade.php ENDPATH**/ ?>
