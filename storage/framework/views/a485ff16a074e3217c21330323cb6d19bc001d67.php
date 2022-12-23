@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--    <link rel="icon" type="image/png" href="-->
-    <?php //echo e(url('public/logo', $general_setting->site_logo)); ?><!--" />-->
+<?php //echo e(url('public/logo', $general_setting->site_logo)); ?><!--" />-->
     <link rel="icon" type="image/png" href="<?php echo asset('images/login/LogoTactotal.png') ?>"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -76,7 +76,7 @@
             font-size: 11px;
         }
 
-        @media print {
+        @media  print {
             * {
                 font-size: 12px;
                 line-height: 20px;
@@ -90,7 +90,7 @@
                 display: none !important;
             }
 
-            @page {
+            @page  {
                 margin: 0;
             }
 
@@ -114,11 +114,11 @@
                 <table>
                     <tr>
                         <td><a href="<?php echo e($url); ?>" class="btn btn-info"><i
-                            class="fa fa-arrow-left"></i> <?php echo e(trans('Regreso')); ?></a>
+                                    class="fa fa-arrow-left"></i> <?php echo e(trans('Regreso')); ?></a>
                         </td>
                         <td>
                             <button onclick="window.print();" class="btn btn-primary"><i
-                                class="dripicons-print"></i> <?php echo e(trans('Imprimir')); ?></button>
+                                    class="dripicons-print"></i> <?php echo e(trans('Imprimir')); ?></button>
                         </td>
                     </tr>
                 </table>
@@ -225,12 +225,12 @@
                             ?>
                             <tr>
                                 <td colspan="6">
-<!--                                    --><?php //echo e($product_code); ?>
-<!--                                    --><?php //echo e($product_name); ?>
-<!--                                    --><?php //echo e($product_sale_data->qty); ?>
-<!--                                    --><?php //echo e(number_format((float)($product_sale_data->total / $product_sale_data->qty), 2, '.', '')); ?>
-<!--                                    0-->
-<!--                                    <td style="text-align:right;vertical-align:bottom">--><?php //echo e(number_format((float)$product_sale_data->total, 2, '.', '')); ?><!--</td>-->
+                                    <!--                                    --><?php //echo e($product_code); ?>
+                                <!--                                    --><?php //echo e($product_name); ?>
+                                <!--                                    --><?php //echo e($product_sale_data->qty); ?>
+                                <!--                                    --><?php //echo e(number_format((float)($product_sale_data->total / $product_sale_data->qty), 2, '.', '')); ?>
+                                <!--                                    0-->
+                                    <!--                                    <td style="text-align:right;vertical-align:bottom">--><?php //echo e(number_format((float)$product_sale_data->total, 2, '.', '')); ?><!--</td>-->
                                     <div class="row" style="text-align:center">
                                         <div class="col-2" style="text-align: left">
                                             <?php echo e($product_code); ?>
@@ -253,115 +253,115 @@
                                     </div>
                                 </td>
                             </tr>
-                <?php endforeach;
-                $__env->popLoop();
-                $loop = $__env->getLastLoop(); ?>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th colspan="2"><?php echo e(trans('Sub Total')); ?></th>
-                    <th style="text-align:right"><?php echo e(number_format((float)$lims_sale_data->total_price, 2, '.', '')); ?></th>
-                </tr>
-                <?php if ($lims_sale_data->order_tax): ?>
-                <tr>
-                    <th colspan="2"><?php echo e(trans('Impuesto')); ?></th>
-                    <th style="text-align:right"><?php echo e(number_format((float)$lims_sale_data->order_tax, 2, '.', '')); ?></th>
-                </tr>
-                <?php endif; ?>
-                <?php if ($lims_sale_data->order_discount): ?>
-                <tr>
-                    <th colspan="2"><?php echo e(trans('Descuento')); ?></th>
-                    <th style="text-align:right"><?php echo e(number_format((float)$lims_sale_data->order_discount, 2, '.', '')); ?></th>
-                </tr>
-                <?php endif; ?>
-                <?php if ($lims_sale_data->coupon_discount): ?>
-                <tr>
-                    <!--                    <th colspan="2">-->
-                    <?php //echo e(trans('file.Coupon Discount')); ?><!--</th>-->
-                    <!--                    <th style="text-align:right">-->
-                    <?php //echo e(number_format((float)$lims_sale_data->coupon_discount, 2, '.', '')); ?><!--</th>-->
-                </tr>
-                <?php endif; ?>
-                <?php if ($lims_sale_data->shipping_cost): ?>
-                <tr>
-                    <th colspan="2"><?php echo e(trans('Costo de Envio')); ?></th>
-                    <th style="text-align:right"><?php echo e(number_format((float)$lims_sale_data->shipping_cost, 2, '.', '')); ?></th>
-                </tr>
-                <?php endif; ?>
-                <tr>
-                    <th colspan="2"><?php echo e(trans('Total')); ?></th>
-                    <th style="text-align:right"><?php echo e(number_format((float)$lims_sale_data->grand_total, 2, '.', '')); ?></th>
-                </tr>
-                <!--                <tr>-->
-                <!--                    --><?php //if($general_setting->currency_position == 'prefix'): ?>
-                <!--                    <th class="centered" colspan="3">-->
-                <?php //echo e(trans('file.In Words')); ?><!--: <span>-->
-                <?php //echo e($general_setting->currency); ?><!--</span> <span>-->
-                <?php //echo e(str_replace("-"," ",$numberInWords)); ?><!--</span></th>-->
-                <!--                    --><?php //else: ?>
-                <!--                    <th class="centered" colspan="3">-->
-                <?php //echo e(trans('file.In Words')); ?><!--: <span>-->
-                <?php //echo e(str_replace("-"," ",$numberInWords)); ?><!--</span> <span>-->
-                <?php //echo e($general_setting->currency); ?><!--</span></th>-->
-                <!--                    --><?php //endif; ?>
-                <!--                </tr>-->
-                </tfoot>
-                </table>
-                <table>
-                    <tbody>
-                    <?php $__currentLoopData = $lims_payment_data;
-                    $__env->addLoop($__currentLoopData);
-                    foreach ($__currentLoopData as $payment_data): $__env->incrementLoopIndices();
-                    $loop = $__env->getLastLoop(); ?>
-                    <tr style="background-color:#ddd;">
-                        <td style="padding: 5px;width:30%"><?php echo e(trans('Forma de pago')); ?>
-                            : <?php echo e($payment_data->paying_method); ?></td>
-                        <td style="padding: 5px;width:40%"><?php echo e(trans('Montro')); ?>
-                            : <?php echo e(number_format((float)$payment_data->amount, 2, '.', '')); ?></td>
+                            <?php endforeach;
+                            $__env->popLoop();
+                            $loop = $__env->getLastLoop(); ?>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th colspan="2"><?php echo e(trans('Sub Total')); ?></th>
+                                <th style="text-align:right"><?php echo e(number_format((float)$lims_sale_data->total_price, 2, '.', '')); ?></th>
+                            </tr>
+                            <?php if ($lims_sale_data->order_tax): ?>
+                            <tr>
+                                <th colspan="2"><?php echo e(trans('Impuesto')); ?></th>
+                                <th style="text-align:right"><?php echo e(number_format((float)$lims_sale_data->order_tax, 2, '.', '')); ?></th>
+                            </tr>
+                            <?php endif; ?>
+                            <?php if ($lims_sale_data->order_discount): ?>
+                            <tr>
+                                <th colspan="2"><?php echo e(trans('Descuento')); ?></th>
+                                <th style="text-align:right"><?php echo e(number_format((float)$lims_sale_data->order_discount, 2, '.', '')); ?></th>
+                            </tr>
+                            <?php endif; ?>
+                            <?php if ($lims_sale_data->coupon_discount): ?>
+                            <tr>
+                                <!--                    <th colspan="2">-->
+                            <?php //echo e(trans('file.Coupon Discount')); ?><!--</th>-->
+                                <!--                    <th style="text-align:right">-->
+                            <?php //echo e(number_format((float)$lims_sale_data->coupon_discount, 2, '.', '')); ?><!--</th>-->
+                            </tr>
+                            <?php endif; ?>
+                            <?php if ($lims_sale_data->shipping_cost): ?>
+                            <tr>
+                                <th colspan="2"><?php echo e(trans('Costo de Envio')); ?></th>
+                                <th style="text-align:right"><?php echo e(number_format((float)$lims_sale_data->shipping_cost, 2, '.', '')); ?></th>
+                            </tr>
+                            <?php endif; ?>
+                            <tr>
+                                <th colspan="2"><?php echo e(trans('Total')); ?></th>
+                                <th style="text-align:right"><?php echo e(number_format((float)$lims_sale_data->grand_total, 2, '.', '')); ?></th>
+                            </tr>
+                            <!--                <tr>-->
+                            <!--                    --><?php //if($general_setting->currency_position == 'prefix'): ?>
+                            <!--                    <th class="centered" colspan="3">-->
+                            <?php //echo e(trans('file.In Words')); ?><!--: <span>-->
+                            <?php //echo e($general_setting->currency); ?><!--</span> <span>-->
+                            <?php //echo e(str_replace("-"," ",$numberInWords)); ?><!--</span></th>-->
+                            <!--                    --><?php //else: ?>
+                            <!--                    <th class="centered" colspan="3">-->
+                            <?php //echo e(trans('file.In Words')); ?><!--: <span>-->
+                            <?php //echo e(str_replace("-"," ",$numberInWords)); ?><!--</span> <span>-->
+                            <?php //echo e($general_setting->currency); ?><!--</span></th>-->
+                            <!--                    --><?php //endif; ?>
+                            <!--                </tr>-->
+                            </tfoot>
+                        </table>
+                        <table>
+                            <tbody>
+                            <?php $__currentLoopData = $lims_payment_data;
+                            $__env->addLoop($__currentLoopData);
+                            foreach ($__currentLoopData as $payment_data): $__env->incrementLoopIndices();
+                            $loop = $__env->getLastLoop(); ?>
+                            <tr style="background-color:#ddd;">
+                                <td style="padding: 5px;width:30%"><?php echo e(trans('Forma de pago')); ?>
+                                    : <?php echo e($payment_data->paying_method); ?></td>
+                                <td style="padding: 5px;width:40%"><?php echo e(trans('Montro')); ?>
+                                    : <?php echo e(number_format((float)$payment_data->amount, 2, '.', '')); ?></td>
 
-                        <!--                    <td style="padding: 5px;width:30%">-->
-                        <?php //echo e(trans('file.Change')); ?><!--: -->
-                        <?php //echo e(number_format((float)$payment_data->change, 2, '.', '')); ?><!--</td>-->
-                    </tr>
-                    <?php endforeach;
-                    $__env->popLoop();
-                    $loop = $__env->getLastLoop(); ?>
-                    <!--                <tr><td class="centered" colspan="3">-->
-                    <?php //echo e(trans('file.Thank you for shopping with us. Please come again')); ?><!--</td></tr>-->
-                    <tr>
-                        <td class="centered" colspan="3">
-                            <?php echo '<img style="margin-top:10px;" src="data:image/png;base64,' . DNS1D::getBarcodePNG($lims_sale_data->reference_no, 'C128') . '" width="300" alt="barcode"   />'; ?>
-                            <br>
+                                <!--                    <td style="padding: 5px;width:30%">-->
+                            <?php //echo e(trans('file.Change')); ?><!--: -->
+                            <?php //echo e(number_format((float)$payment_data->change, 2, '.', '')); ?><!--</td>-->
+                            </tr>
+                            <?php endforeach;
+                            $__env->popLoop();
+                            $loop = $__env->getLastLoop(); ?>
+                            <!--                <tr><td class="centered" colspan="3">-->
+                            <?php //echo e(trans('file.Thank you for shopping with us. Please come again')); ?><!--</td></tr>-->
+                            <tr>
+                                <td class="centered" colspan="3">
+                                    <?php echo '<img style="margin-top:10px;" src="data:image/png;base64,' . DNS1D::getBarcodePNG($lims_sale_data->reference_no, 'C128') . '" width="300" alt="barcode"   />'; ?>
+                                    <br>
 
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="centered" style="margin:30px 0 50px">
-                    <small><?php echo e(trans('Factura generada por')); ?> <?php echo e($lims_warehouse_data->phone); ?>
-                        .
-                        <!--            -->
-                        <?php //echo e(trans('file.Developed By')); ?><!-- Tectotal</strong></small>-->
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="centered" style="margin:30px 0 50px">
+                            <small><?php echo e(trans('Factura generada por')); ?> <?php echo e($lims_warehouse_data->phone); ?>
+                                .
+                                <!--            -->
+                            <?php //echo e(trans('file.Developed By')); ?><!-- Tectotal</strong></small>-->
+                        </div>
+                        </p>
+
+                    </div>
+
                 </div>
-                </p>
+
 
             </div>
-
         </div>
-
-
     </div>
-</div>
-</div>
 
 
-<script type="text/javascript">
-    function auto_print() {
-        window.print()
-    }
+    <script type="text/javascript">
+        function auto_print() {
+            window.print()
+        }
 
-    setTimeout(auto_print, 1000);
-</script>
+        setTimeout(auto_print, 1000);
+    </script>
 
 </body>
 </html>

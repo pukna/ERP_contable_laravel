@@ -1,6 +1,6 @@
 @extends('layout.main') @section('content')
 @if(session()->has('not_permitted'))
-  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div> 
+  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div>
 @endif
 <section class="forms">
     <div class="container-fluid">
@@ -8,95 +8,97 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex align-items-center">
-                        <h4>{{trans('file.Update Customer')}}</h4>
+                        <h4><?php echo e(trans('Actualizar cliente')); ?></h4>
                     </div>
                     <div class="card-body">
-                        <p class="italic"><small>{{trans('file.The field labels marked with * are required input fields')}}.</small></p>
-                        {!! Form::open(['route' => ['customer.update',$lims_customer_data->id], 'method' => 'put', 'files' => true]) !!}
+                        <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                        <?php echo Form::open(['route' => ['customer.update',$lims_customer_data->id], 'method' => 'put', 'files' => true]); ?>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="hidden" name="customer_group" value="{{$lims_customer_data->customer_group_id}}">
-                                    <label>{{trans('file.Customer Group')}} *</strong> </label>
+                                    <input type="hidden" name="customer_group" value="<?php echo e($lims_customer_data->customer_group_id); ?>">
+                                    <label><?php echo e(trans('Gropo de Cliente')); ?> *</strong> </label>
                                     <select required class="form-control selectpicker" name="customer_group_id">
-                                        @foreach($lims_customer_group_all as $customer_group)
-                                            <option value="{{$customer_group->id}}">{{$customer_group->name}}</option>
-                                        @endforeach
+                                        <?php $__currentLoopData = $lims_customer_group_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $customer_group): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($customer_group->id); ?>"><?php echo e($customer_group->name); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.name')}} *</strong> </label>
-                                    <input type="text" name="name" value="{{$lims_customer_data->name}}" required class="form-control">
+                                    <label><?php echo e(trans('Nombre')); ?> *</strong> </label>
+                                    <input type="text" name="name" value="<?php echo e($lims_customer_data->name); ?>" required class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.Company Name')}} </label>
-                                    <input type="text" name="company_name" value="{{$lims_customer_data->company_name}}" class="form-control">
+                                    <label><?php echo e(trans('Nombre de Empresa')); ?> </label>
+                                    <input type="text" name="company_name" value="<?php echo e($lims_customer_data->company_name); ?>" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.Email')}}</label>
-                                    <input type="email" name="email" value="{{$lims_customer_data->email}}" class="form-control">
+                                    <label><?php echo e(trans('file.Email')); ?></label>
+                                    <input type="email" name="email" value="<?php echo e($lims_customer_data->email); ?>" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.Phone Number')}} *</label>
-                                    <input type="text" name="phone_number" required value="{{$lims_customer_data->phone_number}}" class="form-control">
-                                    @if($errors->has('phone_number'))
-                                   <span>
-                                       <strong>{{ $errors->first('phone_number') }}</strong>
+                                    <label><?php echo e(trans('Numero de telefono')); ?> *</label>
+                                    <input type="text" name="phone_number" required value="<?php echo e($lims_customer_data->phone_number); ?>" class="form-control">
+                                    <?php if($errors->has('phone_number')): ?>
+                                    <span>
+                                       <strong><?php echo e($errors->first('phone_number')); ?></strong>
                                     </span>
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.Tax Number')}}</label>
-                                    <input type="text" name="tax_no" class="form-control" value="{{$lims_customer_data->tax_no}}">
+                                    <label><?php echo e(trans('Ruc')); ?></label>
+                                    <input type="text" name="tax_no" class="form-control" value="<?php echo e($lims_customer_data->tax_no); ?>">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.Address')}} *</label>
-                                    <input type="text" name="address" required value="{{$lims_customer_data->address}}" class="form-control">
+                                    <label><?php echo e(trans('Direccion')); ?> *</label>
+                                    <input type="text" name="address" required value="<?php echo e($lims_customer_data->address); ?>" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.City')}} *</label>
-                                    <input type="text" name="city" required value="{{$lims_customer_data->city}}" class="form-control">
+                                    <label><?php echo e(trans('Ciudad')); ?> *</label>
+                                    <input type="text" name="city" required value="<?php echo e($lims_customer_data->city); ?>" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.State')}}</label>
-                                    <input type="text" name="state" value="{{$lims_customer_data->state}}" class="form-control">
+                                    <label><?php echo e(trans('Provincia')); ?></label>
+                                    <input type="text" name="state" value="<?php echo e($lims_customer_data->state); ?>" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.Postal Code')}}</label>
-                                    <input type="text" name="postal_code" value="{{$lims_customer_data->postal_code}}" class="form-control">
+                                    <label><?php echo e(trans('Codigo Postal')); ?></label>
+                                    <input type="text" name="postal_code" value="<?php echo e($lims_customer_data->postal_code); ?>" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.Country')}}</label>
-                                    <input type="text" name="country" value="{{$lims_customer_data->country}}" class="form-control">
+                                    <label><?php echo e(trans('Pais')); ?></label>
+                                    <input type="text" name="country" value="<?php echo e($lims_customer_data->country); ?>" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group mt-3">
-                                    <input type="submit" value="{{trans('file.submit')}}" class="btn btn-primary">
+                                    <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
                                 </div>
                             </div>
                         </div>
-                        {!! Form::close() !!}
+                        <?php echo Form::close(); ?>
+
                     </div>
                 </div>
             </div>
@@ -108,7 +110,7 @@
 
     $("ul#people").siblings('a').attr('aria-expanded','true');
     $("ul#people").addClass("show");
-        
+
     var customer_group = $("input[name='customer_group']").val();
     $('select[name=customer_group_id]').val(customer_group);
 </script>
