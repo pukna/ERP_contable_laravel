@@ -1,138 +1,144 @@
 @extends('layout.main') @section('content')
 @if(session()->has('create_message'))
-    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('create_message') }}</div> 
+    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('create_message') }}</div>
 @endif
 @if(session()->has('edit_message'))
-    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('edit_message') }}</div> 
+    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('edit_message') }}</div>
 @endif
 @if(session()->has('import_message'))
-    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('import_message') }}</div> 
+    <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('import_message') }}</div>
 @endif
 @if(session()->has('not_permitted'))
-    <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div> 
+    <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div>
 @endif
 @if(session()->has('message'))
-    <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div> 
+    <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div>
 @endif
 
 <section>
     <div class="container-fluid">
-        @if(in_array("products-add", $all_permission))
-            <a href="{{route('products.create')}}" class="btn btn-info"><i class="dripicons-plus"></i> {{__('file.add_product')}}</a>
-            <a href="#" data-toggle="modal" data-target="#importProduct" class="btn btn-primary"><i class="dripicons-copy"></i> {{__('file.import_product')}}</a>
-        @endif
+        <?php if(in_array("products-add", $all_permission)): ?>
+        <a href="<?php echo e(route('products.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(__('Add Producto')); ?></a>
+        <!--            <a href="#" data-toggle="modal" data-target="#importProduct" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(__('file.import_product')); ?><!--</a>-->
+        <?php endif; ?>
     </div>
     <div class="table-responsive">
         <table id="product-data-table" class="table" style="width: 100%">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th>{{trans('file.Image')}}</th>
-                    <th>{{trans('file.name')}}</th>
-                    <th>{{trans('file.Code')}}</th>
-                    <th>{{trans('file.Brand')}}</th>
-                    <th>{{trans('file.category')}}</th>
-                    <th>{{trans('file.Quantity')}}</th>
-                    <th>{{trans('file.Unit')}}</th>
-                    <th>{{trans('file.Price')}}</th>
-                    <th class="not-exported">{{trans('file.action')}}</th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Imagen')); ?></th>
+                <th><?php echo e(trans('Nombre')); ?></th>
+                <th><?php echo e(trans('Código')); ?></th>
+                <th><?php echo e(trans('Marca')); ?></th>
+                <th><?php echo e(trans('Categoría')); ?></th>
+                <th><?php echo e(trans('Cantidad')); ?></th>
+                <th><?php echo e(trans('Unidad')); ?></th>
+                <th><?php echo e(trans('Precio')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
-            
+
         </table>
     </div>
 </section>
 
 <div id="importProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
     <div role="document" class="modal-dialog">
-      <div class="modal-content">
-        {!! Form::open(['route' => 'product.import', 'method' => 'post', 'files' => true]) !!}
-        <div class="modal-header">
-          <h5 id="exampleModalLabel" class="modal-title">Import Product</h5>
-          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-        </div>
-        <div class="modal-body">
-          <p class="italic"><small>{{trans('file.The field labels marked with * are required input fields')}}.</small></p>
-           <p>{{trans('file.The correct column order is')}} (image, name*, code*, type*, brand, category*, unit_code*, cost*, price*, product_details) {{trans('file.and you must follow this')}}.</p>
-           <p>{{trans('file.To display Image it must be stored in')}} public/images/product {{trans('file.directory')}}. {{trans('file.Image name must be same as product name')}}</p>
-           <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>{{trans('file.Upload CSV File')}} *</label>
-                        {{Form::file('file', array('class' => 'form-control','required'))}}
+        <div class="modal-content">
+            <?php echo Form::open(['route' => 'product.import', 'method' => 'post', 'files' => true]); ?>
+
+            <div class="modal-header">
+                <h5 id="exampleModalLabel" class="modal-title">Import Product</h5>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+            </div>
+            <div class="modal-body">
+                <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <p><?php echo e(trans('file.The correct column order is')); ?> (Imagen, Nombre*, code*, type*, brand, category*, unit_code*, cost*, price*, product_details) <?php echo e(trans('file.and you must follow this')); ?>.</p>
+                <p><?php echo e(trans('file.To display Image it must be stored in')); ?> public/images/product <?php echo e(trans('file.directory')); ?>. <?php echo e(trans('file.Image name must be same as product name')); ?></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><?php echo e(trans('file.Upload CSV File')); ?> *</label>
+                            <?php echo e(Form::file('file', array('class' => 'form-control','required'))); ?>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> <?php echo e(trans('file.Sample File')); ?></label>
+                            <a href="public/sample_file/sample_products.csv" class="btn btn-info btn-block btn-md"><i class="dripicons-download"></i>  <?php echo e(trans('file.Download')); ?></a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label> {{trans('file.Sample File')}}</label>
-                        <a href="public/sample_file/sample_products.csv" class="btn btn-info btn-block btn-md"><i class="dripicons-download"></i>  {{trans('file.Download')}}</a>
-                    </div>
-                </div>
-           </div>           
-            {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
+                <?php echo e(Form::submit('Submit', ['class' => 'btn btn-primary'])); ?>
+
+            </div>
+            <?php echo Form::close(); ?>
+
         </div>
-        {!! Form::close() !!}
-      </div>
     </div>
 </div>
 
 <div id="product-details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
     <div role="document" class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 id="exampleModalLabel" class="modal-title">{{trans('Product Details')}}</h5>
-          <button id="print-btn" type="button" class="btn btn-default btn-sm ml-3"><i class="dripicons-print"></i> {{trans('file.Print')}}</button>
-          <button type="button" id="close-btn" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-        </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-md-5" id="slider-content"></div>
-                <div class="col-md-5 offset-1" id="product-content"></div>
-                <div class="col-md-5 mt-2" id="product-warehouse-section">
-                    <h5>{{trans('file.Warehouse Quantity')}}</h5>
-                    <table class="table table-bordered table-hover product-warehouse-list">
-                        <thead>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-7 mt-2" id="product-variant-warehouse-section">
-                    <h5>{{trans('file.Warehouse quantity of product variants')}}</h5>
-                    <table class="table table-bordered table-hover product-variant-warehouse-list">
-                        <thead>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Detalle de producto')); ?></h5>
+                <button id="print-btn" type="button" class="btn btn-default btn-sm ml-3"><i class="dripicons-print"></i> <?php echo e(trans('Imprimir')); ?></button>
+                <button type="button" id="close-btn" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
             </div>
-                
-            <h5 id="combo-header"></h5>
-            <table class="table table-bordered table-hover item-list">
-                <thead>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-5" id="slider-content"></div>
+                    <div class="col-md-5 offset-1" id="product-content"></div>
+                    <div class="col-md-5 mt-2" id="product-warehouse-section">
+                        <h5><?php echo e(trans('Bodega/Cantidad')); ?></h5>
+                        <table class="table table-bordered table-hover product-warehouse-list">
+                            <thead>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-7 mt-2" id="product-variant-warehouse-section">
+                        <h5><?php echo e(trans('file.Warehouse quantity of product variants')); ?></h5>
+                        <table class="table table-bordered table-hover product-variant-warehouse-list">
+                            <thead>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <h5 id="combo-header"></h5>
+                <table class="table table-bordered table-hover item-list">
+                    <thead>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
     </div>
 </div>
 
 
 <script>
 
+    $("ul#inventory").siblings('a').attr('aria-expanded','true');
+    $("ul#inventory").addClass("show");
     $("ul#product").siblings('a').attr('aria-expanded','true');
     $("ul#product").addClass("show");
     $("ul#product #product-list-menu").addClass("active");
 
-	function confirmDelete() {
-	    if (confirm("Are you sure want to delete?")) {
-	        return true;
-	    }
-	    return false;
-	}
+    function confirmDelete() {
+        if (confirm("Are you sure want to delete?")) {
+            return true;
+        }
+        return false;
+    }
 
     var warehouse = [];
     var variant = [];
@@ -151,14 +157,14 @@
     $( "#select_all" ).on( "change", function() {
         if ($(this).is(':checked')) {
             $("tbody input[type='checkbox']").prop('checked', true);
-        } 
+        }
         else {
             $("tbody input[type='checkbox']").prop('checked', false);
         }
     });
-    
+
     $(document).on("click", "tr.product-link td:not(:first-child, :last-child)", function() {
-        productDetails( $(this).parent().data('product'), $(this).parent().data('imagedata') );        
+        productDetails( $(this).parent().data('product'), $(this).parent().data('imagedata') );
     });
 
     $(document).on("click", ".view", function(){
@@ -168,19 +174,19 @@
     });
 
     $("#print-btn").on("click", function(){
-          var divToPrint=document.getElementById('product-details');
-          var newWin=window.open('','Print-Window');
-          newWin.document.open();
-          newWin.document.write('<link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css"><style type="text/css">@media print {.modal-dialog { max-width: 1000px;} }</style><body onload="window.print()">'+divToPrint.innerHTML+'</body>');
-          newWin.document.close();
-          setTimeout(function(){newWin.close();},10);
+        var divToPrint=document.getElementById('product-details');
+        var newWin=window.open('','Print-Window');
+        newWin.document.open();
+        newWin.document.write('<link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css"><style type="text/css">@media  print {.modal-dialog { max-width: 1000px;} }</style><body onload="window.print()">'+divToPrint.innerHTML+'</body>');
+        newWin.document.close();
+        setTimeout(function(){newWin.close();},10);
     });
 
     function productDetails(product, imagedata) {
         product[11] = product[11].replace(/@/g, '"');
         htmltext = slidertext = '';
 
-        htmltext = '<p><strong>{{trans("file.Type")}}: </strong>'+product[0]+'</p><p><strong>{{trans("file.name")}}: </strong>'+product[1]+'</p><p><strong>{{trans("file.Code")}}: </strong>'+product[2]+ '</p><p><strong>{{trans("file.Brand")}}: </strong>'+product[3]+'</p><p><strong>{{trans("file.category")}}: </strong>'+product[4]+'</p><p><strong>{{trans("file.Quantity")}}: </strong>'+product[16]+'</p><p><strong>{{trans("file.Unit")}}: </strong>'+product[5]+'</p><p><strong>{{trans("file.Cost")}}: </strong>'+product[6]+'</p><p><strong>{{trans("file.Price")}}: </strong>'+product[7]+'</p><p><strong>{{trans("file.Tax")}}: </strong>'+product[8]+'</p><p><strong>{{trans("file.Tax Method")}} : </strong>'+product[9]+'</p><p><strong>{{trans("file.Alert Quantity")}} : </strong>'+product[10]+'</p><p><strong>{{trans("file.Product Details")}}: </strong></p>'+product[11];
+        htmltext = '<p><strong><?php echo e(trans("Tipo")); ?>: </strong>'+product[0]+'</p><p><strong><?php echo e(trans("Nombre")); ?>: </strong>'+product[1]+'</p><p><strong><?php echo e(trans("Código")); ?>: </strong>'+product[2]+ '</p><p><strong><?php echo e(trans("Marca")); ?>: </strong>'+product[3]+'</p><p><strong><?php echo e(trans("Categoria")); ?>: </strong>'+product[4]+'</p><p><strong><?php echo e(trans("Cantidad")); ?>: </strong>'+product[16]+'</p><p><strong><?php echo e(trans("Unidad")); ?>: </strong>'+product[5]+'</p><p><strong><?php echo e(trans("Costo")); ?>: </strong>'+product[6]+'</p><p><strong><?php echo e(trans("Precio")); ?>: </strong>'+product[7]+'</p><p><strong><?php echo e(trans("Impuesto")); ?>: </strong>'+product[8]+'</p><p><strong><?php echo e(trans("Metodo de impuesto")); ?> : </strong>'+product[9]+'</p><p><strong><?php echo e(trans("Alerta de Cantidad")); ?> : </strong>'+product[10]+'</p><p><strong><?php echo e(trans("Detalle de prducto")); ?>: </strong></p>'+product[11];
 
         if(product[17]) {
             var product_image = product[17].split(",");
@@ -198,7 +204,7 @@
                 slidertext = '<img src="public/images/product/'+product[17]+'" height="300" width="100%">';
             }
         }
-        
+
         $("#combo-header").text('');
         $("table.item-list thead").remove();
         $("table.item-list tbody").remove();
@@ -209,7 +215,7 @@
         $("#product-warehouse-section").addClass('d-none');
         $("#product-variant-warehouse-section").addClass('d-none');
         if(product[0] == 'combo') {
-            $("#combo-header").text('{{trans("file.Combo Products")}}');
+            $("#combo-header").text('<?php echo e(trans("file.Combo Products")); ?>');
             product_list = product[13].split(",");
             qty_list = product[14].split(",");
             price_list = product[15].split(",");
@@ -218,7 +224,7 @@
             var newHead = $("<thead>");
             var newBody = $("<tbody>");
             var newRow = $("<tr>");
-            newRow.append('<th>{{trans("file.product")}}</th><th>{{trans("file.Quantity")}}</th><th>{{trans("file.Price")}}</th>');
+            newRow.append('<th><?php echo e(trans("file.product")); ?></th><th><?php echo e(trans("file.Quantity")); ?></th><th><?php echo e(trans("file.Price")); ?></th>');
             newHead.append(newRow);
 
             $(product_list).each(function(i) {
@@ -245,7 +251,7 @@
                     var newHead = $("<thead>");
                     var newBody = $("<tbody>");
                     var newRow = $("<tr>");
-                    newRow.append('<th>{{trans("file.Warehouse")}}</th><th>{{trans("file.Quantity")}}</th>');
+                    newRow.append('<th><?php echo e(trans("Bodega")); ?></th><th><?php echo e(trans("Cantidad")); ?></th>');
                     newHead.append(newRow);
                     $.each(warehouse, function(index){
                         var newRow = $("<tr>");
@@ -267,7 +273,7 @@
                     var newHead = $("<thead>");
                     var newBody = $("<tbody>");
                     var newRow = $("<tr>");
-                    newRow.append('<th>{{trans("file.Warehouse")}}</th><th>{{trans("file.Variant")}}</th><th>{{trans("file.Quantity")}}</th>');
+                    newRow.append('<th><?php echo e(trans("file.Bodega")); ?></th><th><?php echo e(trans("file.Variant")); ?></th><th><?php echo e(trans("Cantidad")); ?></th>');
                     newHead.append(newRow);
                     $.each(warehouse, function(index){
                         var newRow = $("<tr>");
@@ -285,7 +291,7 @@
                 }
             });
         }
-        
+
         $('#product-content').html(htmltext);
         $('#slider-content').html(slidertext);
         $('#product-details').modal('show');
@@ -327,13 +333,13 @@
                 {"data": "options"},
             ],
             'language': {
-                /*'searchPlaceholder': "{{trans('file.Type Product Name or Code...')}}",*/
-                'lengthMenu': '_MENU_ {{trans("file.records per page")}}',
-                 "info":      '<small>{{trans("file.Showing")}} _START_ - _END_ (_TOTAL_)</small>',
-                "search":  '{{trans("file.Search")}}',
+                /*'searchPlaceholder': "<?php echo e(trans('file.Type Product Name or Code...')); ?>",*/
+                'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
+                "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+                "search":  '<?php echo e(trans("Buscar")); ?>',
                 'paginate': {
-                        'previous': '<i class="dripicons-chevron-left"></i>',
-                        'next': '<i class="dripicons-chevron-right"></i>'
+                    'previous': '<i class="dripicons-chevron-left"></i>',
+                    'next': '<i class="dripicons-chevron-right"></i>'
                 }
             },
             order:[['2', 'asc']],
@@ -348,11 +354,11 @@
                             data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                         }
 
-                       return data;
+                        return data;
                     },
                     'checkboxes': {
-                       'selectRow': true,
-                       'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                        'selectRow': true,
+                        'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                     },
                     'targets': [0]
                 }
@@ -363,7 +369,7 @@
             buttons: [
                 {
                     extend: 'pdf',
-                    text: '{{trans("file.PDF")}}',
+                    text: '<?php echo e(trans("file.PDF")); ?>',
                     exportOptions: {
                         columns: ':visible:not(.not-exported)',
                         rows: ':visible',
@@ -392,7 +398,7 @@
                 },
                 {
                     extend: 'csv',
-                    text: '{{trans("file.CSV")}}',
+                    text: '<?php echo e(trans("file.CSV")); ?>',
                     exportOptions: {
                         columns: ':visible:not(.not-exported)',
                         rows: ':visible',
@@ -400,7 +406,7 @@
                             body: function ( data, row, column, node ) {
                                 if (column === 0 && (data.indexOf('<img src=') !== -1)) {
                                     var regex = /<img.*?src=['"](.*?)['"]/;
-                                    data = regex.exec(data)[1];                 
+                                    data = regex.exec(data)[1];
                                 }
                                 return data;
                             }
@@ -409,48 +415,48 @@
                 },
                 {
                     extend: 'print',
-                    text: '{{trans("file.Print")}}',
+                    text: '<?php echo e(trans("Imprimir")); ?>',
                     exportOptions: {
                         columns: ':visible:not(.not-exported)',
                         rows: ':visible',
                         stripHtml: false
                     }
                 },
-                {
-                    text: '{{trans("file.delete")}}',
-                    className: 'buttons-delete',
-                    action: function ( e, dt, node, config ) {
-                        if(user_verified == '1') {
-                            product_id.length = 0;
-                            $(':checkbox:checked').each(function(i){
-                                if(i){
-                                    var product_data = $(this).closest('tr').data('product');
-                                    product_id[i-1] = product_data[12];
-                                }
-                            });
-                            if(product_id.length && confirmDelete()) {
-                                $.ajax({
-                                    type:'POST',
-                                    url:'products/deletebyselection',
-                                    data:{
-                                        productIdArray: product_id
-                                    },
-                                    success:function(data){
-                                        dt.rows({ page: 'current', selected: true }).deselect();
-                                        dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                                    }
-                                });
-                            }
-                            else if(!product_id.length)
-                                alert('No product is selected!');
-                        }
-                        else
-                            alert('This feature is disable for demo!');
-                    }
-                },
+                //{
+                //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+                //    className: 'buttons-delete',
+                //    action: function ( e, dt, node, config ) {
+                //        if(user_verified == '1') {
+                //            product_id.length = 0;
+                //            $(':checkbox:checked').each(function(i){
+                //                if(i){
+                //                    var product_data = $(this).closest('tr').data('product');
+                //                    product_id[i-1] = product_data[12];
+                //                }
+                //            });
+                //            if(product_id.length && confirmDelete()) {
+                //                $.ajax({
+                //                    type:'POST',
+                //                    url:'products/deletebyselection',
+                //                    data:{
+                //                        productIdArray: product_id
+                //                    },
+                //                    success:function(data){
+                //                        dt.rows({ page: 'current', selected: true }).deselect();
+                //                        dt.rows({ page: 'current', selected: true }).remove().draw(false);
+                //                    }
+                //                });
+                //            }
+                //            else if(!product_id.length)
+                //                alert('No product is selected!');
+                //        }
+                //        else
+                //            alert('This feature is disable for demo!');
+                //    }
+                //},
                 {
                     extend: 'colvis',
-                    text: '{{trans("file.Column visibility")}}',
+                    text: '<?php echo e(trans("Visualizar")); ?>',
                     columns: ':gt(0)'
                 },
             ],
