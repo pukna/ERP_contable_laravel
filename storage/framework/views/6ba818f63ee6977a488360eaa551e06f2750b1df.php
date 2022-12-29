@@ -13,56 +13,56 @@
     <div class="table-responsive">
         <table id="money-transfer-table" class="table">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th><?php echo e(trans('Fecha')); ?></th>
-                    <th><?php echo e(trans('Referencia No')); ?></th>
-                    <th><?php echo e(trans('De la cuenta')); ?></th>
-                    <th><?php echo e(trans('A la cuenta')); ?></th>
-                    <th><?php echo e(trans('Monto')); ?></th>
-                    <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Fecha')); ?></th>
+                <th><?php echo e(trans('Referencia No')); ?></th>
+                <th><?php echo e(trans('De la cuenta')); ?></th>
+                <th><?php echo e(trans('A la cuenta')); ?></th>
+                <th><?php echo e(trans('Monto')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $lims_money_transfer_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$money_transfer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <tr data-id="<?php echo e($money_transfer->id); ?>">
-                    <td><?php echo e($key); ?></td>
-                    <td><?php echo e(date($general_setting->date_format, strtotime($money_transfer->created_at->toDateString())) . ' '. $money_transfer->created_at->toTimeString()); ?></td>
-                    <td><?php echo e($money_transfer->reference_no); ?></td>
-                    <td><?php echo e($money_transfer->fromAccount->name); ?></td>
-                    <td><?php echo e($money_transfer->toAccount->name); ?></td>
-                    <td><?php echo e(number_format((float)$money_transfer->amount, 2, '.', '')); ?></td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
+            <?php $__currentLoopData = $lims_money_transfer_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$money_transfer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <tr data-id="<?php echo e($money_transfer->id); ?>">
+                <td><?php echo e($key); ?></td>
+                <td><?php echo e(date($general_setting->date_format, strtotime($money_transfer->created_at->toDateString())) . ' '. $money_transfer->created_at->toTimeString()); ?></td>
+                <td><?php echo e($money_transfer->reference_no); ?></td>
+                <td><?php echo e($money_transfer->fromAccount->name); ?></td>
+                <td><?php echo e($money_transfer->toAccount->name); ?></td>
+                <td><?php echo e(number_format((float)$money_transfer->amount, 2, '.', '')); ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
 
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                                <li><button type="button" id="edit-btn" data-id="<?php echo e($money_transfer->id); ?>" data-from_id="<?php echo e($money_transfer->from_account_id); ?>" data-to_id="<?php echo e($money_transfer->to_account_id); ?>" data-amount="<?php echo e($money_transfer->amount); ?>"  class=" btn btn-link" data-toggle="modal" data-target="#edit-money-transfer-modal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></button></li>
-                                <li class="divider"></li>
-                                <?php echo e(Form::open(['route' => ['money-transfers.destroy', $money_transfer->id], 'method' => 'DELETE'] )); ?>
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
+                            <li><button type="button" id="edit-btn" data-id="<?php echo e($money_transfer->id); ?>" data-from_id="<?php echo e($money_transfer->from_account_id); ?>" data-to_id="<?php echo e($money_transfer->to_account_id); ?>" data-amount="<?php echo e($money_transfer->amount); ?>"  class=" btn btn-link" data-toggle="modal" data-target="#edit-money-transfer-modal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></button></li>
+                            <li class="divider"></li>
+                            <?php echo e(Form::open(['route' => ['money-transfers.destroy', $money_transfer->id], 'method' => 'DELETE'] )); ?>
 
-                                <li>
-                                    <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
-                                </li>
-                                <?php echo e(Form::close()); ?>
+                            <li>
+                                <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
+                            </li>
+                            <?php echo e(Form::close()); ?>
 
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
             <tfoot class="tfoot active">
-                <th></th>
-                <th><?php echo e(trans('file.Total')); ?></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+            <th></th>
+            <th><?php echo e(trans('file.Total')); ?></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             </tfoot>
         </table>
     </div>
@@ -77,35 +77,35 @@
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
             </div>
             <div class="modal-body">
-              <p class="italic"><small><?php echo e(trans(' Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <p class="italic"><small><?php echo e(trans(' Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
                 <?php echo Form::open(['route' => 'money-transfers.store', 'method' => 'post']); ?>
 
-                  <div class="row">
-                      <div class="col-md-6 form-group">
-                          <label> <?php echo e(trans('Desde la cuenta')); ?> *</label>
-                          <select class="form-control selectpicker" name="from_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
-                          <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                              <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
-                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          </select>
-                      </div>
-                      <div class="col-md-6 form-group">
-                          <label> <?php echo e(trans('A la Cuenta')); ?> *</label>
-                          <select class="form-control selectpicker" name="to_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
-                          <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                              <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
-                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          </select>
-                      </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label> <?php echo e(trans('Desde la cuenta')); ?> *</label>
+                        <select class="form-control selectpicker" name="from_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
+                            <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label> <?php echo e(trans('A la Cuenta')); ?> *</label>
+                        <select class="form-control selectpicker" name="to_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
+                            <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
 
-                      <div class="col-md-6 form-group">
-                          <label><?php echo e(trans('Monto')); ?> *</label>
-                          <input type="number" name="amount" class="form-control" step="any" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <button type="submit" class="btn btn-primary"><?php echo e(trans('Enviar')); ?></button>
-                  </div>
+                    <div class="col-md-6 form-group">
+                        <label><?php echo e(trans('Monto')); ?> *</label>
+                        <input type="number" name="amount" class="form-control" step="any" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"><?php echo e(trans('Enviar')); ?></button>
+                </div>
                 <?php echo e(Form::close()); ?>
 
             </div>
@@ -125,33 +125,33 @@
                 <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
                 <?php echo Form::open(['route' => ['money-transfers.update', 1], 'method' => 'put']); ?>
 
-                  <div class="row">
-                        <input type="hidden" name="id">
-                      <div class="col-md-6 form-group">
-                          <label> <?php echo e(trans('De la cuenta')); ?> *</label>
-                          <select class="form-control selectpicker" name="from_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
-                          <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                              <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
-                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          </select>
-                      </div>
-                      <div class="col-md-6 form-group">
-                          <label> <?php echo e(trans('A la cuenta')); ?> *</label>
-                          <select class="form-control selectpicker" name="to_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
-                          <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                              <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
-                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                          </select>
-                      </div>
+                <div class="row">
+                    <input type="hidden" name="id">
+                    <div class="col-md-6 form-group">
+                        <label> <?php echo e(trans('De la cuenta')); ?> *</label>
+                        <select class="form-control selectpicker" name="from_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
+                            <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label> <?php echo e(trans('A la cuenta')); ?> *</label>
+                        <select class="form-control selectpicker" name="to_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
+                            <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
 
-                      <div class="col-md-6 form-group">
-                          <label><?php echo e(trans('file.Amount')); ?> *</label>
-                          <input type="number" name="amount" class="form-control" step="any" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <button type="submit" class="btn btn-primary"><?php echo e(trans('Enviar')); ?></button>
-                  </div>
+                    <div class="col-md-6 form-group">
+                        <label><?php echo e(trans('file.Amount')); ?> *</label>
+                        <input type="number" name="amount" class="form-control" step="any" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"><?php echo e(trans('Enviar')); ?></button>
+                </div>
                 <?php echo e(Form::close()); ?>
 
             </div>
@@ -186,22 +186,22 @@
         });
     })
 
-function confirmDelete() {
-    if (confirm("Are you sure want to delete?")) {
-        return true;
+    function confirmDelete() {
+        if (confirm("Are you sure want to delete?")) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
 
     $('#money-transfer-table').DataTable( {
         "order": [],
         'language': {
             'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
-             "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
             "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
-                    'previous': '<i class="dripicons-chevron-left"></i>',
-                    'next': '<i class="dripicons-chevron-right"></i>'
+                'previous': '<i class="dripicons-chevron-left"></i>',
+                'next': '<i class="dripicons-chevron-right"></i>'
             }
         },
         'columnDefs': [
@@ -215,11 +215,11 @@ function confirmDelete() {
                         data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                     }
 
-                   return data;
+                    return data;
                 },
                 'checkboxes': {
-                   'selectRow': true,
-                   'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                 },
                 'targets': [0]
             }
@@ -328,4 +328,5 @@ function confirmDelete() {
 
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/money_transfer/index.blade.php ENDPATH**/ ?>

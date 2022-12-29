@@ -1,65 +1,68 @@
 @extends('layout.main') @section('content')
 @if(session()->has('message'))
-  <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div> 
+  <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div>
 @endif
 @if(session()->has('not_permitted'))
-  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div> 
+  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div>
 @endif
 
 <section>
     <div class="container-fluid">
-        <button class="btn btn-info" data-toggle="modal" data-target="#create-money-transfer-modal"><i class="dripicons-plus"></i> {{trans('file.Add Money Transfer')}}</button>
+        <button class="btn btn-info" data-toggle="modal" data-target="#create-money-transfer-modal"><i class="dripicons-plus"></i> <?php echo e(trans('Add Transferencia de dinero')); ?></button>
     </div>
     <div class="table-responsive">
         <table id="money-transfer-table" class="table">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th>{{trans('file.Date')}}</th>
-                    <th>{{trans('file.Reference No')}}</th>
-                    <th>{{trans('file.From Account')}}</th>
-                    <th>{{trans('file.To Account')}}</th>
-                    <th>{{trans('file.Amount')}}</th>
-                    <th class="not-exported">{{trans('file.action')}}</th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Fecha')); ?></th>
+                <th><?php echo e(trans('Referencia No')); ?></th>
+                <th><?php echo e(trans('De la cuenta')); ?></th>
+                <th><?php echo e(trans('A la cuenta')); ?></th>
+                <th><?php echo e(trans('Monto')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
             <tbody>
-                @foreach($lims_money_transfer_all as $key=>$money_transfer)
-                <tr data-id="{{$money_transfer->id}}">
-                    <td>{{$key}}</td>
-                    <td>{{date($general_setting->date_format, strtotime($money_transfer->created_at->toDateString())) . ' '. $money_transfer->created_at->toTimeString() }}</td>
-                    <td>{{ $money_transfer->reference_no }}</td>
-                    <td>{{ $money_transfer->fromAccount->name }}</td>
-                    <td>{{ $money_transfer->toAccount->name }}</td>
-                    <td>{{ number_format((float)$money_transfer->amount, 2, '.', '') }}</td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{trans('file.action')}}
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                                <li><button type="button" id="edit-btn" data-id="{{$money_transfer->id}}" data-from_id="{{$money_transfer->from_account_id}}" data-to_id="{{$money_transfer->to_account_id}}" data-amount="{{$money_transfer->amount}}"  class=" btn btn-link" data-toggle="modal" data-target="#edit-money-transfer-modal"><i class="dripicons-document-edit"></i> {{trans('file.edit')}}</button></li>
-                                <li class="divider"></li>
-                                {{ Form::open(['route' => ['money-transfers.destroy', $money_transfer->id], 'method' => 'DELETE'] ) }}
-                                <li>
-                                    <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> {{trans('file.delete')}}</button>
-                                </li>
-                                {{ Form::close() }}
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
+            <?php $__currentLoopData = $lims_money_transfer_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$money_transfer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <tr data-id="<?php echo e($money_transfer->id); ?>">
+                <td><?php echo e($key); ?></td>
+                <td><?php echo e(date($general_setting->date_format, strtotime($money_transfer->created_at->toDateString())) . ' '. $money_transfer->created_at->toTimeString()); ?></td>
+                <td><?php echo e($money_transfer->reference_no); ?></td>
+                <td><?php echo e($money_transfer->fromAccount->name); ?></td>
+                <td><?php echo e($money_transfer->toAccount->name); ?></td>
+                <td><?php echo e(number_format((float)$money_transfer->amount, 2, '.', '')); ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
+
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
+                            <li><button type="button" id="edit-btn" data-id="<?php echo e($money_transfer->id); ?>" data-from_id="<?php echo e($money_transfer->from_account_id); ?>" data-to_id="<?php echo e($money_transfer->to_account_id); ?>" data-amount="<?php echo e($money_transfer->amount); ?>"  class=" btn btn-link" data-toggle="modal" data-target="#edit-money-transfer-modal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></button></li>
+                            <li class="divider"></li>
+                            <?php echo e(Form::open(['route' => ['money-transfers.destroy', $money_transfer->id], 'method' => 'DELETE'] )); ?>
+
+                            <li>
+                                <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
+                            </li>
+                            <?php echo e(Form::close()); ?>
+
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
             <tfoot class="tfoot active">
-                <th></th>
-                <th>{{trans('file.Total')}}</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+            <th></th>
+            <th><?php echo e(trans('file.Total')); ?></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             </tfoot>
         </table>
     </div>
@@ -70,39 +73,41 @@
     <div role="document" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="exampleModalLabel" class="modal-title">{{trans('file.Add Money Transfer')}}</h5>
+                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Añadir transferencia de dinero')); ?></h5>
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
             </div>
             <div class="modal-body">
-              <p class="italic"><small>{{trans('file.The field labels marked with * are required input fields')}}.</small></p>
-                {!! Form::open(['route' => 'money-transfers.store', 'method' => 'post']) !!}
-                  <div class="row">
-                      <div class="col-md-6 form-group">
-                          <label> {{trans('file.From Account')}} *</label>
-                          <select class="form-control selectpicker" name="from_account_id" data-live-search="true" data-live-search-style="begins" title="Select from account..." required>
-                          @foreach($lims_account_list as $account)
-                              <option value="{{$account->id}}">{{$account->name}} [{{$account->account_no}}]</option>
-                          @endforeach
-                          </select>
-                      </div>
-                      <div class="col-md-6 form-group">
-                          <label> {{trans('file.To Account')}} *</label>
-                          <select class="form-control selectpicker" name="to_account_id" data-live-search="true" data-live-search-style="begins" title="Select to account..." required>
-                          @foreach($lims_account_list as $account)
-                              <option value="{{$account->id}}">{{$account->name}} [{{$account->account_no}}]</option>
-                          @endforeach
-                          </select>
-                      </div>
-                      
-                      <div class="col-md-6 form-group">
-                          <label>{{trans('file.Amount')}} *</label>
-                          <input type="number" name="amount" class="form-control" step="any" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <button type="submit" class="btn btn-primary">{{trans('file.submit')}}</button>
-                  </div>
-                {{ Form::close() }}
+                <p class="italic"><small><?php echo e(trans(' Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <?php echo Form::open(['route' => 'money-transfers.store', 'method' => 'post']); ?>
+
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label> <?php echo e(trans('Desde la cuenta')); ?> *</label>
+                        <select class="form-control selectpicker" name="from_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
+                            <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label> <?php echo e(trans('A la Cuenta')); ?> *</label>
+                        <select class="form-control selectpicker" name="to_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
+                            <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label><?php echo e(trans('Monto')); ?> *</label>
+                        <input type="number" name="amount" class="form-control" step="any" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"><?php echo e(trans('Enviar')); ?></button>
+                </div>
+                <?php echo e(Form::close()); ?>
+
             </div>
         </div>
     </div>
@@ -113,40 +118,42 @@
     <div role="document" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="exampleModalLabel" class="modal-title">{{trans('file.Update Money Transfer')}}</h5>
+                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Actualizar transferencia de dinero')); ?></h5>
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
             </div>
             <div class="modal-body">
-                <p class="italic"><small>{{trans('file.The field labels marked with * are required input fields')}}.</small></p>
-                {!! Form::open(['route' => ['money-transfers.update', 1], 'method' => 'put']) !!}
-                  <div class="row">
-                        <input type="hidden" name="id">
-                      <div class="col-md-6 form-group">
-                          <label> {{trans('file.From Account')}} *</label>
-                          <select class="form-control selectpicker" name="from_account_id" data-live-search="true" data-live-search-style="begins" title="Select from account..." required>
-                          @foreach($lims_account_list as $account)
-                              <option value="{{$account->id}}">{{$account->name}} [{{$account->account_no}}]</option>
-                          @endforeach
-                          </select>
-                      </div>
-                      <div class="col-md-6 form-group">
-                          <label> {{trans('file.To Account')}} *</label>
-                          <select class="form-control selectpicker" name="to_account_id" data-live-search="true" data-live-search-style="begins" title="Select to account..." required>
-                          @foreach($lims_account_list as $account)
-                              <option value="{{$account->id}}">{{$account->name}} [{{$account->account_no}}]</option>
-                          @endforeach
-                          </select>
-                      </div>
-                      
-                      <div class="col-md-6 form-group">
-                          <label>{{trans('file.Amount')}} *</label>
-                          <input type="number" name="amount" class="form-control" step="any" required>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <button type="submit" class="btn btn-primary">{{trans('file.submit')}}</button>
-                  </div>
-                {{ Form::close() }}
+                <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <?php echo Form::open(['route' => ['money-transfers.update', 1], 'method' => 'put']); ?>
+
+                <div class="row">
+                    <input type="hidden" name="id">
+                    <div class="col-md-6 form-group">
+                        <label> <?php echo e(trans('De la cuenta')); ?> *</label>
+                        <select class="form-control selectpicker" name="from_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
+                            <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label> <?php echo e(trans('A la cuenta')); ?> *</label>
+                        <select class="form-control selectpicker" name="to_account_id" data-live-search="true" data-live-search-style="begins" title="Seleccione la cuenta..." required>
+                            <?php $__currentLoopData = $lims_account_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($account->id); ?>"><?php echo e($account->name); ?> [<?php echo e($account->account_no); ?>]</option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 form-group">
+                        <label><?php echo e(trans('file.Amount')); ?> *</label>
+                        <input type="number" name="amount" class="form-control" step="any" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"><?php echo e(trans('Enviar')); ?></button>
+                </div>
+                <?php echo e(Form::close()); ?>
+
             </div>
         </div>
     </div>
@@ -161,8 +168,8 @@
 
     var money_transfer_id = [];
     var user_verified = <?php echo json_encode(env('USER_VERIFIED')) ?>;
-    
-    
+
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -179,22 +186,22 @@
         });
     })
 
-function confirmDelete() {
-    if (confirm("Are you sure want to delete?")) {
-        return true;
+    function confirmDelete() {
+        if (confirm("Are you sure want to delete?")) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
 
     $('#money-transfer-table').DataTable( {
         "order": [],
         'language': {
-            'lengthMenu': '_MENU_ {{trans("file.records per page")}}',
-             "info":      '<small>{{trans("file.Showing")}} _START_ - _END_ (_TOTAL_)</small>',
-            "search":  '{{trans("file.Search")}}',
+            'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
+            "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
-                    'previous': '<i class="dripicons-chevron-left"></i>',
-                    'next': '<i class="dripicons-chevron-right"></i>'
+                'previous': '<i class="dripicons-chevron-left"></i>',
+                'next': '<i class="dripicons-chevron-right"></i>'
             }
         },
         'columnDefs': [
@@ -208,11 +215,11 @@ function confirmDelete() {
                         data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                     }
 
-                   return data;
+                    return data;
                 },
                 'checkboxes': {
-                   'selectRow': true,
-                   'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                 },
                 'targets': [0]
             }
@@ -223,7 +230,7 @@ function confirmDelete() {
         buttons: [
             {
                 extend: 'pdf',
-                text: '{{trans("file.PDF")}}',
+                text: '<?php echo e(trans("file.PDF")); ?>',
                 exportOptions: {
                     columns: ':visible:Not(.not-exported)',
                     rows: ':visible'
@@ -237,7 +244,7 @@ function confirmDelete() {
             },
             {
                 extend: 'csv',
-                text: '{{trans("file.CSV")}}',
+                text: '<?php echo e(trans("file.CSV")); ?>',
                 exportOptions: {
                     columns: ':visible:Not(.not-exported)',
                     rows: ':visible'
@@ -251,7 +258,7 @@ function confirmDelete() {
             },
             {
                 extend: 'print',
-                text: '{{trans("file.Print")}}',
+                text: '<?php echo e(trans("Imprimir")); ?>',
                 exportOptions: {
                     columns: ':visible:Not(.not-exported)',
                     rows: ':visible'
@@ -263,40 +270,40 @@ function confirmDelete() {
                 },
                 footer:true
             },
-            {
-                text: '{{trans("file.delete")}}',
-                className: 'buttons-delete',
-                action: function ( e, dt, node, config ) {
-                    if(user_verified == '1') {
-                        money_transfer_id.length = 0;
-                        $(':checkbox:checked').each(function(i){
-                            if(i){
-                                money_transfer_id[i-1] = $(this).closest('tr').data('id');
-                            }
-                        });
-                        if(money_transfer_id.length && confirm("Are you sure want to delete?")) {
-                            $.ajax({
-                                type:'POST',
-                                url:'money_transfers/deletebyselection',
-                                data:{
-                                    money_transferIdArray: money_transfer_id
-                                },
-                                success:function(data){
-                                    alert(data);
-                                }
-                            });
-                            dt.rows({ page: 'current', selected: true }).remove().draw(false);
-                        }
-                        else if(!money_transfer_id.length)
-                            alert('No money_transfer is selected!');
-                    }
-                    else
-                        alert('This feature is disable for demo!');
-                }
-            },
+            //{
+            //    text: '<?php //echo e(trans("Eliminar")); ?>//',
+            //    className: 'buttons-delete',
+            //    action: function ( e, dt, node, config ) {
+            //        if(user_verified == '1') {
+            //            money_transfer_id.length = 0;
+            //            $(':checkbox:checked').each(function(i){
+            //                if(i){
+            //                    money_transfer_id[i-1] = $(this).closest('tr').data('id');
+            //                }
+            //            });
+            //            if(money_transfer_id.length && confirm("Are you sure want to delete?")) {
+            //                $.ajax({
+            //                    type:'POST',
+            //                    url:'money_transfers/deletebyselection',
+            //                    data:{
+            //                        money_transferIdArray: money_transfer_id
+            //                    },
+            //                    success:function(data){
+            //                        alert(data);
+            //                    }
+            //                });
+            //                dt.rows({ page: 'current', selected: true }).remove().draw(false);
+            //            }
+            //            else if(!money_transfer_id.length)
+            //                alert('No money_transfer is selected!');
+            //        }
+            //        else
+            //            alert('This feature is disable for demo!');
+            //    }
+            //},
             {
                 extend: 'colvis',
-                text: '{{trans("file.Column visibility")}}',
+                text: '<?php echo e(trans("Visibilidad de columna")); ?>',
                 columns: ':gt(0)'
             },
         ],
