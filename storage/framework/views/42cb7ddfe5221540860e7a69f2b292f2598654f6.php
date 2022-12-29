@@ -17,66 +17,66 @@
     <div class="table-responsive">
         <table id="account-table" class="table">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th><?php echo e(trans('Cuenta')); ?> No</th>
-                    <th><?php echo e(trans('Nombre')); ?></th>
-                    <th><?php echo e(trans('Balance inicial')); ?></th>
-                    <th><?php echo e(trans('Predeterminada')); ?></th>
-                    <th><?php echo e(trans('Nota')); ?></th>
-                    <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Cuenta')); ?> No</th>
+                <th><?php echo e(trans('Nombre')); ?></th>
+                <th><?php echo e(trans('Balance inicial')); ?></th>
+                <th><?php echo e(trans('Predeterminada')); ?></th>
+                <th><?php echo e(trans('Nota')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $lims_account_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <tr>
-                    <td><?php echo e($key); ?></td>
-                    <td><?php echo e($account->account_no); ?></td>
-                    <td><?php echo e($account->name); ?></td>
-                    <?php if($account->initial_balance): ?>
-                        <td><?php echo e(number_format((float)$account->initial_balance, 2, '.', '')); ?></td>
+            <?php $__currentLoopData = $lims_account_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <tr>
+                <td><?php echo e($key); ?></td>
+                <td><?php echo e($account->account_no); ?></td>
+                <td><?php echo e($account->name); ?></td>
+                <?php if($account->initial_balance): ?>
+                <td><?php echo e(number_format((float)$account->initial_balance, 2, '.', '')); ?></td>
+                <?php else: ?>
+                <td>0.00</td>
+                <?php endif; ?>
+                <td>
+                    <?php if($account->is_default): ?>
+                    <input type="checkbox" checked class="default" data-id="<?php echo e($account->id); ?>" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
                     <?php else: ?>
-                        <td>0.00</td>
+                    <input type="checkbox" class="default" data-id="<?php echo e($account->id); ?>" data-toggle="toggle"  data-onstyle="success" data-offstyle="danger">
                     <?php endif; ?>
-                    <td>
-                        <?php if($account->is_default): ?>
-                        <input type="checkbox" checked class="default" data-id="<?php echo e($account->id); ?>" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                        <?php else: ?>
-                        <input type="checkbox" class="default" data-id="<?php echo e($account->id); ?>" data-toggle="toggle"  data-onstyle="success" data-offstyle="danger">
-                        <?php endif; ?>
-                    </td>
-                    <td><?php echo e($account->note); ?></td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
+                </td>
+                <td><?php echo e($account->note); ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
 
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                                <li><button type="button" data-id="<?php echo e($account->id); ?>" data-account_no="<?php echo e($account->account_no); ?>" data-name="<?php echo e($account->name); ?>"  data-initial_balance="<?php echo e($account->initial_balance); ?>" data-note="<?php echo e($account->note); ?>" class="edit-btn btn btn-link" data-toggle="modal" data-target="#editModal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></button></li>
-                                <li class="divider"></li>
-                                <?php echo e(Form::open(['route' => ['accounts.destroy', $account->id], 'method' => 'DELETE'] )); ?>
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
+                            <li><button type="button" data-id="<?php echo e($account->id); ?>" data-account_no="<?php echo e($account->account_no); ?>" data-name="<?php echo e($account->name); ?>"  data-initial_balance="<?php echo e($account->initial_balance); ?>" data-note="<?php echo e($account->note); ?>" class="edit-btn btn btn-link" data-toggle="modal" data-target="#editModal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></button></li>
+                            <li class="divider"></li>
+                            <?php echo e(Form::open(['route' => ['accounts.destroy', $account->id], 'method' => 'DELETE'] )); ?>
 
-                                <li>
-                                    <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
-                                </li>
-                                <?php echo e(Form::close()); ?>
+                            <li>
+                                <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
+                            </li>
+                            <?php echo e(Form::close()); ?>
 
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
             <tfoot class="tfoot active">
-                <th></th>
-                <th><?php echo e(trans('file.Total')); ?></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+            <th></th>
+            <th><?php echo e(trans('file.Total')); ?></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             </tfoot>
         </table>
     </div>
@@ -90,29 +90,29 @@
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
             </div>
             <div class="modal-body">
-              <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
                 <?php echo Form::open(['route' => ['accounts.update', 1], 'method' => 'put']); ?>
 
-                    <div class="form-group">
-                        <label><?php echo e(trans('Cuenta')); ?> No *</label>
-                        <input type="text" name="account_no" required class="form-control">
-                        <input type="hidden" name="account_id">
-                    </div>
-                    <div class="form-group">
-                        <label><?php echo e(trans('Nombre')); ?> *</label>
-                        <input type="text" name="name" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label><?php echo e(trans('Balance inicial')); ?></label>
-                        <input type="number" name="initial_balance" step="any" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label><?php echo e(trans('Nota')); ?></label>
-                        <textarea name="note" rows="3" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary"><?php echo e(trans('Actualizar')); ?></button>
-                    </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Cuenta')); ?> No *</label>
+                    <input type="text" name="account_no" required class="form-control">
+                    <input type="hidden" name="account_id">
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Nombre')); ?> *</label>
+                    <input type="text" name="name" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Balance inicial')); ?></label>
+                    <input type="number" name="initial_balance" step="any" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Nota')); ?></label>
+                    <textarea name="note" rows="3" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"><?php echo e(trans('Actualizar')); ?></button>
+                </div>
                 <?php echo e(Form::close()); ?>
 
             </div>
@@ -155,21 +155,21 @@
         }
     });
 
-function confirmDelete() {
-    if (confirm("Are you sure want to delete?")) {
-        return true;
+    function confirmDelete() {
+        if (confirm("Are you sure want to delete?")) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
     var table = $('#account-table').DataTable( {
         "order": [],
         'language': {
             'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
-             "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
             "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
-                    'previous': '<i class="dripicons-chevron-left"></i>',
-                    'next': '<i class="dripicons-chevron-right"></i>'
+                'previous': '<i class="dripicons-chevron-left"></i>',
+                'next': '<i class="dripicons-chevron-right"></i>'
             }
         },
         'columnDefs': [
@@ -183,11 +183,11 @@ function confirmDelete() {
                         data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                     }
 
-                   return data;
+                    return data;
                 },
                 'checkboxes': {
-                   'selectRow': true,
-                   'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                 },
                 'targets': [0]
             }
@@ -261,4 +261,5 @@ function confirmDelete() {
 
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/account/index.blade.php ENDPATH**/ ?>

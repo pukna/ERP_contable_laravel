@@ -1,79 +1,82 @@
 @extends('layout.main') @section('content')
 @if(session()->has('message'))
-  <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div> 
+  <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('message') }}</div>
 @endif
 @if(session()->has('not_permitted'))
-  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div> 
+  <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ session()->get('not_permitted') }}</div>
 @endif
 @if($errors->has('account_no'))
 <div class="alert alert-danger alert-dismissible text-center">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{ $errors->first('account_no') }}</div>
-@endif 
+@endif
 
 <section>
     <div class="container-fluid">
-        <button class="btn btn-info" data-toggle="modal" data-target="#account-modal"><i class="dripicons-plus"></i> {{trans('file.Add Account')}}</button>
+        <button class="btn btn-info" data-toggle="modal" data-target="#account-modal"><i class="dripicons-plus"></i> <?php echo e(trans('Add Cuenta')); ?></button>
     </div>
     <div class="table-responsive">
         <table id="account-table" class="table">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th>{{trans('file.Account')}} No</th>
-                    <th>{{trans('file.name')}}</th>
-                    <th>{{trans('file.Initial Balance')}}</th>
-                    <th>{{trans('file.Default')}}</th>
-                    <th>{{trans('file.Note')}}</th>
-                    <th class="not-exported">{{trans('file.action')}}</th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Cuenta')); ?> No</th>
+                <th><?php echo e(trans('Nombre')); ?></th>
+                <th><?php echo e(trans('Balance inicial')); ?></th>
+                <th><?php echo e(trans('Predeterminada')); ?></th>
+                <th><?php echo e(trans('Nota')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
             <tbody>
-                @foreach($lims_account_all as $key=>$account)
-                <tr>
-                    <td>{{$key}}</td>
-                    <td>{{ $account->account_no }}</td>
-                    <td>{{ $account->name }}</td>
-                    @if($account->initial_balance)
-                        <td>{{ number_format((float)$account->initial_balance, 2, '.', '') }}</td>
-                    @else
-                        <td>0.00</td>
-                    @endif
-                    <td>
-                        @if($account->is_default)
-                        <input type="checkbox" checked class="default" data-id="{{$account->id}}" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
-                        @else
-                        <input type="checkbox" class="default" data-id="{{$account->id}}" data-toggle="toggle"  data-onstyle="success" data-offstyle="danger">
-                        @endif
-                    </td>
-                    <td>{{ $account->note }}</td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{trans('file.action')}}
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                                <li><button type="button" data-id="{{$account->id}}" data-account_no="{{$account->account_no}}" data-name="{{$account->name}}"  data-initial_balance="{{$account->initial_balance}}" data-note="{{$account->note}}" class="edit-btn btn btn-link" data-toggle="modal" data-target="#editModal"><i class="dripicons-document-edit"></i> {{trans('file.edit')}}</button></li>
-                                <li class="divider"></li>
-                                {{ Form::open(['route' => ['accounts.destroy', $account->id], 'method' => 'DELETE'] ) }}
-                                <li>
-                                    <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> {{trans('file.delete')}}</button>
-                                </li>
-                                {{ Form::close() }}
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                @endforeach
+            <?php $__currentLoopData = $lims_account_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$account): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <tr>
+                <td><?php echo e($key); ?></td>
+                <td><?php echo e($account->account_no); ?></td>
+                <td><?php echo e($account->name); ?></td>
+                <?php if($account->initial_balance): ?>
+                <td><?php echo e(number_format((float)$account->initial_balance, 2, '.', '')); ?></td>
+                <?php else: ?>
+                <td>0.00</td>
+                <?php endif; ?>
+                <td>
+                    <?php if($account->is_default): ?>
+                    <input type="checkbox" checked class="default" data-id="<?php echo e($account->id); ?>" data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    <?php else: ?>
+                    <input type="checkbox" class="default" data-id="<?php echo e($account->id); ?>" data-toggle="toggle"  data-onstyle="success" data-offstyle="danger">
+                    <?php endif; ?>
+                </td>
+                <td><?php echo e($account->note); ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
+
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
+                            <li><button type="button" data-id="<?php echo e($account->id); ?>" data-account_no="<?php echo e($account->account_no); ?>" data-name="<?php echo e($account->name); ?>"  data-initial_balance="<?php echo e($account->initial_balance); ?>" data-note="<?php echo e($account->note); ?>" class="edit-btn btn btn-link" data-toggle="modal" data-target="#editModal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></button></li>
+                            <li class="divider"></li>
+                            <?php echo e(Form::open(['route' => ['accounts.destroy', $account->id], 'method' => 'DELETE'] )); ?>
+
+                            <li>
+                                <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
+                            </li>
+                            <?php echo e(Form::close()); ?>
+
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
             <tfoot class="tfoot active">
-                <th></th>
-                <th>{{trans('file.Total')}}</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+            <th></th>
+            <th><?php echo e(trans('file.Total')); ?></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             </tfoot>
         </table>
     </div>
@@ -83,33 +86,35 @@
     <div role="document" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 id="exampleModalLabel" class="modal-title">{{trans('file.Update Account')}}</h5>
+                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Actualizar Cuenta')); ?></h5>
                 <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
             </div>
             <div class="modal-body">
-              <p class="italic"><small>{{trans('file.The field labels marked with * are required input fields')}}.</small></p>
-                {!! Form::open(['route' => ['accounts.update', 1], 'method' => 'put']) !!}
-                    <div class="form-group">
-                        <label>{{trans('file.Account')}} No *</label>
-                        <input type="text" name="account_no" required class="form-control">
-                        <input type="hidden" name="account_id">
-                    </div>
-                    <div class="form-group">
-                        <label>{{trans('file.name')}} *</label>
-                        <input type="text" name="name" required class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>{{trans('file.Initial Balance')}}</label>
-                        <input type="number" name="initial_balance" step="any" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>{{trans('file.Note')}}</label>
-                        <textarea name="note" rows="3" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">{{trans('file.update')}}</button>
-                    </div>
-                {{ Form::close() }}
+                <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <?php echo Form::open(['route' => ['accounts.update', 1], 'method' => 'put']); ?>
+
+                <div class="form-group">
+                    <label><?php echo e(trans('Cuenta')); ?> No *</label>
+                    <input type="text" name="account_no" required class="form-control">
+                    <input type="hidden" name="account_id">
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Nombre')); ?> *</label>
+                    <input type="text" name="name" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Balance inicial')); ?></label>
+                    <input type="number" name="initial_balance" step="any" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Nota')); ?></label>
+                    <textarea name="note" rows="3" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary"><?php echo e(trans('Actualizar')); ?></button>
+                </div>
+                <?php echo e(Form::close()); ?>
+
             </div>
         </div>
     </div>
@@ -150,21 +155,21 @@
         }
     });
 
-function confirmDelete() {
-    if (confirm("Are you sure want to delete?")) {
-        return true;
+    function confirmDelete() {
+        if (confirm("Are you sure want to delete?")) {
+            return true;
+        }
+        return false;
     }
-    return false;
-}
     var table = $('#account-table').DataTable( {
         "order": [],
         'language': {
-            'lengthMenu': '_MENU_ {{trans("file.records per page")}}',
-             "info":      '<small>{{trans("file.Showing")}} _START_ - _END_ (_TOTAL_)</small>',
-            "search":  '{{trans("file.Search")}}',
+            'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
+            "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
-                    'previous': '<i class="dripicons-chevron-left"></i>',
-                    'next': '<i class="dripicons-chevron-right"></i>'
+                'previous': '<i class="dripicons-chevron-left"></i>',
+                'next': '<i class="dripicons-chevron-right"></i>'
             }
         },
         'columnDefs': [
@@ -178,11 +183,11 @@ function confirmDelete() {
                         data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                     }
 
-                   return data;
+                    return data;
                 },
                 'checkboxes': {
-                   'selectRow': true,
-                   'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                 },
                 'targets': [0]
             }
@@ -193,7 +198,7 @@ function confirmDelete() {
         buttons: [
             {
                 extend: 'pdf',
-                text: '{{trans("file.PDF")}}',
+                text: '<?php echo e(trans("file.PDF")); ?>',
                 exportOptions: {
                     columns: ':visible:Not(.not-exported)',
                     rows: ':visible'
@@ -207,7 +212,7 @@ function confirmDelete() {
             },
             {
                 extend: 'csv',
-                text: '{{trans("file.CSV")}}',
+                text: '<?php echo e(trans("file.CSV")); ?>',
                 exportOptions: {
                     columns: ':visible:Not(.not-exported)',
                     rows: ':visible'
@@ -221,7 +226,7 @@ function confirmDelete() {
             },
             {
                 extend: 'print',
-                text: '{{trans("file.Print")}}',
+                text: '<?php echo e(trans("Imprimir")); ?>',
                 exportOptions: {
                     columns: ':visible:Not(.not-exported)',
                     rows: ':visible'
@@ -235,7 +240,7 @@ function confirmDelete() {
             },
             {
                 extend: 'colvis',
-                text: '{{trans("file.Column visibility")}}',
+                text: '<?php echo e(trans("Visibilidad de columna")); ?>',
                 columns: ':gt(0)'
             },
         ],
