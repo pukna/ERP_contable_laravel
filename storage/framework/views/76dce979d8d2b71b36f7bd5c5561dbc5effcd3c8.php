@@ -1,4 +1,3 @@
-<!--bodega-->
 <?php $__env->startSection('content'); ?>
 <?php if($errors->has('name')): ?>
 <div class="alert alert-danger alert-dismissible text-center">
@@ -14,184 +13,184 @@
 <section>
     <div class="container-fluid">
         <a href="#" data-toggle="modal" data-target="#createModal" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Add Bodega')); ?></a>
-<!--        <a href="#" data-toggle="modal" data-target="#importWarehouse" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.Import Warehouse')); ?><!--</a>-->
+        <!--        <a href="#" data-toggle="modal" data-target="#importWarehouse" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.Import Warehouse')); ?><!--</a>-->
     </div>
     <div class="table-responsive">
         <table id="warehouse-table" class="table">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th><?php echo e(trans('Bodega')); ?></th>
-                    <th><?php echo e(trans('Numero de telefono')); ?></th>
-                    <th><?php echo e(trans('Email')); ?></th>
-                    <th><?php echo e(trans('Dirección')); ?></th>
-                    <th><?php echo e(trans('Numero de producto')); ?></th>
-                    <th><?php echo e(trans('Cantidad de stock')); ?></th>
-                    <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Bodega')); ?></th>
+                <th><?php echo e(trans('Numero de telefono')); ?></th>
+                <th><?php echo e(trans('Email')); ?></th>
+                <th><?php echo e(trans('Dirección')); ?></th>
+                <th><?php echo e(trans('Numero de producto')); ?></th>
+                <th><?php echo e(trans('Cantidad de stock')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $lims_warehouse_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php
-                    $number_of_product = App\Product_Warehouse::
-                    join('products', 'product_warehouse.product_id', '=', 'products.id')
-                    ->where([ ['product_warehouse.warehouse_id', $warehouse->id],
-                              ['products.is_active', true]
-                    ])->count();
+            <?php $__currentLoopData = $lims_warehouse_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php
+            $number_of_product = App\Product_Warehouse::
+            join('products', 'product_warehouse.product_id', '=', 'products.id')
+                ->where([ ['product_warehouse.warehouse_id', $warehouse->id],
+                    ['products.is_active', true]
+                ])->count();
 
-                    $stock_qty = App\Product_Warehouse::
-                    join('products', 'product_warehouse.product_id', '=', 'products.id')
-                    ->where([ ['product_warehouse.warehouse_id', $warehouse->id],
-                              ['products.is_active', true]
-                    ])->sum('product_warehouse.qty');
-                ?>
-                <tr data-id="<?php echo e($warehouse->id); ?>">
-                    <td><?php echo e($key); ?></td>
-                    <td><?php echo e($warehouse->name); ?></td>
-                    <td><?php echo e($warehouse->phone); ?></td>
-                    <td><?php echo e($warehouse->email); ?></td>
-                    <td><?php echo e($warehouse->address); ?></td>
-                    <td><?php echo e($number_of_product); ?></td>
-                    <td><?php echo e($stock_qty); ?></td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
+            $stock_qty = App\Product_Warehouse::
+            join('products', 'product_warehouse.product_id', '=', 'products.id')
+                ->where([ ['product_warehouse.warehouse_id', $warehouse->id],
+                    ['products.is_active', true]
+                ])->sum('product_warehouse.qty');
+            ?>
+            <tr data-id="<?php echo e($warehouse->id); ?>">
+                <td><?php echo e($key); ?></td>
+                <td><?php echo e($warehouse->name); ?></td>
+                <td><?php echo e($warehouse->phone); ?></td>
+                <td><?php echo e($warehouse->email); ?></td>
+                <td><?php echo e($warehouse->address); ?></td>
+                <td><?php echo e($number_of_product); ?></td>
+                <td><?php echo e($stock_qty); ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
 
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                                <li>
-                                	<button type="button" data-id="<?php echo e($warehouse->id); ?>" class="open-EditWarehouseDialog btn btn-link" data-toggle="modal" data-target="#editModal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?>
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
+                            <li>
+                                <button type="button" data-id="<?php echo e($warehouse->id); ?>" class="open-EditWarehouseDialog btn btn-link" data-toggle="modal" data-target="#editModal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?>
 
                                 </button>
-                                </li>
-                                <li class="divider"></li>
-                                <?php echo e(Form::open(['route' => ['warehouse.destroy', $warehouse->id], 'method' => 'DELETE'] )); ?>
+                            </li>
+                            <li class="divider"></li>
+                            <?php echo e(Form::open(['route' => ['warehouse.destroy', $warehouse->id], 'method' => 'DELETE'] )); ?>
 
-                                <li>
-                                    <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
-                                </li>
-                                <?php echo e(Form::close()); ?>
+                            <li>
+                                <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
+                            </li>
+                            <?php echo e(Form::close()); ?>
 
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
     </div>
 </section>
 
 <div id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-  <div role="document" class="modal-dialog">
-    <div class="modal-content">
-    	<?php echo Form::open(['route' => 'warehouse.store', 'method' => 'post']); ?>
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <?php echo Form::open(['route' => 'warehouse.store', 'method' => 'post']); ?>
 
-      <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Agregar Bodega')); ?></h5>
-        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-      </div>
-      <div class="modal-body">
-        <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
-          <div class="form-group">
-            <label><?php echo e(trans('nombre')); ?> *</label>
-            <input type="text" placeholder="Escriba el nombre del almacén..." name="name" required="required" class="form-control">
-          </div>
-          <div class="form-group">
-            <label><?php echo e(trans('Numero de telefono')); ?> *</label>
-            <input type="text" name="phone" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label><?php echo e(trans('Email')); ?></label>
-            <input type="email" name="email" placeholder="example@example.com" class="form-control">
-          </div>
-          <div class="form-group">
-            <label><?php echo e(trans('Dirección')); ?> *</label>
-            <textarea required class="form-control" rows="3" name="address"></textarea>
-          </div>
-          <div class="form-group">
-            <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
-          </div>
-      </div>
-      <?php echo e(Form::close()); ?>
+            <div class="modal-header">
+                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Agregar Bodega')); ?></h5>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+            </div>
+            <div class="modal-body">
+                <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <div class="form-group">
+                    <label><?php echo e(trans('nombre')); ?> *</label>
+                    <input type="text" placeholder="Escriba el nombre del almacén..." name="name" required="required" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Numero de telefono')); ?> *</label>
+                    <input type="text" name="phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Email')); ?></label>
+                    <input type="email" name="email" placeholder="example@example.com" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Dirección')); ?> *</label>
+                    <textarea required class="form-control" rows="3" name="address"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
+                </div>
+            </div>
+            <?php echo e(Form::close()); ?>
 
+        </div>
     </div>
-  </div>
 </div>
 
 <div id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-  <div role="document" class="modal-dialog">
-    <div class="modal-content">
-    	<?php echo Form::open(['route' => ['warehouse.update',1], 'method' => 'put']); ?>
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <?php echo Form::open(['route' => ['warehouse.update',1], 'method' => 'put']); ?>
 
-      <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('Actualizar Bodega')); ?></h5>
-        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-      </div>
-      <div class="modal-body">
-        <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
-          <div class="form-group">
-          	<input type="hidden" name="warehouse_id">
-            <label><?php echo e(trans('Nombre')); ?> *</label>
-            <input type="text" placeholder="Type WareHouse Name..." name="name" required="required" class="form-control">
-          </div>
-          <div class="form-group">
-            <label><?php echo e(trans('Numero de telefono')); ?> *</label>
-            <input type="text" name="phone" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label><?php echo e(trans('Email')); ?></label>
-            <input type="email" name="email" placeholder="example@example.com" class="form-control">
-          </div>
-          <div class="form-group">
-            <label><?php echo e(trans('Dirección')); ?> *</label>
-            <textarea class="form-control" rows="3" name="address" required></textarea>
-          </div>
-          <div class="form-group">
-            <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
-          </div>
-      </div>
-      <?php echo e(Form::close()); ?>
+            <div class="modal-header">
+                <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('Actualizar Bodega')); ?></h5>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+            </div>
+            <div class="modal-body">
+                <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <div class="form-group">
+                    <input type="hidden" name="warehouse_id">
+                    <label><?php echo e(trans('Nombre')); ?> *</label>
+                    <input type="text" placeholder="Type WareHouse Name..." name="name" required="required" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Numero de telefono')); ?> *</label>
+                    <input type="text" name="phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Email')); ?></label>
+                    <input type="email" name="email" placeholder="example@example.com" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Dirección')); ?> *</label>
+                    <textarea class="form-control" rows="3" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
+                </div>
+            </div>
+            <?php echo e(Form::close()); ?>
 
+        </div>
     </div>
-  </div>
 </div>
 
 <div id="importWarehouse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-  <div role="document" class="modal-dialog">
-    <div class="modal-content">
-    	<?php echo Form::open(['route' => 'warehouse.import', 'method' => 'post', 'files' => true]); ?>
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <?php echo Form::open(['route' => 'warehouse.import', 'method' => 'post', 'files' => true]); ?>
 
-      <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Import Warehouse')); ?></h5>
-        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-      </div>
-      <div class="modal-body">
-  		<p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
-         <p><?php echo e(trans('file.The correct column order is')); ?> (name*, phone, email, address*) <?php echo e(trans('file.and you must follow this')); ?>.</p>
-        <div class="row">
-              <div class="col-md-6">
-                  <div class="form-group">
-                      <label><?php echo e(trans('file.Upload CSV File')); ?> *</label>
-                      <?php echo e(Form::file('file', array('class' => 'form-control','required'))); ?>
+            <div class="modal-header">
+                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Import Warehouse')); ?></h5>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+            </div>
+            <div class="modal-body">
+                <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
+                <p><?php echo e(trans('file.The correct column order is')); ?> (name*, phone, email, address*) <?php echo e(trans('file.and you must follow this')); ?>.</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><?php echo e(trans('file.Upload CSV File')); ?> *</label>
+                            <?php echo e(Form::file('file', array('class' => 'form-control','required'))); ?>
 
-                  </div>
-              </div>
-              <div class="col-md-6">
-                  <div class="form-group">
-                      <label> <?php echo e(trans('file.Sample File')); ?></label>
-                      <a href="public/sample_file/sample_warehouse.csv" class="btn btn-info btn-block btn-md"><i class="dripicons-download"></i>  <?php echo e(trans('file.Download')); ?></a>
-                  </div>
-              </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> <?php echo e(trans('file.Sample File')); ?></label>
+                            <a href="public/sample_file/sample_warehouse.csv" class="btn btn-info btn-block btn-md"><i class="dripicons-download"></i>  <?php echo e(trans('file.Download')); ?></a>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="<?php echo e(trans('file.submit')); ?>" class="btn btn-primary">
+            </div>
+            <?php echo e(Form::close()); ?>
+
         </div>
-        <input type="submit" value="<?php echo e(trans('file.submit')); ?>" class="btn btn-primary">
-      </div>
-      <?php echo e(Form::close()); ?>
-
     </div>
-  </div>
 </div>
 
 <script type="text/javascript">
@@ -209,40 +208,40 @@
         }
     });
 
-  function confirmDelete() {
-      if (confirm("Are you sure want to delete?")) {
-          return true;
-      }
-      return false;
-  }
+    function confirmDelete() {
+        if (confirm("Are you sure want to delete?")) {
+            return true;
+        }
+        return false;
+    }
 
-	$(document).ready(function() {
+    $(document).ready(function() {
 
-	    $('.open-EditWarehouseDialog').on('click', function() {
-	        var url = "warehouse/"
-	        var id = $(this).data('id').toString();
-	        url = url.concat(id).concat("/edit");
+        $('.open-EditWarehouseDialog').on('click', function() {
+            var url = "warehouse/"
+            var id = $(this).data('id').toString();
+            url = url.concat(id).concat("/edit");
 
-	        $.get(url, function(data) {
-	            $("#editModal input[name='name']").val(data['name']);
-	            $("#editModal input[name='phone']").val(data['phone']);
-	            $("#editModal input[name='email']").val(data['email']);
-	            $("#editModal textarea[name='address']").val(data['address']);
-	            $("#editModal input[name='warehouse_id']").val(data['id']);
+            $.get(url, function(data) {
+                $("#editModal input[name='name']").val(data['name']);
+                $("#editModal input[name='phone']").val(data['phone']);
+                $("#editModal input[name='email']").val(data['email']);
+                $("#editModal textarea[name='address']").val(data['address']);
+                $("#editModal input[name='warehouse_id']").val(data['id']);
 
-	        });
-	    });
-  });
+            });
+        });
+    });
 
-  $('#warehouse-table').DataTable( {
+    $('#warehouse-table').DataTable( {
         "order": [],
         'language': {
             'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
-             "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
             "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
-                    'previous': '<i class="dripicons-chevron-left"></i>',
-                    'next': '<i class="dripicons-chevron-right"></i>'
+                'previous': '<i class="dripicons-chevron-left"></i>',
+                'next': '<i class="dripicons-chevron-right"></i>'
             }
         },
         'columnDefs': [
@@ -256,11 +255,11 @@
                         data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                     }
 
-                   return data;
+                    return data;
                 },
                 'checkboxes': {
-                   'selectRow': true,
-                   'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                 },
                 'targets': [0]
             }
@@ -330,40 +329,41 @@
         ],
     } );
 
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-$( "#select_all" ).on( "change", function() {
-    if ($(this).is(':checked')) {
-        $("tbody input[type='checkbox']").prop('checked', true);
-    }
-    else {
-        $("tbody input[type='checkbox']").prop('checked', false);
-    }
-});
-
-$("#export").on("click", function(e){
-    e.preventDefault();
-    var warehouse = [];
-    $(':checkbox:checked').each(function(i){
-      warehouse[i] = $(this).val();
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
     });
-    $.ajax({
-       type:'POST',
-       url:'/exportwarehouse',
-       data:{
 
-            warehouseArray: warehouse
-        },
-       success:function(data){
-        alert('Exported to CSV file successfully! Click Ok to download file');
-        window.location.href = data;
-       }
+    $( "#select_all" ).on( "change", function() {
+        if ($(this).is(':checked')) {
+            $("tbody input[type='checkbox']").prop('checked', true);
+        }
+        else {
+            $("tbody input[type='checkbox']").prop('checked', false);
+        }
     });
-});
+
+    $("#export").on("click", function(e){
+        e.preventDefault();
+        var warehouse = [];
+        $(':checkbox:checked').each(function(i){
+            warehouse[i] = $(this).val();
+        });
+        $.ajax({
+            type:'POST',
+            url:'/exportwarehouse',
+            data:{
+
+                warehouseArray: warehouse
+            },
+            success:function(data){
+                alert('Exported to CSV file successfully! Click Ok to download file');
+                window.location.href = data;
+            }
+        });
+    });
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/warehouse/create.blade.php ENDPATH**/ ?>

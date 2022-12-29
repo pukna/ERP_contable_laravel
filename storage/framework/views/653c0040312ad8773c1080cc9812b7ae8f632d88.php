@@ -1,5 +1,4 @@
-<!--transferencia entre bodega -->
-<?php $__env->startSection('content'); ?>
+ <?php $__env->startSection('content'); ?>
 <?php if(session()->has('message')): ?>
   <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div>
 <?php endif; ?>
@@ -10,92 +9,92 @@
 <section>
     <div class="container-fluid">
         <?php if(in_array("transfers-add", $all_permission)): ?>
-            <a href="<?php echo e(route('transfers.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Agregar')); ?> <?php echo e(trans('Transferencia')); ?></a>
-<!--            <a href="--><?php //echo e(url('transfers/transfer_by_csv')); ?><!--" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.import')); ?><!-- --><?php //echo e(trans('file.Transfer')); ?><!--</a>-->
+        <a href="<?php echo e(route('transfers.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Agregar')); ?> <?php echo e(trans('Transferencia')); ?></a>
+        <!--            <a href="--><?php //echo e(url('transfers/transfer_by_csv')); ?><!--" class="btn btn-primary"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.import')); ?><!-- --><?php //echo e(trans('file.Transfer')); ?><!--</a>-->
         <?php endif; ?>
     </div>
     <div class="table-responsive">
         <table id="transfer-table" class="table transfer-list">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th><?php echo e(trans('Fecha')); ?></th>
-                    <th><?php echo e(trans('Referencia')); ?> No</th>
-                    <th><?php echo e(trans('De')); ?>(<?php echo e(trans('Almacén')); ?>)</th>
-                    <th><?php echo e(trans('Al')); ?>(<?php echo e(trans('Almacén')); ?>)</th>
-                    <th><?php echo e(trans('Costo')); ?> <?php echo e(trans('Producto')); ?></th>
-                    <th><?php echo e(trans('Impuesto')); ?> <?php echo e(trans('Producto')); ?></th>
-                    <th><?php echo e(trans('Gran total')); ?></th>
-                    <th><?php echo e(trans("Estado")); ?></th>
-                    <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Fecha')); ?></th>
+                <th><?php echo e(trans('Referencia')); ?> No</th>
+                <th><?php echo e(trans('De')); ?>(<?php echo e(trans('Almacén')); ?>)</th>
+                <th><?php echo e(trans('Al')); ?>(<?php echo e(trans('Almacén')); ?>)</th>
+                <th><?php echo e(trans('Costo')); ?> <?php echo e(trans('Producto')); ?></th>
+                <th><?php echo e(trans('Impuesto')); ?> <?php echo e(trans('Producto')); ?></th>
+                <th><?php echo e(trans('Gran total')); ?></th>
+                <th><?php echo e(trans("Estado")); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $lims_transfer_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$transfer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php
-                    if($transfer->status == 1)
-                        $status = trans('Completo');
-                    elseif($transfer->status == 2)
-                        $status = trans('Pendiente');
-                    elseif($transfer->status == 3)
-                        $status = trans('Enviado');
-                ?>
-                <tr class="transfer-link" data-transfer='["<?php echo e(date($general_setting->date_format, strtotime($transfer->created_at->toDateString()))); ?>", "<?php echo e($transfer->reference_no); ?>", "<?php echo e($status); ?>", "<?php echo e($transfer->id); ?>", "<?php echo e($transfer->fromWarehouse->name); ?>", "<?php echo e($transfer->fromWarehouse->phone); ?>", "<?php echo e($transfer->fromWarehouse->address); ?>", "<?php echo e($transfer->toWarehouse->name); ?>", "<?php echo e($transfer->toWarehouse->phone); ?>", "<?php echo e($transfer->toWarehouse->address); ?>", "<?php echo e($transfer->total_tax); ?>", "<?php echo e($transfer->total_cost); ?>", "<?php echo e($transfer->shipping_cost); ?>", "<?php echo e($transfer->grand_total); ?>", "<?php echo e($transfer->note); ?>", "<?php echo e($transfer->user->name); ?>", "<?php echo e($transfer->user->email); ?>"]'>
-                    <td><?php echo e($key); ?></td>
-                    <td><?php echo e(date($general_setting->date_format, strtotime($transfer->created_at->toDateString())) . ' '. $transfer->created_at->toTimeString()); ?></td>
-                    <td><?php echo e($transfer->reference_no); ?></td>
-                    <td><?php echo e($transfer->fromWarehouse->name); ?></td>
-                    <td><?php echo e($transfer->toWarehouse->name); ?></td>
-                    <td class="total-cost"><?php echo e($transfer->total_cost); ?></td>
-                    <td class="total-tax"><?php echo e($transfer->total_tax); ?></td>
-                    <td class="grand-total"><?php echo e($transfer->grand_total); ?></td>
-                    <?php if($transfer->status == 1): ?>
-                        <td><div class="badge badge-success"><?php echo e($status); ?></div></td>
-                    <?php elseif($transfer->status == 2): ?>
-                        <td><div class="badge badge-danger"><?php echo e($status); ?></div></td>
-                    <?php else: ?>
-                        <td><div class="badge badge-warning"><?php echo e($status); ?></div></td>
-                    <?php endif; ?>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?><span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                                <li>
-                                    <button type="button" class="btn btn-link view"><i class="fa fa-eye"></i> <?php echo e(trans('Ver')); ?></button>
-                                </li>
-                                <?php if(in_array("transfers-edit", $all_permission)): ?>
-                                <li>
-                                    <a href="<?php echo e(route('transfers.edit', $transfer->id)); ?>" class="btn btn-link"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></a>
-                                </li>
-                                <?php endif; ?>
-                                <li class="divider"></li>
-                                <?php if(in_array("transfers-delete", $all_permission)): ?>
-                                <?php echo e(Form::open(['route' => ['transfers.destroy', $transfer->id], 'method' => 'DELETE'] )); ?>
+            <?php $__currentLoopData = $lims_transfer_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$transfer): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php
+            if($transfer->status == 1)
+                $status = trans('Completo');
+            elseif($transfer->status == 2)
+                $status = trans('Pendiente');
+            elseif($transfer->status == 3)
+                $status = trans('Enviado');
+            ?>
+            <tr class="transfer-link" data-transfer='["<?php echo e(date($general_setting->date_format, strtotime($transfer->created_at->toDateString()))); ?>", "<?php echo e($transfer->reference_no); ?>", "<?php echo e($status); ?>", "<?php echo e($transfer->id); ?>", "<?php echo e($transfer->fromWarehouse->name); ?>", "<?php echo e($transfer->fromWarehouse->phone); ?>", "<?php echo e($transfer->fromWarehouse->address); ?>", "<?php echo e($transfer->toWarehouse->name); ?>", "<?php echo e($transfer->toWarehouse->phone); ?>", "<?php echo e($transfer->toWarehouse->address); ?>", "<?php echo e($transfer->total_tax); ?>", "<?php echo e($transfer->total_cost); ?>", "<?php echo e($transfer->shipping_cost); ?>", "<?php echo e($transfer->grand_total); ?>", "<?php echo e($transfer->note); ?>", "<?php echo e($transfer->user->name); ?>", "<?php echo e($transfer->user->email); ?>"]'>
+                <td><?php echo e($key); ?></td>
+                <td><?php echo e(date($general_setting->date_format, strtotime($transfer->created_at->toDateString())) . ' '. $transfer->created_at->toTimeString()); ?></td>
+                <td><?php echo e($transfer->reference_no); ?></td>
+                <td><?php echo e($transfer->fromWarehouse->name); ?></td>
+                <td><?php echo e($transfer->toWarehouse->name); ?></td>
+                <td class="total-cost"><?php echo e($transfer->total_cost); ?></td>
+                <td class="total-tax"><?php echo e($transfer->total_tax); ?></td>
+                <td class="grand-total"><?php echo e($transfer->grand_total); ?></td>
+                <?php if($transfer->status == 1): ?>
+                <td><div class="badge badge-success"><?php echo e($status); ?></div></td>
+                <?php elseif($transfer->status == 2): ?>
+                <td><div class="badge badge-danger"><?php echo e($status); ?></div></td>
+                <?php else: ?>
+                <td><div class="badge badge-warning"><?php echo e($status); ?></div></td>
+                <?php endif; ?>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?><span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
+                            <li>
+                                <button type="button" class="btn btn-link view"><i class="fa fa-eye"></i> <?php echo e(trans('Ver')); ?></button>
+                            </li>
+                            <?php if(in_array("transfers-edit", $all_permission)): ?>
+                            <li>
+                                <a href="<?php echo e(route('transfers.edit', $transfer->id)); ?>" class="btn btn-link"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></a>
+                            </li>
+                            <?php endif; ?>
+                            <li class="divider"></li>
+                            <?php if(in_array("transfers-delete", $all_permission)): ?>
+                            <?php echo e(Form::open(['route' => ['transfers.destroy', $transfer->id], 'method' => 'DELETE'] )); ?>
 
-                                <li>
-                                    <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
-                                </li>
-                                <?php echo e(Form::close()); ?>
+                            <li>
+                                <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
+                            </li>
+                            <?php echo e(Form::close()); ?>
 
-                                <?php endif; ?>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
             <tfoot class="tfoot active">
-                <th></th>
-                <th><?php echo e(trans('file.Total')); ?></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+            <th></th>
+            <th><?php echo e(trans('file.Total')); ?></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             </tfoot>
         </table>
     </div>
@@ -103,40 +102,40 @@
 
 <div id="transfer-details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
     <div role="document" class="modal-dialog">
-      <div class="modal-content">
-        <div class="container mt-3 pb-2 border-bottom">
-            <div class="row">
-                <div class="col-md-3">
-                    <button id="print-btn" type="button" class="btn btn-default btn-sm d-print-none"><i class="dripicons-print"></i> <?php echo e(trans('Imprimir')); ?></button>
-                </div>
-                <div class="col-md-6">
-                    <h3 id="exampleModalLabel" class="modal-title text-center container-fluid"><?php echo e($general_setting->site_title); ?></h3>
-                </div>
-                <div class="col-md-3">
-                    <button type="button" id="close-btn" data-dismiss="modal" aria-label="Close" class="close d-print-none"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-                </div>
-                <div class="col-md-12 text-center">
-                    <i style="font-size: 15px;"><?php echo e(trans('Detalles de la transferencia')); ?></i>
+        <div class="modal-content">
+            <div class="container mt-3 pb-2 border-bottom">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button id="print-btn" type="button" class="btn btn-default btn-sm d-print-none"><i class="dripicons-print"></i> <?php echo e(trans('Imprimir')); ?></button>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 id="exampleModalLabel" class="modal-title text-center container-fluid"><?php echo e($general_setting->site_title); ?></h3>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" id="close-btn" data-dismiss="modal" aria-label="Close" class="close d-print-none"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <i style="font-size: 15px;"><?php echo e(trans('Detalles de la transferencia')); ?></i>
+                    </div>
                 </div>
             </div>
-        </div>
             <div id="transfer-content" class="modal-body">
             </div>
             <br>
             <table class="table table-bordered product-transfer-list">
                 <thead>
-                    <th>#</th>
-                    <th><?php echo e(trans('Producto')); ?></th>
-                    <th>Qty</th>
-                    <th><?php echo e(trans('Costo Unitario')); ?></th>
-                    <th><?php echo e(trans('impuesto')); ?></th>
-                    <th><?php echo e(trans('file.Subtotal')); ?></th>
+                <th>#</th>
+                <th><?php echo e(trans('Producto')); ?></th>
+                <th>Qty</th>
+                <th><?php echo e(trans('Costo Unitario')); ?></th>
+                <th><?php echo e(trans('impuesto')); ?></th>
+                <th><?php echo e(trans('file.Subtotal')); ?></th>
                 </thead>
                 <tbody>
                 </tbody>
             </table>
             <div id="transfer-footer" class="modal-body"></div>
-      </div>
+        </div>
     </div>
 </div>
 
@@ -175,23 +174,23 @@
     });
 
     $("#print-btn").on("click", function(){
-          var divToPrint=document.getElementById('transfer-details');
-          var newWin=window.open('','Print-Window');
-          newWin.document.open();
-          newWin.document.write('<link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css"><style type="text/css">@media  print {.modal-dialog { max-width: 1000px;} }</style><body onload="window.print()">'+divToPrint.innerHTML+'</body>');
-          newWin.document.close();
-          setTimeout(function(){newWin.close();},10);
+        var divToPrint=document.getElementById('transfer-details');
+        var newWin=window.open('','Print-Window');
+        newWin.document.open();
+        newWin.document.write('<link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css"><style type="text/css">@media    print {.modal-dialog { max-width: 1000px;} }</style><body onload="window.print()">'+divToPrint.innerHTML+'</body>');
+        newWin.document.close();
+        setTimeout(function(){newWin.close();},10);
     });
 
     $('#transfer-table').DataTable( {
         "order": [],
         'language': {
             'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
-             "info":      '<small><?php echo e(trans("Pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "info":      '<small><?php echo e(trans("Pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
             "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
-                    'previous': '<i class="dripicons-chevron-left"></i>',
-                    'next': '<i class="dripicons-chevron-right"></i>'
+                'previous': '<i class="dripicons-chevron-left"></i>',
+                'next': '<i class="dripicons-chevron-right"></i>'
             }
         },
         'columnDefs': [
@@ -205,11 +204,11 @@
                         data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                     }
 
-                   return data;
+                    return data;
                 },
                 'checkboxes': {
-                   'selectRow': true,
-                   'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                 },
                 'targets': [0]
             }
@@ -366,7 +365,7 @@
             newRow.append(cols);
             newBody.append(newRow);
 
-             $("table.product-transfer-list").append(newBody);
+            $("table.product-transfer-list").append(newBody);
         });
 
         var htmlfooter = '<p><strong><?php echo e(trans("Nota")); ?>:</strong> '+transfer[14]+'</p><strong><?php echo e(trans("Creado por")); ?>:</strong><br>'+transfer[15]+'<br>'+transfer[16];
@@ -380,4 +379,5 @@
         $('.buttons-delete').addClass('d-none');
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/transfer/index.blade.php ENDPATH**/ ?>

@@ -1,5 +1,4 @@
-<!--Stock -->
-<?php $__env->startSection('content'); ?>
+ <?php $__env->startSection('content'); ?>
 <?php if(session()->has('message')): ?>
   <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('message')); ?></div>
 <?php endif; ?>
@@ -14,40 +13,40 @@
     <div class="table-responsive">
         <table id="stock-count-table" class="table stock-count-list">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th><?php echo e(trans('Fecha')); ?></th>
-                    <th><?php echo e(trans('Referencia')); ?></th>
-                    <th><?php echo e(trans('Bodega')); ?></th>
-                    <th><?php echo e(trans('Categoría')); ?></th>
-                    <th><?php echo e(trans('Marca')); ?></th>
-                    <th><?php echo e(trans('Tipo')); ?></th>
-                    <th class="not-exported"><?php echo e(trans('Archivo Inicial')); ?></th>
-                    <th class="not-exported"><?php echo e(trans('archivo final')); ?></th>
-                    <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Fecha')); ?></th>
+                <th><?php echo e(trans('Referencia')); ?></th>
+                <th><?php echo e(trans('Bodega')); ?></th>
+                <th><?php echo e(trans('Categoría')); ?></th>
+                <th><?php echo e(trans('Marca')); ?></th>
+                <th><?php echo e(trans('Tipo')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Archivo Inicial')); ?></th>
+                <th class="not-exported"><?php echo e(trans('archivo final')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $lims_stock_count_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $stock_count): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <?php
-                    $warehouse = DB::table('warehouses')->find($stock_count->warehouse_id);
-                    $category_name = [];
-                    $brand_name = [];
-                    $initial_file = 'public/stock_count/' . $stock_count->initial_file;
-                    $final_file = 'public/stock_count/' . $stock_count->final_file;
-                ?>
-                <tr>
-                    <td><?php echo e($key); ?></td>
-                    <td><?php echo e(date($general_setting->date_format, strtotime($stock_count->created_at->toDateString())) . ' '. $stock_count->created_at->toTimeString()); ?></td>
-                    <td><?php echo e($stock_count->reference_no); ?></td>
-                    <td><?php echo e($warehouse->name); ?></td>
-                    <td>
-                        <?php if($stock_count->category_id): ?>
+            <?php $__currentLoopData = $lims_stock_count_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $stock_count): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php
+            $warehouse = DB::table('warehouses')->find($stock_count->warehouse_id);
+            $category_name = [];
+            $brand_name = [];
+            $initial_file = 'public/stock_count/' . $stock_count->initial_file;
+            $final_file = 'public/stock_count/' . $stock_count->final_file;
+            ?>
+            <tr>
+                <td><?php echo e($key); ?></td>
+                <td><?php echo e(date($general_setting->date_format, strtotime($stock_count->created_at->toDateString())) . ' '. $stock_count->created_at->toTimeString()); ?></td>
+                <td><?php echo e($stock_count->reference_no); ?></td>
+                <td><?php echo e($warehouse->name); ?></td>
+                <td>
+                    <?php if($stock_count->category_id): ?>
                             <?php $__currentLoopData = explode(",",$stock_count->category_id); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat_key=>$category_id): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php
-                                $category = \DB::table('categories')->find($category_id);
-                                $category_name[] = $category->name;
-                            ?>
+                        $category = \DB::table('categories')->find($category_id);
+                        $category_name[] = $category->name;
+                        ?>
                                 <?php if($cat_key): ?>
                                     <?php echo e(', ' . $category->name); ?>
 
@@ -57,14 +56,14 @@
                                 <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <?php endif; ?>
-                    </td>
-                    <td>
-                        <?php if($stock_count->brand_id): ?>
+                </td>
+                <td>
+                    <?php if($stock_count->brand_id): ?>
                             <?php $__currentLoopData = explode(",",$stock_count->brand_id); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand_key=>$brand_id): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <?php
-                                $brand = \DB::table('brands')->find($brand_id);
-                                $brand_name[] = $brand->title;
-                            ?>
+                        $brand = \DB::table('brands')->find($brand_id);
+                        $brand_name[] = $brand->title;
+                        ?>
                                 <?php if($brand_key): ?>
                                     <?php echo e(', '.$brand->title); ?>
 
@@ -74,47 +73,47 @@
                                 <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         <?php endif; ?>
-                    </td>
-                    <?php if($stock_count->type == 'full'): ?>
-                        <?php $type = trans('Completo') ?>
-                        <td><div class="badge badge-primary"><?php echo e(trans('Completo')); ?></div></td>
-                    <?php else: ?>
-                        <?php $type = trans('Parcial') ?>
-                        <td><div class="badge badge-info"><?php echo e(trans('Parcial')); ?></div></td>
+                </td>
+                <?php if($stock_count->type == 'full'): ?>
+                <?php $type = trans('Completo') ?>
+                <td><div class="badge badge-primary"><?php echo e(trans('Completo')); ?></div></td>
+                <?php else: ?>
+                <?php $type = trans('Parcial') ?>
+                <td><div class="badge badge-info"><?php echo e(trans('Parcial')); ?></div></td>
+                <?php endif; ?>
+                <td class="text-center">
+                    <a download href="<?php echo e('public/stock_count/'.$stock_count->initial_file); ?>" title="<?php echo e(trans('Descargar')); ?>"><i class="dripicons-copy"></i></a>
+                </td>
+                <td class="text-center">
+                    <?php if($stock_count->final_file): ?>
+                    <a download href="<?php echo e('public/stock_count/'.$stock_count->final_file); ?>" title="<?php echo e(trans('Descargar')); ?>"><i class="dripicons-copy"></i></a>
                     <?php endif; ?>
-                    <td class="text-center">
-                        <a download href="<?php echo e('public/stock_count/'.$stock_count->initial_file); ?>" title="<?php echo e(trans('Descargar')); ?>"><i class="dripicons-copy"></i></a>
-                    </td>
-                    <td class="text-center">
-                        <?php if($stock_count->final_file): ?>
-                        <a download href="<?php echo e('public/stock_count/'.$stock_count->final_file); ?>" title="<?php echo e(trans('Descargar')); ?>"><i class="dripicons-copy"></i></a>
-                        <?php endif; ?>
-                    </td>
-                    <td>
-                        <?php if($stock_count->final_file): ?>
-                            <div class="badge badge-success final-report" data-stock_count='["<?php echo e(date($general_setting->date_format, strtotime($stock_count->created_at->toDateString()))); ?>", "<?php echo e($stock_count->reference_no); ?>", "<?php echo e($warehouse->name); ?>", "<?php echo e($type); ?>", "<?php echo e(implode(", ", $category_name)); ?>", "<?php echo e(implode(", ", $brand_name)); ?>", "<?php echo e($initial_file); ?>", "<?php echo e($final_file); ?>", "<?php echo e($stock_count->id); ?>"]'><?php echo e(trans('Reporte Final')); ?>
+                </td>
+                <td>
+                    <?php if($stock_count->final_file): ?>
+                    <div class="badge badge-success final-report" data-stock_count='["<?php echo e(date($general_setting->date_format, strtotime($stock_count->created_at->toDateString()))); ?>", "<?php echo e($stock_count->reference_no); ?>", "<?php echo e($warehouse->name); ?>", "<?php echo e($type); ?>", "<?php echo e(implode(", ", $category_name)); ?>", "<?php echo e(implode(", ", $brand_name)); ?>", "<?php echo e($initial_file); ?>", "<?php echo e($final_file); ?>", "<?php echo e($stock_count->id); ?>"]'><?php echo e(trans('Reporte Final')); ?>
 
-                            </div>
-                        <?php else: ?>
-                            <div class="badge badge-primary finalize" data-id="<?php echo e($stock_count->id); ?>"><?php echo e(trans('Finalizar')); ?>
+                    </div>
+                    <?php else: ?>
+                    <div class="badge badge-primary finalize" data-id="<?php echo e($stock_count->id); ?>"><?php echo e(trans('Finalizar')); ?>
 
-                            </div>
-                        <?php endif; ?>
-                    </td>
-                </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>
+                    <?php endif; ?>
+                </td>
+            </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
             <tfoot class="tfoot active">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
             </tfoot>
         </table>
     </div>
@@ -122,86 +121,86 @@
 
 <div id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
     <div role="document" class="modal-dialog">
-      <div class="modal-content">
-        <?php echo Form::open(['route' => 'stock-count.store', 'method' => 'post', 'files' => true]); ?>
+        <div class="modal-content">
+            <?php echo Form::open(['route' => 'stock-count.store', 'method' => 'post', 'files' => true]); ?>
 
-        <div class="modal-header">
-          <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Ver Stock')); ?></h5>
-          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-        </div>
-        <div class="modal-body">
-          <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
-            <div class="row">
-                <div class="col-md-6 form-group">
-                    <label><?php echo e(trans('Bodega')); ?> *</label>
-                    <select required name="warehouse_id" id="warehouse_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccionar almacén...">
-                        <?php $__currentLoopData = $lims_warehouse_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($warehouse->id); ?>"><?php echo e($warehouse->name); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
+            <div class="modal-header">
+                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Ver Stock')); ?></h5>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+            </div>
+            <div class="modal-body">
+                <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label><?php echo e(trans('Bodega')); ?> *</label>
+                        <select required name="warehouse_id" id="warehouse_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Seleccionar almacén...">
+                            <?php $__currentLoopData = $lims_warehouse_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $warehouse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($warehouse->id); ?>"><?php echo e($warehouse->name); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label><?php echo e(trans('Tipo')); ?> *</label>
+                        <select class="form-control" name="type">
+                            <option value="full"><?php echo e(trans('Todo')); ?></option>
+                            <option value="partial"><?php echo e(trans('Parcial')); ?></option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group" id="category">
+                        <label><?php echo e(trans('Categoria')); ?></label>
+                        <select name="category_id[]" id="category_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Category..." multiple>
+                            <?php $__currentLoopData = $lims_category_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
+                    <div class="col-md-6 form-group" id="brand">
+                        <label><?php echo e(trans('Marca')); ?></label>
+                        <select name="brand_id[]" id="brand_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Brand..." multiple>
+                            <?php $__currentLoopData = $lims_brand_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($brand->id); ?>"><?php echo e($brand->title); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-md-6 form-group">
-                    <label><?php echo e(trans('Tipo')); ?> *</label>
-                    <select class="form-control" name="type">
-                        <option value="full"><?php echo e(trans('Todo')); ?></option>
-                        <option value="partial"><?php echo e(trans('Parcial')); ?></option>
-                    </select>
-                </div>
-                <div class="col-md-6 form-group" id="category">
-                    <label><?php echo e(trans('Categoria')); ?></label>
-                    <select name="category_id[]" id="category_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Category..." multiple>
-                        <?php $__currentLoopData = $lims_category_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($category->id); ?>"><?php echo e($category->name); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
-                </div>
-                <div class="col-md-6 form-group" id="brand">
-                    <label><?php echo e(trans('Marca')); ?></label>
-                    <select name="brand_id[]" id="brand_id" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Brand..." multiple>
-                        <?php $__currentLoopData = $lims_brand_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($brand->id); ?>"><?php echo e($brand->title); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
+                <div class="form-group">
+                    <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
                 </div>
             </div>
-            <div class="form-group">
-              <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
-            </div>
-        </div>
-        <?php echo e(Form::close()); ?>
+            <?php echo e(Form::close()); ?>
 
-      </div>
+        </div>
     </div>
 </div>
 
 <div id="finalizeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-  <div role="document" class="modal-dialog">
-    <div class="modal-content">
-        <?php echo e(Form::open(['route' => 'stock-count.finalize', 'method' => 'POST', 'files' => true] )); ?>
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <?php echo e(Form::open(['route' => 'stock-count.finalize', 'method' => 'POST', 'files' => true] )); ?>
 
-      <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('Finalizar recuento de existencias')); ?></h5>
-        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-      </div>
-        <div class="modal-body">
-            <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.<strong><?php echo e(trans('Solo necesita actualizar la columna Contada en el archivo inicial')); ?></strong> </small></p>
-            <div class="form-group">
-                <label><?php echo e(trans('Subir archivo')); ?> *</label>
-                <input required type="file" name="final_file" class="form-control" />
+            <div class="modal-header">
+                <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('Finalizar recuento de existencias')); ?></h5>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
             </div>
-            <input type="hidden" name="stock_count_id">
-            <div class="form-group">
-                <label><?php echo e(trans('Nota')); ?></label>
-                <textarea rows="3" name="note" class="form-control"></textarea>
+            <div class="modal-body">
+                <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.<strong><?php echo e(trans('Solo necesita actualizar la columna Contada en el archivo inicial')); ?></strong> </small></p>
+                <div class="form-group">
+                    <label><?php echo e(trans('Subir archivo')); ?> *</label>
+                    <input required type="file" name="final_file" class="form-control" />
+                </div>
+                <input type="hidden" name="stock_count_id">
+                <div class="form-group">
+                    <label><?php echo e(trans('Nota')); ?></label>
+                    <textarea rows="3" name="note" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
+                </div>
             </div>
-            <div class="form-group">
-                <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
-              </div>
+            <?php echo e(Form::close()); ?>
+
         </div>
-      <?php echo e(Form::close()); ?>
-
     </div>
-  </div>
 </div>
 
 <div id="stock-count-details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
@@ -228,12 +227,12 @@
                 <br>
                 <table class="table table-bordered stockdif-list">
                     <thead>
-                        <th>#</th>
-                        <th><?php echo e(trans('Producto')); ?></th>
-                        <th><?php echo e(trans('Esperado')); ?></th>
-                        <th><?php echo e(trans('Contado')); ?></th>
-                        <th><?php echo e(trans('Diferencia')); ?></th>
-                        <th><?php echo e(trans('Costo')); ?></th>
+                    <th>#</th>
+                    <th><?php echo e(trans('Producto')); ?></th>
+                    <th><?php echo e(trans('Esperado')); ?></th>
+                    <th><?php echo e(trans('Contado')); ?></th>
+                    <th><?php echo e(trans('Diferencia')); ?></th>
+                    <th><?php echo e(trans('Costo')); ?></th>
                     </thead>
                     <tbody>
                     </tbody>
@@ -314,8 +313,6 @@
             cols += '<td>' + sale[19] + '</td>';
             newRow.append(cols);
             newBody.append(newRow);
-
-
             newRow.append(cols);
             newBody.append(newRow);*/
 
@@ -327,23 +324,23 @@
     });
 
     $("#print-btn").on("click", function(){
-          var divToPrint=document.getElementById('stock-count-details');
-          var newWin=window.open('','Print-Window');
-          newWin.document.open();
-          newWin.document.write('<link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css"><style type="text/css">@media  print {.modal-dialog { max-width: 1000px;} }</style><body onload="window.print()">'+divToPrint.innerHTML+'</body>');
-          newWin.document.close();
-          setTimeout(function(){newWin.close();},10);
+        var divToPrint=document.getElementById('stock-count-details');
+        var newWin=window.open('','Print-Window');
+        newWin.document.open();
+        newWin.document.write('<link rel="stylesheet" href="<?php echo asset('public/vendor/bootstrap/css/bootstrap.min.css') ?>" type="text/css"><style type="text/css">@media    print {.modal-dialog { max-width: 1000px;} }</style><body onload="window.print()">'+divToPrint.innerHTML+'</body>');
+        newWin.document.close();
+        setTimeout(function(){newWin.close();},10);
     });
 
     $('#stock-count-table').DataTable( {
         "order": [],
         'language': {
             'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
-             "info":      '<small><?php echo e(trans("Pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "info":      '<small><?php echo e(trans("Pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
             "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
-                    'previous': '<i class="dripicons-chevron-left"></i>',
-                    'next': '<i class="dripicons-chevron-right"></i>'
+                'previous': '<i class="dripicons-chevron-left"></i>',
+                'next': '<i class="dripicons-chevron-right"></i>'
             }
         },
         'columnDefs': [
@@ -357,11 +354,11 @@
                         data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                     }
 
-                   return data;
+                    return data;
                 },
                 'checkboxes': {
-                   'selectRow': true,
-                   'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                 },
                 'targets': [0]
             }
@@ -404,4 +401,5 @@
 
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/stock_count/index.blade.php ENDPATH**/ ?>
