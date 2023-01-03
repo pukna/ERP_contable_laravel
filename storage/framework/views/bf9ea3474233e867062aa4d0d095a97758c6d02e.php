@@ -1,5 +1,4 @@
-<!--Marca -->
-<?php $__env->startSection('content'); ?>
+ <?php $__env->startSection('content'); ?>
 <?php if($errors->has('title')): ?>
 <div class="alert alert-danger alert-dismissible text-center">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e($errors->first('title')); ?></div>
@@ -18,51 +17,51 @@
 <section>
     <div class="container-fluid">
         <button class="btn btn-info" data-toggle="modal" data-target="#createModal"><i class="dripicons-plus"></i> <?php echo e(trans('Add Marca')); ?> </button>&nbsp;
-<!--        <button class="btn btn-primary" data-toggle="modal" data-target="#import"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.Import Brand')); ?><!--</button>-->
+        <!--        <button class="btn btn-primary" data-toggle="modal" data-target="#import"><i class="dripicons-copy"></i> --><?php //echo e(trans('file.Import Brand')); ?><!--</button>-->
     </div>
     <div class="table-responsive">
         <table id="biller-table" class="table">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th><?php echo e(trans('Imagen')); ?></th>
-                    <th><?php echo e(trans('Marca')); ?></th>
-                    <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Imagen')); ?></th>
+                <th><?php echo e(trans('Marca')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $lims_brand_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <tr data-id="<?php echo e($brand->id); ?>">
-                    <td><?php echo e($key); ?></td>
-                    <?php if($brand->image): ?>
-                    <td> <img src="<?php echo e(url('public/images/brand',$brand->image)); ?>" height="80" width="80">
-                    </td>
-                    <?php else: ?>
-                    <td>No Image</td>
-                    <?php endif; ?>
-                    <td><?php echo e($brand->title); ?></td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
+            <?php $__currentLoopData = $lims_brand_all; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$brand): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <tr data-id="<?php echo e($brand->id); ?>">
+                <td><?php echo e($key); ?></td>
+                <?php if($brand->image): ?>
+                <td> <img src="<?php echo e(url('public/images/brand',$brand->image)); ?>" height="80" width="80">
+                </td>
+                <?php else: ?>
+                <td>No Image</td>
+                <?php endif; ?>
+                <td><?php echo e($brand->title); ?></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
 
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                                <li><button type="button" data-id="<?php echo e($brand->id); ?>" class="open-EditbrandDialog btn btn-link" data-toggle="modal" data-target="#editModal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></button></li>
-                                <li class="divider"></li>
-                                <?php echo e(Form::open(['route' => ['brand.destroy', $brand->id], 'method' => 'DELETE'] )); ?>
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
+                            <li><button type="button" data-id="<?php echo e($brand->id); ?>" class="open-EditbrandDialog btn btn-link" data-toggle="modal" data-target="#editModal"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></button></li>
+                            <li class="divider"></li>
+                            <?php echo e(Form::open(['route' => ['brand.destroy', $brand->id], 'method' => 'DELETE'] )); ?>
 
-                                <li>
-                                    <button type="submit" class="btn btn-link" onclick="return confirm('Are you sure want to delete?')"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
-                                </li>
-                                <?php echo e(Form::close()); ?>
+                            <li>
+                                <button type="submit" class="btn btn-link" onclick="return confirm('Are you sure want to delete?')"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
+                            </li>
+                            <?php echo e(Form::close()); ?>
 
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
     </div>
@@ -70,101 +69,101 @@
 
 <div id="createModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
     <div role="document" class="modal-dialog">
-      <div class="modal-content">
-        <?php echo Form::open(['route' => 'brand.store', 'method' => 'post', 'files' => true]); ?>
+        <div class="modal-content">
+            <?php echo Form::open(['route' => 'brand.store', 'method' => 'post', 'files' => true]); ?>
 
-        <div class="modal-header">
-          <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Agregar Marca')); ?></h5>
-          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+            <div class="modal-header">
+                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('Agregar Marca')); ?></h5>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+            </div>
+            <div class="modal-body">
+                <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <div class="form-group">
+                    <label><?php echo e(trans('Titulo')); ?> *</label>
+                    <?php echo e(Form::text('title',null,array('required' => 'required', 'class' => 'form-control', 'placeholder' => 'Type brand title...'))); ?>
+
+                </div>
+                <div class="form-group">
+                    <label><?php echo e(trans('Imagen')); ?></label>
+                    <?php echo e(Form::file('image', array('class' => 'form-control'))); ?>
+
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
+                </div>
+            </div>
+            <?php echo e(Form::close()); ?>
+
         </div>
-        <div class="modal-body">
-          <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
-            <div class="form-group">
-                <label><?php echo e(trans('Titulo')); ?> *</label>
-                <?php echo e(Form::text('title',null,array('required' => 'required', 'class' => 'form-control', 'placeholder' => 'Type brand title...'))); ?>
-
-            </div>
-            <div class="form-group">
-                <label><?php echo e(trans('Imagen')); ?></label>
-                <?php echo e(Form::file('image', array('class' => 'form-control'))); ?>
-
-            </div>
-            <div class="form-group">
-              <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
-            </div>
-        </div>
-        <?php echo e(Form::close()); ?>
-
-      </div>
     </div>
 </div>
 
 <div id="importBrand" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
     <div role="document" class="modal-dialog">
-      <div class="modal-content">
-        <?php echo Form::open(['route' => 'brand.import', 'method' => 'post', 'files' => true]); ?>
+        <div class="modal-content">
+            <?php echo Form::open(['route' => 'brand.import', 'method' => 'post', 'files' => true]); ?>
 
-        <div class="modal-header">
-          <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Import Brand')); ?></h5>
-          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-        </div>
-        <div class="modal-body">
-            <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
-            <p><?php echo e(trans('file.The correct column order is')); ?> (title*, image [file name]) <?php echo e(trans('file.and you must follow this')); ?>.</p>
-            <p><?php echo e(trans('file.To display Image it must be stored in')); ?> public/images/brand <?php echo e(trans('file.directory')); ?></p>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label><?php echo e(trans('file.Upload CSV File')); ?> *</label>
-                        <?php echo e(Form::file('file', array('class' => 'form-control','required'))); ?>
-
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label> <?php echo e(trans('file.Sample File')); ?></label>
-                        <a href="public/sample_file/sample_brand.csv" class="btn btn-info btn-block btn-md"><i class="dripicons-download"></i>  <?php echo e(trans('file.Download')); ?></a>
-                    </div>
-                </div>
+            <div class="modal-header">
+                <h5 id="exampleModalLabel" class="modal-title"><?php echo e(trans('file.Import Brand')); ?></h5>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
             </div>
-            <input type="submit" value="<?php echo e(trans('file.submit')); ?>" class="btn btn-primary">
-        </div>
-        <?php echo e(Form::close()); ?>
+            <div class="modal-body">
+                <p class="italic"><small><?php echo e(trans('file.The field labels marked with * are required input fields')); ?>.</small></p>
+                <p><?php echo e(trans('file.The correct column order is')); ?> (title*, image [file name]) <?php echo e(trans('file.and you must follow this')); ?>.</p>
+                <p><?php echo e(trans('file.To display Image it must be stored in')); ?> public/images/brand <?php echo e(trans('file.directory')); ?></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><?php echo e(trans('file.Upload CSV File')); ?> *</label>
+                            <?php echo e(Form::file('file', array('class' => 'form-control','required'))); ?>
 
-      </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label> <?php echo e(trans('file.Sample File')); ?></label>
+                            <a href="public/sample_file/sample_brand.csv" class="btn btn-info btn-block btn-md"><i class="dripicons-download"></i>  <?php echo e(trans('file.Download')); ?></a>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="<?php echo e(trans('file.submit')); ?>" class="btn btn-primary">
+            </div>
+            <?php echo e(Form::close()); ?>
+
+        </div>
     </div>
 </div>
 
 <div id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-  <div role="document" class="modal-dialog">
-    <div class="modal-content">
-        <?php echo e(Form::open(['route' => ['brand.update', 1], 'method' => 'PUT', 'files' => true] )); ?>
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <?php echo e(Form::open(['route' => ['brand.update', 1], 'method' => 'PUT', 'files' => true] )); ?>
 
-      <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('Actualizar marca')); ?></h5>
-        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
-      </div>
-      <div class="modal-body">
-        <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
-          <div class="form-group">
-            <label><?php echo e(trans('Titulo')); ?> *</label>
-            <?php echo e(Form::text('title',null, array('required' => 'required', 'class' => 'form-control'))); ?>
+            <div class="modal-header">
+                <h5 id="exampleModalLabel" class="modal-title"> <?php echo e(trans('Actualizar marca')); ?></h5>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="dripicons-cross"></i></span></button>
+            </div>
+            <div class="modal-body">
+                <p class="italic"><small><?php echo e(trans('Las etiquetas de campo marcadas con * son campos de entrada obligatorios')); ?>.</small></p>
+                <div class="form-group">
+                    <label><?php echo e(trans('Titulo')); ?> *</label>
+                    <?php echo e(Form::text('title',null, array('required' => 'required', 'class' => 'form-control'))); ?>
+
+                </div>
+                <input type="hidden" name="brand_id">
+                <div class="form-group">
+                    <label><?php echo e(trans('Imagen')); ?></label>
+                    <?php echo e(Form::file('image', array('class' => 'form-control'))); ?>
+
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
+                </div>
+            </div>
+            <?php echo e(Form::close()); ?>
 
         </div>
-        <input type="hidden" name="brand_id">
-        <div class="form-group">
-            <label><?php echo e(trans('Imagen')); ?></label>
-            <?php echo e(Form::file('image', array('class' => 'form-control'))); ?>
-
-        </div>
-        <div class="form-group">
-            <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
-          </div>
-        </div>
-      <?php echo e(Form::close()); ?>
-
     </div>
-  </div>
 </div>
 
 
@@ -196,19 +195,19 @@
         e.preventDefault();
         var brand = [];
         $(':checkbox:checked').each(function(i){
-          brand[i] = $(this).val();
+            brand[i] = $(this).val();
         });
         $.ajax({
-           type:'POST',
-           url:'/exportbrand',
-           data:{
+            type:'POST',
+            url:'/exportbrand',
+            data:{
 
                 brandArray: brand
             },
-           success:function(data){
-            alert('Exported to CSV file successfully! Click Ok to download file');
-            window.location.href = data;
-           }
+            success:function(data){
+                alert('Exported to CSV file successfully! Click Ok to download file');
+                window.location.href = data;
+            }
         });
     });
 
@@ -230,11 +229,11 @@
         "order": [],
         'language': {
             'lengthMenu': '_MENU_ <?php echo e(trans("Ver")); ?>',
-             "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
             "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
-                    'previous': '<i class="dripicons-chevron-left"></i>',
-                    'next': '<i class="dripicons-chevron-right"></i>'
+                'previous': '<i class="dripicons-chevron-left"></i>',
+                'next': '<i class="dripicons-chevron-right"></i>'
             }
         },
         'columnDefs': [
@@ -248,11 +247,11 @@
                         data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                     }
 
-                   return data;
+                    return data;
                 },
                 'checkboxes': {
-                   'selectRow': true,
-                   'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                 },
                 'targets': [0]
             }
@@ -357,4 +356,5 @@
 
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/brand/create.blade.php ENDPATH**/ ?>

@@ -13,703 +13,703 @@
                     <?php echo Form::open(['route' => 'role.setPermission', 'method' => 'post']); ?>
 
                     <div class="card-body">
-                    	<input type="hidden" name="role_id" value="<?php echo e($lims_role_data->id); ?>" />
-						<div class="table-responsive">
-						    <table class="table table-bordered permission-table">
-						        <thead>
-						        <tr>
-                                        <th colspan="5" class="text-center"><?php echo e($lims_role_data->name); ?> <?php echo e(trans('Permiso de grupo')); ?></th>
-						        </tr>
-						        <tr>
-						            <th rowspan="2" class="text-center">Modulo</th>
-						            <th colspan="4" class="text-center">
-						            	<div class="checkbox">
-						            		<input type="checkbox" id="select_all">
-						            		<label for="select_all"><?php echo e(trans('Permisos')); ?></label>
-						            	</div>
-						            </th>
-						        </tr>
-						        <tr>
-						            <th class="text-center"><?php echo e(trans('Ver')); ?></th>
-						            <th class="text-center"><?php echo e(trans('Agregar')); ?></th>
-						            <th class="text-center"><?php echo e(trans('Editar')); ?></th>
-						            <th class="text-center"><?php echo e(trans('Eliminar')); ?></th>
-						        </tr>
-						        </thead>
-						        <tbody>
-						        <tr>
-						            <td><?php echo e(trans('Producto')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("products-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="products-index" name="products-index" checked />
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="products-index" name="products-index" />
-								                <?php endif; ?>
-								                <label for="products-index"></label>
-							            	</div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("products-add", $all_permission)): ?>
-								               	<input type="checkbox" value="1" id="products-add" name="products-add" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="products-add" name="products-add">
-								                <?php endif; ?>
-								                <label for="products-add"></label>
-							                </div>
-							            </div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("products-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="products-edit" name="products-edit" checked />
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="products-edit" name="products-edit" />
-								                <?php endif; ?>
-								                <label for="products-edit"></label>
-							                </div>
-							            </div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("products-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="products-delete" name="products-delete" checked />
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="products-delete" name="products-delete" />
-								                <?php endif; ?>
-								                <label for="products-delete"></label>
-							                </div>
-							            </div>
-						            </td>
-						        </tr>
+                        <input type="hidden" name="role_id" value="<?php echo e($lims_role_data->id); ?>" />
+                        <div class="table-responsive">
+                            <table class="table table-bordered permission-table">
+                                <thead>
+                                <tr>
+                                    <th colspan="5" class="text-center"><?php echo e($lims_role_data->name); ?> <?php echo e(trans('Permiso de grupo')); ?></th>
+                                </tr>
+                                <tr>
+                                    <th rowspan="2" class="text-center">Modulo</th>
+                                    <th colspan="4" class="text-center">
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="select_all">
+                                            <label for="select_all"><?php echo e(trans('Permisos')); ?></label>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center"><?php echo e(trans('Ver')); ?></th>
+                                    <th class="text-center"><?php echo e(trans('Agregar')); ?></th>
+                                    <th class="text-center"><?php echo e(trans('Editar')); ?></th>
+                                    <th class="text-center"><?php echo e(trans('Eliminar')); ?></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><?php echo e(trans('Producto')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("products-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="products-index" name="products-index" checked />
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="products-index" name="products-index" />
+                                                <?php endif; ?>
+                                                <label for="products-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("products-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="products-add" name="products-add" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="products-add" name="products-add">
+                                                <?php endif; ?>
+                                                <label for="products-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("products-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="products-edit" name="products-edit" checked />
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="products-edit" name="products-edit" />
+                                                <?php endif; ?>
+                                                <label for="products-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("products-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="products-delete" name="products-delete" checked />
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="products-delete" name="products-delete" />
+                                                <?php endif; ?>
+                                                <label for="products-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
 
-						        <tr>
-						            <td><?php echo e(trans('Compra')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("purchases-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="purchases-index" name="purchases-index" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="purchases-index" name="purchases-index">
-								                <?php endif; ?>
-								                <label for="purchases-index"></label>
-							                </div>
-							            </div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("purchases-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="purchases-add" name="purchases-add" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="purchases-add" name="purchases-add">
-								                <?php endif; ?>
-								                <label for="purchases-add"></label>
-							                </div>
-							            </div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("purchases-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="purchases-edit" name="purchases-edit" checked />
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="purchases-edit" name="purchases-edit">
-								                <?php endif; ?>
-								                <label for="purchases-edit"></label>
-							                </div>
-							            </div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("purchases-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="purchases-delete" name="purchases-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="purchases-delete" name="purchases-delete">
-								                <?php endif; ?>
-								                <label for="purchases-delete"></label>
-							            	</div>
-						            	</div>
-						            </td>
-						        </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Compra')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("purchases-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="purchases-index" name="purchases-index" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="purchases-index" name="purchases-index">
+                                                <?php endif; ?>
+                                                <label for="purchases-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("purchases-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="purchases-add" name="purchases-add" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="purchases-add" name="purchases-add">
+                                                <?php endif; ?>
+                                                <label for="purchases-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("purchases-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="purchases-edit" name="purchases-edit" checked />
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="purchases-edit" name="purchases-edit">
+                                                <?php endif; ?>
+                                                <label for="purchases-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("purchases-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="purchases-delete" name="purchases-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="purchases-delete" name="purchases-delete">
+                                                <?php endif; ?>
+                                                <label for="purchases-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
 
-						        <tr>
-						            <td><?php echo e(trans('Venta')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("sales-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="sales-index" name="sales-index" checked />
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="sales-index" name="sales-index">
-								                <?php endif; ?>
-								                <label for="sales-index"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("sales-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="sales-add" name="sales-add" checked />
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="sales-add" name="sales-add">
-								                <?php endif; ?>
-								                <label for="sales-add"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("sales-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="sales-edit" name="sales-edit" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="sales-edit" name="sales-edit">
-								                <?php endif; ?>
-								                <label for="sales-edit"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("sales-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="sales-delete" name="sales-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="sales-delete" name="sales-delete">
-								                <?php endif; ?>
-								                <label for="sales-delete"></label>
-								            </div>
-						            	</div>
-						            </td>
-						        </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Venta')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("sales-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="sales-index" name="sales-index" checked />
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="sales-index" name="sales-index">
+                                                <?php endif; ?>
+                                                <label for="sales-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("sales-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="sales-add" name="sales-add" checked />
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="sales-add" name="sales-add">
+                                                <?php endif; ?>
+                                                <label for="sales-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("sales-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="sales-edit" name="sales-edit" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="sales-edit" name="sales-edit">
+                                                <?php endif; ?>
+                                                <label for="sales-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("sales-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="sales-delete" name="sales-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="sales-delete" name="sales-delete">
+                                                <?php endif; ?>
+                                                <label for="sales-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
 
-						        <tr>
-						            <td><?php echo e(trans('Gastos')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("expenses-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="expenses-index" name="expenses-index" checked />
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="expenses-index" name="expenses-index">
-								                <?php endif; ?>
-								                <label for="expenses-index"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("expenses-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="expenses-add" name="expenses-add" checked />
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="expenses-add" name="expenses-add">
-								                <?php endif; ?>
-								                <label for="expenses-add"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("expenses-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="expenses-edit" name="expenses-edit" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="expenses-edit" name="expenses-edit">
-								                <?php endif; ?>
-								                <label for="expenses-edit"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("expenses-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="expenses-delete" name="expenses-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="expenses-delete" name="expenses-delete">
-								                <?php endif; ?>
-								                <label for="expenses-delete"></label>
-								            </div>
-						            	</div>
-						            </td>
-						        </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Gastos')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("expenses-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="expenses-index" name="expenses-index" checked />
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="expenses-index" name="expenses-index">
+                                                <?php endif; ?>
+                                                <label for="expenses-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("expenses-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="expenses-add" name="expenses-add" checked />
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="expenses-add" name="expenses-add">
+                                                <?php endif; ?>
+                                                <label for="expenses-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("expenses-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="expenses-edit" name="expenses-edit" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="expenses-edit" name="expenses-edit">
+                                                <?php endif; ?>
+                                                <label for="expenses-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("expenses-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="expenses-delete" name="expenses-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="expenses-delete" name="expenses-delete">
+                                                <?php endif; ?>
+                                                <label for="expenses-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
 
-						        <tr>
-<!--						            <td>--><?php //echo e(trans('file.Quotation')); ?><!--</td>-->
-<!--						            <td class="text-center">-->
-<!--						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">-->
-<!--							                <div class="checkbox">-->
-<!--								                --><?php //if(in_array("quotes-index", $all_permission)): ?>
-<!--								                <input type="checkbox" value="1" id="quotes-index" name="quotes-index" checked>-->
-<!--								                --><?php //else: ?>
-<!--								                <input type="checkbox" value="1" id="quotes-index" name="quotes-index">-->
-<!--								                --><?php //endif; ?>
-<!--								                <label for="quotes-index"></label>-->
-<!--								            </div>-->
-<!--						            	</div>-->
-<!--						            </td>-->
-<!--						            <td class="text-center">-->
-<!--						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">-->
-<!--							                <div class="checkbox">-->
-<!--								                --><?php //if(in_array("quotes-add", $all_permission)): ?>
-<!--								                <input type="checkbox" value="1" id="quotes-add" name="quotes-add" checked>-->
-<!--								                --><?php //else: ?>
-<!--								                <input type="checkbox" value="1" id="quotes-add" name="quotes-add">-->
-<!--								                --><?php //endif; ?>
-<!--								                <label for="quotes-add"></label>-->
-<!--								            </div>-->
-<!--						            	</div>-->
-<!--						            </td>-->
-<!--						            <td class="text-center">-->
-<!--						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">-->
-<!--							                <div class="checkbox">-->
-<!--								                --><?php //if(in_array("quotes-edit", $all_permission)): ?>
-<!--								                <input type="checkbox" value="1" id="quotes-edit" name="quotes-edit" checked>-->
-<!--								                --><?php //else: ?>
-<!--								                <input type="checkbox" value="1" id="quotes-edit" name="quotes-edit">-->
-<!--								                --><?php //endif; ?>
-<!--								                <label for="quotes-edit"></label>-->
-<!--								            </div>-->
-<!--						            	</div>-->
-<!--						            </td>-->
-<!--						            <td class="text-center">-->
-<!--						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">-->
-<!--							                <div class="checkbox">-->
-<!--								                --><?php //if(in_array("quotes-delete", $all_permission)): ?>
-<!--								                <input type="checkbox" value="1" id="quotes-delete" name="quotes-delete" checked>-->
-<!--								                --><?php //else: ?>
-<!--								                <input type="checkbox" value="1" id="quotes-delete" name="quotes-delete">-->
-<!--								                --><?php //endif; ?>
-<!--								                <label for="quotes-delete"></label>-->
-<!--								            </div>-->
-<!--						            	</div>-->
-<!--						            </td>-->
-<!--						        </tr>-->
+                                <tr>
+                                    <!--						            <td>--><?php //echo e(trans('file.Quotation')); ?><!--</td>-->
+                                    <!--						            <td class="text-center">-->
+                                    <!--						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">-->
+                                    <!--							                <div class="checkbox">-->
+                                    <!--								                --><?php //if(in_array("quotes-index", $all_permission)): ?>
+                                <!--								                <input type="checkbox" value="1" id="quotes-index" name="quotes-index" checked>-->
+                                    <!--								                --><?php //else: ?>
+                                <!--								                <input type="checkbox" value="1" id="quotes-index" name="quotes-index">-->
+                                    <!--								                --><?php //endif; ?>
+                                <!--								                <label for="quotes-index"></label>-->
+                                    <!--								            </div>-->
+                                    <!--						            	</div>-->
+                                    <!--						            </td>-->
+                                    <!--						            <td class="text-center">-->
+                                    <!--						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">-->
+                                    <!--							                <div class="checkbox">-->
+                                    <!--								                --><?php //if(in_array("quotes-add", $all_permission)): ?>
+                                <!--								                <input type="checkbox" value="1" id="quotes-add" name="quotes-add" checked>-->
+                                    <!--								                --><?php //else: ?>
+                                <!--								                <input type="checkbox" value="1" id="quotes-add" name="quotes-add">-->
+                                    <!--								                --><?php //endif; ?>
+                                <!--								                <label for="quotes-add"></label>-->
+                                    <!--								            </div>-->
+                                    <!--						            	</div>-->
+                                    <!--						            </td>-->
+                                    <!--						            <td class="text-center">-->
+                                    <!--						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">-->
+                                    <!--							                <div class="checkbox">-->
+                                    <!--								                --><?php //if(in_array("quotes-edit", $all_permission)): ?>
+                                <!--								                <input type="checkbox" value="1" id="quotes-edit" name="quotes-edit" checked>-->
+                                    <!--								                --><?php //else: ?>
+                                <!--								                <input type="checkbox" value="1" id="quotes-edit" name="quotes-edit">-->
+                                    <!--								                --><?php //endif; ?>
+                                <!--								                <label for="quotes-edit"></label>-->
+                                    <!--								            </div>-->
+                                    <!--						            	</div>-->
+                                    <!--						            </td>-->
+                                    <!--						            <td class="text-center">-->
+                                    <!--						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">-->
+                                    <!--							                <div class="checkbox">-->
+                                    <!--								                --><?php //if(in_array("quotes-delete", $all_permission)): ?>
+                                <!--								                <input type="checkbox" value="1" id="quotes-delete" name="quotes-delete" checked>-->
+                                    <!--								                --><?php //else: ?>
+                                <!--								                <input type="checkbox" value="1" id="quotes-delete" name="quotes-delete">-->
+                                    <!--								                --><?php //endif; ?>
+                                <!--								                <label for="quotes-delete"></label>-->
+                                    <!--								            </div>-->
+                                    <!--						            	</div>-->
+                                    <!--						            </td>-->
+                                    <!--						        </tr>-->
 
-						        <tr>
-						            <td><?php echo e(trans('Tranferencias')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("transfers-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="transfers-index" name="transfers-index" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="transfers-index" name="transfers-index">
-								                <?php endif; ?>
-								                <label for="transfers-index"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("transfers-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="transfers-add" name="transfers-add" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="transfers-add" name="transfers-add">
-								                <?php endif; ?>
-								                <label for="transfers-add"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("transfers-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="transfers-edit" name="transfers-edit" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="transfers-edit" name="transfers-edit">
-								                <?php endif; ?>
-								                <label for="transfers-edit"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("transfers-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="transfers-delete" name="transfers-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="transfers-delete" name="transfers-delete">
-								                <?php endif; ?>
-								                <label for="transfers-delete"></label>
-								            </div>
-						            	</div>
-						            </td>
-						        </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Tranferencias')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("transfers-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="transfers-index" name="transfers-index" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="transfers-index" name="transfers-index">
+                                                <?php endif; ?>
+                                                <label for="transfers-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("transfers-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="transfers-add" name="transfers-add" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="transfers-add" name="transfers-add">
+                                                <?php endif; ?>
+                                                <label for="transfers-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("transfers-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="transfers-edit" name="transfers-edit" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="transfers-edit" name="transfers-edit">
+                                                <?php endif; ?>
+                                                <label for="transfers-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("transfers-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="transfers-delete" name="transfers-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="transfers-delete" name="transfers-delete">
+                                                <?php endif; ?>
+                                                <label for="transfers-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
 
-						        <tr>
-						            <td><?php echo e(trans('Devolución de venta')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("returns-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="returns-index" name="returns-index" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="returns-index" name="returns-index">
-								                <?php endif; ?>
-								                <label for="returns-index"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("returns-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="returns-add" name="returns-add" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="returns-add" name="returns-add">
-								                <?php endif; ?>
-								                <label for="returns-add"></label>
-							                </div>
-							            </div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("returns-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="returns-edit" name="returns-edit" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="returns-edit" name="returns-edit">
-								                <?php endif; ?>
-								                <label for="returns-edit"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("returns-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="returns-delete" name="returns-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="returns-delete" name="returns-delete">
-								                <?php endif; ?>
-								                <label for="returns-delete"></label>
-								            </div>
-						            	</div>
-						            </td>
-						        </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Devolución de venta')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("returns-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="returns-index" name="returns-index" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="returns-index" name="returns-index">
+                                                <?php endif; ?>
+                                                <label for="returns-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("returns-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="returns-add" name="returns-add" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="returns-add" name="returns-add">
+                                                <?php endif; ?>
+                                                <label for="returns-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("returns-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="returns-edit" name="returns-edit" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="returns-edit" name="returns-edit">
+                                                <?php endif; ?>
+                                                <label for="returns-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("returns-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="returns-delete" name="returns-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="returns-delete" name="returns-delete">
+                                                <?php endif; ?>
+                                                <label for="returns-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
 
-						        <tr>
-						            <td><?php echo e(trans('Devolución de compra')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("purchase-return-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="purchase-return-index" name="purchase-return-index" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="purchase-return-index" name="purchase-return-index">
-								                <?php endif; ?>
-								                <label for="purchase-return-index"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("purchase-return-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="purchase-return-add" name="purchase-return-add" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="purchase-return-add" name="purchase-return-add">
-								                <?php endif; ?>
-								                <label for="purchase-return-add"></label>
-								            </div>
-						                </div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("purchase-return-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="purchase-return-edit" name="purchase-return-edit" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="purchase-return-edit" name="purchase-return-edit">
-								                <?php endif; ?>
-								                <label for="purchase-return-edit"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-						                	<div class="checkbox">
-								                <?php if(in_array("purchase-return-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="purchase-return-delete" name="purchase-return-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="purchase-return-delete" name="purchase-return-delete">
-								                <?php endif; ?>
-								                <label for="purchase-return-delete"></label>
-								            </div>
-						            	</div>
-						            </td>
-						        </tr>
-						        <tr>
-						            <td><?php echo e(trans('Empleado')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("employees-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="employees-index" name="employees-index" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="employees-index" name="employees-index">
-								                <?php endif; ?>
-								                <label for="employees-index"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("employees-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="employees-add" name="employees-add" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="employees-add" name="employees-add">
-								                <?php endif; ?>
-								                <label for="employees-add"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("employees-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="employees-edit" name="employees-edit" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="employees-edit" name="employees-edit">
-								                <?php endif; ?>
-								                <label for="employees-edit"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("employees-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="employees-delete" name="employees-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="employees-delete" name="employees-delete">
-								                <?php endif; ?>
-								                <label for="employees-delete"></label>
-								            </div>
-						            	</div>
-						            </td>
-						        </tr>
-						        <tr>
-						            <td><?php echo e(trans('Usuario')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("users-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="users-index" name="users-index" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="users-index" name="users-index">
-								                <?php endif; ?>
-								                <label for="users-index"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("users-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="users-add" name="users-add" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="users-add" name="users-add">
-								                <?php endif; ?>
-								                <label for="users-add"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("users-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="users-edit" name="users-edit" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="users-edit" name="users-edit">
-								                <?php endif; ?>
-								                <label for="users-edit"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("users-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="users-delete" name="users-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="users-delete" name="users-delete">
-								                <?php endif; ?>
-								                <label for="users-delete"></label>
-								            </div>
-						            	</div>
-						            </td>
-						        </tr>
-						        <tr>
-						            <td><?php echo e(trans('Cliente')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("customers-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="customers-index" name="customers-index" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="customers-index" name="customers-index">
-								                <?php endif; ?>
-								                <label for="customers-index"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("customers-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="customers-add" name="customers-add" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="customers-add" name="customers-add">
-								                <?php endif; ?>
-								                <label for="customers-add"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("customers-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="customers-edit" name="customers-edit" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="customers-edit" name="customers-edit">
-								                <?php endif; ?>
-								                <label for="customers-edit"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("customers-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="customers-delete" name="customers-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="customers-delete" name="customers-delete">
-								                <?php endif; ?>
-								                <label for="customers-delete"></label>
-								            </div>
-						            	</div>
-						            </td>
-						        </tr>
-						        <tr>
-						            <td><?php echo e(trans('Facturador')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("billers-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="billers-index" name="billers-index" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="billers-index" name="billers-index">
-								                <?php endif; ?>
-								                <label for="billers-index"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("billers-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="billers-add" name="billers-add" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="billers-add" name="billers-add">
-								                <?php endif; ?>
-								                <label for="billers-add"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("billers-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="billers-edit" name="billers-edit" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="billers-edit" name="billers-edit">
-								                <?php endif; ?>
-								                <label for="billers-edit"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("billers-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="billers-delete" name="billers-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="billers-delete" name="billers-delete">
-								                <?php endif; ?>
-								                <label for="billers-delete"></label>
-								            </div>
-						            	</div>
-						            </td>
-						        </tr>
-						        <tr>
-						            <td><?php echo e(trans('Proveedor')); ?></td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("suppliers-index", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="suppliers-index" name="suppliers-index" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="suppliers-index" name="suppliers-index">
-								                <?php endif; ?>
-								                <label for="suppliers-index"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("suppliers-add", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="suppliers-add" name="suppliers-add" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="suppliers-add" name="suppliers-add">
-								                <?php endif; ?>
-								                <label for="suppliers-add"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("suppliers-edit", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="suppliers-edit" name="suppliers-edit" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="suppliers-edit" name="suppliers-edit">
-								                <?php endif; ?>
-								                <label for="suppliers-edit"></label>
-								            </div>
-						            	</div>
-						            </td>
-						            <td class="text-center">
-						                <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
-							                <div class="checkbox">
-								                <?php if(in_array("suppliers-delete", $all_permission)): ?>
-								                <input type="checkbox" value="1" id="suppliers-delete" name="suppliers-delete" checked>
-								                <?php else: ?>
-								                <input type="checkbox" value="1" id="suppliers-delete" name="suppliers-delete">
-								                <?php endif; ?>
-								                <label for="suppliers-delete"></label>
-								            </div>
-						            	</div>
-						            </td>
-						        </tr>
-						        						        <tr>
-						            <td><?php echo e(trans('Contavilidad')); ?></td>
-						            <td class="report-permissions" colspan="5">
+                                <tr>
+                                    <td><?php echo e(trans('Devolución de compra')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("purchase-return-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="purchase-return-index" name="purchase-return-index" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="purchase-return-index" name="purchase-return-index">
+                                                <?php endif; ?>
+                                                <label for="purchase-return-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("purchase-return-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="purchase-return-add" name="purchase-return-add" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="purchase-return-add" name="purchase-return-add">
+                                                <?php endif; ?>
+                                                <label for="purchase-return-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("purchase-return-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="purchase-return-edit" name="purchase-return-edit" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="purchase-return-edit" name="purchase-return-edit">
+                                                <?php endif; ?>
+                                                <label for="purchase-return-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("purchase-return-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="purchase-return-delete" name="purchase-return-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="purchase-return-delete" name="purchase-return-delete">
+                                                <?php endif; ?>
+                                                <label for="purchase-return-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Empleado')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("employees-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="employees-index" name="employees-index" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="employees-index" name="employees-index">
+                                                <?php endif; ?>
+                                                <label for="employees-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("employees-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="employees-add" name="employees-add" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="employees-add" name="employees-add">
+                                                <?php endif; ?>
+                                                <label for="employees-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("employees-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="employees-edit" name="employees-edit" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="employees-edit" name="employees-edit">
+                                                <?php endif; ?>
+                                                <label for="employees-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("employees-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="employees-delete" name="employees-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="employees-delete" name="employees-delete">
+                                                <?php endif; ?>
+                                                <label for="employees-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Usuario')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("users-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="users-index" name="users-index" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="users-index" name="users-index">
+                                                <?php endif; ?>
+                                                <label for="users-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("users-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="users-add" name="users-add" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="users-add" name="users-add">
+                                                <?php endif; ?>
+                                                <label for="users-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("users-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="users-edit" name="users-edit" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="users-edit" name="users-edit">
+                                                <?php endif; ?>
+                                                <label for="users-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("users-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="users-delete" name="users-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="users-delete" name="users-delete">
+                                                <?php endif; ?>
+                                                <label for="users-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Cliente')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("customers-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="customers-index" name="customers-index" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="customers-index" name="customers-index">
+                                                <?php endif; ?>
+                                                <label for="customers-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("customers-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="customers-add" name="customers-add" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="customers-add" name="customers-add">
+                                                <?php endif; ?>
+                                                <label for="customers-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("customers-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="customers-edit" name="customers-edit" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="customers-edit" name="customers-edit">
+                                                <?php endif; ?>
+                                                <label for="customers-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("customers-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="customers-delete" name="customers-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="customers-delete" name="customers-delete">
+                                                <?php endif; ?>
+                                                <label for="customers-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Facturador')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("billers-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="billers-index" name="billers-index" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="billers-index" name="billers-index">
+                                                <?php endif; ?>
+                                                <label for="billers-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("billers-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="billers-add" name="billers-add" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="billers-add" name="billers-add">
+                                                <?php endif; ?>
+                                                <label for="billers-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue checked" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("billers-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="billers-edit" name="billers-edit" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="billers-edit" name="billers-edit">
+                                                <?php endif; ?>
+                                                <label for="billers-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("billers-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="billers-delete" name="billers-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="billers-delete" name="billers-delete">
+                                                <?php endif; ?>
+                                                <label for="billers-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Proveedor')); ?></td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("suppliers-index", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="suppliers-index" name="suppliers-index" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="suppliers-index" name="suppliers-index">
+                                                <?php endif; ?>
+                                                <label for="suppliers-index"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("suppliers-add", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="suppliers-add" name="suppliers-add" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="suppliers-add" name="suppliers-add">
+                                                <?php endif; ?>
+                                                <label for="suppliers-add"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("suppliers-edit", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="suppliers-edit" name="suppliers-edit" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="suppliers-edit" name="suppliers-edit">
+                                                <?php endif; ?>
+                                                <label for="suppliers-edit"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false">
+                                            <div class="checkbox">
+                                                <?php if(in_array("suppliers-delete", $all_permission)): ?>
+                                                <input type="checkbox" value="1" id="suppliers-delete" name="suppliers-delete" checked>
+                                                <?php else: ?>
+                                                <input type="checkbox" value="1" id="suppliers-delete" name="suppliers-delete">
+                                                <?php endif; ?>
+                                                <label for="suppliers-delete"></label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Contavilidad')); ?></td>
+                                    <td class="report-permissions" colspan="5">
 						            	<span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
@@ -722,7 +722,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("money-transfer", $all_permission)): ?>
@@ -734,7 +734,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("balance-sheet", $all_permission)): ?>
@@ -746,7 +746,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 						                    	<div class="checkbox">
 							                    	<?php if(in_array("account-statement", $all_permission)): ?>
@@ -758,64 +758,64 @@
 								                </div>
 								            </div>
 						                </span>
-						            </td>
-						        </tr>
-<!--						        <tr>-->
-<!--						            <td>HRM</td>-->
-<!--						            <td class="report-permissions" colspan="5">-->
-<!--						            	<span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("department", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="department" name="department" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="department" name="department">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="department" class="padding05">--><?php //echo e(trans('file.Department')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("attendance", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="attendance" name="attendance" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="attendance" name="attendance">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="attendance" class="padding05">--><?php //echo e(trans('file.Attendance')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("payroll", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="payroll" name="payroll" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="payroll" name="payroll">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="payroll" class="padding05">--><?php //echo e(trans('file.Payroll')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("holiday", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="holiday" name="holiday" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="holiday" name="holiday">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="holiday" class="padding05">--><?php //echo e(trans('file.Holiday Approve')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						            </td>-->
-<!--						        </tr>-->
-						        <tr>
-						            <td><?php echo e(trans('Reportes')); ?></td>
-						            <td class="report-permissions" colspan="5">
+                                    </td>
+                                </tr>
+                                <!--						        <tr>-->
+                                <!--						            <td>HRM</td>-->
+                                <!--						            <td class="report-permissions" colspan="5">-->
+                                <!--						            	<span>-->
+                                <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                <!--								                <div class="checkbox">-->
+                                <!--							                    	--><?php //if(in_array("department", $all_permission)): ?>
+                                <!--							                    	<input type="checkbox" value="1" id="department" name="department" checked>-->
+                                <!--							                    	--><?php //else: ?>
+                                <!--							                    	<input type="checkbox" value="1" id="department" name="department">-->
+                                <!--							                    	--><?php //endif; ?>
+                                <!--								                    <label for="department" class="padding05">--><?php //echo e(trans('file.Department')); ?><!-- &nbsp;&nbsp;</label>-->
+                                <!--								                </div>-->
+                                <!--								            </div>-->
+                                <!--						                </span>-->
+                                <!--						                <span>-->
+                                <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                <!--								                <div class="checkbox">-->
+                                <!--							                    	--><?php //if(in_array("attendance", $all_permission)): ?>
+                                <!--							                    	<input type="checkbox" value="1" id="attendance" name="attendance" checked>-->
+                                <!--							                    	--><?php //else: ?>
+                                <!--							                    	<input type="checkbox" value="1" id="attendance" name="attendance">-->
+                                <!--							                    	--><?php //endif; ?>
+                                <!--								                    <label for="attendance" class="padding05">--><?php //echo e(trans('file.Attendance')); ?><!-- &nbsp;&nbsp;</label>-->
+                                <!--								                </div>-->
+                                <!--								            </div>-->
+                                <!--						                </span>-->
+                                <!--						                <span>-->
+                                <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                <!--								                <div class="checkbox">-->
+                                <!--							                    	--><?php //if(in_array("payroll", $all_permission)): ?>
+                                <!--							                    	<input type="checkbox" value="1" id="payroll" name="payroll" checked>-->
+                                <!--							                    	--><?php //else: ?>
+                                <!--							                    	<input type="checkbox" value="1" id="payroll" name="payroll">-->
+                                <!--							                    	--><?php //endif; ?>
+                                <!--								                    <label for="payroll" class="padding05">--><?php //echo e(trans('file.Payroll')); ?><!-- &nbsp;&nbsp;</label>-->
+                                <!--								                </div>-->
+                                <!--								            </div>-->
+                                <!--						                </span>-->
+                                <!--						                <span>-->
+                                <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                <!--								                <div class="checkbox">-->
+                                <!--							                    	--><?php //if(in_array("holiday", $all_permission)): ?>
+                                <!--							                    	<input type="checkbox" value="1" id="holiday" name="holiday" checked>-->
+                                <!--							                    	--><?php //else: ?>
+                                <!--							                    	<input type="checkbox" value="1" id="holiday" name="holiday">-->
+                                <!--							                    	--><?php //endif; ?>
+                                <!--								                    <label for="holiday" class="padding05">--><?php //echo e(trans('file.Holiday Approve')); ?><!-- &nbsp;&nbsp;</label>-->
+                                <!--								                </div>-->
+                                <!--								            </div>-->
+                                <!--						                </span>-->
+                                <!--						            </td>-->
+                                <!--						        </tr>-->
+                                <tr>
+                                    <td><?php echo e(trans('Reportes')); ?></td>
+                                    <td class="report-permissions" colspan="5">
 						            	<span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
@@ -828,31 +828,31 @@
 								                </div>
 								            </div>
 						                </span>
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("best-seller", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="best-seller" name="best-seller" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="best-seller" name="best-seller">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="best-seller" class="padding05">--><?php //echo e(trans('file.Best Seller')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("daily-sale", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="daily-sale" name="daily-sale" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="daily-sale" name="daily-sale">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="daily-sale" class="padding05">--><?php //echo e(trans('file.Daily Sale')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-						                <span>
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("best-seller", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="best-seller" name="best-seller" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="best-seller" name="best-seller">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="best-seller" class="padding05">--><?php //echo e(trans('file.Best Seller')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("daily-sale", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="daily-sale" name="daily-sale" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="daily-sale" name="daily-sale">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="daily-sale" class="padding05">--><?php //echo e(trans('file.Daily Sale')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("monthly-sale", $all_permission)): ?>
@@ -864,19 +864,19 @@
 								                </div>
 								            </div>
 						                </span>
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("daily-purchase", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="daily-purchase" name="daily-purchase" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="daily-purchase" name="daily-purchase">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="daily-purchase" class="padding05">--><?php //echo e(trans('file.Daily Purchase')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-						                <span>
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("daily-purchase", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="daily-purchase" name="daily-purchase" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="daily-purchase" name="daily-purchase">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="daily-purchase" class="padding05">--><?php //echo e(trans('file.Daily Purchase')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 						                    	<div class="checkbox">
 							                    	<?php if(in_array("monthly-purchase", $all_permission)): ?>
@@ -888,7 +888,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("product-report", $all_permission)): ?>
@@ -900,7 +900,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("payment-report", $all_permission)): ?>
@@ -912,7 +912,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("purchase-report", $all_permission)): ?>
@@ -924,7 +924,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("sale-report", $all_permission)): ?>
@@ -936,7 +936,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 						                    	<div class="checkbox">
 							                    	<?php if(in_array("warehouse-report", $all_permission)): ?>
@@ -948,7 +948,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 						                    	<div class="checkbox">
 							                    	<?php if(in_array("warehouse-stock-report", $all_permission)): ?>
@@ -960,7 +960,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 						                    	<div class="checkbox">
 							                    	<?php if(in_array("product-qty-alert", $all_permission)): ?>
@@ -972,7 +972,7 @@
 								                </div>
 								            </div>
 								        </span>
-								        <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("user-report", $all_permission)): ?>
@@ -984,7 +984,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("customer-report", $all_permission)): ?>
@@ -996,7 +996,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("supplier-report", $all_permission)): ?>
@@ -1008,7 +1008,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("due-report", $all_permission)): ?>
@@ -1020,24 +1020,24 @@
 								                </div>
 								            </div>
 						                </span>
-						            </td>
-						        </tr>
-						        <tr>
-						            <td><?php echo e(trans('Configuraciones')); ?></td>
-						            <td class="report-permissions" colspan="5">
-<!--						            	<span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("send_notification", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="send_notification" name="send_notification" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="send_notification" name="send_notification">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="send_notification" class="padding05">--><?php //echo e(trans('file.Send Notification')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-						            	<span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Configuraciones')); ?></td>
+                                    <td class="report-permissions" colspan="5">
+                                        <!--						            	<span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("send_notification", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="send_notification" name="send_notification" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="send_notification" name="send_notification">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="send_notification" class="padding05">--><?php //echo e(trans('file.Send Notification')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("warehouse", $all_permission)): ?>
@@ -1049,7 +1049,7 @@
 								                </div>
 								            </div>
 						                </span>
-						            	<span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("customer_group", $all_permission)): ?>
@@ -1061,7 +1061,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 								            <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("brand", $all_permission)): ?>
@@ -1073,7 +1073,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 								            <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("unit", $all_permission)): ?>
@@ -1085,7 +1085,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 								            <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("tax", $all_permission)): ?>
@@ -1097,7 +1097,7 @@
 								                </div>
 								            </div>
 						                </span>
-						            	<span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("general_setting", $all_permission)): ?>
@@ -1109,71 +1109,71 @@
 								                </div>
 								            </div>
 						                </span>
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("mail_setting", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="mail_setting" name="mail_setting" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="mail_setting" name="mail_setting">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="mail_setting" class="padding05">--><?php //echo e(trans('file.Mail Setting')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("sms_setting", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="sms_setting" name="sms_setting" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="sms_setting" name="sms_setting">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="sms_setting" class="padding05">--><?php //echo e(trans('file.SMS Setting')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("create_sms", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="create_sms" name="create_sms" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="create_sms" name="create_sms">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="create_sms" class="padding05">--><?php //echo e(trans('file.Create SMS')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("pos_setting", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="pos_setting" name="pos_setting" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="pos_setting" name="pos_setting">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="pos_setting" class="padding05">--><?php //echo e(trans('file.POS Setting')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("hrm_setting", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="hrm_setting" name="hrm_setting" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="hrm_setting" name="hrm_setting">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="hrm_setting" class="padding05">--><?php //echo e(trans('file.HRM Setting')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-						            </td>
-						        </tr>
-						        <tr>
-						            <td><?php echo e(trans('Perfil')); ?></td>
-						            <td class="report-permissions" colspan="5">
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("mail_setting", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="mail_setting" name="mail_setting" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="mail_setting" name="mail_setting">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="mail_setting" class="padding05">--><?php //echo e(trans('file.Mail Setting')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("sms_setting", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="sms_setting" name="sms_setting" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="sms_setting" name="sms_setting">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="sms_setting" class="padding05">--><?php //echo e(trans('file.SMS Setting')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("create_sms", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="create_sms" name="create_sms" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="create_sms" name="create_sms">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="create_sms" class="padding05">--><?php //echo e(trans('file.Create SMS')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("pos_setting", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="pos_setting" name="pos_setting" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="pos_setting" name="pos_setting">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="pos_setting" class="padding05">--><?php //echo e(trans('file.POS Setting')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("hrm_setting", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="hrm_setting" name="hrm_setting" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="hrm_setting" name="hrm_setting">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="hrm_setting" class="padding05">--><?php //echo e(trans('file.HRM Setting')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><?php echo e(trans('Perfil')); ?></td>
+                                    <td class="report-permissions" colspan="5">
 						            	<span>
 								            <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
@@ -1186,7 +1186,7 @@
 								                </div>
 								            </div>
 						            	</span>
-						            	<span>
+                                        <span>
 						            		<div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("delivery", $all_permission)): ?>
@@ -1198,7 +1198,7 @@
 								                </div>
 								            </div>
 						            	</span>
-						            	<span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("stock_count", $all_permission)): ?>
@@ -1210,7 +1210,7 @@
 								                </div>
 								            </div>
 						                </span>
-						                <span>
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("adjustment", $all_permission)): ?>
@@ -1222,43 +1222,43 @@
 								                </div>
 								            </div>
 						                </span>
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("gift_card", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="gift_card" name="gift_card" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="gift_card" name="gift_card">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="gift_card" class="padding05">--><?php //echo e(trans('file.Gift Card')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("coupon", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="coupon" name="coupon" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="coupon" name="coupon">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="coupon" class="padding05">--><?php //echo e(trans('file.Coupon')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("print_barcode", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="print_barcode" name="print_barcode" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="print_barcode" name="print_barcode">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="print_barcode" class="padding05">--><?php //echo e(trans('file.print_barcode')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-						                <span>
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("gift_card", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="gift_card" name="gift_card" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="gift_card" name="gift_card">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="gift_card" class="padding05">--><?php //echo e(trans('file.Gift Card')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("coupon", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="coupon" name="coupon" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="coupon" name="coupon">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="coupon" class="padding05">--><?php //echo e(trans('file.Coupon')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("print_barcode", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="print_barcode" name="print_barcode" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="print_barcode" name="print_barcode">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="print_barcode" class="padding05">--><?php //echo e(trans('file.print_barcode')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <span>
 						                    <div aria-checked="false" aria-disabled="false">
 								                <div class="checkbox">
 							                    	<?php if(in_array("empty_database", $all_permission)): ?>
@@ -1270,38 +1270,38 @@
 								                </div>
 								            </div>
 						                </span>
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("today_sale", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="today_sale" name="today_sale" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="today_sale" name="today_sale">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="today_sale" class="padding05">--><?php //echo e(trans('file.Today Sale')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-<!--						                <span>-->
-<!--						                    <div aria-checked="false" aria-disabled="false">-->
-<!--								                <div class="checkbox">-->
-<!--							                    	--><?php //if(in_array("today_profit", $all_permission)): ?>
-<!--							                    	<input type="checkbox" value="1" id="today_profit" name="today_profit" checked>-->
-<!--							                    	--><?php //else: ?>
-<!--							                    	<input type="checkbox" value="1" id="today_profit" name="today_profit">-->
-<!--							                    	--><?php //endif; ?>
-<!--								                    <label for="today_profit" class="padding05">--><?php //echo e(trans('file.Today Profit')); ?><!-- &nbsp;&nbsp;</label>-->
-<!--								                </div>-->
-<!--								            </div>-->
-<!--						                </span>-->
-						            </td>
-						        </tr>
-						        </tbody>
-						    </table>
-						</div>
-						<div class="form-group">
-	                        <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
-	                    </div>
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("today_sale", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="today_sale" name="today_sale" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="today_sale" name="today_sale">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="today_sale" class="padding05">--><?php //echo e(trans('file.Today Sale')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                        <!--						                <span>-->
+                                        <!--						                    <div aria-checked="false" aria-disabled="false">-->
+                                        <!--								                <div class="checkbox">-->
+                                        <!--							                    	--><?php //if(in_array("today_profit", $all_permission)): ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="today_profit" name="today_profit" checked>-->
+                                        <!--							                    	--><?php //else: ?>
+                                    <!--							                    	<input type="checkbox" value="1" id="today_profit" name="today_profit">-->
+                                        <!--							                    	--><?php //endif; ?>
+                                    <!--								                    <label for="today_profit" class="padding05">--><?php //echo e(trans('file.Today Profit')); ?><!-- &nbsp;&nbsp;</label>-->
+                                        <!--								                </div>-->
+                                        <!--								            </div>-->
+                                        <!--						                </span>-->
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="<?php echo e(trans('Enviar')); ?>" class="btn btn-primary">
+                        </div>
                     </div>
                     <?php echo Form::close(); ?>
 
@@ -1313,18 +1313,19 @@
 
 <script type="text/javascript">
 
-	$("ul#setting").siblings('a').attr('aria-expanded','true');
+    $("ul#setting").siblings('a').attr('aria-expanded','true');
     $("ul#setting").addClass("show");
     $("ul#setting #role-menu").addClass("active");
 
-	$("#select_all").on( "change", function() {
-	    if ($(this).is(':checked')) {
-	        $("tbody input[type='checkbox']").prop('checked', true);
-	    }
-	    else {
-	        $("tbody input[type='checkbox']").prop('checked', false);
-	    }
-	});
+    $("#select_all").on( "change", function() {
+        if ($(this).is(':checked')) {
+            $("tbody input[type='checkbox']").prop('checked', true);
+        }
+        else {
+            $("tbody input[type='checkbox']").prop('checked', false);
+        }
+    });
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/role/permission.blade.php ENDPATH**/ ?>
