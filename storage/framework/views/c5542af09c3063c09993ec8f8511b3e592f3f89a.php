@@ -1,5 +1,4 @@
-<!--usuarios-->
-<?php $__env->startSection('content'); ?>
+ <?php $__env->startSection('content'); ?>
 <?php if(session()->has('message1')): ?>
         <div class="alert alert-success alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo session()->get('message1'); ?></div>
 <?php endif; ?>
@@ -15,70 +14,70 @@
 
 <section>
     <?php if(in_array("users-add", $all_permission)): ?>
-        <div class="container-fluid">
-            <a href="<?php echo e(route('user.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Add Usuario')); ?></a>
-        </div>
+    <div class="container-fluid">
+        <a href="<?php echo e(route('user.create')); ?>" class="btn btn-info"><i class="dripicons-plus"></i> <?php echo e(trans('Add Usuario')); ?></a>
+    </div>
     <?php endif; ?>
     <div class="table-responsive">
         <table id="user-table" class="table">
             <thead>
-                <tr>
-                    <th class="not-exported"></th>
-                    <th><?php echo e(trans('Nombre de usuario')); ?></th>
-                    <th><?php echo e(trans('file.Email')); ?></th>
-                    <th><?php echo e(trans('Cargo')); ?></th>
-                    <th><?php echo e(trans('Nombre funcionario')); ?></th>
-                    <th><?php echo e(trans('file.Role')); ?></th>
-                    <th><?php echo e(trans('Empresa')); ?></th>
-                    <th><?php echo e(trans('Estado')); ?></th>
-                    <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
-                </tr>
+            <tr>
+                <th class="not-exported"></th>
+                <th><?php echo e(trans('Nombre de usuario')); ?></th>
+                <th><?php echo e(trans('file.Email')); ?></th>
+                <th><?php echo e(trans('Cargo')); ?></th>
+                <th><?php echo e(trans('Nombre funcionario')); ?></th>
+                <th><?php echo e(trans('file.Role')); ?></th>
+                <th><?php echo e(trans('Empresa')); ?></th>
+                <th><?php echo e(trans('Estado')); ?></th>
+                <th class="not-exported"><?php echo e(trans('Acción')); ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php $__currentLoopData = $lims_user_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <tr data-id="<?php echo e($user->id); ?>">
-                    <td><?php echo e($key); ?></td>
-                    <td><?php echo e($user->name); ?></td>
-                    <td><?php echo e($user->email); ?></td>
-                    <td><?php echo e($user->position); ?></td>
-                    <td><?php echo e($user->full_name); ?></td>
-                    <?php $role = DB::table('roles')->find($user->role_id);?>
-                    <td><?php echo e($role->name); ?></td>
-                    <?php $company = DB::table('companies')->find($user->company_name_id);?>
-                    <td><?php echo e($company->name); ?></td>
-                    <?php if($user->is_active): ?>
-                    <td><div class="badge badge-success">Active</div></td>
-                    <?php else: ?>
-                    <td><div class="badge badge-danger">Inactive</div></td>
-                    <?php endif; ?>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
+            <?php $__currentLoopData = $lims_user_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <tr data-id="<?php echo e($user->id); ?>">
+                <td><?php echo e($key); ?></td>
+                <td><?php echo e($user->name); ?></td>
+                <td><?php echo e($user->email); ?></td>
+                <td><?php echo e($user->position); ?></td>
+                <td><?php echo e($user->full_name); ?></td>
+                <?php $role = DB::table('roles')->find($user->role_id);?>
+                <td><?php echo e($role->name); ?></td>
+                <?php $company = DB::table('companies')->find($user->company_name_id);?>
+                <td><?php echo e($company->name); ?></td>
+                <?php if($user->is_active): ?>
+                <td><div class="badge badge-success">Active</div></td>
+                <?php else: ?>
+                <td><div class="badge badge-danger">Inactive</div></td>
+                <?php endif; ?>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo e(trans('Acción')); ?>
 
-                                <span class="caret"></span>
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
-                                <?php if(in_array("users-edit", $all_permission)): ?>
-                                <li>
-                                	<a href="<?php echo e(route('user.edit', $user->id)); ?>" class="btn btn-link"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></a>
-                                </li>
-                                <?php endif; ?>
-                                <li class="divider"></li>
-                                <?php if(in_array("users-delete", $all_permission)): ?>
-                                <?php echo e(Form::open(['route' => ['user.destroy', $user->id], 'method' => 'DELETE'] )); ?>
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
+                            <?php if(in_array("users-edit", $all_permission)): ?>
+                            <li>
+                                <a href="<?php echo e(route('user.edit', $user->id)); ?>" class="btn btn-link"><i class="dripicons-document-edit"></i> <?php echo e(trans('Editar')); ?></a>
+                            </li>
+                            <?php endif; ?>
+                            <li class="divider"></li>
+                            <?php if(in_array("users-delete", $all_permission)): ?>
+                            <?php echo e(Form::open(['route' => ['user.destroy', $user->id], 'method' => 'DELETE'] )); ?>
 
-                                <li>
-                                    <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
-                                </li>
-                                <?php echo e(Form::close()); ?>
+                            <li>
+                                <button type="submit" class="btn btn-link" onclick="return confirmDelete()"><i class="dripicons-trash"></i> <?php echo e(trans('Eliminar')); ?></button>
+                            </li>
+                            <?php echo e(Form::close()); ?>
 
-                                <?php endif; ?>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
     </div>
@@ -86,9 +85,9 @@
 
 <script type="text/javascript">
 
-    $("ul#people").siblings('a').attr('aria-expanded','true');
-    $("ul#people").addClass("show");
-    $("ul#people #user-list-menu").addClass("active");
+    $("ul#setting").siblings('a').attr('aria-expanded','true');
+    $("ul#setting").addClass("show");
+    $("ul#setting #user-list-menu").addClass("active");
 
     var user_id = [];
     var user_verified = <?php echo json_encode(env('USER_VERIFIED')) ?>;
@@ -100,22 +99,22 @@
         }
     });
 
-	function confirmDelete() {
-	    if (confirm("Are you sure want to delete?")) {
-	        return true;
-	    }
-	    return false;
-	}
+    function confirmDelete() {
+        if (confirm("Are you sure want to delete?")) {
+            return true;
+        }
+        return false;
+    }
 
     $('#user-table').DataTable( {
         "order": [],
         'language': {
             'lengthMenu': '_MENU_ <?php echo e(trans("ver")); ?>',
-             "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
+            "info":      '<small><?php echo e(trans("pag")); ?> _START_ - _END_ (_TOTAL_)</small>',
             "search":  '<?php echo e(trans("Buscar")); ?>',
             'paginate': {
-                    'previous': '<i class="dripicons-chevron-left"></i>',
-                    'next': '<i class="dripicons-chevron-right"></i>'
+                'previous': '<i class="dripicons-chevron-left"></i>',
+                'next': '<i class="dripicons-chevron-right"></i>'
             }
         },
         'columnDefs': [
@@ -129,11 +128,11 @@
                         data = '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>';
                     }
 
-                   return data;
+                    return data;
                 },
                 'checkboxes': {
-                   'selectRow': true,
-                   'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
                 },
                 'targets': [0]
             }
@@ -209,4 +208,5 @@
         $('.buttons-delete').addClass('d-none');
 </script>
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layout.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/user/index.blade.php ENDPATH**/ ?>
