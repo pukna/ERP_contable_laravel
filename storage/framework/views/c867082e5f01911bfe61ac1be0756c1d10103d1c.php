@@ -1,6 +1,5 @@
-<!--Login-->
 <?php $general_setting = DB::table('general_settings')->find(1); ?>
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -58,7 +57,7 @@
             <div class="form-inner ">
                 <div class="logo "><span>LOGIN</span></div>
                 <?php if(session()->has('delete_message')): ?>
-                    <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('delete_message')); ?></div>
+                <div class="alert alert-danger alert-dismissible text-center"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><?php echo e(session()->get('delete_message')); ?></div>
                 <?php endif; ?>
                 <form method="POST" action="<?php echo e(route('login')); ?>" id="login-form">
                     <?php echo csrf_field(); ?>
@@ -66,9 +65,9 @@
                         <input id="login-username" type="text" name="name" required class="input-material" value="">
                         <label for="login-username" class="label-material"><?php echo e(trans('file.Email')); ?></label>
                         <?php if($errors->has('name')): ?>
-                            <p>
-                                <strong><?php echo e($errors->first('name')); ?></strong>
-                            </p>
+                        <p>
+                            <strong><?php echo e($errors->first('name')); ?></strong>
+                        </p>
                         <?php endif; ?>
                     </div>
 
@@ -76,19 +75,18 @@
                         <input id="login-password" type="password" name="password" required class="input-material" value="">
                         <label for="login-password" class="label-material"><?php echo e(trans('file.Password')); ?></label>
                         <?php if($errors->has('name')): ?>
-                            <p>
-                                <strong><?php echo e($errors->first('name')); ?></strong>
-                            </p>
+                        <p>
+                            <strong><?php echo e($errors->first('name')); ?></strong>
+                        </p>
                         <?php endif; ?>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block"><?php echo e(trans('file.LogIn')); ?></button>
                 </form>
                 <!-- This two button for demo only-->
-                <!-- <button type="submit" class="btn btn-success admin-btn">LogIn as Admin</button>
-                <button type="submit" class="btn btn-info staff-btn">LogIn as Staff</button>
-                <br><br> -->
+
+
+
                 <a href="<?php echo e(route('password.request')); ?>" class="forgot-pass"><?php echo e(trans('¿Olvido su Contraseña?')); ?></a>
-                <p><?php echo e(trans('¿No tiene cuenta?')); ?></p><a href="<?php echo e(url('register')); ?>" class="signup"><?php echo e(trans('Registrar 1')); ?></a>
             </div>
             <div class="copyrights text-center">
                 <p><?php echo e(trans('Desarollado por')); ?> <span class="external"><?php echo e($general_setting->developed_by); ?></span></p>
@@ -145,4 +143,5 @@
             $(this).siblings('.label-material').removeClass('active');
         }
     });
-</script><?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/auth/login.blade.php ENDPATH**/ ?>
+</script>
+<?php /**PATH C:\Users\Mario Montero\ERP_contable_laravel\resources\views/auth/login.blade.php ENDPATH**/ ?>
